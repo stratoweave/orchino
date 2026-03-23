@@ -38,8 +38,8 @@ Note: if you have the XRd image, try the `quicklab` instead.
 ## Files to explore
 The key files you may want look into and or modify are:
 * `gen/src/orchino_gen.act` which you'll see reference:
-  * `gen/yang/cfs/netinfra.yang`
-  * `gen/yang/rfs/orchino-rfs.yang`
-  * `gen/yang/rfs/CiscoIosXr_24_1_ncs55a1/*`
+  * `spec/yang/cfs/netinfra.yang`
+  * `spec/yang/rfs/orchino-rfs.yang`
+  * `spec/yang/rfs/CiscoIosXr_24_1_ncs55a1/*`
 * `src/orchino/cfs.act`
 * `src/orchino/rfs.act`

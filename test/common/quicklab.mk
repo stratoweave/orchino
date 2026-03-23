@@ -32,7 +32,7 @@ run-and-configure:
 
 .PHONY: configure
 configure:
-	$(MAKE) FILE="netinfra.xml" send-config
+	$(MAKE) send-config-wait FILE="netinfra.xml"
 
 .PHONY: shell
 shell:

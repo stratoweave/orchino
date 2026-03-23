@@ -19,53 +19,65 @@ from yang.type import Decimal, Ranges
 _identities: list[DIdentity] = []
 
 
-SRC_DNODE = DRoot(children=[
-    DContainer(module='Cisco-IOS-XR-um-interface-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-interface-cfg', prefix='um-interface-cfg', name='interfaces', config=True, description='Interface configuration', presence=False, children=[
-        DList(module='Cisco-IOS-XR-um-interface-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-interface-cfg', prefix='um-interface-cfg', name='interface', key=['interface-name'], config=True, description='Interface configuration subcommands', min_elements=0, ordered_by='system', children=[
-            DLeaf(module='Cisco-IOS-XR-um-interface-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-interface-cfg', prefix='um-interface-cfg', name='interface-name', config=True, description='Interface configuration subcommands', mandatory=False, type_=DTypeString(name='xr:Interface-name', description='An interface name specifying an interface type and\ninstance.\nInterface represents a string defining an interface\ntype and instance, e.g. MgmtEth0/4/CPU1/0 or\nTenGigE0/2/0/0.2 or Bundle-Ether9 or\nBundle-Ether9.98 or Serial0/0/0/0/3/1:1', reference=None, exts=[], builtin_type='string', default=None, length=None, patterns=[YangPattern(yang_regex='[a-zA-Z0-9.:_/-]+', pcre='^([a-zA-Z0-9.:_/-]+)$', invert=False)])),
-            DContainer(module='Cisco-IOS-XR-um-interface-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-interface-cfg', prefix='um-interface-cfg', name='sub-interface-type', config=True, description='Specify type of sub-interface', presence=False, children=[
-                DContainer(module='Cisco-IOS-XR-um-interface-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-interface-cfg', prefix='um-interface-cfg', name='l2transport', config=True, description='l2transport sub-interface', presence=True),
-                DContainer(module='Cisco-IOS-XR-um-interface-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-interface-cfg', prefix='um-interface-cfg', name='point-to-point', config=True, description='point-to-point sub-interface', presence=True),
-                DContainer(module='Cisco-IOS-XR-um-interface-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-interface-cfg', prefix='um-interface-cfg', name='multipoint', config=True, description='multipoint sub-interface', presence=True)
-            ]),
-            DContainer(module='Cisco-IOS-XR-um-interface-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-interface-cfg', prefix='um-interface-cfg', name='ipv4', config=True, description='Interface IPv4 config commands', presence=False, children=[
-                DContainer(module='Cisco-IOS-XR-um-if-ip-address-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-if-ip-address-cfg', prefix='um-if-ip-address-cfg', name='addresses', config=True, description='Set the IPv4 address of an interface', presence=False, children=[
-                    DContainer(module='Cisco-IOS-XR-um-if-ip-address-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-if-ip-address-cfg', prefix='um-if-ip-address-cfg', name='address', config=True, description='IP address and Mask', presence=True, children=[
-                        DLeaf(module='Cisco-IOS-XR-um-if-ip-address-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-if-ip-address-cfg', prefix='um-if-ip-address-cfg', name='address', config=True, description='IP address', mandatory=True, type_=DTypeString(name='inet:ipv4-address-no-zone', description='An IPv4 address without a zone index.  This type, derived from\nipv4-address, may be used in situations where the zone is\nknown from the context and hence no zone index is needed.', reference=None, exts=[], builtin_type='string', default=None, length=None, patterns=[YangPattern(yang_regex='(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){{3}}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{{N}}\\p{{L}}]+)?', pcre='^((([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){{3}}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{{N}}\\p{{L}}]+)?)$', invert=False), YangPattern(yang_regex='[0-9\\.]*', pcre='^([0-9\\.]*)$', invert=False)])),
-                        DLeaf(module='Cisco-IOS-XR-um-if-ip-address-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-if-ip-address-cfg', prefix='um-if-ip-address-cfg', name='netmask', config=True, description='IP subnet mask', mandatory=True, type_=DTypeString(name='inet:ipv4-address-no-zone', description='An IPv4 address without a zone index.  This type, derived from\nipv4-address, may be used in situations where the zone is\nknown from the context and hence no zone index is needed.', reference=None, exts=[], builtin_type='string', default=None, length=None, patterns=[YangPattern(yang_regex='(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){{3}}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{{N}}\\p{{L}}]+)?', pcre='^((([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){{3}}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{{N}}\\p{{L}}]+)?)$', invert=False), YangPattern(yang_regex='[0-9\\.]*', pcre='^([0-9\\.]*)$', invert=False)])),
-                        DLeaf(module='Cisco-IOS-XR-um-if-ip-address-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-if-ip-address-cfg', prefix='um-if-ip-address-cfg', name='route-tag', config=True, description='Route-tag to be associated with this address', mandatory=False, type_=DTypeIntegerUnsigned(name='uint32', description=None, reference=None, exts=[], builtin_type='uint32', default=None, ranges=Ranges([(1, 4294967295)]))),
-                        DLeaf(module='Cisco-IOS-XR-um-if-ip-address-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-if-ip-address-cfg', prefix='um-if-ip-address-cfg', name='algorithm', config=True, description='Algorithm to be associated with this address', mandatory=False, type_=DTypeIntegerUnsigned(name='uint32', description=None, reference=None, exts=[], builtin_type='uint32', default=None, ranges=Ranges([(128, 255)])))
-                    ]),
-                    DContainer(module='Cisco-IOS-XR-um-if-ip-address-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-if-ip-address-cfg', prefix='um-if-ip-address-cfg', name='secondaries', config=True, description='Specify a secondary address', presence=False, children=[
-                        DList(module='Cisco-IOS-XR-um-if-ip-address-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-if-ip-address-cfg', prefix='um-if-ip-address-cfg', name='secondary', key=['address'], config=True, description='IP address and Mask', min_elements=0, ordered_by='system', children=[
-                            DLeaf(module='Cisco-IOS-XR-um-if-ip-address-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-if-ip-address-cfg', prefix='um-if-ip-address-cfg', name='address', config=True, description='Secondary IP address', mandatory=False, type_=DTypeString(name='inet:ipv4-address-no-zone', description='An IPv4 address without a zone index.  This type, derived from\nipv4-address, may be used in situations where the zone is\nknown from the context and hence no zone index is needed.', reference=None, exts=[], builtin_type='string', default=None, length=None, patterns=[YangPattern(yang_regex='(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){{3}}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{{N}}\\p{{L}}]+)?', pcre='^((([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){{3}}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{{N}}\\p{{L}}]+)?)$', invert=False), YangPattern(yang_regex='[0-9\\.]*', pcre='^([0-9\\.]*)$', invert=False)])),
-                            DLeaf(module='Cisco-IOS-XR-um-if-ip-address-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-if-ip-address-cfg', prefix='um-if-ip-address-cfg', name='netmask', config=True, description='Netmask', mandatory=True, type_=DTypeString(name='inet:ipv4-address-no-zone', description='An IPv4 address without a zone index.  This type, derived from\nipv4-address, may be used in situations where the zone is\nknown from the context and hence no zone index is needed.', reference=None, exts=[], builtin_type='string', default=None, length=None, patterns=[YangPattern(yang_regex='(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){{3}}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{{N}}\\p{{L}}]+)?', pcre='^((([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){{3}}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{{N}}\\p{{L}}]+)?)$', invert=False), YangPattern(yang_regex='[0-9\\.]*', pcre='^([0-9\\.]*)$', invert=False)])),
-                            DLeaf(module='Cisco-IOS-XR-um-if-ip-address-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-if-ip-address-cfg', prefix='um-if-ip-address-cfg', name='route-tag', config=True, description='Route-tag to be associated with this address', mandatory=False, type_=DTypeIntegerUnsigned(name='uint32', description=None, reference=None, exts=[], builtin_type='uint32', default=None, ranges=Ranges([(1, 4294967295)]))),
-                            DLeaf(module='Cisco-IOS-XR-um-if-ip-address-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-if-ip-address-cfg', prefix='um-if-ip-address-cfg', name='algorithm', config=True, description='Algorithm to be associated with this address', mandatory=False, type_=DTypeIntegerUnsigned(name='uint32', description=None, reference=None, exts=[], builtin_type='uint32', default=None, ranges=Ranges([(128, 255)])))
-                        ])
-                    ]),
-                    DLeaf(module='Cisco-IOS-XR-um-if-ip-address-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-if-ip-address-cfg', prefix='um-if-ip-address-cfg', name='unnumbered', config=True, description='Enable IP processing without an explicit address', mandatory=False, type_=DTypeString(name='xr:Interface-name', description='An interface name specifying an interface type and\ninstance.\nInterface represents a string defining an interface\ntype and instance, e.g. MgmtEth0/4/CPU1/0 or\nTenGigE0/2/0/0.2 or Bundle-Ether9 or\nBundle-Ether9.98 or Serial0/0/0/0/3/1:1', reference=None, exts=[], builtin_type='string', default=None, length=None, patterns=[YangPattern(yang_regex='[a-zA-Z0-9.:_/-]+', pcre='^([a-zA-Z0-9.:_/-]+)$', invert=False)]), when="../../../um-interface-cfg:interface-name[not(starts-with(text(),'pw-ether'))]"),
-                    DContainer(module='Cisco-IOS-XR-um-if-ip-address-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-if-ip-address-cfg', prefix='um-if-ip-address-cfg', name='dhcp', config=True, description='IPv4 address and Mask negotiated via DHCP', presence=True, when="../../../um-interface-cfg:interface-name[starts-with(text(),'MgmtEth')] or ../../../um-interface-cfg:interface-name[starts-with(text(),'BVI')]")
-                ])
-            ]),
-            DContainer(module='Cisco-IOS-XR-um-interface-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-interface-cfg', prefix='um-interface-cfg', name='ipv6', config=True, description='Interface IPv6 config commands', presence=False),
-            DContainer(module='Cisco-IOS-XR-um-interface-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-interface-cfg', prefix='um-interface-cfg', name='encapsulation', config=True, description='Set the encapsulation on an interface', presence=False, when="../interface-name[starts-with(text(),'POS')] or ../interface-name[starts-with(text(),'serial')] or ../interface-name[starts-with(text(),'multilink')]", children=[
-                DContainer(module='Cisco-IOS-XR-um-interface-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-interface-cfg', prefix='um-interface-cfg', name='ppp', config=True, description='Point-to-Point protocol', presence=True),
-                DContainer(module='Cisco-IOS-XR-um-interface-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-interface-cfg', prefix='um-interface-cfg', name='hdlc', config=True, description='Serial HDLC synchronous', presence=True),
-                DContainer(module='Cisco-IOS-XR-um-interface-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-interface-cfg', prefix='um-interface-cfg', name='mfr', config=True, description='Multilink Frame Relay Member Link', presence=True, when="../../interface-name[starts-with(text(),'serial')]"),
-                DContainer(module='Cisco-IOS-XR-um-interface-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-interface-cfg', prefix='um-interface-cfg', name='frame-relay', config=True, description='Frame Relay networks', presence=True, when="../../interface-name[not(contains(text(),'.'))]", children=[
-                    DContainer(module='Cisco-IOS-XR-um-interface-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-interface-cfg', prefix='um-interface-cfg', name='IETF', config=True, description='Use RFC1490/RFC2427 encapsulation', presence=True)
-                ])
-            ]),
-            DLeaf(module='Cisco-IOS-XR-um-interface-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-interface-cfg', prefix='um-interface-cfg', name='shutdown', config=True, description='shutdown the given interface', mandatory=False, type_=DTypeEmpty(name='empty', description=None, reference=None, exts=[], builtin_type='empty', default=None)),
-            DLeaf(module='Cisco-IOS-XR-um-interface-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-interface-cfg', prefix='um-interface-cfg', name='mtu', config=True, description='Set the MTU on an interface', mandatory=False, type_=DTypeIntegerUnsigned(name='uint32', description=None, reference=None, exts=[], builtin_type='uint32', default=None, ranges=Ranges([(64, 65535)])), when="../interface-name[not(starts-with(text(),'SBC'))] and ../interface-name[not(starts-with(text(),'tunnel-te'))] and ../interface-name[not(starts-with(text(),'tunnel-mte'))] and ../interface-name[not(starts-with(text(),'VASILeft'))] and ../interface-name[not(starts-with(text(),'VASIRight'))] and ../interface-name[not(starts-with(text(),'service-gre'))] and ../interface-name[not(starts-with(text(),'service-ipsec'))] and ../interface-name[not(starts-with(text(),'InterflexLeft'))] and ../interface-name[not(starts-with(text(),'InterflexRight'))] and ../interface-name[not(starts-with(text(),'CEM'))]"),
-            DLeaf(module='Cisco-IOS-XR-um-interface-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-interface-cfg', prefix='um-interface-cfg', name='description', config=True, description='Set description for this interface', mandatory=False, type_=DTypeString(name='string', description=None, reference=None, exts=[], builtin_type='string', default=None, length=Ranges([(1, 1024)]), patterns=[]))
-        ])
-    ]),
-    DContainer(module='Cisco-IOS-XR-um-hostname-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-hostname-cfg', prefix='um-hostname-cfg', name='hostname', config=True, description="Set system's network name", presence=False, children=[
-        DLeaf(module='Cisco-IOS-XR-um-hostname-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-hostname-cfg', prefix='um-hostname-cfg', name='system-network-name', config=True, description="Set system's network name", mandatory=False, type_=DTypeString(name='xr:Cisco-ios-xr-string', description='Special characters are not allowed.', reference=None, exts=[], builtin_type='string', default=None, length=Ranges([(1, 253)]), patterns=[YangPattern(yang_regex='[\\w\\-\\.:,_@#%$\\+=\\| ;]+', pcre='^(([\\-\\.:,_@#%$\\+=\\| ;]|(?![\\p{{P}}\\p{{Z}}\\p{{C}}])[\\x{{0000}}-\\x{{10FFFF}}])+)$', invert=False), YangPattern(yang_regex='[a-zA-Z0-9_\\.-]+', pcre='^([a-zA-Z0-9_\\.-]+)$', invert=False)]))
+SRC_DNODE_CHILD_2 = DLeaf(module='Cisco-IOS-XR-um-interface-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-interface-cfg', prefix='um-interface-cfg', name='interface-name', config=True, description='Interface configuration subcommands', mandatory=False, type_=DTypeString(name='xr:Interface-name', description='An interface name specifying an interface type and\ninstance.\nInterface represents a string defining an interface\ntype and instance, e.g. MgmtEth0/4/CPU1/0 or\nTenGigE0/2/0/0.2 or Bundle-Ether9 or\nBundle-Ether9.98 or Serial0/0/0/0/3/1:1', reference=None, exts=[], builtin_type='string', default=None, length=None, patterns=[YangPattern(yang_regex='[a-zA-Z0-9.:_/-]+', pcre='^([a-zA-Z0-9.:_/-]+)$', invert=False)]))
+
+SRC_DNODE_CHILD_3 = DContainer(module='Cisco-IOS-XR-um-interface-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-interface-cfg', prefix='um-interface-cfg', name='sub-interface-type', config=True, description='Specify type of sub-interface', presence=False, children=[
+    DContainer(module='Cisco-IOS-XR-um-interface-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-interface-cfg', prefix='um-interface-cfg', name='l2transport', config=True, description='l2transport sub-interface', presence=True),
+    DContainer(module='Cisco-IOS-XR-um-interface-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-interface-cfg', prefix='um-interface-cfg', name='point-to-point', config=True, description='point-to-point sub-interface', presence=True),
+    DContainer(module='Cisco-IOS-XR-um-interface-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-interface-cfg', prefix='um-interface-cfg', name='multipoint', config=True, description='multipoint sub-interface', presence=True)
+])
+
+SRC_DNODE_CHILD_4 = DContainer(module='Cisco-IOS-XR-um-interface-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-interface-cfg', prefix='um-interface-cfg', name='ipv4', config=True, description='Interface IPv4 config commands', presence=False, children=[
+    DContainer(module='Cisco-IOS-XR-um-if-ip-address-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-if-ip-address-cfg', prefix='um-if-ip-address-cfg', name='addresses', config=True, description='Set the IPv4 address of an interface', presence=False, children=[
+        DContainer(module='Cisco-IOS-XR-um-if-ip-address-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-if-ip-address-cfg', prefix='um-if-ip-address-cfg', name='address', config=True, description='IP address and Mask', presence=True, children=[
+            DLeaf(module='Cisco-IOS-XR-um-if-ip-address-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-if-ip-address-cfg', prefix='um-if-ip-address-cfg', name='address', config=True, description='IP address', mandatory=True, type_=DTypeString(name='inet:ipv4-address-no-zone', description='An IPv4 address without a zone index.  This type, derived from\nipv4-address, may be used in situations where the zone is\nknown from the context and hence no zone index is needed.', reference=None, exts=[], builtin_type='string', default=None, length=None, patterns=[YangPattern(yang_regex='(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){{3}}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{{N}}\\p{{L}}]+)?', pcre='^((([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){{3}}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{{N}}\\p{{L}}]+)?)$', invert=False), YangPattern(yang_regex='[0-9\\.]*', pcre='^([0-9\\.]*)$', invert=False)])),
+            DLeaf(module='Cisco-IOS-XR-um-if-ip-address-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-if-ip-address-cfg', prefix='um-if-ip-address-cfg', name='netmask', config=True, description='IP subnet mask', mandatory=True, type_=DTypeString(name='inet:ipv4-address-no-zone', description='An IPv4 address without a zone index.  This type, derived from\nipv4-address, may be used in situations where the zone is\nknown from the context and hence no zone index is needed.', reference=None, exts=[], builtin_type='string', default=None, length=None, patterns=[YangPattern(yang_regex='(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){{3}}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{{N}}\\p{{L}}]+)?', pcre='^((([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){{3}}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{{N}}\\p{{L}}]+)?)$', invert=False), YangPattern(yang_regex='[0-9\\.]*', pcre='^([0-9\\.]*)$', invert=False)])),
+            DLeaf(module='Cisco-IOS-XR-um-if-ip-address-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-if-ip-address-cfg', prefix='um-if-ip-address-cfg', name='route-tag', config=True, description='Route-tag to be associated with this address', mandatory=False, type_=DTypeIntegerUnsigned(name='uint32', description=None, reference=None, exts=[], builtin_type='uint32', default=None, ranges=Ranges([(1, 4294967295)]))),
+            DLeaf(module='Cisco-IOS-XR-um-if-ip-address-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-if-ip-address-cfg', prefix='um-if-ip-address-cfg', name='algorithm', config=True, description='Algorithm to be associated with this address', mandatory=False, type_=DTypeIntegerUnsigned(name='uint32', description=None, reference=None, exts=[], builtin_type='uint32', default=None, ranges=Ranges([(128, 255)])))
+        ]),
+        DContainer(module='Cisco-IOS-XR-um-if-ip-address-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-if-ip-address-cfg', prefix='um-if-ip-address-cfg', name='secondaries', config=True, description='Specify a secondary address', presence=False, children=[
+            DList(module='Cisco-IOS-XR-um-if-ip-address-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-if-ip-address-cfg', prefix='um-if-ip-address-cfg', name='secondary', key=['address'], config=True, description='IP address and Mask', min_elements=0, ordered_by='system', children=[
+                DLeaf(module='Cisco-IOS-XR-um-if-ip-address-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-if-ip-address-cfg', prefix='um-if-ip-address-cfg', name='address', config=True, description='Secondary IP address', mandatory=False, type_=DTypeString(name='inet:ipv4-address-no-zone', description='An IPv4 address without a zone index.  This type, derived from\nipv4-address, may be used in situations where the zone is\nknown from the context and hence no zone index is needed.', reference=None, exts=[], builtin_type='string', default=None, length=None, patterns=[YangPattern(yang_regex='(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){{3}}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{{N}}\\p{{L}}]+)?', pcre='^((([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){{3}}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{{N}}\\p{{L}}]+)?)$', invert=False), YangPattern(yang_regex='[0-9\\.]*', pcre='^([0-9\\.]*)$', invert=False)])),
+                DLeaf(module='Cisco-IOS-XR-um-if-ip-address-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-if-ip-address-cfg', prefix='um-if-ip-address-cfg', name='netmask', config=True, description='Netmask', mandatory=True, type_=DTypeString(name='inet:ipv4-address-no-zone', description='An IPv4 address without a zone index.  This type, derived from\nipv4-address, may be used in situations where the zone is\nknown from the context and hence no zone index is needed.', reference=None, exts=[], builtin_type='string', default=None, length=None, patterns=[YangPattern(yang_regex='(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){{3}}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{{N}}\\p{{L}}]+)?', pcre='^((([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){{3}}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{{N}}\\p{{L}}]+)?)$', invert=False), YangPattern(yang_regex='[0-9\\.]*', pcre='^([0-9\\.]*)$', invert=False)])),
+                DLeaf(module='Cisco-IOS-XR-um-if-ip-address-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-if-ip-address-cfg', prefix='um-if-ip-address-cfg', name='route-tag', config=True, description='Route-tag to be associated with this address', mandatory=False, type_=DTypeIntegerUnsigned(name='uint32', description=None, reference=None, exts=[], builtin_type='uint32', default=None, ranges=Ranges([(1, 4294967295)]))),
+                DLeaf(module='Cisco-IOS-XR-um-if-ip-address-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-if-ip-address-cfg', prefix='um-if-ip-address-cfg', name='algorithm', config=True, description='Algorithm to be associated with this address', mandatory=False, type_=DTypeIntegerUnsigned(name='uint32', description=None, reference=None, exts=[], builtin_type='uint32', default=None, ranges=Ranges([(128, 255)])))
+            ])
+        ]),
+        DLeaf(module='Cisco-IOS-XR-um-if-ip-address-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-if-ip-address-cfg', prefix='um-if-ip-address-cfg', name='unnumbered', config=True, description='Enable IP processing without an explicit address', mandatory=False, type_=DTypeString(name='xr:Interface-name', description='An interface name specifying an interface type and\ninstance.\nInterface represents a string defining an interface\ntype and instance, e.g. MgmtEth0/4/CPU1/0 or\nTenGigE0/2/0/0.2 or Bundle-Ether9 or\nBundle-Ether9.98 or Serial0/0/0/0/3/1:1', reference=None, exts=[], builtin_type='string', default=None, length=None, patterns=[YangPattern(yang_regex='[a-zA-Z0-9.:_/-]+', pcre='^([a-zA-Z0-9.:_/-]+)$', invert=False)]), when="../../../um-interface-cfg:interface-name[not(starts-with(text(),'pw-ether'))]"),
+        DContainer(module='Cisco-IOS-XR-um-if-ip-address-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-if-ip-address-cfg', prefix='um-if-ip-address-cfg', name='dhcp', config=True, description='IPv4 address and Mask negotiated via DHCP', presence=True, when="../../../um-interface-cfg:interface-name[starts-with(text(),'MgmtEth')] or ../../../um-interface-cfg:interface-name[starts-with(text(),'BVI')]")
     ])
 ])
+
+SRC_DNODE_CHILD_5 = DContainer(module='Cisco-IOS-XR-um-interface-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-interface-cfg', prefix='um-interface-cfg', name='ipv6', config=True, description='Interface IPv6 config commands', presence=False)
+
+SRC_DNODE_CHILD_6 = DContainer(module='Cisco-IOS-XR-um-interface-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-interface-cfg', prefix='um-interface-cfg', name='encapsulation', config=True, description='Set the encapsulation on an interface', presence=False, when="../interface-name[starts-with(text(),'POS')] or ../interface-name[starts-with(text(),'serial')] or ../interface-name[starts-with(text(),'multilink')]", children=[
+    DContainer(module='Cisco-IOS-XR-um-interface-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-interface-cfg', prefix='um-interface-cfg', name='ppp', config=True, description='Point-to-Point protocol', presence=True),
+    DContainer(module='Cisco-IOS-XR-um-interface-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-interface-cfg', prefix='um-interface-cfg', name='hdlc', config=True, description='Serial HDLC synchronous', presence=True),
+    DContainer(module='Cisco-IOS-XR-um-interface-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-interface-cfg', prefix='um-interface-cfg', name='mfr', config=True, description='Multilink Frame Relay Member Link', presence=True, when="../../interface-name[starts-with(text(),'serial')]"),
+    DContainer(module='Cisco-IOS-XR-um-interface-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-interface-cfg', prefix='um-interface-cfg', name='frame-relay', config=True, description='Frame Relay networks', presence=True, when="../../interface-name[not(contains(text(),'.'))]", children=[
+        DContainer(module='Cisco-IOS-XR-um-interface-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-interface-cfg', prefix='um-interface-cfg', name='IETF', config=True, description='Use RFC1490/RFC2427 encapsulation', presence=True)
+    ])
+])
+
+SRC_DNODE_CHILD_7 = DLeaf(module='Cisco-IOS-XR-um-interface-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-interface-cfg', prefix='um-interface-cfg', name='shutdown', config=True, description='shutdown the given interface', mandatory=False, type_=DTypeEmpty(name='empty', description=None, reference=None, exts=[], builtin_type='empty', default=None))
+
+SRC_DNODE_CHILD_8 = DLeaf(module='Cisco-IOS-XR-um-interface-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-interface-cfg', prefix='um-interface-cfg', name='mtu', config=True, description='Set the MTU on an interface', mandatory=False, type_=DTypeIntegerUnsigned(name='uint32', description=None, reference=None, exts=[], builtin_type='uint32', default=None, ranges=Ranges([(64, 65535)])), when="../interface-name[not(starts-with(text(),'SBC'))] and ../interface-name[not(starts-with(text(),'tunnel-te'))] and ../interface-name[not(starts-with(text(),'tunnel-mte'))] and ../interface-name[not(starts-with(text(),'VASILeft'))] and ../interface-name[not(starts-with(text(),'VASIRight'))] and ../interface-name[not(starts-with(text(),'service-gre'))] and ../interface-name[not(starts-with(text(),'service-ipsec'))] and ../interface-name[not(starts-with(text(),'InterflexLeft'))] and ../interface-name[not(starts-with(text(),'InterflexRight'))] and ../interface-name[not(starts-with(text(),'CEM'))]")
+
+SRC_DNODE_CHILD_9 = DLeaf(module='Cisco-IOS-XR-um-interface-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-interface-cfg', prefix='um-interface-cfg', name='description', config=True, description='Set description for this interface', mandatory=False, type_=DTypeString(name='string', description=None, reference=None, exts=[], builtin_type='string', default=None, length=Ranges([(1, 1024)]), patterns=[]))
+
+SRC_DNODE_CHILD_1 = DList(module='Cisco-IOS-XR-um-interface-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-interface-cfg', prefix='um-interface-cfg', name='interface', key=['interface-name'], config=True, description='Interface configuration subcommands', min_elements=0, ordered_by='system', children=[SRC_DNODE_CHILD_2, SRC_DNODE_CHILD_3, SRC_DNODE_CHILD_4, SRC_DNODE_CHILD_5, SRC_DNODE_CHILD_6, SRC_DNODE_CHILD_7, SRC_DNODE_CHILD_8, SRC_DNODE_CHILD_9])
+
+SRC_DNODE_CHILD_0 = DContainer(module='Cisco-IOS-XR-um-interface-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-interface-cfg', prefix='um-interface-cfg', name='interfaces', config=True, description='Interface configuration', presence=False, children=[SRC_DNODE_CHILD_1])
+
+SRC_DNODE_CHILD_10 = DContainer(module='Cisco-IOS-XR-um-hostname-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-hostname-cfg', prefix='um-hostname-cfg', name='hostname', config=True, description="Set system's network name", presence=False, children=[
+    DLeaf(module='Cisco-IOS-XR-um-hostname-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-hostname-cfg', prefix='um-hostname-cfg', name='system-network-name', config=True, description="Set system's network name", mandatory=False, type_=DTypeString(name='xr:Cisco-ios-xr-string', description='Special characters are not allowed.', reference=None, exts=[], builtin_type='string', default=None, length=Ranges([(1, 253)]), patterns=[YangPattern(yang_regex='[\\w\\-\\.:,_@#%$\\+=\\| ;]+', pcre='^(([\\-\\.:,_@#%$\\+=\\| ;]|(?![\\p{{P}}\\p{{Z}}\\p{{C}}])[\\x{{0000}}-\\x{{10FFFF}}])+)$', invert=False), YangPattern(yang_regex='[a-zA-Z0-9_\\.-]+', pcre='^([a-zA-Z0-9_\\.-]+)$', invert=False)]))
+])
+
+SRC_DNODE = DRoot(
+    children=[SRC_DNODE_CHILD_0, SRC_DNODE_CHILD_10],
+    identities=[],
+    rpcs=[],
+)
 
 def src_yang():
     res = []
@@ -2342,6 +2354,7 @@ NS_Cisco_IOS_XR_um_if_ip_address_cfg = 'http://cisco.com/ns/yang/Cisco-IOS-XR-um
 NS_Cisco_IOS_XR_um_interface_cfg = 'http://cisco.com/ns/yang/Cisco-IOS-XR-um-interface-cfg'
 
 
+_breaker = 1
 class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__l2transport(yang.adata.MNode):
 
     mut def __init__(self):
@@ -2365,6 +2378,7 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__
         raise Exception('Unreachable in Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__l2transport.copy()')
 
 
+_breaker = 1
 class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__point_to_point(yang.adata.MNode):
 
     mut def __init__(self):
@@ -2388,6 +2402,7 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__
         raise Exception('Unreachable in Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__point_to_point.copy()')
 
 
+_breaker = 1
 class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__multipoint(yang.adata.MNode):
 
     mut def __init__(self):
@@ -2411,6 +2426,7 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__
         raise Exception('Unreachable in Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__multipoint.copy()')
 
 
+_breaker = 1
 class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type(yang.adata.MNode):
     l2transport: ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__l2transport
     point_to_point: ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__point_to_point
@@ -2469,6 +2485,7 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type(y
         return Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type.from_gdata(self.to_gdata())
 
 
+_breaker = 1
 class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__address(yang.adata.MNode):
     address: ?str
     netmask: ?str
@@ -2510,6 +2527,7 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__add
         raise Exception('Unreachable in Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__address.copy()')
 
 
+_breaker = 1
 class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries__secondary_entry(yang.adata.MNode):
     address: str
     netmask: ?str
@@ -2545,6 +2563,7 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__sec
         """Create a deep copy of this adata object"""
         return Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries__secondary_entry.from_gdata(self.to_gdata())
 
+_breaker = 1
 class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries__secondary(yang.adata.MNode):
     elements: list[Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries__secondary_entry]
     mut def __init__(self, elements=[]):
@@ -2552,16 +2571,22 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__sec
         self._name = 'secondary'
         self.elements = elements
 
-    mut def create(self, address, netmask):
+    mut def create(self, address, netmask=None, route_tag=None, algorithm=None):
         for e in self:
             match = True
             if e.address != address:
                 match = False
                 continue
             if match:
+                if netmask is not None:
+                    e.netmask = netmask
+                if route_tag is not None:
+                    e.route_tag = route_tag
+                if algorithm is not None:
+                    e.algorithm = algorithm
                 return e
 
-        res = Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries__secondary_entry(address, netmask)
+        res = Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries__secondary_entry(address=address, netmask=netmask, route_tag=route_tag, algorithm=algorithm)
         self.elements.append(res)
         return res
 
@@ -2585,6 +2610,7 @@ extension Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses_
     def __iter__(self) -> Iterator[Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries__secondary_entry]:
         return self.elements.__iter__()
 
+_breaker = 1
 class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries(yang.adata.MNode):
     secondary: Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries__secondary
 
@@ -2611,6 +2637,7 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__sec
         return Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries.from_gdata(self.to_gdata())
 
 
+_breaker = 1
 class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__dhcp(yang.adata.MNode):
 
     mut def __init__(self):
@@ -2634,6 +2661,7 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__dhc
         raise Exception('Unreachable in Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__dhcp.copy()')
 
 
+_breaker = 1
 class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses(yang.adata.MNode):
     address: ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__address
     secondaries: Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries
@@ -2647,11 +2675,19 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses(yang
         self.unnumbered = unnumbered
         self.dhcp = dhcp
 
-    mut def create_address(self, address, netmask):
+    mut def create_address(self, address=None, netmask=None, route_tag=None, algorithm=None):
         existing = self.address
         if existing is not None:
+            if address is not None:
+                existing.address = address
+            if netmask is not None:
+                existing.netmask = netmask
+            if route_tag is not None:
+                existing.route_tag = route_tag
+            if algorithm is not None:
+                existing.algorithm = algorithm
             return existing
-        res = Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__address(address, netmask)
+        res = Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__address(address=address, netmask=netmask, route_tag=route_tag, algorithm=algorithm)
         self.address = res
         return res
 
@@ -2688,6 +2724,7 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses(yang
         return Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses.from_gdata(self.to_gdata())
 
 
+_breaker = 1
 class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4(yang.adata.MNode):
     addresses: Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses
 
@@ -2714,6 +2751,7 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4(yang.adata.MNod
         return Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4.from_gdata(self.to_gdata())
 
 
+_breaker = 1
 class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv6(yang.adata.MNode):
 
     mut def __init__(self):
@@ -2734,6 +2772,7 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv6(yang.adata.MNod
         return Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv6.from_gdata(self.to_gdata())
 
 
+_breaker = 1
 class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__ppp(yang.adata.MNode):
 
     mut def __init__(self):
@@ -2757,6 +2796,7 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__ppp(y
         raise Exception('Unreachable in Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__ppp.copy()')
 
 
+_breaker = 1
 class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__hdlc(yang.adata.MNode):
 
     mut def __init__(self):
@@ -2780,6 +2820,7 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__hdlc(
         raise Exception('Unreachable in Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__hdlc.copy()')
 
 
+_breaker = 1
 class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__mfr(yang.adata.MNode):
 
     mut def __init__(self):
@@ -2803,6 +2844,7 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__mfr(y
         raise Exception('Unreachable in Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__mfr.copy()')
 
 
+_breaker = 1
 class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__frame_relay__IETF(yang.adata.MNode):
 
     mut def __init__(self):
@@ -2826,6 +2868,7 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__frame
         raise Exception('Unreachable in Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__frame_relay__IETF.copy()')
 
 
+_breaker = 1
 class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__frame_relay(yang.adata.MNode):
     IETF: ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__frame_relay__IETF
 
@@ -2863,6 +2906,7 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__frame
         raise Exception('Unreachable in Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__frame_relay.copy()')
 
 
+_breaker = 1
 class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation(yang.adata.MNode):
     ppp: ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__ppp
     hdlc: ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__hdlc
@@ -2933,6 +2977,7 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation(yang.a
         return Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation.from_gdata(self.to_gdata())
 
 
+_breaker = 1
 class Cisco_IOS_XR_um_interface_cfg__interfaces__interface_entry(yang.adata.MNode):
     interface_name: str
     sub_interface_type: Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type
@@ -2984,6 +3029,7 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface_entry(yang.adata.MNod
         """Create a deep copy of this adata object"""
         return Cisco_IOS_XR_um_interface_cfg__interfaces__interface_entry.from_gdata(self.to_gdata())
 
+_breaker = 1
 class Cisco_IOS_XR_um_interface_cfg__interfaces__interface(yang.adata.MNode):
     elements: list[Cisco_IOS_XR_um_interface_cfg__interfaces__interface_entry]
     mut def __init__(self, elements=[]):
@@ -2991,16 +3037,22 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface(yang.adata.MNode):
         self._name = 'interface'
         self.elements = elements
 
-    mut def create(self, interface_name):
+    mut def create(self, interface_name, shutdown=None, mtu=None, description=None):
         for e in self:
             match = True
             if e.interface_name != interface_name:
                 match = False
                 continue
             if match:
+                if shutdown is not None:
+                    e.shutdown = shutdown
+                if mtu is not None:
+                    e.mtu = mtu
+                if description is not None:
+                    e.description = description
                 return e
 
-        res = Cisco_IOS_XR_um_interface_cfg__interfaces__interface_entry(interface_name)
+        res = Cisco_IOS_XR_um_interface_cfg__interfaces__interface_entry(interface_name=interface_name, shutdown=shutdown, mtu=mtu, description=description)
         self.elements.append(res)
         return res
 
@@ -3024,6 +3076,7 @@ extension Cisco_IOS_XR_um_interface_cfg__interfaces__interface(Iterable[Cisco_IO
     def __iter__(self) -> Iterator[Cisco_IOS_XR_um_interface_cfg__interfaces__interface_entry]:
         return self.elements.__iter__()
 
+_breaker = 1
 class Cisco_IOS_XR_um_interface_cfg__interfaces(yang.adata.MNode):
     interface: Cisco_IOS_XR_um_interface_cfg__interfaces__interface
 
@@ -3050,6 +3103,7 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces(yang.adata.MNode):
         return Cisco_IOS_XR_um_interface_cfg__interfaces.from_gdata(self.to_gdata())
 
 
+_breaker = 1
 class Cisco_IOS_XR_um_hostname_cfg__hostname(yang.adata.MNode):
     system_network_name: ?str
 
@@ -3076,6 +3130,7 @@ class Cisco_IOS_XR_um_hostname_cfg__hostname(yang.adata.MNode):
         return Cisco_IOS_XR_um_hostname_cfg__hostname.from_gdata(self.to_gdata())
 
 
+_breaker = 1
 class root(yang.adata.MNode):
     interfaces: Cisco_IOS_XR_um_interface_cfg__interfaces
     hostname: Cisco_IOS_XR_um_hostname_cfg__hostname

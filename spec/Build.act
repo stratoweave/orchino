@@ -1,6 +1,5 @@
-name = "orchino"
-fingerprint = 0xe70d5786c192d814
-
+name = "orchino_gen"
+fingerprint = 0x673316b414dd9fde
 dependencies = {
     "netconf": (
         repo_url="https://github.com/orchestron-orchestrator/netconf.git",
