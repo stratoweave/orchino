@@ -10,13 +10,16 @@ module netinfra {
   import ietf-inet-types {
     prefix inet;
   }
+  import stratoweave {
+    prefix sw;
+  }
 
   container netinfra {
     description "Network infrastructure";
     list router {
       key name;
 
-      orchestron:transform orchino.cfs.Router;
+      sw:transform orchino.cfs.Router;
 
       leaf name {
         type string;

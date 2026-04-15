@@ -2,7 +2,7 @@ import yang.adata
 import orchestron.device as odev
 import orchestron.ttt
 import logging
-from orchestron import UnsupportedDevice
+from orchestron.exception import UnsupportedDevice
 
 import orchino.layers.base_1 as base
 import orchino.devices.CiscoIosXr_24_1_ncs55a1 as xr24

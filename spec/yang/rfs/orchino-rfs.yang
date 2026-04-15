@@ -3,19 +3,22 @@ module orchino-rfs {
     namespace "http://example.com/orchino-rfs";
     prefix "orchino-rfs";
 
-    import orchestron-rfs {
-        prefix orfs;
+    import stratoweave {
+        prefix sw;
+    }
+    import stratoweave-rfs {
+        prefix sw-rfs;
     }
     import ietf-inet-types {
       prefix inet;
     }
 
-    augment "/orfs:rfs" {
+    augment "/sw-rfs:rfs" {
         // TODO: should really be a P-container
         list base-config {
             key name;
 
-            orchestron:rfs-transform orchino.rfs.BaseConfig;
+            sw:rfs-transform orchino.rfs.BaseConfig;
 
             leaf name {
                 type string;
