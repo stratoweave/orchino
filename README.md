@@ -1,8 +1,8 @@
 # Orchino
 ## Introduction
-[SORESPO](https://github.com/orchestron-orchestrator/sorespo) is our primary
+[SORESPO](https://github.com/stratoweave/sorespo) is our primary
 example on how to implement your own orchestrator. If you have not yet read
-through the SORESPO documentation and its [tutorials](https://github.com/orchestron-orchestrator/sorespo/docs/tutorials/README.md),
+through the SORESPO documentation and its [tutorials](https://github.com/stratoweave/sorespo/docs/tutorials/README.md),
 we strongly recommend you start there. When you are ready to design your own
 Orchestron-based orchestrator, we recommend you fork SORESPO and modify it to
 fit your needs.

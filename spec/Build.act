@@ -1,20 +1,10 @@
 name = "orchino_gen"
 fingerprint = 0x673316b414dd9fde
 dependencies = {
-    "netconf": (
-        repo_url="https://github.com/orchestron-orchestrator/netconf.git",
-        url="https://github.com/orchestron-orchestrator/netconf/archive/c0c7e600bb033bff8441325abb88acc0c68a664d.zip",
-        hash="N-V-__8AAAu8AgC7DXGStcy0sA7aUGWHXu8WtGqeA6iRwuWe"
-    ),
     "orchestron": (
-        repo_url="https://github.com/orchestron-orchestrator/orchestron",
-        url="https://github.com/orchestron-orchestrator/orchestron/archive/e190d978c7192f2ba38b29c366c2987fdd068c88.zip",
-        hash="N-V-__8AANyaEgCbgO4c-m0QNO4ifaF3BdZgUB4cNc2fPep-"
-    ),
-    "yang": (
-        repo_url="https://github.com/orchestron-orchestrator/acton-yang.git",
-        url="https://github.com/orchestron-orchestrator/acton-yang/archive/aa8e40ccd4c59f3d951bcacf25f01cc392c639a5.zip",
-        hash="N-V-__8AAJOXIgAd1Zaab621PZqvQdoVOpX-XoPrhJUXXRsI"
+        repo_url="https://github.com/stratoweave/orchestron",
+        url="https://github.com/stratoweave/orchestron/archive/3a2be9555fa3d7ebfb5a3dcf9edb4b780d0688a5.zip",
+        hash="N-V-__8AALnXHgA2jmp8w1xCO47U5kGxH66WMiYyUb4mq6ss"
     )
 }
 zig_dependencies = {}

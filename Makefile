@@ -49,7 +49,7 @@ download-release:
 	RELEASE_FILE=orchino-linux-$$ARCH.tar.gz; \
 	echo "Downloading $$RELEASE_FILE from GitHub..."; \
 	mkdir -p out/bin; \
-	if ! curl -L -f -o /tmp/$$RELEASE_FILE https://github.com/orchestron-orchestrator/orchino/releases/download/tip/$$RELEASE_FILE; then \
+	if ! curl -L -f -o /tmp/$$RELEASE_FILE https://github.com/stratoweave/orchino/releases/download/tip/$$RELEASE_FILE; then \
 		echo "Error: Failed to download $$RELEASE_FILE - this platform may not have a pre-built release"; \
 		exit 1; \
 	fi; \

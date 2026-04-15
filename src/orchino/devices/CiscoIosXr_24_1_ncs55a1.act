@@ -77,6 +77,7 @@ SRC_DNODE = DRoot(
     children=[SRC_DNODE_CHILD_0, SRC_DNODE_CHILD_10],
     identities=[],
     rpcs=[],
+    module_metadata={'urn:ietf:params:xml:ns:yang:ietf-yang-types':('ietf-yang-types', '2013-07-15'), 'urn:ietf:params:xml:ns:yang:ietf-inet-types':('ietf-inet-types', '2013-07-15'), 'http://cisco.com/ns/yang/cisco-semver':('cisco-semver', '2019-03-13'), 'http://cisco.com/ns/yang/cisco-xr-types':('Cisco-IOS-XR-types', '2023-12-06'), 'http://cisco.com/ns/yang/Cisco-IOS-XR-um-interface-cfg':('Cisco-IOS-XR-um-interface-cfg', '2022-07-11'), 'http://cisco.com/ns/yang/Cisco-IOS-XR-um-if-ip-address-cfg':('Cisco-IOS-XR-um-if-ip-address-cfg', '2022-07-11'), 'http://cisco.com/ns/yang/Cisco-IOS-XR-um-hostname-cfg':('Cisco-IOS-XR-um-hostname-cfg', '2021-04-21')},
 )
 
 def src_yang():
@@ -2352,6 +2353,10 @@ def src_yang():
 NS_Cisco_IOS_XR_um_hostname_cfg = 'http://cisco.com/ns/yang/Cisco-IOS-XR-um-hostname-cfg'
 NS_Cisco_IOS_XR_um_if_ip_address_cfg = 'http://cisco.com/ns/yang/Cisco-IOS-XR-um-if-ip-address-cfg'
 NS_Cisco_IOS_XR_um_interface_cfg = 'http://cisco.com/ns/yang/Cisco-IOS-XR-um-interface-cfg'
+NS_cisco_semver = 'http://cisco.com/ns/yang/cisco-semver'
+NS_Cisco_IOS_XR_types = 'http://cisco.com/ns/yang/cisco-xr-types'
+NS_ietf_inet_types = 'urn:ietf:params:xml:ns:yang:ietf-inet-types'
+NS_ietf_yang_types = 'urn:ietf:params:xml:ns:yang:ietf-yang-types'
 
 
 _breaker = 1
@@ -3161,8 +3166,6 @@ class root(yang.adata.MNode):
         return root.from_gdata(self.to_gdata())
 
 
-schema_namespaces: set[str] = {
-    'http://cisco.com/ns/yang/Cisco-IOS-XR-um-hostname-cfg',
-    'http://cisco.com/ns/yang/Cisco-IOS-XR-um-if-ip-address-cfg',
-    'http://cisco.com/ns/yang/Cisco-IOS-XR-um-interface-cfg',
-}
+actor rpc_root(tp: yang.gdata.TreeProvider):
+    pass
+

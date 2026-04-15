@@ -8,22 +8,26 @@ actor main(env):
     fc = file.FileCap(env.cap)
     pc = process.ProcessCap(env.cap)
 
-    orchestron.build.apply_schema_transforms_to_dir(fc, "yang/CiscoIosXr_24_1_ncs55a1", [
-        orchestron.build.SchemaTransformChain(".*yang.orig", [orchestron.build.SchemaTransformNoComments()])
-    ])
+    try:
+        orchestron.build.apply_schema_transforms_to_dir(fc, "yang/CiscoIosXr_24_1_ncs55a1", [
+            orchestron.build.SchemaTransformChain(".*yang.orig", [orchestron.build.SchemaTransformNoComments()])
+        ])
 
-    cfs_layer = orchestron.build.Layer.from_dir(fc, "yang/cfs")
-    cfs_layer.models.append(oyang.ietf_inet_types)
-    rfs_layer = orchestron.build.Layer.from_dir(fc, "yang/rfs")
-    rfs_layer.models.extend([oyang.rfs, oyang.ietf_inet_types])
+        cfs_layer = orchestron.build.Layer.from_dir(fc, "yang/cfs")
+        cfs_layer.models.extend([oyang.stratoweave, oyang.ietf_inet_types])
+        rfs_layer = orchestron.build.Layer.from_dir(fc, "yang/rfs")
+        rfs_layer.models.extend([oyang.stratoweave, oyang.rfs, oyang.ietf_inet_types])
 
-    spec = orchestron.build.SysSpec("orchino", [
-        cfs_layer,
-        rfs_layer,
-    ], [
-        orchestron.build.DeviceType.from_dir(fc, "CiscoIosXr_24_1_ncs55a1", "yang/CiscoIosXr_24_1_ncs55a1")
-    ])
-    compiled_spec = spec.compile()
-    compiled_spec.gen_app(fc, "../src/")
-
-    env.exit(0)
+        spec = orchestron.build.SysSpec("orchino", [
+            cfs_layer,
+            rfs_layer,
+        ], [
+            orchestron.build.DeviceType.from_dir(fc, "CiscoIosXr_24_1_ncs55a1", "yang/CiscoIosXr_24_1_ncs55a1")
+        ])
+        compiled_spec = spec.compile()
+        compiled_spec.gen_app(fc, "../src/")
+    except Exception as exc:
+       print(exc, err=True)
+       env.exit(1)
+    else:
+        env.exit(0)
