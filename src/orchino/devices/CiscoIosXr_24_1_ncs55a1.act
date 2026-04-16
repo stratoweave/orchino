@@ -2359,7 +2359,7 @@ NS_ietf_inet_types = 'urn:ietf:params:xml:ns:yang:ietf-inet-types'
 NS_ietf_yang_types = 'urn:ietf:params:xml:ns:yang:ietf-yang-types'
 
 
-_breaker = 1
+_breaker1 = None
 class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__l2transport(yang.adata.MNode):
 
     mut def __init__(self):
@@ -2383,7 +2383,7 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__
         raise Exception('Unreachable in Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__l2transport.copy()')
 
 
-_breaker = 1
+_breaker2 = None
 class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__point_to_point(yang.adata.MNode):
 
     mut def __init__(self):
@@ -2407,7 +2407,7 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__
         raise Exception('Unreachable in Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__point_to_point.copy()')
 
 
-_breaker = 1
+_breaker3 = None
 class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__multipoint(yang.adata.MNode):
 
     mut def __init__(self):
@@ -2431,7 +2431,7 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__
         raise Exception('Unreachable in Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__multipoint.copy()')
 
 
-_breaker = 1
+_breaker4 = None
 class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type(yang.adata.MNode):
     l2transport: ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__l2transport
     point_to_point: ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__point_to_point
@@ -2474,7 +2474,6 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type(y
             return self.point_to_point
         if name == 'multipoint':
             return self.multipoint
-        raise ValueError('Attribute {name} not found in Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type')
 
     mut def to_gdata(self) -> yang.gdata.Node:
         return yang.adata.from_adata(SRC_DNODE, self, loose=True, root_path=['Cisco-IOS-XR-um-interface-cfg:interfaces', 'interface', 'sub-interface-type'])
@@ -2490,7 +2489,7 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type(y
         return Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type.from_gdata(self.to_gdata())
 
 
-_breaker = 1
+_breaker5 = None
 class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__address(yang.adata.MNode):
     address: ?str
     netmask: ?str
@@ -2513,7 +2512,6 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__add
             return self.route_tag
         if name == 'algorithm':
             return self.algorithm
-        raise ValueError('Attribute {name} not found in Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__address')
 
     mut def to_gdata(self) -> yang.gdata.Node:
         return yang.adata.from_adata(SRC_DNODE, self, loose=True, root_path=['Cisco-IOS-XR-um-interface-cfg:interfaces', 'interface', 'ipv4', 'Cisco-IOS-XR-um-if-ip-address-cfg:addresses', 'address'])
@@ -2532,7 +2530,7 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__add
         raise Exception('Unreachable in Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__address.copy()')
 
 
-_breaker = 1
+_breaker6 = None
 class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries__secondary_entry(yang.adata.MNode):
     address: str
     netmask: ?str
@@ -2555,7 +2553,6 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__sec
             return self.route_tag
         if name == 'algorithm':
             return self.algorithm
-        raise ValueError('Attribute {name} not found in Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries__secondary')
 
     mut def to_gdata(self) -> yang.gdata.Node:
         return yang.adata.from_adata(SRC_DNODE, self, loose=True, root_path=['Cisco-IOS-XR-um-interface-cfg:interfaces', 'interface', 'ipv4', 'Cisco-IOS-XR-um-if-ip-address-cfg:addresses', 'secondaries', 'secondary'])
@@ -2568,7 +2565,7 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__sec
         """Create a deep copy of this adata object"""
         return Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries__secondary_entry.from_gdata(self.to_gdata())
 
-_breaker = 1
+_breaker7 = None
 class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries__secondary(yang.adata.MNode):
     elements: list[Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries__secondary_entry]
     mut def __init__(self, elements=[]):
@@ -2615,7 +2612,7 @@ extension Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses_
     def __iter__(self) -> Iterator[Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries__secondary_entry]:
         return self.elements.__iter__()
 
-_breaker = 1
+_breaker8 = None
 class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries(yang.adata.MNode):
     secondary: Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries__secondary
 
@@ -2626,7 +2623,6 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__sec
     def _get_attr(self, name: str) -> ?value:
         if name == 'secondary':
             return iter(self.secondary)
-        raise ValueError('Attribute {name} not found in Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries')
 
     mut def to_gdata(self) -> yang.gdata.Node:
         return yang.adata.from_adata(SRC_DNODE, self, loose=True, root_path=['Cisco-IOS-XR-um-interface-cfg:interfaces', 'interface', 'ipv4', 'Cisco-IOS-XR-um-if-ip-address-cfg:addresses', 'secondaries'])
@@ -2642,7 +2638,7 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__sec
         return Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries.from_gdata(self.to_gdata())
 
 
-_breaker = 1
+_breaker9 = None
 class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__dhcp(yang.adata.MNode):
 
     mut def __init__(self):
@@ -2666,7 +2662,7 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__dhc
         raise Exception('Unreachable in Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__dhcp.copy()')
 
 
-_breaker = 1
+_breaker10 = None
 class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses(yang.adata.MNode):
     address: ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__address
     secondaries: Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries
@@ -2713,7 +2709,6 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses(yang
             return self.unnumbered
         if name == 'dhcp':
             return self.dhcp
-        raise ValueError('Attribute {name} not found in Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses')
 
     mut def to_gdata(self) -> yang.gdata.Node:
         return yang.adata.from_adata(SRC_DNODE, self, loose=True, root_path=['Cisco-IOS-XR-um-interface-cfg:interfaces', 'interface', 'ipv4', 'Cisco-IOS-XR-um-if-ip-address-cfg:addresses'])
@@ -2729,7 +2724,7 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses(yang
         return Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses.from_gdata(self.to_gdata())
 
 
-_breaker = 1
+_breaker11 = None
 class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4(yang.adata.MNode):
     addresses: Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses
 
@@ -2740,7 +2735,6 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4(yang.adata.MNod
     def _get_attr(self, name: str) -> ?value:
         if name == 'addresses':
             return self.addresses
-        raise ValueError('Attribute {name} not found in Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4')
 
     mut def to_gdata(self) -> yang.gdata.Node:
         return yang.adata.from_adata(SRC_DNODE, self, loose=True, root_path=['Cisco-IOS-XR-um-interface-cfg:interfaces', 'interface', 'ipv4'])
@@ -2756,7 +2750,7 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4(yang.adata.MNod
         return Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4.from_gdata(self.to_gdata())
 
 
-_breaker = 1
+_breaker12 = None
 class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv6(yang.adata.MNode):
 
     mut def __init__(self):
@@ -2777,7 +2771,7 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv6(yang.adata.MNod
         return Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv6.from_gdata(self.to_gdata())
 
 
-_breaker = 1
+_breaker13 = None
 class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__ppp(yang.adata.MNode):
 
     mut def __init__(self):
@@ -2801,7 +2795,7 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__ppp(y
         raise Exception('Unreachable in Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__ppp.copy()')
 
 
-_breaker = 1
+_breaker14 = None
 class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__hdlc(yang.adata.MNode):
 
     mut def __init__(self):
@@ -2825,7 +2819,7 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__hdlc(
         raise Exception('Unreachable in Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__hdlc.copy()')
 
 
-_breaker = 1
+_breaker15 = None
 class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__mfr(yang.adata.MNode):
 
     mut def __init__(self):
@@ -2849,7 +2843,7 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__mfr(y
         raise Exception('Unreachable in Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__mfr.copy()')
 
 
-_breaker = 1
+_breaker16 = None
 class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__frame_relay__IETF(yang.adata.MNode):
 
     mut def __init__(self):
@@ -2873,7 +2867,7 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__frame
         raise Exception('Unreachable in Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__frame_relay__IETF.copy()')
 
 
-_breaker = 1
+_breaker17 = None
 class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__frame_relay(yang.adata.MNode):
     IETF: ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__frame_relay__IETF
 
@@ -2892,7 +2886,6 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__frame
     def _get_attr(self, name: str) -> ?value:
         if name == 'IETF':
             return self.IETF
-        raise ValueError('Attribute {name} not found in Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__frame_relay')
 
     mut def to_gdata(self) -> yang.gdata.Node:
         return yang.adata.from_adata(SRC_DNODE, self, loose=True, root_path=['Cisco-IOS-XR-um-interface-cfg:interfaces', 'interface', 'encapsulation', 'frame-relay'])
@@ -2911,7 +2904,7 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__frame
         raise Exception('Unreachable in Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__frame_relay.copy()')
 
 
-_breaker = 1
+_breaker18 = None
 class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation(yang.adata.MNode):
     ppp: ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__ppp
     hdlc: ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__hdlc
@@ -2966,7 +2959,6 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation(yang.a
             return self.mfr
         if name == 'frame_relay':
             return self.frame_relay
-        raise ValueError('Attribute {name} not found in Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation')
 
     mut def to_gdata(self) -> yang.gdata.Node:
         return yang.adata.from_adata(SRC_DNODE, self, loose=True, root_path=['Cisco-IOS-XR-um-interface-cfg:interfaces', 'interface', 'encapsulation'])
@@ -2982,7 +2974,7 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation(yang.a
         return Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation.from_gdata(self.to_gdata())
 
 
-_breaker = 1
+_breaker19 = None
 class Cisco_IOS_XR_um_interface_cfg__interfaces__interface_entry(yang.adata.MNode):
     interface_name: str
     sub_interface_type: Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type
@@ -3021,7 +3013,6 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface_entry(yang.adata.MNod
             return self.mtu
         if name == 'description':
             return self.description
-        raise ValueError('Attribute {name} not found in Cisco_IOS_XR_um_interface_cfg__interfaces__interface')
 
     mut def to_gdata(self) -> yang.gdata.Node:
         return yang.adata.from_adata(SRC_DNODE, self, loose=True, root_path=['Cisco-IOS-XR-um-interface-cfg:interfaces', 'interface'])
@@ -3034,7 +3025,7 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface_entry(yang.adata.MNod
         """Create a deep copy of this adata object"""
         return Cisco_IOS_XR_um_interface_cfg__interfaces__interface_entry.from_gdata(self.to_gdata())
 
-_breaker = 1
+_breaker20 = None
 class Cisco_IOS_XR_um_interface_cfg__interfaces__interface(yang.adata.MNode):
     elements: list[Cisco_IOS_XR_um_interface_cfg__interfaces__interface_entry]
     mut def __init__(self, elements=[]):
@@ -3081,7 +3072,7 @@ extension Cisco_IOS_XR_um_interface_cfg__interfaces__interface(Iterable[Cisco_IO
     def __iter__(self) -> Iterator[Cisco_IOS_XR_um_interface_cfg__interfaces__interface_entry]:
         return self.elements.__iter__()
 
-_breaker = 1
+_breaker21 = None
 class Cisco_IOS_XR_um_interface_cfg__interfaces(yang.adata.MNode):
     interface: Cisco_IOS_XR_um_interface_cfg__interfaces__interface
 
@@ -3092,7 +3083,6 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces(yang.adata.MNode):
     def _get_attr(self, name: str) -> ?value:
         if name == 'interface':
             return iter(self.interface)
-        raise ValueError('Attribute {name} not found in Cisco_IOS_XR_um_interface_cfg__interfaces')
 
     mut def to_gdata(self) -> yang.gdata.Node:
         return yang.adata.from_adata(SRC_DNODE, self, loose=True, root_path=['Cisco-IOS-XR-um-interface-cfg:interfaces'])
@@ -3108,7 +3098,7 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces(yang.adata.MNode):
         return Cisco_IOS_XR_um_interface_cfg__interfaces.from_gdata(self.to_gdata())
 
 
-_breaker = 1
+_breaker22 = None
 class Cisco_IOS_XR_um_hostname_cfg__hostname(yang.adata.MNode):
     system_network_name: ?str
 
@@ -3119,7 +3109,6 @@ class Cisco_IOS_XR_um_hostname_cfg__hostname(yang.adata.MNode):
     def _get_attr(self, name: str) -> ?value:
         if name == 'system_network_name':
             return self.system_network_name
-        raise ValueError('Attribute {name} not found in Cisco_IOS_XR_um_hostname_cfg__hostname')
 
     mut def to_gdata(self) -> yang.gdata.Node:
         return yang.adata.from_adata(SRC_DNODE, self, loose=True, root_path=['Cisco-IOS-XR-um-hostname-cfg:hostname'])
@@ -3135,7 +3124,7 @@ class Cisco_IOS_XR_um_hostname_cfg__hostname(yang.adata.MNode):
         return Cisco_IOS_XR_um_hostname_cfg__hostname.from_gdata(self.to_gdata())
 
 
-_breaker = 1
+_breaker23 = None
 class root(yang.adata.MNode):
     interfaces: Cisco_IOS_XR_um_interface_cfg__interfaces
     hostname: Cisco_IOS_XR_um_hostname_cfg__hostname
@@ -3150,7 +3139,6 @@ class root(yang.adata.MNode):
             return self.interfaces
         if name == 'hostname':
             return self.hostname
-        raise ValueError('Attribute {name} not found in root')
 
     mut def to_gdata(self) -> yang.gdata.Node:
         return yang.adata.from_adata(SRC_DNODE, self, loose=True)

@@ -592,7 +592,7 @@ NS_stratoweave = 'http://stratoweave.org/yang/stratoweave.yang'
 NS_ietf_inet_types = 'urn:ietf:params:xml:ns:yang:ietf-inet-types'
 
 
-_breaker = 1
+_breaker1 = None
 class netinfra__netinfra__router_entry(yang.adata.MNode):
     name: str
     id: u64
@@ -611,7 +611,6 @@ class netinfra__netinfra__router_entry(yang.adata.MNode):
             return self.id
         if name == 'type':
             return self.type
-        raise ValueError('Attribute {name} not found in netinfra__netinfra__router')
 
     mut def to_gdata(self) -> yang.gdata.Node:
         return yang.adata.from_adata(SRC_DNODE, self, loose=False, root_path=['netinfra:netinfra', 'router'])
@@ -624,7 +623,7 @@ class netinfra__netinfra__router_entry(yang.adata.MNode):
         """Create a deep copy of this adata object"""
         return netinfra__netinfra__router_entry.from_gdata(self.to_gdata())
 
-_breaker = 1
+_breaker2 = None
 class netinfra__netinfra__router(yang.adata.MNode):
     elements: list[netinfra__netinfra__router_entry]
     mut def __init__(self, elements=[]):
@@ -667,7 +666,7 @@ extension netinfra__netinfra__router(Iterable[netinfra__netinfra__router_entry])
     def __iter__(self) -> Iterator[netinfra__netinfra__router_entry]:
         return self.elements.__iter__()
 
-_breaker = 1
+_breaker3 = None
 class netinfra__netinfra(yang.adata.MNode):
     router: netinfra__netinfra__router
 
@@ -678,7 +677,6 @@ class netinfra__netinfra(yang.adata.MNode):
     def _get_attr(self, name: str) -> ?value:
         if name == 'router':
             return iter(self.router)
-        raise ValueError('Attribute {name} not found in netinfra__netinfra')
 
     mut def to_gdata(self) -> yang.gdata.Node:
         return yang.adata.from_adata(SRC_DNODE, self, loose=False, root_path=['netinfra:netinfra'])
@@ -694,7 +692,7 @@ class netinfra__netinfra(yang.adata.MNode):
         return netinfra__netinfra.from_gdata(self.to_gdata())
 
 
-_breaker = 1
+_breaker4 = None
 class root(yang.adata.MNode):
     netinfra: netinfra__netinfra
 
@@ -705,7 +703,6 @@ class root(yang.adata.MNode):
     def _get_attr(self, name: str) -> ?value:
         if name == 'netinfra':
             return self.netinfra
-        raise ValueError('Attribute {name} not found in root')
 
     mut def to_gdata(self) -> yang.gdata.Node:
         return yang.adata.from_adata(SRC_DNODE, self, loose=False)
