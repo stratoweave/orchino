@@ -4,12 +4,13 @@
 
 import logging
 import xml
-import orchestron.ttt as ttt
+import stratoweave.ttt as ttt
 import yang.adata
 import yang.gdata
 import yang.xml
 
 from orchino.layers.y_1 import stratoweave_rfs__rfs__base_config_entry
+from orchino.layers.y_1_oper import stratoweave_rfs__rfs__base_config_entry as stratoweave_rfs__rfs__base_config_entry__oper
 from orchino.layers.y_1 import SRC_DNODE
 from orchino.layers.y_2_loose import root as output_root
 
@@ -24,6 +25,16 @@ class BaseConfig(ttt.RFSFunction):
     def input_type():
         """Return the modeled input type for this transform"""
         return stratoweave_rfs__rfs__base_config_entry
+
+    @staticmethod
+    def state_type():
+        """Return the modeled operational state type for this transform"""
+        return stratoweave_rfs__rfs__base_config_entry__oper
+
+    @staticmethod
+    def new_state(path: ttt.Path):
+        """Create modeled operational state for this transform path"""
+        return stratoweave_rfs__rfs__base_config_entry__oper.from_gdata(ttt.path_key_data(path))
 
     mut def transform_wrapper(self, i: yang.gdata.Node, device_info: ttt.DeviceInfo, memory: ?yang.gdata.Node, dynstate: ?yang.gdata.Node) -> (yang.gdata.Node, ?yang.gdata.Node):
         """Wrap the user provided transform method to convert from gdata to

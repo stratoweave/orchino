@@ -10,6 +10,7 @@ from yang.identityref import Identityref, PartialIdentityref
 from yang.pattern import YangPattern
 from yang.schema import *
 from yang.type import Decimal, Ranges
+from yang.sdata import SubscriptionPath, SubscriptionNode
 
 # == This file is generated ==
 
@@ -615,10 +616,10 @@ NS_ietf_inet_types: str = 'urn:ietf:params:xml:ns:yang:ietf-inet-types'
 _breaker1: None = None
 class netinfra__netinfra__router_entry(yang.adata.MNode):
     name: str
-    id: u64
-    type: str
+    id: ?u64
+    type: ?str
 
-    mut def __init__(self, name: str, id: u64, type: str) -> None:
+    mut def __init__(self, name: str, id: ?u64, type: ?str) -> None:
         self.name = name
         self.id = id
         self.type = type
@@ -632,11 +633,11 @@ class netinfra__netinfra__router_entry(yang.adata.MNode):
             return self.type
 
     mut def to_gdata(self) -> yang.gdata.Node:
-        return yang.adata.from_adata(SRC_DNODE, self, loose=False, root_path=['netinfra:netinfra', 'router'])
+        return yang.adata.from_adata(SRC_DNODE, self, loose=True, root_path=['netinfra:netinfra', 'router'])
 
     @staticmethod
     mut def from_gdata(n: yang.gdata.Node) -> netinfra__netinfra__router_entry:
-        return netinfra__netinfra__router_entry(name=n.get_str(yang.gdata.Id(NS_netinfra, 'name')), id=n.get_u64(yang.gdata.Id(NS_netinfra, 'id')), type=n.get_str(yang.gdata.Id(NS_netinfra, 'type')))
+        return netinfra__netinfra__router_entry(name=n.get_str(yang.gdata.Id(NS_netinfra, 'name')), id=n.get_opt_u64(yang.gdata.Id(NS_netinfra, 'id')), type=n.get_opt_str(yang.gdata.Id(NS_netinfra, 'type')))
 
     mut def copy(self) -> netinfra__netinfra__router_entry:
         """Create a deep copy of this adata object"""
@@ -654,11 +655,13 @@ class netinfra__netinfra__router(yang.adata.MNode):
                 continue
             return e
 
-    mut def create(self, name: str, id: u64, type: str) -> netinfra__netinfra__router_entry:
+    mut def create(self, name: str, id: ?u64=None, type: ?str=None) -> netinfra__netinfra__router_entry:
         e = self.get(name)
         if e is not None:
-            e.id = id
-            e.type = type
+            if id is not None:
+                e.id = id
+            if type is not None:
+                e.type = type
             return e
         res = netinfra__netinfra__router_entry(name=name, id=id, type=type)
         self.elements.append(res)
@@ -717,7 +720,7 @@ class netinfra__netinfra(yang.adata.MNode):
             return iter(self.router)
 
     mut def to_gdata(self) -> yang.gdata.Node:
-        return yang.adata.from_adata(SRC_DNODE, self, loose=False, root_path=['netinfra:netinfra'])
+        return yang.adata.from_adata(SRC_DNODE, self, loose=True, root_path=['netinfra:netinfra'])
 
     @staticmethod
     mut def from_gdata(n: ?yang.gdata.Node) -> netinfra__netinfra:
@@ -742,7 +745,7 @@ class root(yang.adata.MNode):
             return self.netinfra
 
     mut def to_gdata(self) -> yang.gdata.Node:
-        return yang.adata.from_adata(SRC_DNODE, self, loose=False)
+        return yang.adata.from_adata(SRC_DNODE, self, loose=True)
 
     @staticmethod
     mut def from_gdata(n: ?yang.gdata.Node) -> root:
@@ -758,3 +761,83 @@ class root(yang.adata.MNode):
 actor rpc_root(tp: yang.gdata.TreeProvider):
     pass
 
+
+
+_breaker5: None = None
+class netinfra__netinfra__router_entry_subs(SubscriptionNode):
+    name: SubscriptionNode
+    id: SubscriptionNode
+    type: SubscriptionNode
+
+    pure def __init__(self, path: ?SubscriptionPath=None) -> None:
+        SubscriptionNode.__init__(self, path)
+        self.name = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_netinfra, 'name'), parent=path))
+        self.id = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_netinfra, 'id'), parent=path))
+        self.type = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_netinfra, 'type'), parent=path))
+
+    pure def _direct_children(self) -> list[SubscriptionNode]:
+        direct: list[SubscriptionNode] = [self.name, self.id, self.type]
+        return direct
+
+_breaker6: None = None
+class netinfra__netinfra__router_subs(SubscriptionNode):
+    name: SubscriptionNode
+    id: SubscriptionNode
+    type: SubscriptionNode
+    pure def __init__(self, path: ?SubscriptionPath=None) -> None:
+        SubscriptionNode.__init__(self, path)
+        self.name = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_netinfra, 'name'), parent=path))
+        self.id = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_netinfra, 'id'), parent=path))
+        self.type = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_netinfra, 'type'), parent=path))
+
+    pure def entry(self, name: str) -> netinfra__netinfra__router_entry_subs:
+        predicates = [
+            yang.gdata.FNode(yang.gdata.Id(NS_netinfra, 'name'), value_match=name),
+        ]
+        base_path = self._path!.parent
+        return netinfra__netinfra__router_entry_subs(SubscriptionPath(yang.gdata.Id(NS_netinfra, 'router'), predicates=predicates, parent=base_path))
+
+    pure def _direct_children(self) -> list[SubscriptionNode]:
+        direct: list[SubscriptionNode] = [self.name, self.id, self.type]
+        return direct
+
+_breaker7: None = None
+class netinfra__netinfra_subs(SubscriptionNode):
+    router: netinfra__netinfra__router_subs
+
+    pure def __init__(self, path: ?SubscriptionPath=None) -> None:
+        SubscriptionNode.__init__(self, path)
+        self.router = netinfra__netinfra__router_subs(SubscriptionPath(yang.gdata.Id(NS_netinfra, 'router'), parent=path))
+
+    pure def _direct_children(self) -> list[SubscriptionNode]:
+        direct: list[SubscriptionNode] = [self.router]
+        return direct
+
+_breaker8: None = None
+class root_subs(SubscriptionNode):
+    netinfra: netinfra__netinfra_subs
+
+    pure def __init__(self, path: ?SubscriptionPath=None) -> None:
+        SubscriptionNode.__init__(self, path)
+        self.netinfra = netinfra__netinfra_subs(SubscriptionPath(yang.gdata.Id(NS_netinfra, 'netinfra'), parent=path))
+
+    pure def _direct_children(self) -> list[SubscriptionNode]:
+        direct: list[SubscriptionNode] = [self.netinfra]
+        return direct
+
+subs: root_subs = root_subs()
+
+actor DstAdapter(cb: action(?root, ?Exception) -> None):
+    on_update: action(?yang.gdata.Node, ?Exception) -> None
+    def on_update(n: ?yang.gdata.Node, err: ?Exception) -> None:
+        if err is not None:
+            cb(None, err)
+            return
+        if n is not None:
+            cb(root.from_gdata(n), None)
+            return
+        cb(None, None)
+
+proc def dst(cb: action(?root, ?Exception) -> None) -> yang.gdata.Dst:
+    adapter = DstAdapter(cb)
+    return yang.gdata.Dst(adapter.on_update)

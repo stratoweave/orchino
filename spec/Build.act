@@ -2,9 +2,9 @@ name = "orchino_gen"
 fingerprint = 0x673316b414dd9fde
 dependencies = {
     "stratoweave": (
-        repo_url="https://github.com/stratoweave/orchestron",
-        url="https://github.com/stratoweave/orchestron/archive/e25ef80c6dc9c99d20e87cb69bb5e5222ae97cc4.zip",
-        hash="N-V-__8AAGm3HgBOvFU5wnoGxY_bhld4g-tBEcVusAyF8lAI"
+        repo_url="https://github.com/stratoweave/stratoweave",
+        url="https://github.com/stratoweave/stratoweave/archive/6d19b7ab2155385f8b1d58108dd6c54a65ffe7f0.zip",
+        hash="N-V-__8AAPeNMQABdjE4BI7xhaVdVPyIV0WYgPj-1vv70FEB"
     )
 }
 zig_dependencies = {}

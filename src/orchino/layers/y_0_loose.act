@@ -19,7 +19,7 @@ from yang.type import Decimal, Ranges
 _identities: list[DIdentity] = []
 
 
-SRC_DNODE_CHILD_0 = DContainer(module='netinfra', namespace='http://example.com/netinfra', prefix='netinfra', name='netinfra', config=True, description='Network infrastructure', presence=False, children=[
+SRC_DNODE_CHILD_0: DContainer = DContainer(module='netinfra', namespace='http://example.com/netinfra', prefix='netinfra', name='netinfra', config=True, description='Network infrastructure', presence=False, children=[
     DList(module='netinfra', namespace='http://example.com/netinfra', prefix='netinfra', name='router', key=['name'], config=True, min_elements=0, ordered_by='system', exts=[
             DExt(module='stratoweave', namespace='http://stratoweave.org/yang/stratoweave.yang', prefix='sw', name='transform', arg='orchino.cfs.Router', exts=[])
         ], children=[
@@ -29,16 +29,14 @@ SRC_DNODE_CHILD_0 = DContainer(module='netinfra', namespace='http://example.com/
     ])
 ])
 
-SRC_DNODE = DRoot(
+SRC_DNODE: DRoot = DRoot(
     children=[SRC_DNODE_CHILD_0],
     identities=[],
     rpcs=[],
     module_metadata={'urn:ietf:params:xml:ns:yang:ietf-inet-types':('ietf-inet-types', '2013-07-15'), 'http://stratoweave.org/yang/stratoweave.yang':('stratoweave', '2026-04-01'), 'http://example.com/netinfra':('netinfra', '2019-01-01')},
 )
 
-def src_yang():
-    res = []
-    res.append(r"""module netinfra {
+SRC_YANG_0: str = r"""module netinfra {
   yang-version "1.1";
   namespace "http://example.com/netinfra";
   prefix "netinfra";
@@ -76,8 +74,9 @@ def src_yang():
     }
   }
 }
-""")
-    res.append(r"""module stratoweave {
+"""
+
+SRC_YANG_1: str = r"""module stratoweave {
   yang-version "1.1";
   namespace "http://stratoweave.org/yang/stratoweave.yang";
   prefix "sw";
@@ -124,8 +123,23 @@ def src_yang():
       function inputs with an additional read-only structure. The transform
       function may update this subtree by returning new data.";
   }
-}""")
-    res.append(r"""module ietf-inet-types {
+  extension link {
+    description
+      "Declares a link demand from this transform towards another (linked)
+      transform. The argument is a tag that identifies the link. On a leafref
+      leaf, the link target is derived from the leafref path. On other nodes,
+      a nested sw:path substatement provides the target path.";
+    argument "tag";
+  }
+  extension path {
+    description
+      "Substatement of sw:link that provides an explicit absolute schema path
+      to the linked transform target.";
+    argument "path";
+  }
+}"""
+
+SRC_YANG_2: str = r"""module ietf-inet-types {
 
   namespace "urn:ietf:params:xml:ns:yang:ietf-inet-types";
   prefix "inet";
@@ -583,33 +597,38 @@ def src_yang():
   }
 
 }
-""")
-    return res
+"""
+
+pure def src_yang() -> list[str]:
+    return [
+        SRC_YANG_0,
+        SRC_YANG_1,
+        SRC_YANG_2,
+    ]
 
 
-NS_netinfra = 'http://example.com/netinfra'
-NS_stratoweave = 'http://stratoweave.org/yang/stratoweave.yang'
-NS_ietf_inet_types = 'urn:ietf:params:xml:ns:yang:ietf-inet-types'
+NS_netinfra: str = 'http://example.com/netinfra'
+NS_stratoweave: str = 'http://stratoweave.org/yang/stratoweave.yang'
+NS_ietf_inet_types: str = 'urn:ietf:params:xml:ns:yang:ietf-inet-types'
 
 
-_breaker1 = None
+_breaker1: None = None
 class netinfra__netinfra__router_entry(yang.adata.MNode):
     name: str
     id: ?u64
     type: ?str
 
-    mut def __init__(self, name: str, id: ?u64, type: ?str):
-        self._ns = 'http://example.com/netinfra'
+    mut def __init__(self, name: str, id: ?u64, type: ?str) -> None:
         self.name = name
         self.id = id
         self.type = type
 
-    def _get_attr(self, name: str) -> ?value:
-        if name == 'name':
+    pure def _get_attr(self, name: str) -> ?value:
+        if name == 'netinfra:name':
             return self.name
-        if name == 'id':
+        if name == 'netinfra:id':
             return self.id
-        if name == 'type':
+        if name == 'netinfra:type':
             return self.type
 
     mut def to_gdata(self) -> yang.gdata.Node:
@@ -619,31 +638,30 @@ class netinfra__netinfra__router_entry(yang.adata.MNode):
     mut def from_gdata(n: yang.gdata.Node) -> netinfra__netinfra__router_entry:
         return netinfra__netinfra__router_entry(name=n.get_str(yang.gdata.Id(NS_netinfra, 'name')), id=n.get_opt_u64(yang.gdata.Id(NS_netinfra, 'id')), type=n.get_opt_str(yang.gdata.Id(NS_netinfra, 'type')))
 
-    def copy(self):
+    mut def copy(self) -> netinfra__netinfra__router_entry:
         """Create a deep copy of this adata object"""
         return netinfra__netinfra__router_entry.from_gdata(self.to_gdata())
 
-_breaker2 = None
+_breaker2: None = None
 class netinfra__netinfra__router(yang.adata.MNode):
     elements: list[netinfra__netinfra__router_entry]
-    mut def __init__(self, elements=[]):
-        self._ns = 'http://example.com/netinfra'
-        self._name = 'router'
+    mut def __init__(self, elements: list[netinfra__netinfra__router_entry]=[]) -> None:
         self.elements = elements
 
-    mut def create(self, name, id=None, type=None):
+    pure def get(self, name: str) -> ?netinfra__netinfra__router_entry:
         for e in self:
-            match = True
             if e.name != name:
-                match = False
                 continue
-            if match:
-                if id is not None:
-                    e.id = id
-                if type is not None:
-                    e.type = type
-                return e
+            return e
 
+    mut def create(self, name: str, id: ?u64=None, type: ?str=None) -> netinfra__netinfra__router_entry:
+        e = self.get(name)
+        if e is not None:
+            if id is not None:
+                e.id = id
+            if type is not None:
+                e.type = type
+            return e
         res = netinfra__netinfra__router_entry(name=name, id=id, type=type)
         self.elements.append(res)
         return res
@@ -654,7 +672,7 @@ class netinfra__netinfra__router(yang.adata.MNode):
             return [netinfra__netinfra__router_entry.from_gdata(e) for e in n.elements]
         return []
 
-    def copy(self):
+    mut def copy(self) -> netinfra__netinfra__router:
         """Create a deep copy of this list object"""
         # Copy each element in the list
         copied_elements = []
@@ -668,16 +686,36 @@ extension netinfra__netinfra__router(Iterable[netinfra__netinfra__router_entry])
     def __iter__(self) -> Iterator[netinfra__netinfra__router_entry]:
         return self.elements.__iter__()
 
-_breaker3 = None
+extension netinfra__netinfra__router(Indexed[str, netinfra__netinfra__router_entry]):
+    def __getitem__(self, k: str) -> netinfra__netinfra__router_entry:
+        e = self.get(k)
+        if e is not None:
+            return e
+        raise KeyError(k)
+
+    mut def __setitem__(self, k: str, n: netinfra__netinfra__router_entry) -> None:
+        for i, e in enumerate(self.elements):
+            if e.name == k:
+                self.elements[i] = n
+                return
+        self.elements.append(n)
+
+    mut def __delitem__(self, k: str) -> None:
+        for i, e in enumerate(self.elements):
+            if e.name == k:
+                del self.elements[i]
+                return
+        raise KeyError(k)
+
+_breaker3: None = None
 class netinfra__netinfra(yang.adata.MNode):
     router: netinfra__netinfra__router
 
-    mut def __init__(self, router: list[netinfra__netinfra__router_entry]=[]):
-        self._ns = 'http://example.com/netinfra'
+    mut def __init__(self, router: list[netinfra__netinfra__router_entry]=[]) -> None:
         self.router = netinfra__netinfra__router(elements=router)
 
-    def _get_attr(self, name: str) -> ?value:
-        if name == 'router':
+    pure def _get_attr(self, name: str) -> ?value:
+        if name == 'netinfra:router':
             return iter(self.router)
 
     mut def to_gdata(self) -> yang.gdata.Node:
@@ -689,21 +727,20 @@ class netinfra__netinfra(yang.adata.MNode):
             return netinfra__netinfra(router=netinfra__netinfra__router.from_gdata(n.get_opt_list(yang.gdata.Id(NS_netinfra, 'router'))))
         return netinfra__netinfra()
 
-    def copy(self):
+    mut def copy(self) -> netinfra__netinfra:
         """Create a deep copy of this adata object"""
         return netinfra__netinfra.from_gdata(self.to_gdata())
 
 
-_breaker4 = None
+_breaker4: None = None
 class root(yang.adata.MNode):
     netinfra: netinfra__netinfra
 
-    mut def __init__(self, netinfra: ?netinfra__netinfra=None):
-        self._ns = ''
+    mut def __init__(self, netinfra: ?netinfra__netinfra=None) -> None:
         self.netinfra = netinfra if netinfra is not None else netinfra__netinfra()
 
-    def _get_attr(self, name: str) -> ?value:
-        if name == 'netinfra':
+    pure def _get_attr(self, name: str) -> ?value:
+        if name == 'netinfra:netinfra':
             return self.netinfra
 
     mut def to_gdata(self) -> yang.gdata.Node:
@@ -715,7 +752,7 @@ class root(yang.adata.MNode):
             return root(netinfra=netinfra__netinfra.from_gdata(n.get_opt_cnt(yang.gdata.Id(NS_netinfra, 'netinfra'))))
         return root()
 
-    def copy(self):
+    mut def copy(self) -> root:
         """Create a deep copy of this adata object"""
         return root.from_gdata(self.to_gdata())
 

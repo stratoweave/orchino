@@ -1,7 +1,7 @@
-import orchestron
+import stratoweave
 
 import orchino.sysspec
 
 
 actor main(env):
-    orchestron.main(orchino.sysspec.SYSSPEC, env)
+    stratoweave.main(orchino.sysspec.SYSSPEC, env)

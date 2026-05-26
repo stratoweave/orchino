@@ -4,8 +4,8 @@
 
 import logging
 
-import orchestron.device as odev
-import orchestron.ttt as ttt
+import stratoweave.device as odev
+import stratoweave.ttt as ttt
 import yang.adata
 import yang.gdata
 

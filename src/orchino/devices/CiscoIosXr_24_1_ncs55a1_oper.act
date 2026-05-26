@@ -10,6 +10,7 @@ from yang.identityref import Identityref, PartialIdentityref
 from yang.pattern import YangPattern
 from yang.schema import *
 from yang.type import Decimal, Ranges
+from yang.sdata import SubscriptionPath, SubscriptionNode
 
 # == This file is generated ==
 
@@ -96,17 +97,17 @@ SRC_YANG_0: str = r"""module Cisco-IOS-XR-types {
   contact
     "Cisco Systems, Inc.
      Customer Service
-     
+
      Postal: 170 W Tasman Drive
      San Jose, CA 95134
-     
+
      Tel: +1 1800 553-NETS
-     
+
      E-mail: cs-yang@cisco.com";
   description
     "This module contains a collection of IOS-XR derived YANG data
      types.
-     
+
      Copyright (c) 2013-2021 by Cisco Systems, Inc.
      All rights reserved.";
 
@@ -583,20 +584,20 @@ SRC_YANG_0: str = r"""module Cisco-IOS-XR-types {
        When a clear text value is set to a leaf of this type, the
        server calculates a password hash and stores the result
        in the datastore. The password is never stored in clear text.
-       
+
        When a leaf of this type is read, the stored password hash is
        returned.
-       
+
        A value of this type matches one of the forms:
-       
+
          !<clear text password>
          <password hash>
-       
+
        The '!' prefix signals that the value is clear text. When
        such a value is received by the server, a hash value is
        calculated. This value is stored in the configuration data
        store.
-       
+
        If a value starting without '!' is received, the server knows
        that the value already represents a hashed value, and stores
        it as is in the data store.";
@@ -612,20 +613,20 @@ SRC_YANG_0: str = r"""module Cisco-IOS-XR-types {
        When a clear text value is set to a leaf of this type, the
        server calculates a password hash and stores the result
        in the datastore. The password is never stored in clear text.
-       
+
        When a leaf of this type is read, the stored password hash is
        returned.
-       
+
        A value of this type matches one of the forms:
-       
+
          !<clear text password>
          <password hash>
-       
+
        The '!' prefix signals that the value is clear text. When
        such a value is received by the server, a hash value is
        calculated. This value is stored in the configuration data
        store.
-       
+
        If a value starting without '!' is received, the server knows
        that the value already represents a hashed value, and stores
        it as is in the data store.";
@@ -641,20 +642,20 @@ SRC_YANG_0: str = r"""module Cisco-IOS-XR-types {
        When a clear text value is set to a leaf of this type, the
        server calculates a password hash and stores the result
        in the datastore. The password is never stored in clear text.
-       
+
        When a leaf of this type is read, the stored password hash is
        returned.
-       
+
        A value of this type matches one of the forms:
-       
+
          !<clear text password>
          <password hash>
-       
+
        The '!' prefix signals that the value is clear text. When
        such a value is received by the server, a hash value is
        calculated. This value is stored in the configuration data
        store.
-       
+
        If a value starting without '!' is received, the server knows
        that the value already represents a hashed value, and stores
        it as is in the data store.";
@@ -670,20 +671,20 @@ SRC_YANG_0: str = r"""module Cisco-IOS-XR-types {
        When a clear text value is set to a leaf of this type, the
        server calculates a password hash and stores the result
        in the datastore. The password is never stored in clear text.
-       
+
        When a leaf of this type is read, the stored password hash is
        returned.
-       
+
        A value of this type matches one of the forms:
-       
+
          !<clear text password>
          <password hash>
-       
+
        The '!' prefix signals that the value is clear text. When
        such a value is received by the server, a hash value is
        calculated. This value is stored in the configuration data
        store.
-       
+
        If a value starting without '!' is received, the server knows
        that the value already represents a hashed value, and stores
        it as is in the data store.";
@@ -699,20 +700,20 @@ SRC_YANG_0: str = r"""module Cisco-IOS-XR-types {
        When a clear text value is set to a leaf of this type, the
        server calculates a password hash and stores the result
        in the datastore. The password is never stored in clear text.
-       
+
        When a leaf of this type is read, the stored password hash is
        returned.
-       
+
        A value of this type matches one of the forms:
-       
+
          !<clear text password>
          <password hash>
-       
+
        The '!' prefix signals that the value is clear text. When
        such a value is received by the server, a hash value is
        calculated. This value is stored in the configuration data
        store.
-       
+
        If a value starting without '!' is received, the server knows
        that the value already represents a hashed value, and stores
        it as is in the data store.";
@@ -728,20 +729,20 @@ SRC_YANG_0: str = r"""module Cisco-IOS-XR-types {
        When a clear text value is set to a leaf of this type, the
        server calculates a password hash and stores the result
        in the datastore. The password is never stored in clear text.
-       
+
        When a leaf of this type is read, the stored password hash is
        returned.
-       
+
        A value of this type matches one of the forms:
-       
+
          !<clear text password>
          <password hash>
-       
+
        The '!' prefix signals that the value is clear text. When
        such a value is received by the server, a hash value is
        calculated. This value is stored in the configuration data
        store.
-       
+
        If a value starting without '!' is received, the server knows
        that the value already represents a hashed value, and stores
        it as is in the data store.";
@@ -915,20 +916,20 @@ SRC_YANG_1: str = r"""module Cisco-IOS-XR-um-hostname-cfg {
   contact
     "Cisco Systems, Inc.
      Customer Service
-     
+
      Postal: 170 West Tasman Drive
      San Jose, CA 95134
-     
+
      Tel: +1 800 553-NETS
-     
+
      E-mail: cs-yang@cisco.com";
   description
     "This module contains a collection of YANG definitions
      for Cisco IOS-XR hostname package configuration.
-     
+
      This YANG module augments the
      modules with configuration data.
-     
+
      Copyright (c) 2021-2022 by Cisco Systems, Inc.
      All rights reserved.";
 
@@ -978,20 +979,20 @@ SRC_YANG_2: str = r"""module Cisco-IOS-XR-um-if-ip-address-cfg {
   contact
     "Cisco Systems, Inc.
      Customer Service
-     
+
      Postal: 170 West Tasman Drive
      San Jose, CA 95134
-     
+
      Tel: +1 800 553-NETS
-     
+
      E-mail: cs-yang@cisco.com";
   description
     "This module contains a collection of YANG definitions
      for Cisco IOS-XR interface package configuration.
-     
+
      This YANG module augments the
      modules with configuration data.
-     
+
      Copyright (c) 2019-2022 by Cisco Systems, Inc.
      All rights reserved.";
 
@@ -1136,20 +1137,20 @@ SRC_YANG_3: str = r"""module Cisco-IOS-XR-um-interface-cfg {
   contact
     "Cisco Systems, Inc.
      Customer Service
-     
+
      Postal: 170 West Tasman Drive
      San Jose, CA 95134
-     
+
      Tel: +1 800 553-NETS
-     
+
      E-mail: cs-yang@cisco.com";
   description
     "This module contains a collection of YANG definitions
      for Cisco IOS-XR interface package configuration.
-     
+
      This YANG module augments the
      modules with configuration data.
-     
+
      Copyright (c) 2019-2022 by Cisco Systems, Inc.
      All rights reserved.";
 
@@ -1344,7 +1345,7 @@ SRC_YANG_4: str = r"""module cisco-semver {
         "Mailing list: <cs-yang@cisco.com>";
 
     description
-        "This YANG module defines semantic version for Cisco defined YANG models. 
+        "This YANG module defines semantic version for Cisco defined YANG models.
      Copyright (c) 2019 by Cisco Systems, Inc.
      All rights reserved.";
 
@@ -1352,7 +1353,7 @@ SRC_YANG_4: str = r"""module cisco-semver {
         description
             "Initial Version.";
 
-        reference "draft-verdt-netmod-yang-solutions-00"; 
+        reference "draft-verdt-netmod-yang-solutions-00";
     }
 
     extension module-version {
@@ -1360,27 +1361,27 @@ SRC_YANG_4: str = r"""module cisco-semver {
         description
             "The version number for the module. This is
       expressed as a semantic version number of the form:
-      major.minor.patch(x)  
+      major.minor.patch(x)
       where:
-        * major corresponds to the major version. 
-        * minor corresponds to a minor version. 
-        * patch corresponds to a patch version. It is updated only for 
-          'editorial' changes that do not change the API semantics in 
-          any way. In addition to 'editorial' changes that do not 
+        * major corresponds to the major version.
+        * minor corresponds to a minor version.
+        * patch corresponds to a patch version. It is updated only for
+          'editorial' changes that do not change the API semantics in
+          any way. In addition to 'editorial' changes that do not
           change the YANG module semantics, the patch field can
-          also be used in a limited way to indicate major and minor 
+          also be used in a limited way to indicate major and minor
           version changes as well. The patch version may be incremented for
-          a major or minor change if that change is happening on a 
-          non-HEAD or non-latest branch. If the patch field is incremented 
-          for a minor version change then it is appended with the 
-          suffix '(m)', if the patch field is incremented for a major 
-          version change then it is appended with the suffix '(M)', 
+          a major or minor change if that change is happening on a
+          non-HEAD or non-latest branch. If the patch field is incremented
+          for a minor version change then it is appended with the
+          suffix '(m)', if the patch field is incremented for a major
+          version change then it is appended with the suffix '(M)',
           replacing '(m)', if present.
 
-      This version number should be specified as a child of revision 
-      statement to indicate that a specific revision had a specific 
-      semantic version number. Where several modules are used to build 
-      up a single block of functionality, the same module version is 
+      This version number should be specified as a child of revision
+      statement to indicate that a specific revision had a specific
+      semantic version number. Where several modules are used to build
+      up a single block of functionality, the same module version is
       specified across each file that makes up the module.
 
       Following a release of major version 1, all modules will
@@ -1391,26 +1392,26 @@ SRC_YANG_4: str = r"""module cisco-semver {
           minor and patch version numbers to 0) or only the patch version
           number MUST be updated and appended with '(M)', replacing '(m)'
           if present.
-   
+
       2.  if one or more backwards-compatible change is made then either
           the minor version number MUST be updated (resetting the patch
           version numbers to 0) or only the patch version number MUST be
           updated and appended with '(m)' unless the previous patch version
           number already had '(M)' appended, in which case the '(M)' suffix
           is retained for the new patch version.
-   
+
       3.  if one or more editorial change is made then the patch version
           number MUST be updated. If the previous patch version number
           already had either an '(m') or '(M)' suffix then it is retained
           for the new patch version regardless of whether the subsequent
-          changes are backwards-compatible, non-backwards-compatible, 
-          or editorial changes. 
+          changes are backwards-compatible, non-backwards-compatible,
+          or editorial changes.
 
       When a field in the version number is incremented, all following
       fields are reset back to 0.  Major version number 0 indicates that
       the module is not yet stable and allows non-backwards-compatible
       changes without requiring the major version number to be incremented
-   
+
       Where possible, the version number should be updated using the
       standard semantic versioning rules, relying on the '(m)' and '(M)'
       suffixes only used where strictly necessary.";
@@ -3190,3 +3191,355 @@ class root(yang.adata.MNode):
 actor rpc_root(tp: yang.gdata.TreeProvider):
     pass
 
+
+
+_breaker24: None = None
+class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__l2transport_subs(SubscriptionNode):
+
+    pure def __init__(self, path: ?SubscriptionPath=None) -> None:
+        SubscriptionNode.__init__(self, path)
+
+    pure def _direct_children(self) -> list[SubscriptionNode]:
+        direct: list[SubscriptionNode] = []
+        return direct
+
+_breaker25: None = None
+class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__point_to_point_subs(SubscriptionNode):
+
+    pure def __init__(self, path: ?SubscriptionPath=None) -> None:
+        SubscriptionNode.__init__(self, path)
+
+    pure def _direct_children(self) -> list[SubscriptionNode]:
+        direct: list[SubscriptionNode] = []
+        return direct
+
+_breaker26: None = None
+class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__multipoint_subs(SubscriptionNode):
+
+    pure def __init__(self, path: ?SubscriptionPath=None) -> None:
+        SubscriptionNode.__init__(self, path)
+
+    pure def _direct_children(self) -> list[SubscriptionNode]:
+        direct: list[SubscriptionNode] = []
+        return direct
+
+_breaker27: None = None
+class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type_subs(SubscriptionNode):
+    l2transport: Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__l2transport_subs
+    point_to_point: Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__point_to_point_subs
+    multipoint: Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__multipoint_subs
+
+    pure def __init__(self, path: ?SubscriptionPath=None) -> None:
+        SubscriptionNode.__init__(self, path)
+        self.l2transport = Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__l2transport_subs(SubscriptionPath(yang.gdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'l2transport'), parent=path))
+        self.point_to_point = Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__point_to_point_subs(SubscriptionPath(yang.gdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'point-to-point'), parent=path))
+        self.multipoint = Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__multipoint_subs(SubscriptionPath(yang.gdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'multipoint'), parent=path))
+
+    pure def _direct_children(self) -> list[SubscriptionNode]:
+        direct: list[SubscriptionNode] = [self.l2transport, self.point_to_point, self.multipoint]
+        return direct
+
+_breaker28: None = None
+class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__address_subs(SubscriptionNode):
+    address: SubscriptionNode
+    netmask: SubscriptionNode
+    route_tag: SubscriptionNode
+    algorithm: SubscriptionNode
+
+    pure def __init__(self, path: ?SubscriptionPath=None) -> None:
+        SubscriptionNode.__init__(self, path)
+        self.address = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'address'), parent=path))
+        self.netmask = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'netmask'), parent=path))
+        self.route_tag = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'route-tag'), parent=path))
+        self.algorithm = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'algorithm'), parent=path))
+
+    pure def _direct_children(self) -> list[SubscriptionNode]:
+        direct: list[SubscriptionNode] = [self.address, self.netmask, self.route_tag, self.algorithm]
+        return direct
+
+_breaker29: None = None
+class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries__secondary_entry_subs(SubscriptionNode):
+    address: SubscriptionNode
+    netmask: SubscriptionNode
+    route_tag: SubscriptionNode
+    algorithm: SubscriptionNode
+
+    pure def __init__(self, path: ?SubscriptionPath=None) -> None:
+        SubscriptionNode.__init__(self, path)
+        self.address = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'address'), parent=path))
+        self.netmask = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'netmask'), parent=path))
+        self.route_tag = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'route-tag'), parent=path))
+        self.algorithm = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'algorithm'), parent=path))
+
+    pure def _direct_children(self) -> list[SubscriptionNode]:
+        direct: list[SubscriptionNode] = [self.address, self.netmask, self.route_tag, self.algorithm]
+        return direct
+
+_breaker30: None = None
+class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries__secondary_subs(SubscriptionNode):
+    address: SubscriptionNode
+    netmask: SubscriptionNode
+    route_tag: SubscriptionNode
+    algorithm: SubscriptionNode
+    pure def __init__(self, path: ?SubscriptionPath=None) -> None:
+        SubscriptionNode.__init__(self, path)
+        self.address = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'address'), parent=path))
+        self.netmask = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'netmask'), parent=path))
+        self.route_tag = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'route-tag'), parent=path))
+        self.algorithm = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'algorithm'), parent=path))
+
+    pure def entry(self, address: str) -> Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries__secondary_entry_subs:
+        predicates = [
+            yang.gdata.FNode(yang.gdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'address'), value_match=address),
+        ]
+        base_path = self._path!.parent
+        return Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries__secondary_entry_subs(SubscriptionPath(yang.gdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'secondary'), predicates=predicates, parent=base_path))
+
+    pure def _direct_children(self) -> list[SubscriptionNode]:
+        direct: list[SubscriptionNode] = [self.address, self.netmask, self.route_tag, self.algorithm]
+        return direct
+
+_breaker31: None = None
+class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries_subs(SubscriptionNode):
+    secondary: Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries__secondary_subs
+
+    pure def __init__(self, path: ?SubscriptionPath=None) -> None:
+        SubscriptionNode.__init__(self, path)
+        self.secondary = Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries__secondary_subs(SubscriptionPath(yang.gdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'secondary'), parent=path))
+
+    pure def _direct_children(self) -> list[SubscriptionNode]:
+        direct: list[SubscriptionNode] = [self.secondary]
+        return direct
+
+_breaker32: None = None
+class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__dhcp_subs(SubscriptionNode):
+
+    pure def __init__(self, path: ?SubscriptionPath=None) -> None:
+        SubscriptionNode.__init__(self, path)
+
+    pure def _direct_children(self) -> list[SubscriptionNode]:
+        direct: list[SubscriptionNode] = []
+        return direct
+
+_breaker33: None = None
+class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses_subs(SubscriptionNode):
+    address: Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__address_subs
+    secondaries: Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries_subs
+    unnumbered: SubscriptionNode
+    dhcp: Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__dhcp_subs
+
+    pure def __init__(self, path: ?SubscriptionPath=None) -> None:
+        SubscriptionNode.__init__(self, path)
+        self.address = Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__address_subs(SubscriptionPath(yang.gdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'address'), parent=path))
+        self.secondaries = Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries_subs(SubscriptionPath(yang.gdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'secondaries'), parent=path))
+        self.unnumbered = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'unnumbered'), parent=path))
+        self.dhcp = Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__dhcp_subs(SubscriptionPath(yang.gdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'dhcp'), parent=path))
+
+    pure def _direct_children(self) -> list[SubscriptionNode]:
+        direct: list[SubscriptionNode] = [self.address, self.secondaries, self.unnumbered, self.dhcp]
+        return direct
+
+_breaker34: None = None
+class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4_subs(SubscriptionNode):
+    addresses: Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses_subs
+
+    pure def __init__(self, path: ?SubscriptionPath=None) -> None:
+        SubscriptionNode.__init__(self, path)
+        self.addresses = Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses_subs(SubscriptionPath(yang.gdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'addresses'), parent=path))
+
+    pure def _direct_children(self) -> list[SubscriptionNode]:
+        direct: list[SubscriptionNode] = [self.addresses]
+        return direct
+
+_breaker35: None = None
+class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv6_subs(SubscriptionNode):
+
+    pure def __init__(self, path: ?SubscriptionPath=None) -> None:
+        SubscriptionNode.__init__(self, path)
+
+    pure def _direct_children(self) -> list[SubscriptionNode]:
+        direct: list[SubscriptionNode] = []
+        return direct
+
+_breaker36: None = None
+class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__ppp_subs(SubscriptionNode):
+
+    pure def __init__(self, path: ?SubscriptionPath=None) -> None:
+        SubscriptionNode.__init__(self, path)
+
+    pure def _direct_children(self) -> list[SubscriptionNode]:
+        direct: list[SubscriptionNode] = []
+        return direct
+
+_breaker37: None = None
+class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__hdlc_subs(SubscriptionNode):
+
+    pure def __init__(self, path: ?SubscriptionPath=None) -> None:
+        SubscriptionNode.__init__(self, path)
+
+    pure def _direct_children(self) -> list[SubscriptionNode]:
+        direct: list[SubscriptionNode] = []
+        return direct
+
+_breaker38: None = None
+class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__mfr_subs(SubscriptionNode):
+
+    pure def __init__(self, path: ?SubscriptionPath=None) -> None:
+        SubscriptionNode.__init__(self, path)
+
+    pure def _direct_children(self) -> list[SubscriptionNode]:
+        direct: list[SubscriptionNode] = []
+        return direct
+
+_breaker39: None = None
+class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__frame_relay__IETF_subs(SubscriptionNode):
+
+    pure def __init__(self, path: ?SubscriptionPath=None) -> None:
+        SubscriptionNode.__init__(self, path)
+
+    pure def _direct_children(self) -> list[SubscriptionNode]:
+        direct: list[SubscriptionNode] = []
+        return direct
+
+_breaker40: None = None
+class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__frame_relay_subs(SubscriptionNode):
+    IETF: Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__frame_relay__IETF_subs
+
+    pure def __init__(self, path: ?SubscriptionPath=None) -> None:
+        SubscriptionNode.__init__(self, path)
+        self.IETF = Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__frame_relay__IETF_subs(SubscriptionPath(yang.gdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'IETF'), parent=path))
+
+    pure def _direct_children(self) -> list[SubscriptionNode]:
+        direct: list[SubscriptionNode] = [self.IETF]
+        return direct
+
+_breaker41: None = None
+class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation_subs(SubscriptionNode):
+    ppp: Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__ppp_subs
+    hdlc: Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__hdlc_subs
+    mfr: Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__mfr_subs
+    frame_relay: Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__frame_relay_subs
+
+    pure def __init__(self, path: ?SubscriptionPath=None) -> None:
+        SubscriptionNode.__init__(self, path)
+        self.ppp = Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__ppp_subs(SubscriptionPath(yang.gdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'ppp'), parent=path))
+        self.hdlc = Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__hdlc_subs(SubscriptionPath(yang.gdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'hdlc'), parent=path))
+        self.mfr = Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__mfr_subs(SubscriptionPath(yang.gdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'mfr'), parent=path))
+        self.frame_relay = Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__frame_relay_subs(SubscriptionPath(yang.gdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'frame-relay'), parent=path))
+
+    pure def _direct_children(self) -> list[SubscriptionNode]:
+        direct: list[SubscriptionNode] = [self.ppp, self.hdlc, self.mfr, self.frame_relay]
+        return direct
+
+_breaker42: None = None
+class Cisco_IOS_XR_um_interface_cfg__interfaces__interface_entry_subs(SubscriptionNode):
+    interface_name: SubscriptionNode
+    sub_interface_type: Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type_subs
+    ipv4: Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4_subs
+    ipv6: Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv6_subs
+    encapsulation: Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation_subs
+    shutdown: SubscriptionNode
+    mtu: SubscriptionNode
+    description: SubscriptionNode
+
+    pure def __init__(self, path: ?SubscriptionPath=None) -> None:
+        SubscriptionNode.__init__(self, path)
+        self.interface_name = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'interface-name'), parent=path))
+        self.sub_interface_type = Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type_subs(SubscriptionPath(yang.gdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'sub-interface-type'), parent=path))
+        self.ipv4 = Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4_subs(SubscriptionPath(yang.gdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'ipv4'), parent=path))
+        self.ipv6 = Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv6_subs(SubscriptionPath(yang.gdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'ipv6'), parent=path))
+        self.encapsulation = Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation_subs(SubscriptionPath(yang.gdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'encapsulation'), parent=path))
+        self.shutdown = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'shutdown'), parent=path))
+        self.mtu = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'mtu'), parent=path))
+        self.description = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'description'), parent=path))
+
+    pure def _direct_children(self) -> list[SubscriptionNode]:
+        direct: list[SubscriptionNode] = [self.interface_name, self.sub_interface_type, self.ipv4, self.ipv6, self.encapsulation, self.shutdown, self.mtu, self.description]
+        return direct
+
+_breaker43: None = None
+class Cisco_IOS_XR_um_interface_cfg__interfaces__interface_subs(SubscriptionNode):
+    interface_name: SubscriptionNode
+    sub_interface_type: Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type_subs
+    ipv4: Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4_subs
+    ipv6: Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv6_subs
+    encapsulation: Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation_subs
+    shutdown: SubscriptionNode
+    mtu: SubscriptionNode
+    description: SubscriptionNode
+    pure def __init__(self, path: ?SubscriptionPath=None) -> None:
+        SubscriptionNode.__init__(self, path)
+        self.interface_name = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'interface-name'), parent=path))
+        self.sub_interface_type = Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type_subs(SubscriptionPath(yang.gdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'sub-interface-type'), parent=path))
+        self.ipv4 = Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4_subs(SubscriptionPath(yang.gdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'ipv4'), parent=path))
+        self.ipv6 = Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv6_subs(SubscriptionPath(yang.gdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'ipv6'), parent=path))
+        self.encapsulation = Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation_subs(SubscriptionPath(yang.gdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'encapsulation'), parent=path))
+        self.shutdown = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'shutdown'), parent=path))
+        self.mtu = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'mtu'), parent=path))
+        self.description = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'description'), parent=path))
+
+    pure def entry(self, interface_name: str) -> Cisco_IOS_XR_um_interface_cfg__interfaces__interface_entry_subs:
+        predicates = [
+            yang.gdata.FNode(yang.gdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'interface-name'), value_match=interface_name),
+        ]
+        base_path = self._path!.parent
+        return Cisco_IOS_XR_um_interface_cfg__interfaces__interface_entry_subs(SubscriptionPath(yang.gdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'interface'), predicates=predicates, parent=base_path))
+
+    pure def _direct_children(self) -> list[SubscriptionNode]:
+        direct: list[SubscriptionNode] = [self.interface_name, self.sub_interface_type, self.ipv4, self.ipv6, self.encapsulation, self.shutdown, self.mtu, self.description]
+        return direct
+
+_breaker44: None = None
+class Cisco_IOS_XR_um_interface_cfg__interfaces_subs(SubscriptionNode):
+    interface: Cisco_IOS_XR_um_interface_cfg__interfaces__interface_subs
+
+    pure def __init__(self, path: ?SubscriptionPath=None) -> None:
+        SubscriptionNode.__init__(self, path)
+        self.interface = Cisco_IOS_XR_um_interface_cfg__interfaces__interface_subs(SubscriptionPath(yang.gdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'interface'), parent=path))
+
+    pure def _direct_children(self) -> list[SubscriptionNode]:
+        direct: list[SubscriptionNode] = [self.interface]
+        return direct
+
+_breaker45: None = None
+class Cisco_IOS_XR_um_hostname_cfg__hostname_subs(SubscriptionNode):
+    system_network_name: SubscriptionNode
+
+    pure def __init__(self, path: ?SubscriptionPath=None) -> None:
+        SubscriptionNode.__init__(self, path)
+        self.system_network_name = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_Cisco_IOS_XR_um_hostname_cfg, 'system-network-name'), parent=path))
+
+    pure def _direct_children(self) -> list[SubscriptionNode]:
+        direct: list[SubscriptionNode] = [self.system_network_name]
+        return direct
+
+_breaker46: None = None
+class root_subs(SubscriptionNode):
+    interfaces: Cisco_IOS_XR_um_interface_cfg__interfaces_subs
+    hostname: Cisco_IOS_XR_um_hostname_cfg__hostname_subs
+
+    pure def __init__(self, path: ?SubscriptionPath=None) -> None:
+        SubscriptionNode.__init__(self, path)
+        self.interfaces = Cisco_IOS_XR_um_interface_cfg__interfaces_subs(SubscriptionPath(yang.gdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'interfaces'), parent=path))
+        self.hostname = Cisco_IOS_XR_um_hostname_cfg__hostname_subs(SubscriptionPath(yang.gdata.Id(NS_Cisco_IOS_XR_um_hostname_cfg, 'hostname'), parent=path))
+
+    pure def _direct_children(self) -> list[SubscriptionNode]:
+        direct: list[SubscriptionNode] = [self.interfaces, self.hostname]
+        return direct
+
+subs: root_subs = root_subs()
+
+actor DstAdapter(cb: action(?root, ?Exception) -> None):
+    on_update: action(?yang.gdata.Node, ?Exception) -> None
+    def on_update(n: ?yang.gdata.Node, err: ?Exception) -> None:
+        if err is not None:
+            cb(None, err)
+            return
+        if n is not None:
+            cb(root.from_gdata(n), None)
+            return
+        cb(None, None)
+
+proc def dst(cb: action(?root, ?Exception) -> None) -> yang.gdata.Dst:
+    adapter = DstAdapter(cb)
+    return yang.gdata.Dst(adapter.on_update)

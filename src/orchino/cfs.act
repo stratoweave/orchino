@@ -1,5 +1,5 @@
 import yang.adata
-import orchestron.ttt
+import stratoweave.ttt
 import logging
 
 import orchino.layers.base_0 as base

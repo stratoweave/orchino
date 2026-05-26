@@ -10,6 +10,7 @@ from yang.identityref import Identityref, PartialIdentityref
 from yang.pattern import YangPattern
 from yang.schema import *
 from yang.type import Decimal, Ranges
+from yang.sdata import SubscriptionPath, SubscriptionNode
 
 # == This file is generated ==
 
@@ -80,11 +81,13 @@ SRC_DNODE_CHILD_10: DContainer = DContainer(module='stratoweave-rfs', namespace=
     DLeaf(module='stratoweave-rfs', namespace='http://stratoweave.org/yang/stratoweave-rfs.yang', prefix='sw-rfs', name='runtime-schema-fetch', config=True, default='false', mandatory=False, type_=DTypeBoolean(name='boolean', description=None, reference=None, exts=[], builtin_type='boolean', default=None))
 ])
 
+SRC_DNODE_CHILD_11: DContainer = DContainer(module='stratoweave-rfs', namespace='http://stratoweave.org/yang/stratoweave-rfs.yang', prefix='sw-rfs', name='state', config=False, presence=False)
+
 SRC_DNODE_CHILD_0: DList = DList(module='stratoweave-rfs', namespace='http://stratoweave.org/yang/stratoweave-rfs.yang', prefix='sw-rfs', name='device', key=['name'], config=True, min_elements=0, ordered_by='system', exts=[
         DExt(module='stratoweave', namespace='http://stratoweave.org/yang/stratoweave.yang', prefix='sw', name='device', arg=None, exts=[])
-    ], children=[SRC_DNODE_CHILD_1, SRC_DNODE_CHILD_2, SRC_DNODE_CHILD_3, SRC_DNODE_CHILD_4, SRC_DNODE_CHILD_5, SRC_DNODE_CHILD_6, SRC_DNODE_CHILD_7, SRC_DNODE_CHILD_8, SRC_DNODE_CHILD_9, SRC_DNODE_CHILD_10])
+    ], children=[SRC_DNODE_CHILD_1, SRC_DNODE_CHILD_2, SRC_DNODE_CHILD_3, SRC_DNODE_CHILD_4, SRC_DNODE_CHILD_5, SRC_DNODE_CHILD_6, SRC_DNODE_CHILD_7, SRC_DNODE_CHILD_8, SRC_DNODE_CHILD_9, SRC_DNODE_CHILD_10, SRC_DNODE_CHILD_11])
 
-SRC_DNODE_CHILD_11: DList = DList(module='stratoweave-rfs', namespace='http://stratoweave.org/yang/stratoweave-rfs.yang', prefix='sw-rfs', name='rfs', key=['name'], config=True, min_elements=0, ordered_by='system', children=[
+SRC_DNODE_CHILD_12: DList = DList(module='stratoweave-rfs', namespace='http://stratoweave.org/yang/stratoweave-rfs.yang', prefix='sw-rfs', name='rfs', key=['name'], config=True, min_elements=0, ordered_by='system', children=[
     DLeaf(module='stratoweave-rfs', namespace='http://stratoweave.org/yang/stratoweave-rfs.yang', prefix='sw-rfs', name='name', config=True, description='Device name', mandatory=False, type_=DTypeString(name='string', description=None, reference=None, exts=[], builtin_type='string', default=None, length=None, patterns=[])),
     DList(module='orchino-rfs', namespace='http://example.com/orchino-rfs', prefix='orchino-rfs', name='base-config', key=['name'], config=True, min_elements=0, ordered_by='system', exts=[
             DExt(module='stratoweave', namespace='http://stratoweave.org/yang/stratoweave.yang', prefix='sw', name='rfs-transform', arg='orchino.rfs.BaseConfig', exts=[])
@@ -95,7 +98,7 @@ SRC_DNODE_CHILD_11: DList = DList(module='stratoweave-rfs', namespace='http://st
 ])
 
 SRC_DNODE: DRoot = DRoot(
-    children=[SRC_DNODE_CHILD_0, SRC_DNODE_CHILD_11],
+    children=[SRC_DNODE_CHILD_0, SRC_DNODE_CHILD_12],
     identities=[],
     rpcs=[],
     module_metadata={'urn:ietf:params:xml:ns:yang:ietf-inet-types':('ietf-inet-types', '2013-07-15'), 'http://stratoweave.org/yang/stratoweave.yang':('stratoweave', '2026-04-01'), 'http://stratoweave.org/yang/stratoweave-rfs.yang':('stratoweave-rfs', None), 'http://example.com/orchino-rfs':('orchino-rfs', None)},
@@ -851,7 +854,7 @@ class stratoweave_rfs__device__address__initial_credentials_entry(yang.adata.MNo
             return self.key
 
     mut def to_gdata(self) -> yang.gdata.Node:
-        return yang.adata.from_adata(SRC_DNODE, self, loose=False, root_path=['stratoweave-rfs:device', 'address', 'initial-credentials'])
+        return yang.adata.from_adata(SRC_DNODE, self, loose=True, root_path=['stratoweave-rfs:device', 'address', 'initial-credentials'])
 
     @staticmethod
     mut def from_gdata(n: yang.gdata.Node) -> stratoweave_rfs__device__address__initial_credentials_entry:
@@ -908,11 +911,11 @@ extension stratoweave_rfs__device__address__initial_credentials(Iterable[stratow
 _breaker3: None = None
 class stratoweave_rfs__device__address_entry(yang.adata.MNode):
     name: str
-    address: str
+    address: ?str
     port: ?u64
     initial_credentials: stratoweave_rfs__device__address__initial_credentials
 
-    mut def __init__(self, name: str, address: str, port: ?u64, initial_credentials: list[stratoweave_rfs__device__address__initial_credentials_entry]=[]) -> None:
+    mut def __init__(self, name: str, address: ?str, port: ?u64, initial_credentials: list[stratoweave_rfs__device__address__initial_credentials_entry]=[]) -> None:
         self.name = name
         self.address = address
         self.port = port
@@ -929,11 +932,11 @@ class stratoweave_rfs__device__address_entry(yang.adata.MNode):
             return iter(self.initial_credentials)
 
     mut def to_gdata(self) -> yang.gdata.Node:
-        return yang.adata.from_adata(SRC_DNODE, self, loose=False, root_path=['stratoweave-rfs:device', 'address'])
+        return yang.adata.from_adata(SRC_DNODE, self, loose=True, root_path=['stratoweave-rfs:device', 'address'])
 
     @staticmethod
     mut def from_gdata(n: yang.gdata.Node) -> stratoweave_rfs__device__address_entry:
-        return stratoweave_rfs__device__address_entry(name=n.get_str(yang.gdata.Id(NS_stratoweave_rfs, 'name')), address=n.get_str(yang.gdata.Id(NS_stratoweave_rfs, 'address')), port=n.get_opt_u64(yang.gdata.Id(NS_stratoweave_rfs, 'port')), initial_credentials=stratoweave_rfs__device__address__initial_credentials.from_gdata(n.get_opt_list(yang.gdata.Id(NS_stratoweave_rfs, 'initial-credentials'))))
+        return stratoweave_rfs__device__address_entry(name=n.get_str(yang.gdata.Id(NS_stratoweave_rfs, 'name')), address=n.get_opt_str(yang.gdata.Id(NS_stratoweave_rfs, 'address')), port=n.get_opt_u64(yang.gdata.Id(NS_stratoweave_rfs, 'port')), initial_credentials=stratoweave_rfs__device__address__initial_credentials.from_gdata(n.get_opt_list(yang.gdata.Id(NS_stratoweave_rfs, 'initial-credentials'))))
 
     mut def copy(self) -> stratoweave_rfs__device__address_entry:
         """Create a deep copy of this adata object"""
@@ -951,10 +954,11 @@ class stratoweave_rfs__device__address(yang.adata.MNode):
                 continue
             return e
 
-    mut def create(self, name: str, address: str, port: ?u64=None) -> stratoweave_rfs__device__address_entry:
+    mut def create(self, name: str, address: ?str=None, port: ?u64=None) -> stratoweave_rfs__device__address_entry:
         e = self.get(name)
         if e is not None:
-            e.address = address
+            if address is not None:
+                e.address = address
             if port is not None:
                 e.port = port
             return e
@@ -1019,7 +1023,7 @@ class stratoweave_rfs__device__credentials__key_entry(yang.adata.MNode):
             return self.private_key
 
     mut def to_gdata(self) -> yang.gdata.Node:
-        return yang.adata.from_adata(SRC_DNODE, self, loose=False, root_path=['stratoweave-rfs:device', 'credentials', 'key'])
+        return yang.adata.from_adata(SRC_DNODE, self, loose=True, root_path=['stratoweave-rfs:device', 'credentials', 'key'])
 
     @staticmethod
     mut def from_gdata(n: yang.gdata.Node) -> stratoweave_rfs__device__credentials__key_entry:
@@ -1094,11 +1098,11 @@ extension stratoweave_rfs__device__credentials__key(Indexed[str, stratoweave_rfs
 
 _breaker7: None = None
 class stratoweave_rfs__device__credentials(yang.adata.MNode):
-    username: str
+    username: ?str
     password: ?str
     key: stratoweave_rfs__device__credentials__key
 
-    mut def __init__(self, username: str, password: ?str, key: list[stratoweave_rfs__device__credentials__key_entry]=[]) -> None:
+    mut def __init__(self, username: ?str, password: ?str, key: list[stratoweave_rfs__device__credentials__key_entry]=[]) -> None:
         self.username = username
         self.password = password
         self.key = stratoweave_rfs__device__credentials__key(elements=key)
@@ -1112,13 +1116,13 @@ class stratoweave_rfs__device__credentials(yang.adata.MNode):
             return iter(self.key)
 
     mut def to_gdata(self) -> yang.gdata.Node:
-        return yang.adata.from_adata(SRC_DNODE, self, loose=False, root_path=['stratoweave-rfs:device', 'credentials'])
+        return yang.adata.from_adata(SRC_DNODE, self, loose=True, root_path=['stratoweave-rfs:device', 'credentials'])
 
     @staticmethod
     mut def from_gdata(n: ?yang.gdata.Node) -> stratoweave_rfs__device__credentials:
         if n is not None:
-            return stratoweave_rfs__device__credentials(username=n.get_str(yang.gdata.Id(NS_stratoweave_rfs, 'username')), password=n.get_opt_str(yang.gdata.Id(NS_stratoweave_rfs, 'password')), key=stratoweave_rfs__device__credentials__key.from_gdata(n.get_opt_list(yang.gdata.Id(NS_stratoweave_rfs, 'key'))))
-        raise ValueError('Missing required subtree stratoweave_rfs__device__credentials')
+            return stratoweave_rfs__device__credentials(username=n.get_opt_str(yang.gdata.Id(NS_stratoweave_rfs, 'username')), password=n.get_opt_str(yang.gdata.Id(NS_stratoweave_rfs, 'password')), key=stratoweave_rfs__device__credentials__key.from_gdata(n.get_opt_list(yang.gdata.Id(NS_stratoweave_rfs, 'key'))))
+        return stratoweave_rfs__device__credentials()
 
     mut def copy(self) -> stratoweave_rfs__device__credentials:
         """Create a deep copy of this adata object"""
@@ -1145,7 +1149,7 @@ class stratoweave_rfs__device__initial_credentials_entry(yang.adata.MNode):
             return self.key
 
     mut def to_gdata(self) -> yang.gdata.Node:
-        return yang.adata.from_adata(SRC_DNODE, self, loose=False, root_path=['stratoweave-rfs:device', 'initial-credentials'])
+        return yang.adata.from_adata(SRC_DNODE, self, loose=True, root_path=['stratoweave-rfs:device', 'initial-credentials'])
 
     @staticmethod
     mut def from_gdata(n: yang.gdata.Node) -> stratoweave_rfs__device__initial_credentials_entry:
@@ -1202,11 +1206,11 @@ extension stratoweave_rfs__device__initial_credentials(Iterable[stratoweave_rfs_
 _breaker10: None = None
 class stratoweave_rfs__device__mock__module_entry(yang.adata.MNode):
     name: str
-    namespace: str
+    namespace: ?str
     revision: ?str
     feature: list[str]
 
-    mut def __init__(self, name: str, namespace: str, revision: ?str, feature: ?list[str]=None) -> None:
+    mut def __init__(self, name: str, namespace: ?str, revision: ?str, feature: ?list[str]=None) -> None:
         self.name = name
         self.namespace = namespace
         self.revision = revision
@@ -1223,11 +1227,11 @@ class stratoweave_rfs__device__mock__module_entry(yang.adata.MNode):
             return self.feature
 
     mut def to_gdata(self) -> yang.gdata.Node:
-        return yang.adata.from_adata(SRC_DNODE, self, loose=False, root_path=['stratoweave-rfs:device', 'mock', 'module'])
+        return yang.adata.from_adata(SRC_DNODE, self, loose=True, root_path=['stratoweave-rfs:device', 'mock', 'module'])
 
     @staticmethod
     mut def from_gdata(n: yang.gdata.Node) -> stratoweave_rfs__device__mock__module_entry:
-        return stratoweave_rfs__device__mock__module_entry(name=n.get_str(yang.gdata.Id(NS_stratoweave_rfs, 'name')), namespace=n.get_str(yang.gdata.Id(NS_stratoweave_rfs, 'namespace')), revision=n.get_opt_str(yang.gdata.Id(NS_stratoweave_rfs, 'revision')), feature=n.get_opt_strs(yang.gdata.Id(NS_stratoweave_rfs, 'feature')))
+        return stratoweave_rfs__device__mock__module_entry(name=n.get_str(yang.gdata.Id(NS_stratoweave_rfs, 'name')), namespace=n.get_opt_str(yang.gdata.Id(NS_stratoweave_rfs, 'namespace')), revision=n.get_opt_str(yang.gdata.Id(NS_stratoweave_rfs, 'revision')), feature=n.get_opt_strs(yang.gdata.Id(NS_stratoweave_rfs, 'feature')))
 
     mut def copy(self) -> stratoweave_rfs__device__mock__module_entry:
         """Create a deep copy of this adata object"""
@@ -1245,10 +1249,11 @@ class stratoweave_rfs__device__mock__module(yang.adata.MNode):
                 continue
             return e
 
-    mut def create(self, name: str, namespace: str, revision: ?str=None) -> stratoweave_rfs__device__mock__module_entry:
+    mut def create(self, name: str, namespace: ?str=None, revision: ?str=None) -> stratoweave_rfs__device__mock__module_entry:
         e = self.get(name)
         if e is not None:
-            e.namespace = namespace
+            if namespace is not None:
+                e.namespace = namespace
             if revision is not None:
                 e.revision = revision
             return e
@@ -1299,12 +1304,12 @@ extension stratoweave_rfs__device__mock__module(Indexed[str, stratoweave_rfs__de
 
 _breaker12: None = None
 class stratoweave_rfs__device__mock(yang.adata.MNode):
-    enabled: bool
+    enabled: ?bool
     preset: list[str]
     module: stratoweave_rfs__device__mock__module
 
-    mut def __init__(self, enabled: ?bool=None, preset: ?list[str]=None, module: list[stratoweave_rfs__device__mock__module_entry]=[]) -> None:
-        self.enabled = enabled if enabled is not None else False
+    mut def __init__(self, enabled: ?bool, preset: ?list[str]=None, module: list[stratoweave_rfs__device__mock__module_entry]=[]) -> None:
+        self.enabled = enabled
         self.preset = preset if preset is not None else []
         self.module = stratoweave_rfs__device__mock__module(elements=module)
 
@@ -1317,7 +1322,7 @@ class stratoweave_rfs__device__mock(yang.adata.MNode):
             return iter(self.module)
 
     mut def to_gdata(self) -> yang.gdata.Node:
-        return yang.adata.from_adata(SRC_DNODE, self, loose=False, root_path=['stratoweave-rfs:device', 'mock'])
+        return yang.adata.from_adata(SRC_DNODE, self, loose=True, root_path=['stratoweave-rfs:device', 'mock'])
 
     @staticmethod
     mut def from_gdata(n: ?yang.gdata.Node) -> stratoweave_rfs__device__mock:
@@ -1332,17 +1337,17 @@ class stratoweave_rfs__device__mock(yang.adata.MNode):
 
 _breaker13: None = None
 class stratoweave_rfs__device__debug(yang.adata.MNode):
-    connection: bool
+    connection: ?bool
 
-    mut def __init__(self, connection: ?bool=None) -> None:
-        self.connection = connection if connection is not None else False
+    mut def __init__(self, connection: ?bool) -> None:
+        self.connection = connection
 
     pure def _get_attr(self, name: str) -> ?value:
         if name == 'sw-rfs:connection':
             return self.connection
 
     mut def to_gdata(self) -> yang.gdata.Node:
-        return yang.adata.from_adata(SRC_DNODE, self, loose=False, root_path=['stratoweave-rfs:device', 'debug'])
+        return yang.adata.from_adata(SRC_DNODE, self, loose=True, root_path=['stratoweave-rfs:device', 'debug'])
 
     @staticmethod
     mut def from_gdata(n: ?yang.gdata.Node) -> stratoweave_rfs__device__debug:
@@ -1357,17 +1362,17 @@ class stratoweave_rfs__device__debug(yang.adata.MNode):
 
 _breaker14: None = None
 class stratoweave_rfs__device__feature_flags(yang.adata.MNode):
-    runtime_schema_fetch: bool
+    runtime_schema_fetch: ?bool
 
-    mut def __init__(self, runtime_schema_fetch: ?bool=None) -> None:
-        self.runtime_schema_fetch = runtime_schema_fetch if runtime_schema_fetch is not None else False
+    mut def __init__(self, runtime_schema_fetch: ?bool) -> None:
+        self.runtime_schema_fetch = runtime_schema_fetch
 
     pure def _get_attr(self, name: str) -> ?value:
         if name == 'sw-rfs:runtime-schema-fetch':
             return self.runtime_schema_fetch
 
     mut def to_gdata(self) -> yang.gdata.Node:
-        return yang.adata.from_adata(SRC_DNODE, self, loose=False, root_path=['stratoweave-rfs:device', 'feature-flags'])
+        return yang.adata.from_adata(SRC_DNODE, self, loose=True, root_path=['stratoweave-rfs:device', 'feature-flags'])
 
     @staticmethod
     mut def from_gdata(n: ?yang.gdata.Node) -> stratoweave_rfs__device__feature_flags:
@@ -1381,6 +1386,26 @@ class stratoweave_rfs__device__feature_flags(yang.adata.MNode):
 
 
 _breaker15: None = None
+class stratoweave_rfs__device__state(yang.adata.MNode):
+
+    mut def __init__(self) -> None:
+        pass
+
+    mut def to_gdata(self) -> yang.gdata.Node:
+        return yang.adata.from_adata(SRC_DNODE, self, loose=True, root_path=['stratoweave-rfs:device', 'state'])
+
+    @staticmethod
+    mut def from_gdata(n: ?yang.gdata.Node) -> stratoweave_rfs__device__state:
+        if n is not None:
+            return stratoweave_rfs__device__state()
+        return stratoweave_rfs__device__state()
+
+    mut def copy(self) -> stratoweave_rfs__device__state:
+        """Create a deep copy of this adata object"""
+        return stratoweave_rfs__device__state.from_gdata(self.to_gdata())
+
+
+_breaker16: None = None
 class stratoweave_rfs__device_entry(yang.adata.MNode):
     name: str
     description: ?str
@@ -1388,22 +1413,24 @@ class stratoweave_rfs__device_entry(yang.adata.MNode):
     address: stratoweave_rfs__device__address
     credentials: stratoweave_rfs__device__credentials
     initial_credentials: stratoweave_rfs__device__initial_credentials
-    approval_required: bool
+    approval_required: ?bool
     mock: stratoweave_rfs__device__mock
     debug: stratoweave_rfs__device__debug
     feature_flags: stratoweave_rfs__device__feature_flags
+    state: stratoweave_rfs__device__state
 
-    mut def __init__(self, name: str, credentials: stratoweave_rfs__device__credentials, description: ?str, type: ?str, address: list[stratoweave_rfs__device__address_entry]=[], initial_credentials: list[stratoweave_rfs__device__initial_credentials_entry]=[], approval_required: ?bool=None, mock: ?stratoweave_rfs__device__mock=None, debug: ?stratoweave_rfs__device__debug=None, feature_flags: ?stratoweave_rfs__device__feature_flags=None) -> None:
+    mut def __init__(self, name: str, description: ?str, type: ?str, address: list[stratoweave_rfs__device__address_entry]=[], credentials: ?stratoweave_rfs__device__credentials=None, initial_credentials: list[stratoweave_rfs__device__initial_credentials_entry]=[], approval_required: ?bool, mock: ?stratoweave_rfs__device__mock=None, debug: ?stratoweave_rfs__device__debug=None, feature_flags: ?stratoweave_rfs__device__feature_flags=None, state: ?stratoweave_rfs__device__state=None) -> None:
         self.name = name
         self.description = description
         self.type = type
         self.address = stratoweave_rfs__device__address(elements=address)
-        self.credentials = credentials
+        self.credentials = credentials if credentials is not None else stratoweave_rfs__device__credentials()
         self.initial_credentials = stratoweave_rfs__device__initial_credentials(elements=initial_credentials)
-        self.approval_required = approval_required if approval_required is not None else False
+        self.approval_required = approval_required
         self.mock = mock if mock is not None else stratoweave_rfs__device__mock()
         self.debug = debug if debug is not None else stratoweave_rfs__device__debug()
         self.feature_flags = feature_flags if feature_flags is not None else stratoweave_rfs__device__feature_flags()
+        self.state = state if state is not None else stratoweave_rfs__device__state()
 
     pure def _get_attr(self, name: str) -> ?value:
         if name == 'sw-rfs:name':
@@ -1426,19 +1453,21 @@ class stratoweave_rfs__device_entry(yang.adata.MNode):
             return self.debug
         if name == 'sw-rfs:feature-flags':
             return self.feature_flags
+        if name == 'sw-rfs:state':
+            return self.state
 
     mut def to_gdata(self) -> yang.gdata.Node:
-        return yang.adata.from_adata(SRC_DNODE, self, loose=False, root_path=['stratoweave-rfs:device'])
+        return yang.adata.from_adata(SRC_DNODE, self, loose=True, root_path=['stratoweave-rfs:device'])
 
     @staticmethod
     mut def from_gdata(n: yang.gdata.Node) -> stratoweave_rfs__device_entry:
-        return stratoweave_rfs__device_entry(name=n.get_str(yang.gdata.Id(NS_stratoweave_rfs, 'name')), description=n.get_opt_str(yang.gdata.Id(NS_stratoweave_rfs, 'description')), type=n.get_opt_str(yang.gdata.Id(NS_stratoweave_rfs, 'type')), address=stratoweave_rfs__device__address.from_gdata(n.get_opt_list(yang.gdata.Id(NS_stratoweave_rfs, 'address'))), credentials=stratoweave_rfs__device__credentials.from_gdata(n.get_cnt(yang.gdata.Id(NS_stratoweave_rfs, 'credentials'))), initial_credentials=stratoweave_rfs__device__initial_credentials.from_gdata(n.get_opt_list(yang.gdata.Id(NS_stratoweave_rfs, 'initial-credentials'))), approval_required=n.get_opt_bool(yang.gdata.Id(NS_stratoweave_rfs, 'approval-required')), mock=stratoweave_rfs__device__mock.from_gdata(n.get_opt_cnt(yang.gdata.Id(NS_stratoweave_rfs, 'mock'))), debug=stratoweave_rfs__device__debug.from_gdata(n.get_opt_cnt(yang.gdata.Id(NS_stratoweave_rfs, 'debug'))), feature_flags=stratoweave_rfs__device__feature_flags.from_gdata(n.get_opt_cnt(yang.gdata.Id(NS_stratoweave_rfs, 'feature-flags'))))
+        return stratoweave_rfs__device_entry(name=n.get_str(yang.gdata.Id(NS_stratoweave_rfs, 'name')), description=n.get_opt_str(yang.gdata.Id(NS_stratoweave_rfs, 'description')), type=n.get_opt_str(yang.gdata.Id(NS_stratoweave_rfs, 'type')), address=stratoweave_rfs__device__address.from_gdata(n.get_opt_list(yang.gdata.Id(NS_stratoweave_rfs, 'address'))), credentials=stratoweave_rfs__device__credentials.from_gdata(n.get_opt_cnt(yang.gdata.Id(NS_stratoweave_rfs, 'credentials'))), initial_credentials=stratoweave_rfs__device__initial_credentials.from_gdata(n.get_opt_list(yang.gdata.Id(NS_stratoweave_rfs, 'initial-credentials'))), approval_required=n.get_opt_bool(yang.gdata.Id(NS_stratoweave_rfs, 'approval-required')), mock=stratoweave_rfs__device__mock.from_gdata(n.get_opt_cnt(yang.gdata.Id(NS_stratoweave_rfs, 'mock'))), debug=stratoweave_rfs__device__debug.from_gdata(n.get_opt_cnt(yang.gdata.Id(NS_stratoweave_rfs, 'debug'))), feature_flags=stratoweave_rfs__device__feature_flags.from_gdata(n.get_opt_cnt(yang.gdata.Id(NS_stratoweave_rfs, 'feature-flags'))), state=stratoweave_rfs__device__state.from_gdata(n.get_opt_cnt(yang.gdata.Id(NS_stratoweave_rfs, 'state'))))
 
     mut def copy(self) -> stratoweave_rfs__device_entry:
         """Create a deep copy of this adata object"""
         return stratoweave_rfs__device_entry.from_gdata(self.to_gdata())
 
-_breaker16: None = None
+_breaker17: None = None
 class stratoweave_rfs__device(yang.adata.MNode):
     elements: list[stratoweave_rfs__device_entry]
     mut def __init__(self, elements: list[stratoweave_rfs__device_entry]=[]) -> None:
@@ -1450,10 +1479,9 @@ class stratoweave_rfs__device(yang.adata.MNode):
                 continue
             return e
 
-    mut def create(self, name: str, credentials: stratoweave_rfs__device__credentials, description: ?str=None, type: ?str=None, approval_required: ?bool=None) -> stratoweave_rfs__device_entry:
+    mut def create(self, name: str, description: ?str=None, type: ?str=None, approval_required: ?bool=None) -> stratoweave_rfs__device_entry:
         e = self.get(name)
         if e is not None:
-            e.credentials = credentials
             if description is not None:
                 e.description = description
             if type is not None:
@@ -1461,7 +1489,7 @@ class stratoweave_rfs__device(yang.adata.MNode):
             if approval_required is not None:
                 e.approval_required = approval_required
             return e
-        res = stratoweave_rfs__device_entry(name=name, credentials=credentials, description=description, type=type, approval_required=approval_required)
+        res = stratoweave_rfs__device_entry(name=name, description=description, type=type, approval_required=approval_required)
         self.elements.append(res)
         return res
 
@@ -1506,12 +1534,12 @@ extension stratoweave_rfs__device(Indexed[str, stratoweave_rfs__device_entry]):
                 return
         raise KeyError(k)
 
-_breaker17: None = None
+_breaker18: None = None
 class stratoweave_rfs__rfs__base_config_entry(yang.adata.MNode):
     name: str
-    ipv4_address: str
+    ipv4_address: ?str
 
-    mut def __init__(self, name: str, ipv4_address: str) -> None:
+    mut def __init__(self, name: str, ipv4_address: ?str) -> None:
         self.name = name
         self.ipv4_address = ipv4_address
 
@@ -1522,17 +1550,17 @@ class stratoweave_rfs__rfs__base_config_entry(yang.adata.MNode):
             return self.ipv4_address
 
     mut def to_gdata(self) -> yang.gdata.Node:
-        return yang.adata.from_adata(SRC_DNODE, self, loose=False, root_path=['stratoweave-rfs:rfs', 'orchino-rfs:base-config'])
+        return yang.adata.from_adata(SRC_DNODE, self, loose=True, root_path=['stratoweave-rfs:rfs', 'orchino-rfs:base-config'])
 
     @staticmethod
     mut def from_gdata(n: yang.gdata.Node) -> stratoweave_rfs__rfs__base_config_entry:
-        return stratoweave_rfs__rfs__base_config_entry(name=n.get_str(yang.gdata.Id(NS_orchino_rfs, 'name')), ipv4_address=n.get_str(yang.gdata.Id(NS_orchino_rfs, 'ipv4-address')))
+        return stratoweave_rfs__rfs__base_config_entry(name=n.get_str(yang.gdata.Id(NS_orchino_rfs, 'name')), ipv4_address=n.get_opt_str(yang.gdata.Id(NS_orchino_rfs, 'ipv4-address')))
 
     mut def copy(self) -> stratoweave_rfs__rfs__base_config_entry:
         """Create a deep copy of this adata object"""
         return stratoweave_rfs__rfs__base_config_entry.from_gdata(self.to_gdata())
 
-_breaker18: None = None
+_breaker19: None = None
 class stratoweave_rfs__rfs__base_config(yang.adata.MNode):
     elements: list[stratoweave_rfs__rfs__base_config_entry]
     mut def __init__(self, elements: list[stratoweave_rfs__rfs__base_config_entry]=[]) -> None:
@@ -1544,10 +1572,11 @@ class stratoweave_rfs__rfs__base_config(yang.adata.MNode):
                 continue
             return e
 
-    mut def create(self, name: str, ipv4_address: str) -> stratoweave_rfs__rfs__base_config_entry:
+    mut def create(self, name: str, ipv4_address: ?str=None) -> stratoweave_rfs__rfs__base_config_entry:
         e = self.get(name)
         if e is not None:
-            e.ipv4_address = ipv4_address
+            if ipv4_address is not None:
+                e.ipv4_address = ipv4_address
             return e
         res = stratoweave_rfs__rfs__base_config_entry(name=name, ipv4_address=ipv4_address)
         self.elements.append(res)
@@ -1594,7 +1623,7 @@ extension stratoweave_rfs__rfs__base_config(Indexed[str, stratoweave_rfs__rfs__b
                 return
         raise KeyError(k)
 
-_breaker19: None = None
+_breaker20: None = None
 class stratoweave_rfs__rfs_entry(yang.adata.MNode):
     name: str
     base_config: stratoweave_rfs__rfs__base_config
@@ -1610,7 +1639,7 @@ class stratoweave_rfs__rfs_entry(yang.adata.MNode):
             return iter(self.base_config)
 
     mut def to_gdata(self) -> yang.gdata.Node:
-        return yang.adata.from_adata(SRC_DNODE, self, loose=False, root_path=['stratoweave-rfs:rfs'])
+        return yang.adata.from_adata(SRC_DNODE, self, loose=True, root_path=['stratoweave-rfs:rfs'])
 
     @staticmethod
     mut def from_gdata(n: yang.gdata.Node) -> stratoweave_rfs__rfs_entry:
@@ -1620,7 +1649,7 @@ class stratoweave_rfs__rfs_entry(yang.adata.MNode):
         """Create a deep copy of this adata object"""
         return stratoweave_rfs__rfs_entry.from_gdata(self.to_gdata())
 
-_breaker20: None = None
+_breaker21: None = None
 class stratoweave_rfs__rfs(yang.adata.MNode):
     elements: list[stratoweave_rfs__rfs_entry]
     mut def __init__(self, elements: list[stratoweave_rfs__rfs_entry]=[]) -> None:
@@ -1681,7 +1710,7 @@ extension stratoweave_rfs__rfs(Indexed[str, stratoweave_rfs__rfs_entry]):
                 return
         raise KeyError(k)
 
-_breaker21: None = None
+_breaker22: None = None
 class root(yang.adata.MNode):
     device: stratoweave_rfs__device
     rfs: stratoweave_rfs__rfs
@@ -1697,7 +1726,7 @@ class root(yang.adata.MNode):
             return iter(self.rfs)
 
     mut def to_gdata(self) -> yang.gdata.Node:
-        return yang.adata.from_adata(SRC_DNODE, self, loose=False)
+        return yang.adata.from_adata(SRC_DNODE, self, loose=True)
 
     @staticmethod
     mut def from_gdata(n: ?yang.gdata.Node) -> root:
@@ -1713,3 +1742,437 @@ class root(yang.adata.MNode):
 actor rpc_root(tp: yang.gdata.TreeProvider):
     pass
 
+
+
+_breaker23: None = None
+class stratoweave_rfs__device__address__initial_credentials_entry_subs(SubscriptionNode):
+    username: SubscriptionNode
+    password: SubscriptionNode
+    key: SubscriptionNode
+
+    pure def __init__(self, path: ?SubscriptionPath=None) -> None:
+        SubscriptionNode.__init__(self, path)
+        self.username = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'username'), parent=path))
+        self.password = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'password'), parent=path))
+        self.key = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'key'), parent=path))
+
+    pure def _direct_children(self) -> list[SubscriptionNode]:
+        direct: list[SubscriptionNode] = [self.username, self.password, self.key]
+        return direct
+
+_breaker24: None = None
+class stratoweave_rfs__device__address__initial_credentials_subs(SubscriptionNode):
+    username: SubscriptionNode
+    password: SubscriptionNode
+    key: SubscriptionNode
+    pure def __init__(self, path: ?SubscriptionPath=None) -> None:
+        SubscriptionNode.__init__(self, path)
+        self.username = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'username'), parent=path))
+        self.password = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'password'), parent=path))
+        self.key = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'key'), parent=path))
+
+    pure def entry(self, username: str, password: str, key: str) -> stratoweave_rfs__device__address__initial_credentials_entry_subs:
+        predicates = [
+            yang.gdata.FNode(yang.gdata.Id(NS_stratoweave_rfs, 'username'), value_match=username),
+            yang.gdata.FNode(yang.gdata.Id(NS_stratoweave_rfs, 'password'), value_match=password),
+            yang.gdata.FNode(yang.gdata.Id(NS_stratoweave_rfs, 'key'), value_match=key),
+        ]
+        base_path = self._path!.parent
+        return stratoweave_rfs__device__address__initial_credentials_entry_subs(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'initial-credentials'), predicates=predicates, parent=base_path))
+
+    pure def _direct_children(self) -> list[SubscriptionNode]:
+        direct: list[SubscriptionNode] = [self.username, self.password, self.key]
+        return direct
+
+_breaker25: None = None
+class stratoweave_rfs__device__address_entry_subs(SubscriptionNode):
+    name: SubscriptionNode
+    address: SubscriptionNode
+    port: SubscriptionNode
+    initial_credentials: stratoweave_rfs__device__address__initial_credentials_subs
+
+    pure def __init__(self, path: ?SubscriptionPath=None) -> None:
+        SubscriptionNode.__init__(self, path)
+        self.name = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'name'), parent=path))
+        self.address = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'address'), parent=path))
+        self.port = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'port'), parent=path))
+        self.initial_credentials = stratoweave_rfs__device__address__initial_credentials_subs(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'initial-credentials'), parent=path))
+
+    pure def _direct_children(self) -> list[SubscriptionNode]:
+        direct: list[SubscriptionNode] = [self.name, self.address, self.port, self.initial_credentials]
+        return direct
+
+_breaker26: None = None
+class stratoweave_rfs__device__address_subs(SubscriptionNode):
+    name: SubscriptionNode
+    address: SubscriptionNode
+    port: SubscriptionNode
+    initial_credentials: stratoweave_rfs__device__address__initial_credentials_subs
+    pure def __init__(self, path: ?SubscriptionPath=None) -> None:
+        SubscriptionNode.__init__(self, path)
+        self.name = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'name'), parent=path))
+        self.address = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'address'), parent=path))
+        self.port = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'port'), parent=path))
+        self.initial_credentials = stratoweave_rfs__device__address__initial_credentials_subs(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'initial-credentials'), parent=path))
+
+    pure def entry(self, name: str) -> stratoweave_rfs__device__address_entry_subs:
+        predicates = [
+            yang.gdata.FNode(yang.gdata.Id(NS_stratoweave_rfs, 'name'), value_match=name),
+        ]
+        base_path = self._path!.parent
+        return stratoweave_rfs__device__address_entry_subs(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'address'), predicates=predicates, parent=base_path))
+
+    pure def _direct_children(self) -> list[SubscriptionNode]:
+        direct: list[SubscriptionNode] = [self.name, self.address, self.port, self.initial_credentials]
+        return direct
+
+_breaker27: None = None
+class stratoweave_rfs__device__credentials__key_entry_subs(SubscriptionNode):
+    key: SubscriptionNode
+    private_key: SubscriptionNode
+
+    pure def __init__(self, path: ?SubscriptionPath=None) -> None:
+        SubscriptionNode.__init__(self, path)
+        self.key = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'key'), parent=path))
+        self.private_key = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'private-key'), parent=path))
+
+    pure def _direct_children(self) -> list[SubscriptionNode]:
+        direct: list[SubscriptionNode] = [self.key, self.private_key]
+        return direct
+
+_breaker28: None = None
+class stratoweave_rfs__device__credentials__key_subs(SubscriptionNode):
+    key: SubscriptionNode
+    private_key: SubscriptionNode
+    pure def __init__(self, path: ?SubscriptionPath=None) -> None:
+        SubscriptionNode.__init__(self, path)
+        self.key = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'key'), parent=path))
+        self.private_key = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'private-key'), parent=path))
+
+    pure def entry(self, key: str) -> stratoweave_rfs__device__credentials__key_entry_subs:
+        predicates = [
+            yang.gdata.FNode(yang.gdata.Id(NS_stratoweave_rfs, 'key'), value_match=key),
+        ]
+        base_path = self._path!.parent
+        return stratoweave_rfs__device__credentials__key_entry_subs(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'key'), predicates=predicates, parent=base_path))
+
+    pure def _direct_children(self) -> list[SubscriptionNode]:
+        direct: list[SubscriptionNode] = [self.key, self.private_key]
+        return direct
+
+_breaker29: None = None
+class stratoweave_rfs__device__credentials_subs(SubscriptionNode):
+    username: SubscriptionNode
+    password: SubscriptionNode
+    key: stratoweave_rfs__device__credentials__key_subs
+
+    pure def __init__(self, path: ?SubscriptionPath=None) -> None:
+        SubscriptionNode.__init__(self, path)
+        self.username = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'username'), parent=path))
+        self.password = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'password'), parent=path))
+        self.key = stratoweave_rfs__device__credentials__key_subs(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'key'), parent=path))
+
+    pure def _direct_children(self) -> list[SubscriptionNode]:
+        direct: list[SubscriptionNode] = [self.username, self.password, self.key]
+        return direct
+
+_breaker30: None = None
+class stratoweave_rfs__device__initial_credentials_entry_subs(SubscriptionNode):
+    username: SubscriptionNode
+    password: SubscriptionNode
+    key: SubscriptionNode
+
+    pure def __init__(self, path: ?SubscriptionPath=None) -> None:
+        SubscriptionNode.__init__(self, path)
+        self.username = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'username'), parent=path))
+        self.password = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'password'), parent=path))
+        self.key = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'key'), parent=path))
+
+    pure def _direct_children(self) -> list[SubscriptionNode]:
+        direct: list[SubscriptionNode] = [self.username, self.password, self.key]
+        return direct
+
+_breaker31: None = None
+class stratoweave_rfs__device__initial_credentials_subs(SubscriptionNode):
+    username: SubscriptionNode
+    password: SubscriptionNode
+    key: SubscriptionNode
+    pure def __init__(self, path: ?SubscriptionPath=None) -> None:
+        SubscriptionNode.__init__(self, path)
+        self.username = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'username'), parent=path))
+        self.password = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'password'), parent=path))
+        self.key = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'key'), parent=path))
+
+    pure def entry(self, username: str, password: str, key: str) -> stratoweave_rfs__device__initial_credentials_entry_subs:
+        predicates = [
+            yang.gdata.FNode(yang.gdata.Id(NS_stratoweave_rfs, 'username'), value_match=username),
+            yang.gdata.FNode(yang.gdata.Id(NS_stratoweave_rfs, 'password'), value_match=password),
+            yang.gdata.FNode(yang.gdata.Id(NS_stratoweave_rfs, 'key'), value_match=key),
+        ]
+        base_path = self._path!.parent
+        return stratoweave_rfs__device__initial_credentials_entry_subs(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'initial-credentials'), predicates=predicates, parent=base_path))
+
+    pure def _direct_children(self) -> list[SubscriptionNode]:
+        direct: list[SubscriptionNode] = [self.username, self.password, self.key]
+        return direct
+
+_breaker32: None = None
+class stratoweave_rfs__device__mock__module_entry_subs(SubscriptionNode):
+    name: SubscriptionNode
+    namespace: SubscriptionNode
+    revision: SubscriptionNode
+    feature: SubscriptionNode
+
+    pure def __init__(self, path: ?SubscriptionPath=None) -> None:
+        SubscriptionNode.__init__(self, path)
+        self.name = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'name'), parent=path))
+        self.namespace = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'namespace'), parent=path))
+        self.revision = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'revision'), parent=path))
+        self.feature = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'feature'), parent=path))
+
+    pure def _direct_children(self) -> list[SubscriptionNode]:
+        direct: list[SubscriptionNode] = [self.name, self.namespace, self.revision, self.feature]
+        return direct
+
+_breaker33: None = None
+class stratoweave_rfs__device__mock__module_subs(SubscriptionNode):
+    name: SubscriptionNode
+    namespace: SubscriptionNode
+    revision: SubscriptionNode
+    feature: SubscriptionNode
+    pure def __init__(self, path: ?SubscriptionPath=None) -> None:
+        SubscriptionNode.__init__(self, path)
+        self.name = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'name'), parent=path))
+        self.namespace = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'namespace'), parent=path))
+        self.revision = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'revision'), parent=path))
+        self.feature = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'feature'), parent=path))
+
+    pure def entry(self, name: str) -> stratoweave_rfs__device__mock__module_entry_subs:
+        predicates = [
+            yang.gdata.FNode(yang.gdata.Id(NS_stratoweave_rfs, 'name'), value_match=name),
+        ]
+        base_path = self._path!.parent
+        return stratoweave_rfs__device__mock__module_entry_subs(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'module'), predicates=predicates, parent=base_path))
+
+    pure def _direct_children(self) -> list[SubscriptionNode]:
+        direct: list[SubscriptionNode] = [self.name, self.namespace, self.revision, self.feature]
+        return direct
+
+_breaker34: None = None
+class stratoweave_rfs__device__mock_subs(SubscriptionNode):
+    enabled: SubscriptionNode
+    preset: SubscriptionNode
+    module: stratoweave_rfs__device__mock__module_subs
+
+    pure def __init__(self, path: ?SubscriptionPath=None) -> None:
+        SubscriptionNode.__init__(self, path)
+        self.enabled = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'enabled'), parent=path))
+        self.preset = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'preset'), parent=path))
+        self.module = stratoweave_rfs__device__mock__module_subs(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'module'), parent=path))
+
+    pure def _direct_children(self) -> list[SubscriptionNode]:
+        direct: list[SubscriptionNode] = [self.enabled, self.preset, self.module]
+        return direct
+
+_breaker35: None = None
+class stratoweave_rfs__device__debug_subs(SubscriptionNode):
+    connection: SubscriptionNode
+
+    pure def __init__(self, path: ?SubscriptionPath=None) -> None:
+        SubscriptionNode.__init__(self, path)
+        self.connection = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'connection'), parent=path))
+
+    pure def _direct_children(self) -> list[SubscriptionNode]:
+        direct: list[SubscriptionNode] = [self.connection]
+        return direct
+
+_breaker36: None = None
+class stratoweave_rfs__device__feature_flags_subs(SubscriptionNode):
+    runtime_schema_fetch: SubscriptionNode
+
+    pure def __init__(self, path: ?SubscriptionPath=None) -> None:
+        SubscriptionNode.__init__(self, path)
+        self.runtime_schema_fetch = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'runtime-schema-fetch'), parent=path))
+
+    pure def _direct_children(self) -> list[SubscriptionNode]:
+        direct: list[SubscriptionNode] = [self.runtime_schema_fetch]
+        return direct
+
+_breaker37: None = None
+class stratoweave_rfs__device__state_subs(SubscriptionNode):
+
+    pure def __init__(self, path: ?SubscriptionPath=None) -> None:
+        SubscriptionNode.__init__(self, path)
+
+    pure def _direct_children(self) -> list[SubscriptionNode]:
+        direct: list[SubscriptionNode] = []
+        return direct
+
+_breaker38: None = None
+class stratoweave_rfs__device_entry_subs(SubscriptionNode):
+    name: SubscriptionNode
+    description: SubscriptionNode
+    type: SubscriptionNode
+    address: stratoweave_rfs__device__address_subs
+    credentials: stratoweave_rfs__device__credentials_subs
+    initial_credentials: stratoweave_rfs__device__initial_credentials_subs
+    approval_required: SubscriptionNode
+    mock: stratoweave_rfs__device__mock_subs
+    debug: stratoweave_rfs__device__debug_subs
+    feature_flags: stratoweave_rfs__device__feature_flags_subs
+    state: stratoweave_rfs__device__state_subs
+
+    pure def __init__(self, path: ?SubscriptionPath=None) -> None:
+        SubscriptionNode.__init__(self, path)
+        self.name = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'name'), parent=path))
+        self.description = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'description'), parent=path))
+        self.type = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'type'), parent=path))
+        self.address = stratoweave_rfs__device__address_subs(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'address'), parent=path))
+        self.credentials = stratoweave_rfs__device__credentials_subs(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'credentials'), parent=path))
+        self.initial_credentials = stratoweave_rfs__device__initial_credentials_subs(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'initial-credentials'), parent=path))
+        self.approval_required = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'approval-required'), parent=path))
+        self.mock = stratoweave_rfs__device__mock_subs(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'mock'), parent=path))
+        self.debug = stratoweave_rfs__device__debug_subs(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'debug'), parent=path))
+        self.feature_flags = stratoweave_rfs__device__feature_flags_subs(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'feature-flags'), parent=path))
+        self.state = stratoweave_rfs__device__state_subs(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'state'), parent=path))
+
+    pure def _direct_children(self) -> list[SubscriptionNode]:
+        direct: list[SubscriptionNode] = [self.name, self.description, self.type, self.address, self.credentials, self.initial_credentials, self.approval_required, self.mock, self.debug, self.feature_flags, self.state]
+        return direct
+
+_breaker39: None = None
+class stratoweave_rfs__device_subs(SubscriptionNode):
+    name: SubscriptionNode
+    description: SubscriptionNode
+    type: SubscriptionNode
+    address: stratoweave_rfs__device__address_subs
+    credentials: stratoweave_rfs__device__credentials_subs
+    initial_credentials: stratoweave_rfs__device__initial_credentials_subs
+    approval_required: SubscriptionNode
+    mock: stratoweave_rfs__device__mock_subs
+    debug: stratoweave_rfs__device__debug_subs
+    feature_flags: stratoweave_rfs__device__feature_flags_subs
+    state: stratoweave_rfs__device__state_subs
+    pure def __init__(self, path: ?SubscriptionPath=None) -> None:
+        SubscriptionNode.__init__(self, path)
+        self.name = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'name'), parent=path))
+        self.description = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'description'), parent=path))
+        self.type = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'type'), parent=path))
+        self.address = stratoweave_rfs__device__address_subs(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'address'), parent=path))
+        self.credentials = stratoweave_rfs__device__credentials_subs(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'credentials'), parent=path))
+        self.initial_credentials = stratoweave_rfs__device__initial_credentials_subs(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'initial-credentials'), parent=path))
+        self.approval_required = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'approval-required'), parent=path))
+        self.mock = stratoweave_rfs__device__mock_subs(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'mock'), parent=path))
+        self.debug = stratoweave_rfs__device__debug_subs(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'debug'), parent=path))
+        self.feature_flags = stratoweave_rfs__device__feature_flags_subs(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'feature-flags'), parent=path))
+        self.state = stratoweave_rfs__device__state_subs(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'state'), parent=path))
+
+    pure def entry(self, name: str) -> stratoweave_rfs__device_entry_subs:
+        predicates = [
+            yang.gdata.FNode(yang.gdata.Id(NS_stratoweave_rfs, 'name'), value_match=name),
+        ]
+        base_path = self._path!.parent
+        return stratoweave_rfs__device_entry_subs(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'device'), predicates=predicates, parent=base_path))
+
+    pure def _direct_children(self) -> list[SubscriptionNode]:
+        direct: list[SubscriptionNode] = [self.name, self.description, self.type, self.address, self.credentials, self.initial_credentials, self.approval_required, self.mock, self.debug, self.feature_flags, self.state]
+        return direct
+
+_breaker40: None = None
+class stratoweave_rfs__rfs__base_config_entry_subs(SubscriptionNode):
+    name: SubscriptionNode
+    ipv4_address: SubscriptionNode
+
+    pure def __init__(self, path: ?SubscriptionPath=None) -> None:
+        SubscriptionNode.__init__(self, path)
+        self.name = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_orchino_rfs, 'name'), parent=path))
+        self.ipv4_address = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_orchino_rfs, 'ipv4-address'), parent=path))
+
+    pure def _direct_children(self) -> list[SubscriptionNode]:
+        direct: list[SubscriptionNode] = [self.name, self.ipv4_address]
+        return direct
+
+_breaker41: None = None
+class stratoweave_rfs__rfs__base_config_subs(SubscriptionNode):
+    name: SubscriptionNode
+    ipv4_address: SubscriptionNode
+    pure def __init__(self, path: ?SubscriptionPath=None) -> None:
+        SubscriptionNode.__init__(self, path)
+        self.name = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_orchino_rfs, 'name'), parent=path))
+        self.ipv4_address = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_orchino_rfs, 'ipv4-address'), parent=path))
+
+    pure def entry(self, name: str) -> stratoweave_rfs__rfs__base_config_entry_subs:
+        predicates = [
+            yang.gdata.FNode(yang.gdata.Id(NS_orchino_rfs, 'name'), value_match=name),
+        ]
+        base_path = self._path!.parent
+        return stratoweave_rfs__rfs__base_config_entry_subs(SubscriptionPath(yang.gdata.Id(NS_orchino_rfs, 'base-config'), predicates=predicates, parent=base_path))
+
+    pure def _direct_children(self) -> list[SubscriptionNode]:
+        direct: list[SubscriptionNode] = [self.name, self.ipv4_address]
+        return direct
+
+_breaker42: None = None
+class stratoweave_rfs__rfs_entry_subs(SubscriptionNode):
+    name: SubscriptionNode
+    base_config: stratoweave_rfs__rfs__base_config_subs
+
+    pure def __init__(self, path: ?SubscriptionPath=None) -> None:
+        SubscriptionNode.__init__(self, path)
+        self.name = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'name'), parent=path))
+        self.base_config = stratoweave_rfs__rfs__base_config_subs(SubscriptionPath(yang.gdata.Id(NS_orchino_rfs, 'base-config'), parent=path))
+
+    pure def _direct_children(self) -> list[SubscriptionNode]:
+        direct: list[SubscriptionNode] = [self.name, self.base_config]
+        return direct
+
+_breaker43: None = None
+class stratoweave_rfs__rfs_subs(SubscriptionNode):
+    name: SubscriptionNode
+    base_config: stratoweave_rfs__rfs__base_config_subs
+    pure def __init__(self, path: ?SubscriptionPath=None) -> None:
+        SubscriptionNode.__init__(self, path)
+        self.name = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'name'), parent=path))
+        self.base_config = stratoweave_rfs__rfs__base_config_subs(SubscriptionPath(yang.gdata.Id(NS_orchino_rfs, 'base-config'), parent=path))
+
+    pure def entry(self, name: str) -> stratoweave_rfs__rfs_entry_subs:
+        predicates = [
+            yang.gdata.FNode(yang.gdata.Id(NS_stratoweave_rfs, 'name'), value_match=name),
+        ]
+        base_path = self._path!.parent
+        return stratoweave_rfs__rfs_entry_subs(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'rfs'), predicates=predicates, parent=base_path))
+
+    pure def _direct_children(self) -> list[SubscriptionNode]:
+        direct: list[SubscriptionNode] = [self.name, self.base_config]
+        return direct
+
+_breaker44: None = None
+class root_subs(SubscriptionNode):
+    device: stratoweave_rfs__device_subs
+    rfs: stratoweave_rfs__rfs_subs
+
+    pure def __init__(self, path: ?SubscriptionPath=None) -> None:
+        SubscriptionNode.__init__(self, path)
+        self.device = stratoweave_rfs__device_subs(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'device'), parent=path))
+        self.rfs = stratoweave_rfs__rfs_subs(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'rfs'), parent=path))
+
+    pure def _direct_children(self) -> list[SubscriptionNode]:
+        direct: list[SubscriptionNode] = [self.device, self.rfs]
+        return direct
+
+subs: root_subs = root_subs()
+
+actor DstAdapter(cb: action(?root, ?Exception) -> None):
+    on_update: action(?yang.gdata.Node, ?Exception) -> None
+    def on_update(n: ?yang.gdata.Node, err: ?Exception) -> None:
+        if err is not None:
+            cb(None, err)
+            return
+        if n is not None:
+            cb(root.from_gdata(n), None)
+            return
+        cb(None, None)
+
+proc def dst(cb: action(?root, ?Exception) -> None) -> yang.gdata.Dst:
+    adapter = DstAdapter(cb)
+    return yang.gdata.Dst(adapter.on_update)

@@ -5,7 +5,7 @@ build:
 
 .PHONY: build-ldep
 build-ldep:
-	$(MAKE) build DEP_OVERRIDES="--dep netconf=../netconf --dep orchestron=../orchestron --dep yang=../acton-yang"
+	$(MAKE) build DEP_OVERRIDES="--dep netconf=../netconf --dep stratoweave=../stratoweave --dep yang=../acton-yang"
 
 .PHONY: build-linux-x86_64
 build-linux-x86_64:
@@ -24,7 +24,7 @@ test:
 	acton test $(DEP_OVERRIDES)
 
 test-ldep:
-	$(MAKE) test DEP_OVERRIDES="--dep netconf=../netconf --dep orchestron=../orchestron --dep yang=../acton-yang"
+	$(MAKE) test DEP_OVERRIDES="--dep netconf=../netconf --dep stratoweave=../stratoweave --dep yang=../acton-yang"
 
 .PHONY: gen
 gen:
@@ -32,7 +32,7 @@ gen:
 
 .PHONY: gen-ldep
 gen-ldep:
-	$(MAKE) gen DEP_OVERRIDES="--dep netconf=../../netconf --dep orchestron=../../orchestron --dep yang=../../acton-yang"
+	$(MAKE) gen DEP_OVERRIDES="--dep netconf=../../netconf --dep stratoweave=../../stratoweave --dep yang=../../acton-yang"
 
 .PHONY: pkg-upgrade
 pkg-upgrade:
