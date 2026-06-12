@@ -1,11 +1,11 @@
 import base64
 import json
-import xml
+import std.xml as xml
 import yang
-import yang.adata
-import yang.gdata
-import yang.xml
-import yang.xpath
+import yang.adata as yadata
+import yang.gdata as ygdata
+import yang.xml as yxml
+import yang.xpath as yxpath
 from yang.identityref import Identityref, PartialIdentityref
 from yang.pattern import YangPattern
 from yang.schema import *
@@ -2374,16 +2374,16 @@ NS_ietf_yang_types: str = 'urn:ietf:params:xml:ns:yang:ietf-yang-types'
 
 
 _breaker1: None = None
-class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__l2transport(yang.adata.MNode):
+class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__l2transport(yadata.MNode):
 
     mut def __init__(self) -> None:
         pass
 
-    mut def to_gdata(self) -> yang.gdata.Node:
-        return yang.adata.from_adata(SRC_DNODE, self, loose=True, root_path=['Cisco-IOS-XR-um-interface-cfg:interfaces', 'interface', 'sub-interface-type', 'l2transport'])
+    mut def to_gdata(self) -> ygdata.Node:
+        return yadata.from_adata(SRC_DNODE, self, loose=True, root_path=['Cisco-IOS-XR-um-interface-cfg:interfaces', 'interface', 'sub-interface-type', 'l2transport'])
 
     @staticmethod
-    mut def from_gdata(n: ?yang.gdata.Node) -> ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__l2transport:
+    mut def from_gdata(n: ?ygdata.Node) -> ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__l2transport:
         if n is not None:
             return Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__l2transport()
         return None
@@ -2397,16 +2397,16 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__
 
 
 _breaker2: None = None
-class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__point_to_point(yang.adata.MNode):
+class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__point_to_point(yadata.MNode):
 
     mut def __init__(self) -> None:
         pass
 
-    mut def to_gdata(self) -> yang.gdata.Node:
-        return yang.adata.from_adata(SRC_DNODE, self, loose=True, root_path=['Cisco-IOS-XR-um-interface-cfg:interfaces', 'interface', 'sub-interface-type', 'point-to-point'])
+    mut def to_gdata(self) -> ygdata.Node:
+        return yadata.from_adata(SRC_DNODE, self, loose=True, root_path=['Cisco-IOS-XR-um-interface-cfg:interfaces', 'interface', 'sub-interface-type', 'point-to-point'])
 
     @staticmethod
-    mut def from_gdata(n: ?yang.gdata.Node) -> ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__point_to_point:
+    mut def from_gdata(n: ?ygdata.Node) -> ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__point_to_point:
         if n is not None:
             return Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__point_to_point()
         return None
@@ -2420,16 +2420,16 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__
 
 
 _breaker3: None = None
-class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__multipoint(yang.adata.MNode):
+class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__multipoint(yadata.MNode):
 
     mut def __init__(self) -> None:
         pass
 
-    mut def to_gdata(self) -> yang.gdata.Node:
-        return yang.adata.from_adata(SRC_DNODE, self, loose=True, root_path=['Cisco-IOS-XR-um-interface-cfg:interfaces', 'interface', 'sub-interface-type', 'multipoint'])
+    mut def to_gdata(self) -> ygdata.Node:
+        return yadata.from_adata(SRC_DNODE, self, loose=True, root_path=['Cisco-IOS-XR-um-interface-cfg:interfaces', 'interface', 'sub-interface-type', 'multipoint'])
 
     @staticmethod
-    mut def from_gdata(n: ?yang.gdata.Node) -> ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__multipoint:
+    mut def from_gdata(n: ?ygdata.Node) -> ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__multipoint:
         if n is not None:
             return Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__multipoint()
         return None
@@ -2443,7 +2443,7 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__
 
 
 _breaker4: None = None
-class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type(yang.adata.MNode):
+class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type(yadata.MNode):
     l2transport: ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__l2transport
     point_to_point: ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__point_to_point
     multipoint: ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__multipoint
@@ -2485,13 +2485,13 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type(y
         if name == 'um-interface-cfg:multipoint':
             return self.multipoint
 
-    mut def to_gdata(self) -> yang.gdata.Node:
-        return yang.adata.from_adata(SRC_DNODE, self, loose=True, root_path=['Cisco-IOS-XR-um-interface-cfg:interfaces', 'interface', 'sub-interface-type'])
+    mut def to_gdata(self) -> ygdata.Node:
+        return yadata.from_adata(SRC_DNODE, self, loose=True, root_path=['Cisco-IOS-XR-um-interface-cfg:interfaces', 'interface', 'sub-interface-type'])
 
     @staticmethod
-    mut def from_gdata(n: ?yang.gdata.Node) -> Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type:
+    mut def from_gdata(n: ?ygdata.Node) -> Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type:
         if n is not None:
-            return Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type(l2transport=Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__l2transport.from_gdata(n.get_opt_cnt(yang.gdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'l2transport'))), point_to_point=Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__point_to_point.from_gdata(n.get_opt_cnt(yang.gdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'point-to-point'))), multipoint=Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__multipoint.from_gdata(n.get_opt_cnt(yang.gdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'multipoint'))))
+            return Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type(l2transport=Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__l2transport.from_gdata(n.get_opt_cnt(ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'l2transport'))), point_to_point=Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__point_to_point.from_gdata(n.get_opt_cnt(ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'point-to-point'))), multipoint=Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__multipoint.from_gdata(n.get_opt_cnt(ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'multipoint'))))
         return Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type()
 
     mut def copy(self) -> Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type:
@@ -2500,7 +2500,7 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type(y
 
 
 _breaker5: None = None
-class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__address(yang.adata.MNode):
+class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__address(yadata.MNode):
     address: ?str
     netmask: ?str
     route_tag: ?u64
@@ -2522,13 +2522,13 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__add
         if name == 'um-if-ip-address-cfg:algorithm':
             return self.algorithm
 
-    mut def to_gdata(self) -> yang.gdata.Node:
-        return yang.adata.from_adata(SRC_DNODE, self, loose=True, root_path=['Cisco-IOS-XR-um-interface-cfg:interfaces', 'interface', 'ipv4', 'Cisco-IOS-XR-um-if-ip-address-cfg:addresses', 'address'])
+    mut def to_gdata(self) -> ygdata.Node:
+        return yadata.from_adata(SRC_DNODE, self, loose=True, root_path=['Cisco-IOS-XR-um-interface-cfg:interfaces', 'interface', 'ipv4', 'Cisco-IOS-XR-um-if-ip-address-cfg:addresses', 'address'])
 
     @staticmethod
-    mut def from_gdata(n: ?yang.gdata.Node) -> ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__address:
+    mut def from_gdata(n: ?ygdata.Node) -> ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__address:
         if n is not None:
-            return Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__address(address=n.get_opt_str(yang.gdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'address')), netmask=n.get_opt_str(yang.gdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'netmask')), route_tag=n.get_opt_u64(yang.gdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'route-tag')), algorithm=n.get_opt_u64(yang.gdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'algorithm')))
+            return Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__address(address=n.get_opt_str(ygdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'address')), netmask=n.get_opt_str(ygdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'netmask')), route_tag=n.get_opt_u64(ygdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'route-tag')), algorithm=n.get_opt_u64(ygdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'algorithm')))
         return None
 
     mut def copy(self) -> Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__address:
@@ -2540,7 +2540,7 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__add
 
 
 _breaker6: None = None
-class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries__secondary_entry(yang.adata.MNode):
+class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries__secondary_entry(yadata.MNode):
     address: str
     netmask: ?str
     route_tag: ?u64
@@ -2562,19 +2562,19 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__sec
         if name == 'um-if-ip-address-cfg:algorithm':
             return self.algorithm
 
-    mut def to_gdata(self) -> yang.gdata.Node:
-        return yang.adata.from_adata(SRC_DNODE, self, loose=True, root_path=['Cisco-IOS-XR-um-interface-cfg:interfaces', 'interface', 'ipv4', 'Cisco-IOS-XR-um-if-ip-address-cfg:addresses', 'secondaries', 'secondary'])
+    mut def to_gdata(self) -> ygdata.Node:
+        return yadata.from_adata(SRC_DNODE, self, loose=True, root_path=['Cisco-IOS-XR-um-interface-cfg:interfaces', 'interface', 'ipv4', 'Cisco-IOS-XR-um-if-ip-address-cfg:addresses', 'secondaries', 'secondary'])
 
     @staticmethod
-    mut def from_gdata(n: yang.gdata.Node) -> Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries__secondary_entry:
-        return Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries__secondary_entry(address=n.get_str(yang.gdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'address')), netmask=n.get_opt_str(yang.gdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'netmask')), route_tag=n.get_opt_u64(yang.gdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'route-tag')), algorithm=n.get_opt_u64(yang.gdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'algorithm')))
+    mut def from_gdata(n: ygdata.Node) -> Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries__secondary_entry:
+        return Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries__secondary_entry(address=n.get_str(ygdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'address')), netmask=n.get_opt_str(ygdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'netmask')), route_tag=n.get_opt_u64(ygdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'route-tag')), algorithm=n.get_opt_u64(ygdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'algorithm')))
 
     mut def copy(self) -> Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries__secondary_entry:
         """Create a deep copy of this adata object"""
         return Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries__secondary_entry.from_gdata(self.to_gdata())
 
 _breaker7: None = None
-class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries__secondary(yang.adata.MNode):
+class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries__secondary(yadata.MNode):
     elements: list[Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries__secondary_entry]
     mut def __init__(self, elements: list[Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries__secondary_entry]=[]) -> None:
         self.elements = elements
@@ -2600,7 +2600,7 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__sec
         return res
 
     @staticmethod
-    mut def from_gdata(n: ?yang.gdata.List) -> list[Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries__secondary_entry]:
+    mut def from_gdata(n: ?ygdata.List) -> list[Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries__secondary_entry]:
         if n is not None:
             return [Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries__secondary_entry.from_gdata(e) for e in n.elements]
         return []
@@ -2641,7 +2641,7 @@ extension Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses_
         raise KeyError(k)
 
 _breaker8: None = None
-class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries(yang.adata.MNode):
+class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries(yadata.MNode):
     secondary: Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries__secondary
 
     mut def __init__(self, secondary: list[Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries__secondary_entry]=[]) -> None:
@@ -2651,13 +2651,13 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__sec
         if name == 'um-if-ip-address-cfg:secondary':
             return iter(self.secondary)
 
-    mut def to_gdata(self) -> yang.gdata.Node:
-        return yang.adata.from_adata(SRC_DNODE, self, loose=True, root_path=['Cisco-IOS-XR-um-interface-cfg:interfaces', 'interface', 'ipv4', 'Cisco-IOS-XR-um-if-ip-address-cfg:addresses', 'secondaries'])
+    mut def to_gdata(self) -> ygdata.Node:
+        return yadata.from_adata(SRC_DNODE, self, loose=True, root_path=['Cisco-IOS-XR-um-interface-cfg:interfaces', 'interface', 'ipv4', 'Cisco-IOS-XR-um-if-ip-address-cfg:addresses', 'secondaries'])
 
     @staticmethod
-    mut def from_gdata(n: ?yang.gdata.Node) -> Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries:
+    mut def from_gdata(n: ?ygdata.Node) -> Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries:
         if n is not None:
-            return Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries(secondary=Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries__secondary.from_gdata(n.get_opt_list(yang.gdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'secondary'))))
+            return Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries(secondary=Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries__secondary.from_gdata(n.get_opt_list(ygdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'secondary'))))
         return Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries()
 
     mut def copy(self) -> Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries:
@@ -2666,16 +2666,16 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__sec
 
 
 _breaker9: None = None
-class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__dhcp(yang.adata.MNode):
+class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__dhcp(yadata.MNode):
 
     mut def __init__(self) -> None:
         pass
 
-    mut def to_gdata(self) -> yang.gdata.Node:
-        return yang.adata.from_adata(SRC_DNODE, self, loose=True, root_path=['Cisco-IOS-XR-um-interface-cfg:interfaces', 'interface', 'ipv4', 'Cisco-IOS-XR-um-if-ip-address-cfg:addresses', 'dhcp'])
+    mut def to_gdata(self) -> ygdata.Node:
+        return yadata.from_adata(SRC_DNODE, self, loose=True, root_path=['Cisco-IOS-XR-um-interface-cfg:interfaces', 'interface', 'ipv4', 'Cisco-IOS-XR-um-if-ip-address-cfg:addresses', 'dhcp'])
 
     @staticmethod
-    mut def from_gdata(n: ?yang.gdata.Node) -> ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__dhcp:
+    mut def from_gdata(n: ?ygdata.Node) -> ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__dhcp:
         if n is not None:
             return Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__dhcp()
         return None
@@ -2689,7 +2689,7 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__dhc
 
 
 _breaker10: None = None
-class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses(yang.adata.MNode):
+class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses(yadata.MNode):
     address: ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__address
     secondaries: Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries
     unnumbered: ?str
@@ -2735,13 +2735,13 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses(yang
         if name == 'um-if-ip-address-cfg:dhcp':
             return self.dhcp
 
-    mut def to_gdata(self) -> yang.gdata.Node:
-        return yang.adata.from_adata(SRC_DNODE, self, loose=True, root_path=['Cisco-IOS-XR-um-interface-cfg:interfaces', 'interface', 'ipv4', 'Cisco-IOS-XR-um-if-ip-address-cfg:addresses'])
+    mut def to_gdata(self) -> ygdata.Node:
+        return yadata.from_adata(SRC_DNODE, self, loose=True, root_path=['Cisco-IOS-XR-um-interface-cfg:interfaces', 'interface', 'ipv4', 'Cisco-IOS-XR-um-if-ip-address-cfg:addresses'])
 
     @staticmethod
-    mut def from_gdata(n: ?yang.gdata.Node) -> Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses:
+    mut def from_gdata(n: ?ygdata.Node) -> Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses:
         if n is not None:
-            return Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses(address=Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__address.from_gdata(n.get_opt_cnt(yang.gdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'address'))), secondaries=Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries.from_gdata(n.get_opt_cnt(yang.gdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'secondaries'))), unnumbered=n.get_opt_str(yang.gdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'unnumbered')), dhcp=Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__dhcp.from_gdata(n.get_opt_cnt(yang.gdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'dhcp'))))
+            return Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses(address=Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__address.from_gdata(n.get_opt_cnt(ygdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'address'))), secondaries=Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries.from_gdata(n.get_opt_cnt(ygdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'secondaries'))), unnumbered=n.get_opt_str(ygdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'unnumbered')), dhcp=Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__dhcp.from_gdata(n.get_opt_cnt(ygdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'dhcp'))))
         return Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses()
 
     mut def copy(self) -> Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses:
@@ -2750,7 +2750,7 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses(yang
 
 
 _breaker11: None = None
-class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4(yang.adata.MNode):
+class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4(yadata.MNode):
     addresses: Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses
 
     mut def __init__(self, addresses: ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses=None) -> None:
@@ -2760,13 +2760,13 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4(yang.adata.MNod
         if name == 'um-if-ip-address-cfg:addresses':
             return self.addresses
 
-    mut def to_gdata(self) -> yang.gdata.Node:
-        return yang.adata.from_adata(SRC_DNODE, self, loose=True, root_path=['Cisco-IOS-XR-um-interface-cfg:interfaces', 'interface', 'ipv4'])
+    mut def to_gdata(self) -> ygdata.Node:
+        return yadata.from_adata(SRC_DNODE, self, loose=True, root_path=['Cisco-IOS-XR-um-interface-cfg:interfaces', 'interface', 'ipv4'])
 
     @staticmethod
-    mut def from_gdata(n: ?yang.gdata.Node) -> Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4:
+    mut def from_gdata(n: ?ygdata.Node) -> Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4:
         if n is not None:
-            return Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4(addresses=Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses.from_gdata(n.get_opt_cnt(yang.gdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'addresses'))))
+            return Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4(addresses=Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses.from_gdata(n.get_opt_cnt(ygdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'addresses'))))
         return Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4()
 
     mut def copy(self) -> Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4:
@@ -2775,16 +2775,16 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4(yang.adata.MNod
 
 
 _breaker12: None = None
-class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv6(yang.adata.MNode):
+class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv6(yadata.MNode):
 
     mut def __init__(self) -> None:
         pass
 
-    mut def to_gdata(self) -> yang.gdata.Node:
-        return yang.adata.from_adata(SRC_DNODE, self, loose=True, root_path=['Cisco-IOS-XR-um-interface-cfg:interfaces', 'interface', 'ipv6'])
+    mut def to_gdata(self) -> ygdata.Node:
+        return yadata.from_adata(SRC_DNODE, self, loose=True, root_path=['Cisco-IOS-XR-um-interface-cfg:interfaces', 'interface', 'ipv6'])
 
     @staticmethod
-    mut def from_gdata(n: ?yang.gdata.Node) -> Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv6:
+    mut def from_gdata(n: ?ygdata.Node) -> Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv6:
         if n is not None:
             return Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv6()
         return Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv6()
@@ -2795,16 +2795,16 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv6(yang.adata.MNod
 
 
 _breaker13: None = None
-class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__ppp(yang.adata.MNode):
+class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__ppp(yadata.MNode):
 
     mut def __init__(self) -> None:
         pass
 
-    mut def to_gdata(self) -> yang.gdata.Node:
-        return yang.adata.from_adata(SRC_DNODE, self, loose=True, root_path=['Cisco-IOS-XR-um-interface-cfg:interfaces', 'interface', 'encapsulation', 'ppp'])
+    mut def to_gdata(self) -> ygdata.Node:
+        return yadata.from_adata(SRC_DNODE, self, loose=True, root_path=['Cisco-IOS-XR-um-interface-cfg:interfaces', 'interface', 'encapsulation', 'ppp'])
 
     @staticmethod
-    mut def from_gdata(n: ?yang.gdata.Node) -> ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__ppp:
+    mut def from_gdata(n: ?ygdata.Node) -> ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__ppp:
         if n is not None:
             return Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__ppp()
         return None
@@ -2818,16 +2818,16 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__ppp(y
 
 
 _breaker14: None = None
-class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__hdlc(yang.adata.MNode):
+class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__hdlc(yadata.MNode):
 
     mut def __init__(self) -> None:
         pass
 
-    mut def to_gdata(self) -> yang.gdata.Node:
-        return yang.adata.from_adata(SRC_DNODE, self, loose=True, root_path=['Cisco-IOS-XR-um-interface-cfg:interfaces', 'interface', 'encapsulation', 'hdlc'])
+    mut def to_gdata(self) -> ygdata.Node:
+        return yadata.from_adata(SRC_DNODE, self, loose=True, root_path=['Cisco-IOS-XR-um-interface-cfg:interfaces', 'interface', 'encapsulation', 'hdlc'])
 
     @staticmethod
-    mut def from_gdata(n: ?yang.gdata.Node) -> ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__hdlc:
+    mut def from_gdata(n: ?ygdata.Node) -> ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__hdlc:
         if n is not None:
             return Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__hdlc()
         return None
@@ -2841,16 +2841,16 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__hdlc(
 
 
 _breaker15: None = None
-class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__mfr(yang.adata.MNode):
+class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__mfr(yadata.MNode):
 
     mut def __init__(self) -> None:
         pass
 
-    mut def to_gdata(self) -> yang.gdata.Node:
-        return yang.adata.from_adata(SRC_DNODE, self, loose=True, root_path=['Cisco-IOS-XR-um-interface-cfg:interfaces', 'interface', 'encapsulation', 'mfr'])
+    mut def to_gdata(self) -> ygdata.Node:
+        return yadata.from_adata(SRC_DNODE, self, loose=True, root_path=['Cisco-IOS-XR-um-interface-cfg:interfaces', 'interface', 'encapsulation', 'mfr'])
 
     @staticmethod
-    mut def from_gdata(n: ?yang.gdata.Node) -> ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__mfr:
+    mut def from_gdata(n: ?ygdata.Node) -> ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__mfr:
         if n is not None:
             return Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__mfr()
         return None
@@ -2864,16 +2864,16 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__mfr(y
 
 
 _breaker16: None = None
-class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__frame_relay__IETF(yang.adata.MNode):
+class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__frame_relay__IETF(yadata.MNode):
 
     mut def __init__(self) -> None:
         pass
 
-    mut def to_gdata(self) -> yang.gdata.Node:
-        return yang.adata.from_adata(SRC_DNODE, self, loose=True, root_path=['Cisco-IOS-XR-um-interface-cfg:interfaces', 'interface', 'encapsulation', 'frame-relay', 'IETF'])
+    mut def to_gdata(self) -> ygdata.Node:
+        return yadata.from_adata(SRC_DNODE, self, loose=True, root_path=['Cisco-IOS-XR-um-interface-cfg:interfaces', 'interface', 'encapsulation', 'frame-relay', 'IETF'])
 
     @staticmethod
-    mut def from_gdata(n: ?yang.gdata.Node) -> ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__frame_relay__IETF:
+    mut def from_gdata(n: ?ygdata.Node) -> ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__frame_relay__IETF:
         if n is not None:
             return Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__frame_relay__IETF()
         return None
@@ -2887,7 +2887,7 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__frame
 
 
 _breaker17: None = None
-class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__frame_relay(yang.adata.MNode):
+class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__frame_relay(yadata.MNode):
     IETF: ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__frame_relay__IETF
 
     mut def __init__(self, IETF: ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__frame_relay__IETF=None) -> None:
@@ -2905,13 +2905,13 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__frame
         if name == 'um-interface-cfg:IETF':
             return self.IETF
 
-    mut def to_gdata(self) -> yang.gdata.Node:
-        return yang.adata.from_adata(SRC_DNODE, self, loose=True, root_path=['Cisco-IOS-XR-um-interface-cfg:interfaces', 'interface', 'encapsulation', 'frame-relay'])
+    mut def to_gdata(self) -> ygdata.Node:
+        return yadata.from_adata(SRC_DNODE, self, loose=True, root_path=['Cisco-IOS-XR-um-interface-cfg:interfaces', 'interface', 'encapsulation', 'frame-relay'])
 
     @staticmethod
-    mut def from_gdata(n: ?yang.gdata.Node) -> ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__frame_relay:
+    mut def from_gdata(n: ?ygdata.Node) -> ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__frame_relay:
         if n is not None:
-            return Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__frame_relay(IETF=Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__frame_relay__IETF.from_gdata(n.get_opt_cnt(yang.gdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'IETF'))))
+            return Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__frame_relay(IETF=Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__frame_relay__IETF.from_gdata(n.get_opt_cnt(ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'IETF'))))
         return None
 
     mut def copy(self) -> Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__frame_relay:
@@ -2923,7 +2923,7 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__frame
 
 
 _breaker18: None = None
-class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation(yang.adata.MNode):
+class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation(yadata.MNode):
     ppp: ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__ppp
     hdlc: ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__hdlc
     mfr: ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__mfr
@@ -2977,13 +2977,13 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation(yang.a
         if name == 'um-interface-cfg:frame-relay':
             return self.frame_relay
 
-    mut def to_gdata(self) -> yang.gdata.Node:
-        return yang.adata.from_adata(SRC_DNODE, self, loose=True, root_path=['Cisco-IOS-XR-um-interface-cfg:interfaces', 'interface', 'encapsulation'])
+    mut def to_gdata(self) -> ygdata.Node:
+        return yadata.from_adata(SRC_DNODE, self, loose=True, root_path=['Cisco-IOS-XR-um-interface-cfg:interfaces', 'interface', 'encapsulation'])
 
     @staticmethod
-    mut def from_gdata(n: ?yang.gdata.Node) -> Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation:
+    mut def from_gdata(n: ?ygdata.Node) -> Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation:
         if n is not None:
-            return Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation(ppp=Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__ppp.from_gdata(n.get_opt_cnt(yang.gdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'ppp'))), hdlc=Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__hdlc.from_gdata(n.get_opt_cnt(yang.gdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'hdlc'))), mfr=Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__mfr.from_gdata(n.get_opt_cnt(yang.gdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'mfr'))), frame_relay=Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__frame_relay.from_gdata(n.get_opt_cnt(yang.gdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'frame-relay'))))
+            return Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation(ppp=Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__ppp.from_gdata(n.get_opt_cnt(ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'ppp'))), hdlc=Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__hdlc.from_gdata(n.get_opt_cnt(ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'hdlc'))), mfr=Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__mfr.from_gdata(n.get_opt_cnt(ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'mfr'))), frame_relay=Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__frame_relay.from_gdata(n.get_opt_cnt(ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'frame-relay'))))
         return Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation()
 
     mut def copy(self) -> Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation:
@@ -2992,7 +2992,7 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation(yang.a
 
 
 _breaker19: None = None
-class Cisco_IOS_XR_um_interface_cfg__interfaces__interface_entry(yang.adata.MNode):
+class Cisco_IOS_XR_um_interface_cfg__interfaces__interface_entry(yadata.MNode):
     interface_name: str
     sub_interface_type: Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type
     ipv4: Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4
@@ -3030,19 +3030,19 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface_entry(yang.adata.MNod
         if name == 'um-interface-cfg:description':
             return self.description
 
-    mut def to_gdata(self) -> yang.gdata.Node:
-        return yang.adata.from_adata(SRC_DNODE, self, loose=True, root_path=['Cisco-IOS-XR-um-interface-cfg:interfaces', 'interface'])
+    mut def to_gdata(self) -> ygdata.Node:
+        return yadata.from_adata(SRC_DNODE, self, loose=True, root_path=['Cisco-IOS-XR-um-interface-cfg:interfaces', 'interface'])
 
     @staticmethod
-    mut def from_gdata(n: yang.gdata.Node) -> Cisco_IOS_XR_um_interface_cfg__interfaces__interface_entry:
-        return Cisco_IOS_XR_um_interface_cfg__interfaces__interface_entry(interface_name=n.get_str(yang.gdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'interface-name')), sub_interface_type=Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type.from_gdata(n.get_opt_cnt(yang.gdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'sub-interface-type'))), ipv4=Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4.from_gdata(n.get_opt_cnt(yang.gdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'ipv4'))), ipv6=Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv6.from_gdata(n.get_opt_cnt(yang.gdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'ipv6'))), encapsulation=Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation.from_gdata(n.get_opt_cnt(yang.gdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'encapsulation'))), shutdown=n.get_opt_empty(yang.gdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'shutdown')), mtu=n.get_opt_u64(yang.gdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'mtu')), description=n.get_opt_str(yang.gdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'description')))
+    mut def from_gdata(n: ygdata.Node) -> Cisco_IOS_XR_um_interface_cfg__interfaces__interface_entry:
+        return Cisco_IOS_XR_um_interface_cfg__interfaces__interface_entry(interface_name=n.get_str(ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'interface-name')), sub_interface_type=Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type.from_gdata(n.get_opt_cnt(ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'sub-interface-type'))), ipv4=Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4.from_gdata(n.get_opt_cnt(ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'ipv4'))), ipv6=Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv6.from_gdata(n.get_opt_cnt(ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'ipv6'))), encapsulation=Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation.from_gdata(n.get_opt_cnt(ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'encapsulation'))), shutdown=n.get_opt_empty(ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'shutdown')), mtu=n.get_opt_u64(ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'mtu')), description=n.get_opt_str(ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'description')))
 
     mut def copy(self) -> Cisco_IOS_XR_um_interface_cfg__interfaces__interface_entry:
         """Create a deep copy of this adata object"""
         return Cisco_IOS_XR_um_interface_cfg__interfaces__interface_entry.from_gdata(self.to_gdata())
 
 _breaker20: None = None
-class Cisco_IOS_XR_um_interface_cfg__interfaces__interface(yang.adata.MNode):
+class Cisco_IOS_XR_um_interface_cfg__interfaces__interface(yadata.MNode):
     elements: list[Cisco_IOS_XR_um_interface_cfg__interfaces__interface_entry]
     mut def __init__(self, elements: list[Cisco_IOS_XR_um_interface_cfg__interfaces__interface_entry]=[]) -> None:
         self.elements = elements
@@ -3068,7 +3068,7 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface(yang.adata.MNode):
         return res
 
     @staticmethod
-    mut def from_gdata(n: ?yang.gdata.List) -> list[Cisco_IOS_XR_um_interface_cfg__interfaces__interface_entry]:
+    mut def from_gdata(n: ?ygdata.List) -> list[Cisco_IOS_XR_um_interface_cfg__interfaces__interface_entry]:
         if n is not None:
             return [Cisco_IOS_XR_um_interface_cfg__interfaces__interface_entry.from_gdata(e) for e in n.elements]
         return []
@@ -3109,7 +3109,7 @@ extension Cisco_IOS_XR_um_interface_cfg__interfaces__interface(Indexed[str, Cisc
         raise KeyError(k)
 
 _breaker21: None = None
-class Cisco_IOS_XR_um_interface_cfg__interfaces(yang.adata.MNode):
+class Cisco_IOS_XR_um_interface_cfg__interfaces(yadata.MNode):
     interface: Cisco_IOS_XR_um_interface_cfg__interfaces__interface
 
     mut def __init__(self, interface: list[Cisco_IOS_XR_um_interface_cfg__interfaces__interface_entry]=[]) -> None:
@@ -3119,13 +3119,13 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces(yang.adata.MNode):
         if name == 'um-interface-cfg:interface':
             return iter(self.interface)
 
-    mut def to_gdata(self) -> yang.gdata.Node:
-        return yang.adata.from_adata(SRC_DNODE, self, loose=True, root_path=['Cisco-IOS-XR-um-interface-cfg:interfaces'])
+    mut def to_gdata(self) -> ygdata.Node:
+        return yadata.from_adata(SRC_DNODE, self, loose=True, root_path=['Cisco-IOS-XR-um-interface-cfg:interfaces'])
 
     @staticmethod
-    mut def from_gdata(n: ?yang.gdata.Node) -> Cisco_IOS_XR_um_interface_cfg__interfaces:
+    mut def from_gdata(n: ?ygdata.Node) -> Cisco_IOS_XR_um_interface_cfg__interfaces:
         if n is not None:
-            return Cisco_IOS_XR_um_interface_cfg__interfaces(interface=Cisco_IOS_XR_um_interface_cfg__interfaces__interface.from_gdata(n.get_opt_list(yang.gdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'interface'))))
+            return Cisco_IOS_XR_um_interface_cfg__interfaces(interface=Cisco_IOS_XR_um_interface_cfg__interfaces__interface.from_gdata(n.get_opt_list(ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'interface'))))
         return Cisco_IOS_XR_um_interface_cfg__interfaces()
 
     mut def copy(self) -> Cisco_IOS_XR_um_interface_cfg__interfaces:
@@ -3134,7 +3134,7 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces(yang.adata.MNode):
 
 
 _breaker22: None = None
-class Cisco_IOS_XR_um_hostname_cfg__hostname(yang.adata.MNode):
+class Cisco_IOS_XR_um_hostname_cfg__hostname(yadata.MNode):
     system_network_name: ?str
 
     mut def __init__(self, system_network_name: ?str) -> None:
@@ -3144,13 +3144,13 @@ class Cisco_IOS_XR_um_hostname_cfg__hostname(yang.adata.MNode):
         if name == 'um-hostname-cfg:system-network-name':
             return self.system_network_name
 
-    mut def to_gdata(self) -> yang.gdata.Node:
-        return yang.adata.from_adata(SRC_DNODE, self, loose=True, root_path=['Cisco-IOS-XR-um-hostname-cfg:hostname'])
+    mut def to_gdata(self) -> ygdata.Node:
+        return yadata.from_adata(SRC_DNODE, self, loose=True, root_path=['Cisco-IOS-XR-um-hostname-cfg:hostname'])
 
     @staticmethod
-    mut def from_gdata(n: ?yang.gdata.Node) -> Cisco_IOS_XR_um_hostname_cfg__hostname:
+    mut def from_gdata(n: ?ygdata.Node) -> Cisco_IOS_XR_um_hostname_cfg__hostname:
         if n is not None:
-            return Cisco_IOS_XR_um_hostname_cfg__hostname(system_network_name=n.get_opt_str(yang.gdata.Id(NS_Cisco_IOS_XR_um_hostname_cfg, 'system-network-name')))
+            return Cisco_IOS_XR_um_hostname_cfg__hostname(system_network_name=n.get_opt_str(ygdata.Id(NS_Cisco_IOS_XR_um_hostname_cfg, 'system-network-name')))
         return Cisco_IOS_XR_um_hostname_cfg__hostname()
 
     mut def copy(self) -> Cisco_IOS_XR_um_hostname_cfg__hostname:
@@ -3159,7 +3159,7 @@ class Cisco_IOS_XR_um_hostname_cfg__hostname(yang.adata.MNode):
 
 
 _breaker23: None = None
-class root(yang.adata.MNode):
+class root(yadata.MNode):
     interfaces: Cisco_IOS_XR_um_interface_cfg__interfaces
     hostname: Cisco_IOS_XR_um_hostname_cfg__hostname
 
@@ -3173,13 +3173,13 @@ class root(yang.adata.MNode):
         if name == 'um-hostname-cfg:hostname':
             return self.hostname
 
-    mut def to_gdata(self) -> yang.gdata.Node:
-        return yang.adata.from_adata(SRC_DNODE, self, loose=True)
+    mut def to_gdata(self) -> ygdata.Node:
+        return yadata.from_adata(SRC_DNODE, self, loose=True)
 
     @staticmethod
-    mut def from_gdata(n: ?yang.gdata.Node) -> root:
+    mut def from_gdata(n: ?ygdata.Node) -> root:
         if n is not None:
-            return root(interfaces=Cisco_IOS_XR_um_interface_cfg__interfaces.from_gdata(n.get_opt_cnt(yang.gdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'interfaces'))), hostname=Cisco_IOS_XR_um_hostname_cfg__hostname.from_gdata(n.get_opt_cnt(yang.gdata.Id(NS_Cisco_IOS_XR_um_hostname_cfg, 'hostname'))))
+            return root(interfaces=Cisco_IOS_XR_um_interface_cfg__interfaces.from_gdata(n.get_opt_cnt(ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'interfaces'))), hostname=Cisco_IOS_XR_um_hostname_cfg__hostname.from_gdata(n.get_opt_cnt(ygdata.Id(NS_Cisco_IOS_XR_um_hostname_cfg, 'hostname'))))
         return root()
 
     mut def copy(self) -> root:
@@ -3187,6 +3187,6 @@ class root(yang.adata.MNode):
         return root.from_gdata(self.to_gdata())
 
 
-actor rpc_root(tp: yang.gdata.TreeProvider):
+actor rpc_root(tp: ygdata.TreeProvider):
     pass
 

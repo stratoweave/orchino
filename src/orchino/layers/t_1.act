@@ -6,11 +6,11 @@ import logging
 
 import stratoweave.device as swdev
 import stratoweave.ttt as ttt
-import yang.gdata
+import yang.gdata as ygdata
 
-import orchino.rfs
+import orchino.rfs as rfs
 
 
 def get_ttt(lower: ?ttt.Layer, dev_registry: swdev.DeviceRegistry, log_handler: ?logging.Handler=None) -> proc(ttt.Path,?ttt.Layer)->ttt.Node:
-    r = ttt.Container({yang.gdata.Id("http://stratoweave.org/yang/stratoweave-rfs.yang", "device"): ttt.List(ttt.Device(dev_registry, log_handler), [yang.gdata.Id("http://stratoweave.org/yang/stratoweave-rfs.yang", "name")], ns='http://stratoweave.org/yang/stratoweave-rfs.yang', module='stratoweave-rfs'), yang.gdata.Id("http://stratoweave.org/yang/stratoweave-rfs.yang", "rfs"): ttt.List(ttt.Container({yang.gdata.Id("http://example.com/orchino-rfs", "base-config"): ttt.List(ttt.RFSTransform(orchino.rfs.BaseConfig, dev_registry, None, lower, log_handler), [yang.gdata.Id("http://example.com/orchino-rfs", "name")], ns='http://example.com/orchino-rfs', module='orchino-rfs')}), [yang.gdata.Id("http://stratoweave.org/yang/stratoweave-rfs.yang", "name")], ns='http://stratoweave.org/yang/stratoweave-rfs.yang', module='stratoweave-rfs')})
+    r = ttt.Container({ygdata.Id("http://stratoweave.org/yang/stratoweave-rfs", "device"): ttt.List(ttt.Device(dev_registry, log_handler), [ygdata.Id("http://stratoweave.org/yang/stratoweave-rfs", "name")], ns='http://stratoweave.org/yang/stratoweave-rfs', module='stratoweave-rfs'), ygdata.Id("http://stratoweave.org/yang/stratoweave-rfs", "rfs"): ttt.List(ttt.Container({ygdata.Id("http://example.com/orchino-rfs", "base-config"): ttt.List(ttt.RFSTransform(rfs.BaseConfig, dev_registry, None, lower, log_handler), [ygdata.Id("http://example.com/orchino-rfs", "name")], ns='http://example.com/orchino-rfs', module='orchino-rfs')}), [ygdata.Id("http://stratoweave.org/yang/stratoweave-rfs", "name")], ns='http://stratoweave.org/yang/stratoweave-rfs', module='stratoweave-rfs')})
     return r

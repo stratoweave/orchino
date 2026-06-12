@@ -6,14 +6,14 @@ import logging
 
 import stratoweave.device as odev
 import stratoweave.ttt as ttt
-import yang.adata
-import yang.gdata
+import yang.adata as yadata
+import yang.gdata as ygdata
 
-import orchino.layers.t_2
-import orchino.layers.t_1
-import orchino.layers.t_0
+import orchino.layers.t_2 as t_2
+import orchino.layers.t_1 as t_1
+import orchino.layers.t_0 as t_0
 def get_layers(dev_registry: odev.DeviceRegistry, log_handler: ?logging.Handler=None):
-    layer2 = ttt.Layer('2', orchino.layers.t_2.get_ttt(None, dev_registry, log_handler), None)
-    layer1 = ttt.Layer('1', orchino.layers.t_1.get_ttt(layer2, dev_registry, log_handler), layer2)
-    layer0 = ttt.Layer('0', orchino.layers.t_0.get_ttt(layer1, dev_registry, log_handler), layer1)
+    layer2 = ttt.Layer('2', t_2.get_ttt(None, dev_registry, log_handler), None)
+    layer1 = ttt.Layer('1', t_1.get_ttt(layer2, dev_registry, log_handler), layer2)
+    layer0 = ttt.Layer('0', t_0.get_ttt(layer1, dev_registry, log_handler), layer1)
     return layer0

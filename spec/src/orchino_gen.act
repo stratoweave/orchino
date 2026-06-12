@@ -2,7 +2,7 @@ import file
 import process
 
 import stratoweave.build
-import stratoweave.yang as oyang
+import stratoweave.swyang as oyang
 
 actor main(env):
     fc = file.FileCap(env.cap)

@@ -11,19 +11,19 @@ import stratoweave.adapters.netconf as swna
 import stratoweave.ttt as ttt
 
 import orchino.device_types as sw_device_types
-import orchino.layers.t_2
-import orchino.layers.y_2
-import orchino.layers.t_1
-import orchino.layers.y_1
-import orchino.layers.t_0
-import orchino.layers.y_0
-import orchino.devices.CiscoIosXr_24_1_ncs55a1
-import orchino.devices.CiscoIosXr_24_1_ncs55a1_oper
+import orchino.layers.t_2 as t_2
+import orchino.layers.y_2 as y_2
+import orchino.layers.t_1 as t_1
+import orchino.layers.y_1 as y_1
+import orchino.layers.t_0 as t_0
+import orchino.layers.y_0 as y_0
+import orchino.devices.CiscoIosXr_24_1_ncs55a1 as dev_CiscoIosXr_24_1_ncs55a1
+import orchino.devices.CiscoIosXr_24_1_ncs55a1_oper as dev_CiscoIosXr_24_1_ncs55a1_oper
 
 def get_layers(dev_registry: swdev.DeviceRegistry, log_handler: ?logging.Handler=None, db: ?lmdb.Db=None):
-    layer2 = ttt.Layer('2', orchino.layers.t_2.get_ttt(None, dev_registry, log_handler), None, db)
-    layer1 = ttt.Layer('1', orchino.layers.t_1.get_ttt(layer2, dev_registry, log_handler), layer2, db)
-    layer0 = ttt.Layer('0', orchino.layers.t_0.get_ttt(layer1, dev_registry, log_handler), layer1, db)
+    layer2 = ttt.Layer('2', t_2.get_ttt(None, dev_registry, log_handler), None, db)
+    layer1 = ttt.Layer('1', t_1.get_ttt(layer2, dev_registry, log_handler), layer2, db)
+    layer0 = ttt.Layer('0', t_0.get_ttt(layer1, dev_registry, log_handler), layer1, db)
     return layer0
 
 
@@ -35,19 +35,19 @@ def schema_for_layer(layer):
         # and selected with the chosen device type.
         # The contents of layer 2 (gdata) is a combination of both, here we
         # return the device manager tree.
-        return orchino.layers.y_2.SRC_DNODE
+        return y_2.SRC_DNODE
     if layer == 1:
-        return orchino.layers.y_1.SRC_DNODE
+        return y_1.SRC_DNODE
     if layer == 0:
-        return orchino.layers.y_0.SRC_DNODE
+        return y_0.SRC_DNODE
     raise ValueError('Invalid layer: {layer}')
 
 
 generated_device_types: dict[str, swdev.DeviceType] = {
     "CiscoIosXr_24_1_ncs55a1": swdev.DeviceType(name="CiscoIosXr_24_1_ncs55a1",
             adapter_type=swna.NetconfAdapter,
-            src_dnode=orchino.devices.CiscoIosXr_24_1_ncs55a1.SRC_DNODE,
-            oper_src_dnode=orchino.devices.CiscoIosXr_24_1_ncs55a1_oper.SRC_DNODE,
+            src_dnode=dev_CiscoIosXr_24_1_ncs55a1.SRC_DNODE,
+            oper_src_dnode=dev_CiscoIosXr_24_1_ncs55a1_oper.SRC_DNODE,
         ),
 }
 

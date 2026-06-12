@@ -1,11 +1,11 @@
 import base64
 import json
-import xml
+import std.xml as xml
 import yang
-import yang.adata
-import yang.gdata
-import yang.xml
-import yang.xpath
+import yang.adata as yadata
+import yang.gdata as ygdata
+import yang.xml as yxml
+import yang.xpath as yxpath
 from yang.identityref import Identityref, PartialIdentityref
 from yang.pattern import YangPattern
 from yang.schema import *
@@ -20,77 +20,77 @@ from yang.sdata import SubscriptionPath, SubscriptionNode
 _identities: list[DIdentity] = []
 
 
-SRC_DNODE_CHILD_1: DLeaf = DLeaf(module='stratoweave-rfs', namespace='http://stratoweave.org/yang/stratoweave-rfs.yang', prefix='sw-rfs', name='name', config=True, mandatory=False, type_=DTypeString(name='string', description=None, reference=None, exts=[], builtin_type='string', default=None, length=None, patterns=[]))
+SRC_DNODE_CHILD_1: DLeaf = DLeaf(module='stratoweave-rfs', namespace='http://stratoweave.org/yang/stratoweave-rfs', prefix='sw-rfs', name='name', config=True, mandatory=False, type_=DTypeString(name='string', description=None, reference=None, exts=[], builtin_type='string', default=None, length=None, patterns=[]))
 
-SRC_DNODE_CHILD_2: DLeaf = DLeaf(module='stratoweave-rfs', namespace='http://stratoweave.org/yang/stratoweave-rfs.yang', prefix='sw-rfs', name='description', config=True, mandatory=False, type_=DTypeString(name='string', description=None, reference=None, exts=[], builtin_type='string', default=None, length=None, patterns=[]))
+SRC_DNODE_CHILD_2: DLeaf = DLeaf(module='stratoweave-rfs', namespace='http://stratoweave.org/yang/stratoweave-rfs', prefix='sw-rfs', name='description', config=True, mandatory=False, type_=DTypeString(name='string', description=None, reference=None, exts=[], builtin_type='string', default=None, length=None, patterns=[]))
 
-SRC_DNODE_CHILD_3: DLeaf = DLeaf(module='stratoweave-rfs', namespace='http://stratoweave.org/yang/stratoweave-rfs.yang', prefix='sw-rfs', name='type', config=True, mandatory=False, type_=DTypeString(name='string', description=None, reference=None, exts=[], builtin_type='string', default=None, length=None, patterns=[]))
+SRC_DNODE_CHILD_3: DLeaf = DLeaf(module='stratoweave-rfs', namespace='http://stratoweave.org/yang/stratoweave-rfs', prefix='sw-rfs', name='type', config=True, mandatory=False, type_=DTypeString(name='string', description=None, reference=None, exts=[], builtin_type='string', default=None, length=None, patterns=[]))
 
-SRC_DNODE_CHILD_4: DList = DList(module='stratoweave-rfs', namespace='http://stratoweave.org/yang/stratoweave-rfs.yang', prefix='sw-rfs', name='address', key=['name'], config=True, min_elements=0, ordered_by='system', children=[
-    DLeaf(module='stratoweave-rfs', namespace='http://stratoweave.org/yang/stratoweave-rfs.yang', prefix='sw-rfs', name='name', config=True, description="Name of address, e.g. 'loopback' or 'OOB'", mandatory=False, type_=DTypeString(name='string', description=None, reference=None, exts=[], builtin_type='string', default=None, length=None, patterns=[])),
-    DLeaf(module='stratoweave-rfs', namespace='http://stratoweave.org/yang/stratoweave-rfs.yang', prefix='sw-rfs', name='address', config=True, mandatory=True, type_=DTypeUnion(name='inet:host', description='The host type represents either an IP address or a DNS\ndomain name.', reference=None, exts=[], builtin_type='union', default=None, types=[DTypeString(name='inet:ipv4-address', description='The ipv4-address type represents an IPv4 address in\ndotted-quad notation.  The IPv4 address may include a zone\nindex, separated by a % sign.\n\nThe zone index is used to disambiguate identical address\nvalues.  For link-local addresses, the zone index will\ntypically be the interface index number or the name of an\ninterface.  If the zone index is not present, the default\nzone of the device will be used.\n\nThe canonical format for the zone index is the numerical\nformat', reference=None, exts=[], builtin_type='string', default=None, length=None, patterns=[YangPattern(yang_regex='(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){{3}}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{{N}}\\p{{L}}]+)?', pcre='^((([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){{3}}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{{N}}\\p{{L}}]+)?)$', invert=False)]), DTypeString(name='inet:ipv6-address', description='The ipv6-address type represents an IPv6 address in full,\nmixed, shortened, and shortened-mixed notation.  The IPv6\naddress may include a zone index, separated by a % sign.\n\nThe zone index is used to disambiguate identical address\nvalues.  For link-local addresses, the zone index will\ntypically be the interface index number or the name of an\ninterface.  If the zone index is not present, the default\nzone of the device will be used.\n\nThe canonical format of IPv6 addresses uses the textual\nrepresentation defined in Section 4 of RFC 5952.  The\ncanonical format for the zone index is the numerical\nformat as described in Section 11.2 of RFC 4007.', reference='RFC 4291: IP Version 6 Addressing Architecture\nRFC 4007: IPv6 Scoped Address Architecture\nRFC 5952: A Recommendation for IPv6 Address Text\n          Representation', exts=[], builtin_type='string', default=None, length=None, patterns=[YangPattern(yang_regex='((:|[0-9a-fA-F]{{0,4}}):)([0-9a-fA-F]{{0,4}}:){{0,5}}((([0-9a-fA-F]{{0,4}}:)?(:|[0-9a-fA-F]{{0,4}}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){{3}}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{{N}}\\p{{L}}]+)?', pcre='^(((:|[0-9a-fA-F]{{0,4}}):)([0-9a-fA-F]{{0,4}}:){{0,5}}((([0-9a-fA-F]{{0,4}}:)?(:|[0-9a-fA-F]{{0,4}}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){{3}}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{{N}}\\p{{L}}]+)?)$', invert=False), YangPattern(yang_regex='(([^:]+:){{6}}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?', pcre='^((([^\\:]+:){{6}}(([^\\:]+:[^\\:]+)|(.*\\..*)))|((([^\\:]+:)*[^\\:]+)?::(([^\\:]+:)*[^\\:]+)?)(%.+)?)$', invert=False)]), DTypeString(name='inet:domain-name', description='The domain-name type represents a DNS domain name.  The\nname SHOULD be fully qualified whenever possible.\n\nInternet domain names are only loosely specified.  Section\n3.5 of RFC 1034 recommends a syntax (modified in Section\n2.1 of RFC 1123).  The pattern above is intended to allow\nfor current practice in domain name use, and some possible\nfuture expansion.  It is designed to hold various types of\ndomain names, including names used for A or AAAA records\n(host names) and other records, such as SRV records.  Note\nthat Internet host names have a stricter syntax (described\nin RFC 952) than the DNS recommendations in RFCs 1034 and\n1123, and that systems that want to store host names in\nschema nodes using the domain-name type are recommended to\nadhere to this stricter standard to ensure interoperability.\n\nThe encoding of DNS names in the DNS protocol is limited\nto 255 characters.  Since the encoding consists of labels\nprefixed by a length bytes and there is a trailing NULL\nbyte, only 253 characters can appear in the textual dotted\nnotation.\n\nThe description clause of schema nodes using the domain-name\ntype MUST describe when and how these names are resolved to\nIP addresses.  Note that the resolution of a domain-name value\nmay require to query multiple DNS records (e.g., A for IPv4\nand AAAA for IPv6).  The order of the resolution process and\nwhich DNS record takes precedence can either be defined\nexplicitly or may depend on the configuration of the\nresolver.\n\nDomain-name values use the US-ASCII encoding.  Their canonical\nformat uses lowercase US-ASCII characters.  Internationalized\ndomain names MUST be A-labels as per RFC 5890.', reference='RFC  952: DoD Internet Host Table Specification\nRFC 1034: Domain Names - Concepts and Facilities\nRFC 1123: Requirements for Internet Hosts -- Application\n          and Support\nRFC 2782: A DNS RR for specifying the location of services\n          (DNS SRV)\nRFC 5890: Internationalized Domain Names in Applications\n          (IDNA): Definitions and Document Framework', exts=[], builtin_type='string', default=None, length=Ranges([(1, 253)]), patterns=[YangPattern(yang_regex='((([a-zA-Z0-9_]([a-zA-Z0-9\\-_]){{0,61}})?[a-zA-Z0-9]\\.)*([a-zA-Z0-9_]([a-zA-Z0-9\\-_]){{0,61}})?[a-zA-Z0-9]\\.?)|\\.', pcre='^(((([a-zA-Z0-9_]([a-zA-Z0-9\\-_]){{0,61}})?[a-zA-Z0-9]\\.)*([a-zA-Z0-9_]([a-zA-Z0-9\\-_]){{0,61}})?[a-zA-Z0-9]\\.?)|\\.)$', invert=False)])])),
-    DLeaf(module='stratoweave-rfs', namespace='http://stratoweave.org/yang/stratoweave-rfs.yang', prefix='sw-rfs', name='port', config=True, mandatory=False, type_=DTypeIntegerUnsigned(name='uint16', description=None, reference=None, exts=[], builtin_type='uint16', default=None, ranges=Ranges([(0, 65535)]))),
-    DList(module='stratoweave-rfs', namespace='http://stratoweave.org/yang/stratoweave-rfs.yang', prefix='sw-rfs', name='initial-credentials', key=[
+SRC_DNODE_CHILD_4: DList = DList(module='stratoweave-rfs', namespace='http://stratoweave.org/yang/stratoweave-rfs', prefix='sw-rfs', name='address', key=['name'], config=True, min_elements=0, ordered_by='system', children=[
+    DLeaf(module='stratoweave-rfs', namespace='http://stratoweave.org/yang/stratoweave-rfs', prefix='sw-rfs', name='name', config=True, description="Name of address, e.g. 'loopback' or 'OOB'", mandatory=False, type_=DTypeString(name='string', description=None, reference=None, exts=[], builtin_type='string', default=None, length=None, patterns=[])),
+    DLeaf(module='stratoweave-rfs', namespace='http://stratoweave.org/yang/stratoweave-rfs', prefix='sw-rfs', name='address', config=True, mandatory=True, type_=DTypeUnion(name='inet:host', description='The host type represents either an IP address or a DNS\ndomain name.', reference=None, exts=[], builtin_type='union', default=None, types=[DTypeString(name='inet:ipv4-address', description='The ipv4-address type represents an IPv4 address in\ndotted-quad notation.  The IPv4 address may include a zone\nindex, separated by a % sign.\n\nThe zone index is used to disambiguate identical address\nvalues.  For link-local addresses, the zone index will\ntypically be the interface index number or the name of an\ninterface.  If the zone index is not present, the default\nzone of the device will be used.\n\nThe canonical format for the zone index is the numerical\nformat', reference=None, exts=[], builtin_type='string', default=None, length=None, patterns=[YangPattern(yang_regex='(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){{3}}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{{N}}\\p{{L}}]+)?', pcre='^((([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){{3}}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{{N}}\\p{{L}}]+)?)$', invert=False)]), DTypeString(name='inet:ipv6-address', description='The ipv6-address type represents an IPv6 address in full,\nmixed, shortened, and shortened-mixed notation.  The IPv6\naddress may include a zone index, separated by a % sign.\n\nThe zone index is used to disambiguate identical address\nvalues.  For link-local addresses, the zone index will\ntypically be the interface index number or the name of an\ninterface.  If the zone index is not present, the default\nzone of the device will be used.\n\nThe canonical format of IPv6 addresses uses the textual\nrepresentation defined in Section 4 of RFC 5952.  The\ncanonical format for the zone index is the numerical\nformat as described in Section 11.2 of RFC 4007.', reference='RFC 4291: IP Version 6 Addressing Architecture\nRFC 4007: IPv6 Scoped Address Architecture\nRFC 5952: A Recommendation for IPv6 Address Text\n          Representation', exts=[], builtin_type='string', default=None, length=None, patterns=[YangPattern(yang_regex='((:|[0-9a-fA-F]{{0,4}}):)([0-9a-fA-F]{{0,4}}:){{0,5}}((([0-9a-fA-F]{{0,4}}:)?(:|[0-9a-fA-F]{{0,4}}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){{3}}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{{N}}\\p{{L}}]+)?', pcre='^(((:|[0-9a-fA-F]{{0,4}}):)([0-9a-fA-F]{{0,4}}:){{0,5}}((([0-9a-fA-F]{{0,4}}:)?(:|[0-9a-fA-F]{{0,4}}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){{3}}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{{N}}\\p{{L}}]+)?)$', invert=False), YangPattern(yang_regex='(([^:]+:){{6}}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?', pcre='^((([^\\:]+:){{6}}(([^\\:]+:[^\\:]+)|(.*\\..*)))|((([^\\:]+:)*[^\\:]+)?::(([^\\:]+:)*[^\\:]+)?)(%.+)?)$', invert=False)]), DTypeString(name='inet:domain-name', description='The domain-name type represents a DNS domain name.  The\nname SHOULD be fully qualified whenever possible.\n\nInternet domain names are only loosely specified.  Section\n3.5 of RFC 1034 recommends a syntax (modified in Section\n2.1 of RFC 1123).  The pattern above is intended to allow\nfor current practice in domain name use, and some possible\nfuture expansion.  It is designed to hold various types of\ndomain names, including names used for A or AAAA records\n(host names) and other records, such as SRV records.  Note\nthat Internet host names have a stricter syntax (described\nin RFC 952) than the DNS recommendations in RFCs 1034 and\n1123, and that systems that want to store host names in\nschema nodes using the domain-name type are recommended to\nadhere to this stricter standard to ensure interoperability.\n\nThe encoding of DNS names in the DNS protocol is limited\nto 255 characters.  Since the encoding consists of labels\nprefixed by a length bytes and there is a trailing NULL\nbyte, only 253 characters can appear in the textual dotted\nnotation.\n\nThe description clause of schema nodes using the domain-name\ntype MUST describe when and how these names are resolved to\nIP addresses.  Note that the resolution of a domain-name value\nmay require to query multiple DNS records (e.g., A for IPv4\nand AAAA for IPv6).  The order of the resolution process and\nwhich DNS record takes precedence can either be defined\nexplicitly or may depend on the configuration of the\nresolver.\n\nDomain-name values use the US-ASCII encoding.  Their canonical\nformat uses lowercase US-ASCII characters.  Internationalized\ndomain names MUST be A-labels as per RFC 5890.', reference='RFC  952: DoD Internet Host Table Specification\nRFC 1034: Domain Names - Concepts and Facilities\nRFC 1123: Requirements for Internet Hosts -- Application\n          and Support\nRFC 2782: A DNS RR for specifying the location of services\n          (DNS SRV)\nRFC 5890: Internationalized Domain Names in Applications\n          (IDNA): Definitions and Document Framework', exts=[], builtin_type='string', default=None, length=Ranges([(1, 253)]), patterns=[YangPattern(yang_regex='((([a-zA-Z0-9_]([a-zA-Z0-9\\-_]){{0,61}})?[a-zA-Z0-9]\\.)*([a-zA-Z0-9_]([a-zA-Z0-9\\-_]){{0,61}})?[a-zA-Z0-9]\\.?)|\\.', pcre='^(((([a-zA-Z0-9_]([a-zA-Z0-9\\-_]){{0,61}})?[a-zA-Z0-9]\\.)*([a-zA-Z0-9_]([a-zA-Z0-9\\-_]){{0,61}})?[a-zA-Z0-9]\\.?)|\\.)$', invert=False)])])),
+    DLeaf(module='stratoweave-rfs', namespace='http://stratoweave.org/yang/stratoweave-rfs', prefix='sw-rfs', name='port', config=True, mandatory=False, type_=DTypeIntegerUnsigned(name='uint16', description=None, reference=None, exts=[], builtin_type='uint16', default=None, ranges=Ranges([(0, 65535)]))),
+    DList(module='stratoweave-rfs', namespace='http://stratoweave.org/yang/stratoweave-rfs', prefix='sw-rfs', name='initial-credentials', key=[
 'username',
 'password',
 'key'
         ], config=True, min_elements=0, ordered_by='system', children=[
-        DLeaf(module='stratoweave-rfs', namespace='http://stratoweave.org/yang/stratoweave-rfs.yang', prefix='sw-rfs', name='username', config=True, mandatory=False, type_=DTypeString(name='string', description=None, reference=None, exts=[], builtin_type='string', default=None, length=None, patterns=[])),
-        DLeaf(module='stratoweave-rfs', namespace='http://stratoweave.org/yang/stratoweave-rfs.yang', prefix='sw-rfs', name='password', config=True, mandatory=False, type_=DTypeString(name='string', description=None, reference=None, exts=[], builtin_type='string', default=None, length=None, patterns=[])),
-        DLeaf(module='stratoweave-rfs', namespace='http://stratoweave.org/yang/stratoweave-rfs.yang', prefix='sw-rfs', name='key', config=True, mandatory=False, type_=DTypeString(name='string', description=None, reference=None, exts=[], builtin_type='string', default=None, length=None, patterns=[]))
+        DLeaf(module='stratoweave-rfs', namespace='http://stratoweave.org/yang/stratoweave-rfs', prefix='sw-rfs', name='username', config=True, mandatory=False, type_=DTypeString(name='string', description=None, reference=None, exts=[], builtin_type='string', default=None, length=None, patterns=[])),
+        DLeaf(module='stratoweave-rfs', namespace='http://stratoweave.org/yang/stratoweave-rfs', prefix='sw-rfs', name='password', config=True, mandatory=False, type_=DTypeString(name='string', description=None, reference=None, exts=[], builtin_type='string', default=None, length=None, patterns=[])),
+        DLeaf(module='stratoweave-rfs', namespace='http://stratoweave.org/yang/stratoweave-rfs', prefix='sw-rfs', name='key', config=True, mandatory=False, type_=DTypeString(name='string', description=None, reference=None, exts=[], builtin_type='string', default=None, length=None, patterns=[]))
     ])
 ])
 
-SRC_DNODE_CHILD_5: DContainer = DContainer(module='stratoweave-rfs', namespace='http://stratoweave.org/yang/stratoweave-rfs.yang', prefix='sw-rfs', name='credentials', config=True, presence=False, children=[
-    DLeaf(module='stratoweave-rfs', namespace='http://stratoweave.org/yang/stratoweave-rfs.yang', prefix='sw-rfs', name='username', config=True, mandatory=True, type_=DTypeString(name='string', description=None, reference=None, exts=[], builtin_type='string', default=None, length=None, patterns=[])),
-    DLeaf(module='stratoweave-rfs', namespace='http://stratoweave.org/yang/stratoweave-rfs.yang', prefix='sw-rfs', name='password', config=True, mandatory=False, type_=DTypeString(name='string', description=None, reference=None, exts=[], builtin_type='string', default=None, length=None, patterns=[])),
-    DList(module='stratoweave-rfs', namespace='http://stratoweave.org/yang/stratoweave-rfs.yang', prefix='sw-rfs', name='key', key=['key'], config=True, min_elements=0, ordered_by='system', children=[
-        DLeaf(module='stratoweave-rfs', namespace='http://stratoweave.org/yang/stratoweave-rfs.yang', prefix='sw-rfs', name='key', config=True, mandatory=False, type_=DTypeString(name='string', description=None, reference=None, exts=[], builtin_type='string', default=None, length=None, patterns=[])),
-        DLeaf(module='stratoweave-rfs', namespace='http://stratoweave.org/yang/stratoweave-rfs.yang', prefix='sw-rfs', name='private-key', config=True, mandatory=False, type_=DTypeString(name='string', description=None, reference=None, exts=[], builtin_type='string', default=None, length=None, patterns=[]))
+SRC_DNODE_CHILD_5: DContainer = DContainer(module='stratoweave-rfs', namespace='http://stratoweave.org/yang/stratoweave-rfs', prefix='sw-rfs', name='credentials', config=True, presence=False, children=[
+    DLeaf(module='stratoweave-rfs', namespace='http://stratoweave.org/yang/stratoweave-rfs', prefix='sw-rfs', name='username', config=True, mandatory=True, type_=DTypeString(name='string', description=None, reference=None, exts=[], builtin_type='string', default=None, length=None, patterns=[])),
+    DLeaf(module='stratoweave-rfs', namespace='http://stratoweave.org/yang/stratoweave-rfs', prefix='sw-rfs', name='password', config=True, mandatory=False, type_=DTypeString(name='string', description=None, reference=None, exts=[], builtin_type='string', default=None, length=None, patterns=[])),
+    DList(module='stratoweave-rfs', namespace='http://stratoweave.org/yang/stratoweave-rfs', prefix='sw-rfs', name='key', key=['key'], config=True, min_elements=0, ordered_by='system', children=[
+        DLeaf(module='stratoweave-rfs', namespace='http://stratoweave.org/yang/stratoweave-rfs', prefix='sw-rfs', name='key', config=True, mandatory=False, type_=DTypeString(name='string', description=None, reference=None, exts=[], builtin_type='string', default=None, length=None, patterns=[])),
+        DLeaf(module='stratoweave-rfs', namespace='http://stratoweave.org/yang/stratoweave-rfs', prefix='sw-rfs', name='private-key', config=True, mandatory=False, type_=DTypeString(name='string', description=None, reference=None, exts=[], builtin_type='string', default=None, length=None, patterns=[]))
     ])
 ])
 
-SRC_DNODE_CHILD_6: DList = DList(module='stratoweave-rfs', namespace='http://stratoweave.org/yang/stratoweave-rfs.yang', prefix='sw-rfs', name='initial-credentials', key=[
+SRC_DNODE_CHILD_6: DList = DList(module='stratoweave-rfs', namespace='http://stratoweave.org/yang/stratoweave-rfs', prefix='sw-rfs', name='initial-credentials', key=[
 'username',
 'password',
 'key'
     ], config=True, min_elements=0, ordered_by='system', children=[
-    DLeaf(module='stratoweave-rfs', namespace='http://stratoweave.org/yang/stratoweave-rfs.yang', prefix='sw-rfs', name='username', config=True, mandatory=False, type_=DTypeString(name='string', description=None, reference=None, exts=[], builtin_type='string', default=None, length=None, patterns=[])),
-    DLeaf(module='stratoweave-rfs', namespace='http://stratoweave.org/yang/stratoweave-rfs.yang', prefix='sw-rfs', name='password', config=True, mandatory=False, type_=DTypeString(name='string', description=None, reference=None, exts=[], builtin_type='string', default=None, length=None, patterns=[])),
-    DLeaf(module='stratoweave-rfs', namespace='http://stratoweave.org/yang/stratoweave-rfs.yang', prefix='sw-rfs', name='key', config=True, mandatory=False, type_=DTypeString(name='string', description=None, reference=None, exts=[], builtin_type='string', default=None, length=None, patterns=[]))
+    DLeaf(module='stratoweave-rfs', namespace='http://stratoweave.org/yang/stratoweave-rfs', prefix='sw-rfs', name='username', config=True, mandatory=False, type_=DTypeString(name='string', description=None, reference=None, exts=[], builtin_type='string', default=None, length=None, patterns=[])),
+    DLeaf(module='stratoweave-rfs', namespace='http://stratoweave.org/yang/stratoweave-rfs', prefix='sw-rfs', name='password', config=True, mandatory=False, type_=DTypeString(name='string', description=None, reference=None, exts=[], builtin_type='string', default=None, length=None, patterns=[])),
+    DLeaf(module='stratoweave-rfs', namespace='http://stratoweave.org/yang/stratoweave-rfs', prefix='sw-rfs', name='key', config=True, mandatory=False, type_=DTypeString(name='string', description=None, reference=None, exts=[], builtin_type='string', default=None, length=None, patterns=[]))
 ])
 
-SRC_DNODE_CHILD_7: DLeaf = DLeaf(module='stratoweave-rfs', namespace='http://stratoweave.org/yang/stratoweave-rfs.yang', prefix='sw-rfs', name='approval-required', config=True, description='Require approval of each individual configuration change to this device', default='false', mandatory=False, type_=DTypeBoolean(name='boolean', description=None, reference=None, exts=[], builtin_type='boolean', default=None))
+SRC_DNODE_CHILD_7: DLeaf = DLeaf(module='stratoweave-rfs', namespace='http://stratoweave.org/yang/stratoweave-rfs', prefix='sw-rfs', name='approval-required', config=True, description='Require approval of each individual configuration change to this device', default='false', mandatory=False, type_=DTypeBoolean(name='boolean', description=None, reference=None, exts=[], builtin_type='boolean', default=None))
 
-SRC_DNODE_CHILD_8: DContainer = DContainer(module='stratoweave-rfs', namespace='http://stratoweave.org/yang/stratoweave-rfs.yang', prefix='sw-rfs', name='mock', config=True, presence=False, children=[
-    DLeaf(module='stratoweave-rfs', namespace='http://stratoweave.org/yang/stratoweave-rfs.yang', prefix='sw-rfs', name='enabled', config=True, default='false', mandatory=False, type_=DTypeBoolean(name='boolean', description=None, reference=None, exts=[], builtin_type='boolean', default=None)),
-    DLeafList(module='stratoweave-rfs', namespace='http://stratoweave.org/yang/stratoweave-rfs.yang', prefix='sw-rfs', name='preset', config=True, min_elements=0, ordered_by='system', type_=DTypeEnum(name='enumeration', description=None, reference=None, exts=[], builtin_type='enumeration', default=None, name_to_val={'cisco-ios-xr':0, 'juniper-junos':1})),
-    DList(module='stratoweave-rfs', namespace='http://stratoweave.org/yang/stratoweave-rfs.yang', prefix='sw-rfs', name='module', key=['name'], config=True, min_elements=0, ordered_by='system', children=[
-        DLeaf(module='stratoweave-rfs', namespace='http://stratoweave.org/yang/stratoweave-rfs.yang', prefix='sw-rfs', name='name', config=True, mandatory=False, type_=DTypeString(name='string', description=None, reference=None, exts=[], builtin_type='string', default=None, length=None, patterns=[])),
-        DLeaf(module='stratoweave-rfs', namespace='http://stratoweave.org/yang/stratoweave-rfs.yang', prefix='sw-rfs', name='namespace', config=True, mandatory=True, type_=DTypeString(name='string', description=None, reference=None, exts=[], builtin_type='string', default=None, length=None, patterns=[])),
-        DLeaf(module='stratoweave-rfs', namespace='http://stratoweave.org/yang/stratoweave-rfs.yang', prefix='sw-rfs', name='revision', config=True, mandatory=False, type_=DTypeString(name='string', description=None, reference=None, exts=[], builtin_type='string', default=None, length=None, patterns=[])),
-        DLeafList(module='stratoweave-rfs', namespace='http://stratoweave.org/yang/stratoweave-rfs.yang', prefix='sw-rfs', name='feature', config=True, min_elements=0, ordered_by='system', type_=DTypeString(name='string', description=None, reference=None, exts=[], builtin_type='string', default=None, length=None, patterns=[]))
+SRC_DNODE_CHILD_8: DContainer = DContainer(module='stratoweave-rfs', namespace='http://stratoweave.org/yang/stratoweave-rfs', prefix='sw-rfs', name='mock', config=True, presence=False, children=[
+    DLeaf(module='stratoweave-rfs', namespace='http://stratoweave.org/yang/stratoweave-rfs', prefix='sw-rfs', name='enabled', config=True, default='false', mandatory=False, type_=DTypeBoolean(name='boolean', description=None, reference=None, exts=[], builtin_type='boolean', default=None)),
+    DLeafList(module='stratoweave-rfs', namespace='http://stratoweave.org/yang/stratoweave-rfs', prefix='sw-rfs', name='preset', config=True, min_elements=0, ordered_by='system', type_=DTypeEnum(name='enumeration', description=None, reference=None, exts=[], builtin_type='enumeration', default=None, name_to_val={'cisco-ios-xr':0, 'juniper-junos':1})),
+    DList(module='stratoweave-rfs', namespace='http://stratoweave.org/yang/stratoweave-rfs', prefix='sw-rfs', name='module', key=['name'], config=True, min_elements=0, ordered_by='system', children=[
+        DLeaf(module='stratoweave-rfs', namespace='http://stratoweave.org/yang/stratoweave-rfs', prefix='sw-rfs', name='name', config=True, mandatory=False, type_=DTypeString(name='string', description=None, reference=None, exts=[], builtin_type='string', default=None, length=None, patterns=[])),
+        DLeaf(module='stratoweave-rfs', namespace='http://stratoweave.org/yang/stratoweave-rfs', prefix='sw-rfs', name='namespace', config=True, mandatory=True, type_=DTypeString(name='string', description=None, reference=None, exts=[], builtin_type='string', default=None, length=None, patterns=[])),
+        DLeaf(module='stratoweave-rfs', namespace='http://stratoweave.org/yang/stratoweave-rfs', prefix='sw-rfs', name='revision', config=True, mandatory=False, type_=DTypeString(name='string', description=None, reference=None, exts=[], builtin_type='string', default=None, length=None, patterns=[])),
+        DLeafList(module='stratoweave-rfs', namespace='http://stratoweave.org/yang/stratoweave-rfs', prefix='sw-rfs', name='feature', config=True, min_elements=0, ordered_by='system', type_=DTypeString(name='string', description=None, reference=None, exts=[], builtin_type='string', default=None, length=None, patterns=[]))
     ])
 ])
 
-SRC_DNODE_CHILD_9: DContainer = DContainer(module='stratoweave-rfs', namespace='http://stratoweave.org/yang/stratoweave-rfs.yang', prefix='sw-rfs', name='debug', config=True, presence=False, children=[
-    DLeaf(module='stratoweave-rfs', namespace='http://stratoweave.org/yang/stratoweave-rfs.yang', prefix='sw-rfs', name='connection', config=True, default='false', mandatory=False, type_=DTypeBoolean(name='boolean', description=None, reference=None, exts=[], builtin_type='boolean', default=None))
+SRC_DNODE_CHILD_9: DContainer = DContainer(module='stratoweave-rfs', namespace='http://stratoweave.org/yang/stratoweave-rfs', prefix='sw-rfs', name='debug', config=True, presence=False, children=[
+    DLeaf(module='stratoweave-rfs', namespace='http://stratoweave.org/yang/stratoweave-rfs', prefix='sw-rfs', name='connection', config=True, default='false', mandatory=False, type_=DTypeBoolean(name='boolean', description=None, reference=None, exts=[], builtin_type='boolean', default=None))
 ])
 
-SRC_DNODE_CHILD_10: DContainer = DContainer(module='stratoweave-rfs', namespace='http://stratoweave.org/yang/stratoweave-rfs.yang', prefix='sw-rfs', name='feature-flags', config=True, presence=False, children=[
-    DLeaf(module='stratoweave-rfs', namespace='http://stratoweave.org/yang/stratoweave-rfs.yang', prefix='sw-rfs', name='runtime-schema-fetch', config=True, default='false', mandatory=False, type_=DTypeBoolean(name='boolean', description=None, reference=None, exts=[], builtin_type='boolean', default=None))
+SRC_DNODE_CHILD_10: DContainer = DContainer(module='stratoweave-rfs', namespace='http://stratoweave.org/yang/stratoweave-rfs', prefix='sw-rfs', name='feature-flags', config=True, presence=False, children=[
+    DLeaf(module='stratoweave-rfs', namespace='http://stratoweave.org/yang/stratoweave-rfs', prefix='sw-rfs', name='runtime-schema-fetch', config=True, default='false', mandatory=False, type_=DTypeBoolean(name='boolean', description=None, reference=None, exts=[], builtin_type='boolean', default=None))
 ])
 
-SRC_DNODE_CHILD_11: DContainer = DContainer(module='stratoweave-rfs', namespace='http://stratoweave.org/yang/stratoweave-rfs.yang', prefix='sw-rfs', name='state', config=False, presence=False)
+SRC_DNODE_CHILD_11: DContainer = DContainer(module='stratoweave-rfs', namespace='http://stratoweave.org/yang/stratoweave-rfs', prefix='sw-rfs', name='state', config=False, presence=False)
 
-SRC_DNODE_CHILD_0: DList = DList(module='stratoweave-rfs', namespace='http://stratoweave.org/yang/stratoweave-rfs.yang', prefix='sw-rfs', name='device', key=['name'], config=True, min_elements=0, ordered_by='system', exts=[
-        DExt(module='stratoweave', namespace='http://stratoweave.org/yang/stratoweave.yang', prefix='sw', name='device', arg=None, exts=[])
+SRC_DNODE_CHILD_0: DList = DList(module='stratoweave-rfs', namespace='http://stratoweave.org/yang/stratoweave-rfs', prefix='sw-rfs', name='device', key=['name'], config=True, min_elements=0, ordered_by='system', exts=[
+        DExt(module='stratoweave', namespace='http://stratoweave.org/yang/stratoweave', prefix='sw', name='device', arg=None, exts=[])
     ], children=[SRC_DNODE_CHILD_1, SRC_DNODE_CHILD_2, SRC_DNODE_CHILD_3, SRC_DNODE_CHILD_4, SRC_DNODE_CHILD_5, SRC_DNODE_CHILD_6, SRC_DNODE_CHILD_7, SRC_DNODE_CHILD_8, SRC_DNODE_CHILD_9, SRC_DNODE_CHILD_10, SRC_DNODE_CHILD_11])
 
-SRC_DNODE_CHILD_12: DList = DList(module='stratoweave-rfs', namespace='http://stratoweave.org/yang/stratoweave-rfs.yang', prefix='sw-rfs', name='rfs', key=['name'], config=True, min_elements=0, ordered_by='system', children=[
-    DLeaf(module='stratoweave-rfs', namespace='http://stratoweave.org/yang/stratoweave-rfs.yang', prefix='sw-rfs', name='name', config=True, description='Device name', mandatory=False, type_=DTypeString(name='string', description=None, reference=None, exts=[], builtin_type='string', default=None, length=None, patterns=[])),
+SRC_DNODE_CHILD_12: DList = DList(module='stratoweave-rfs', namespace='http://stratoweave.org/yang/stratoweave-rfs', prefix='sw-rfs', name='rfs', key=['name'], config=True, min_elements=0, ordered_by='system', children=[
+    DLeaf(module='stratoweave-rfs', namespace='http://stratoweave.org/yang/stratoweave-rfs', prefix='sw-rfs', name='name', config=True, description='Device name', mandatory=False, type_=DTypeString(name='string', description=None, reference=None, exts=[], builtin_type='string', default=None, length=None, patterns=[])),
     DList(module='orchino-rfs', namespace='http://example.com/orchino-rfs', prefix='orchino-rfs', name='base-config', key=['name'], config=True, min_elements=0, ordered_by='system', exts=[
-            DExt(module='stratoweave', namespace='http://stratoweave.org/yang/stratoweave.yang', prefix='sw', name='rfs-transform', arg='orchino.rfs.BaseConfig', exts=[])
+            DExt(module='stratoweave', namespace='http://stratoweave.org/yang/stratoweave', prefix='sw', name='rfs-transform', arg='orchino.rfs.BaseConfig', exts=[])
         ], children=[
         DLeaf(module='orchino-rfs', namespace='http://example.com/orchino-rfs', prefix='orchino-rfs', name='name', config=True, mandatory=False, type_=DTypeString(name='string', description=None, reference=None, exts=[], builtin_type='string', default=None, length=None, patterns=[])),
         DLeaf(module='orchino-rfs', namespace='http://example.com/orchino-rfs', prefix='orchino-rfs', name='ipv4-address', config=True, mandatory=True, type_=DTypeString(name='string', description=None, reference=None, exts=[], builtin_type='string', default=None, length=None, patterns=[]))
@@ -101,7 +101,7 @@ SRC_DNODE: DRoot = DRoot(
     children=[SRC_DNODE_CHILD_0, SRC_DNODE_CHILD_12],
     identities=[],
     rpcs=[],
-    module_metadata={'urn:ietf:params:xml:ns:yang:ietf-inet-types':('ietf-inet-types', '2013-07-15'), 'http://stratoweave.org/yang/stratoweave.yang':('stratoweave', '2026-04-01'), 'http://stratoweave.org/yang/stratoweave-rfs.yang':('stratoweave-rfs', None), 'http://example.com/orchino-rfs':('orchino-rfs', None)},
+    module_metadata={'urn:ietf:params:xml:ns:yang:ietf-inet-types':('ietf-inet-types', '2013-07-15'), 'http://stratoweave.org/yang/stratoweave':('stratoweave', '2026-04-01'), 'http://stratoweave.org/yang/stratoweave-rfs':('stratoweave-rfs', None), 'http://example.com/orchino-rfs':('orchino-rfs', None)},
 )
 
 SRC_YANG_0: str = r"""module orchino-rfs {
@@ -141,7 +141,7 @@ SRC_YANG_0: str = r"""module orchino-rfs {
 
 SRC_YANG_1: str = r"""module stratoweave {
   yang-version "1.1";
-  namespace "http://stratoweave.org/yang/stratoweave.yang";
+  namespace "http://stratoweave.org/yang/stratoweave";
   prefix "sw";
 
   description
@@ -204,7 +204,7 @@ SRC_YANG_1: str = r"""module stratoweave {
 
 SRC_YANG_2: str = r"""module stratoweave-rfs {
   yang-version "1.1";
-  namespace "http://stratoweave.org/yang/stratoweave-rfs.yang";
+  namespace "http://stratoweave.org/yang/stratoweave-rfs";
   prefix "sw-rfs";
 
   import stratoweave {
@@ -829,13 +829,13 @@ pure def src_yang() -> list[str]:
 
 
 NS_orchino_rfs: str = 'http://example.com/orchino-rfs'
-NS_stratoweave_rfs: str = 'http://stratoweave.org/yang/stratoweave-rfs.yang'
-NS_stratoweave: str = 'http://stratoweave.org/yang/stratoweave.yang'
+NS_stratoweave: str = 'http://stratoweave.org/yang/stratoweave'
+NS_stratoweave_rfs: str = 'http://stratoweave.org/yang/stratoweave-rfs'
 NS_ietf_inet_types: str = 'urn:ietf:params:xml:ns:yang:ietf-inet-types'
 
 
 _breaker1: None = None
-class stratoweave_rfs__device__address__initial_credentials_entry(yang.adata.MNode):
+class stratoweave_rfs__device__address__initial_credentials_entry(yadata.MNode):
     username: str
     password: str
     key: str
@@ -853,19 +853,19 @@ class stratoweave_rfs__device__address__initial_credentials_entry(yang.adata.MNo
         if name == 'sw-rfs:key':
             return self.key
 
-    mut def to_gdata(self) -> yang.gdata.Node:
-        return yang.adata.from_adata(SRC_DNODE, self, loose=True, root_path=['stratoweave-rfs:device', 'address', 'initial-credentials'])
+    mut def to_gdata(self) -> ygdata.Node:
+        return yadata.from_adata(SRC_DNODE, self, loose=True, root_path=['stratoweave-rfs:device', 'address', 'initial-credentials'])
 
     @staticmethod
-    mut def from_gdata(n: yang.gdata.Node) -> stratoweave_rfs__device__address__initial_credentials_entry:
-        return stratoweave_rfs__device__address__initial_credentials_entry(username=n.get_str(yang.gdata.Id(NS_stratoweave_rfs, 'username')), password=n.get_str(yang.gdata.Id(NS_stratoweave_rfs, 'password')), key=n.get_str(yang.gdata.Id(NS_stratoweave_rfs, 'key')))
+    mut def from_gdata(n: ygdata.Node) -> stratoweave_rfs__device__address__initial_credentials_entry:
+        return stratoweave_rfs__device__address__initial_credentials_entry(username=n.get_str(ygdata.Id(NS_stratoweave_rfs, 'username')), password=n.get_str(ygdata.Id(NS_stratoweave_rfs, 'password')), key=n.get_str(ygdata.Id(NS_stratoweave_rfs, 'key')))
 
     mut def copy(self) -> stratoweave_rfs__device__address__initial_credentials_entry:
         """Create a deep copy of this adata object"""
         return stratoweave_rfs__device__address__initial_credentials_entry.from_gdata(self.to_gdata())
 
 _breaker2: None = None
-class stratoweave_rfs__device__address__initial_credentials(yang.adata.MNode):
+class stratoweave_rfs__device__address__initial_credentials(yadata.MNode):
     elements: list[stratoweave_rfs__device__address__initial_credentials_entry]
     mut def __init__(self, elements: list[stratoweave_rfs__device__address__initial_credentials_entry]=[]) -> None:
         self.elements = elements
@@ -889,7 +889,7 @@ class stratoweave_rfs__device__address__initial_credentials(yang.adata.MNode):
         return res
 
     @staticmethod
-    mut def from_gdata(n: ?yang.gdata.List) -> list[stratoweave_rfs__device__address__initial_credentials_entry]:
+    mut def from_gdata(n: ?ygdata.List) -> list[stratoweave_rfs__device__address__initial_credentials_entry]:
         if n is not None:
             return [stratoweave_rfs__device__address__initial_credentials_entry.from_gdata(e) for e in n.elements]
         return []
@@ -909,7 +909,7 @@ extension stratoweave_rfs__device__address__initial_credentials(Iterable[stratow
         return self.elements.__iter__()
 
 _breaker3: None = None
-class stratoweave_rfs__device__address_entry(yang.adata.MNode):
+class stratoweave_rfs__device__address_entry(yadata.MNode):
     name: str
     address: ?str
     port: ?u64
@@ -931,19 +931,19 @@ class stratoweave_rfs__device__address_entry(yang.adata.MNode):
         if name == 'sw-rfs:initial-credentials':
             return iter(self.initial_credentials)
 
-    mut def to_gdata(self) -> yang.gdata.Node:
-        return yang.adata.from_adata(SRC_DNODE, self, loose=True, root_path=['stratoweave-rfs:device', 'address'])
+    mut def to_gdata(self) -> ygdata.Node:
+        return yadata.from_adata(SRC_DNODE, self, loose=True, root_path=['stratoweave-rfs:device', 'address'])
 
     @staticmethod
-    mut def from_gdata(n: yang.gdata.Node) -> stratoweave_rfs__device__address_entry:
-        return stratoweave_rfs__device__address_entry(name=n.get_str(yang.gdata.Id(NS_stratoweave_rfs, 'name')), address=n.get_opt_str(yang.gdata.Id(NS_stratoweave_rfs, 'address')), port=n.get_opt_u64(yang.gdata.Id(NS_stratoweave_rfs, 'port')), initial_credentials=stratoweave_rfs__device__address__initial_credentials.from_gdata(n.get_opt_list(yang.gdata.Id(NS_stratoweave_rfs, 'initial-credentials'))))
+    mut def from_gdata(n: ygdata.Node) -> stratoweave_rfs__device__address_entry:
+        return stratoweave_rfs__device__address_entry(name=n.get_str(ygdata.Id(NS_stratoweave_rfs, 'name')), address=n.get_opt_str(ygdata.Id(NS_stratoweave_rfs, 'address')), port=n.get_opt_u64(ygdata.Id(NS_stratoweave_rfs, 'port')), initial_credentials=stratoweave_rfs__device__address__initial_credentials.from_gdata(n.get_opt_list(ygdata.Id(NS_stratoweave_rfs, 'initial-credentials'))))
 
     mut def copy(self) -> stratoweave_rfs__device__address_entry:
         """Create a deep copy of this adata object"""
         return stratoweave_rfs__device__address_entry.from_gdata(self.to_gdata())
 
 _breaker4: None = None
-class stratoweave_rfs__device__address(yang.adata.MNode):
+class stratoweave_rfs__device__address(yadata.MNode):
     elements: list[stratoweave_rfs__device__address_entry]
     mut def __init__(self, elements: list[stratoweave_rfs__device__address_entry]=[]) -> None:
         self.elements = elements
@@ -967,7 +967,7 @@ class stratoweave_rfs__device__address(yang.adata.MNode):
         return res
 
     @staticmethod
-    mut def from_gdata(n: ?yang.gdata.List) -> list[stratoweave_rfs__device__address_entry]:
+    mut def from_gdata(n: ?ygdata.List) -> list[stratoweave_rfs__device__address_entry]:
         if n is not None:
             return [stratoweave_rfs__device__address_entry.from_gdata(e) for e in n.elements]
         return []
@@ -1008,7 +1008,7 @@ extension stratoweave_rfs__device__address(Indexed[str, stratoweave_rfs__device_
         raise KeyError(k)
 
 _breaker5: None = None
-class stratoweave_rfs__device__credentials__key_entry(yang.adata.MNode):
+class stratoweave_rfs__device__credentials__key_entry(yadata.MNode):
     key: str
     private_key: ?str
 
@@ -1022,19 +1022,19 @@ class stratoweave_rfs__device__credentials__key_entry(yang.adata.MNode):
         if name == 'sw-rfs:private-key':
             return self.private_key
 
-    mut def to_gdata(self) -> yang.gdata.Node:
-        return yang.adata.from_adata(SRC_DNODE, self, loose=True, root_path=['stratoweave-rfs:device', 'credentials', 'key'])
+    mut def to_gdata(self) -> ygdata.Node:
+        return yadata.from_adata(SRC_DNODE, self, loose=True, root_path=['stratoweave-rfs:device', 'credentials', 'key'])
 
     @staticmethod
-    mut def from_gdata(n: yang.gdata.Node) -> stratoweave_rfs__device__credentials__key_entry:
-        return stratoweave_rfs__device__credentials__key_entry(key=n.get_str(yang.gdata.Id(NS_stratoweave_rfs, 'key')), private_key=n.get_opt_str(yang.gdata.Id(NS_stratoweave_rfs, 'private-key')))
+    mut def from_gdata(n: ygdata.Node) -> stratoweave_rfs__device__credentials__key_entry:
+        return stratoweave_rfs__device__credentials__key_entry(key=n.get_str(ygdata.Id(NS_stratoweave_rfs, 'key')), private_key=n.get_opt_str(ygdata.Id(NS_stratoweave_rfs, 'private-key')))
 
     mut def copy(self) -> stratoweave_rfs__device__credentials__key_entry:
         """Create a deep copy of this adata object"""
         return stratoweave_rfs__device__credentials__key_entry.from_gdata(self.to_gdata())
 
 _breaker6: None = None
-class stratoweave_rfs__device__credentials__key(yang.adata.MNode):
+class stratoweave_rfs__device__credentials__key(yadata.MNode):
     elements: list[stratoweave_rfs__device__credentials__key_entry]
     mut def __init__(self, elements: list[stratoweave_rfs__device__credentials__key_entry]=[]) -> None:
         self.elements = elements
@@ -1056,7 +1056,7 @@ class stratoweave_rfs__device__credentials__key(yang.adata.MNode):
         return res
 
     @staticmethod
-    mut def from_gdata(n: ?yang.gdata.List) -> list[stratoweave_rfs__device__credentials__key_entry]:
+    mut def from_gdata(n: ?ygdata.List) -> list[stratoweave_rfs__device__credentials__key_entry]:
         if n is not None:
             return [stratoweave_rfs__device__credentials__key_entry.from_gdata(e) for e in n.elements]
         return []
@@ -1097,7 +1097,7 @@ extension stratoweave_rfs__device__credentials__key(Indexed[str, stratoweave_rfs
         raise KeyError(k)
 
 _breaker7: None = None
-class stratoweave_rfs__device__credentials(yang.adata.MNode):
+class stratoweave_rfs__device__credentials(yadata.MNode):
     username: ?str
     password: ?str
     key: stratoweave_rfs__device__credentials__key
@@ -1115,13 +1115,13 @@ class stratoweave_rfs__device__credentials(yang.adata.MNode):
         if name == 'sw-rfs:key':
             return iter(self.key)
 
-    mut def to_gdata(self) -> yang.gdata.Node:
-        return yang.adata.from_adata(SRC_DNODE, self, loose=True, root_path=['stratoweave-rfs:device', 'credentials'])
+    mut def to_gdata(self) -> ygdata.Node:
+        return yadata.from_adata(SRC_DNODE, self, loose=True, root_path=['stratoweave-rfs:device', 'credentials'])
 
     @staticmethod
-    mut def from_gdata(n: ?yang.gdata.Node) -> stratoweave_rfs__device__credentials:
+    mut def from_gdata(n: ?ygdata.Node) -> stratoweave_rfs__device__credentials:
         if n is not None:
-            return stratoweave_rfs__device__credentials(username=n.get_opt_str(yang.gdata.Id(NS_stratoweave_rfs, 'username')), password=n.get_opt_str(yang.gdata.Id(NS_stratoweave_rfs, 'password')), key=stratoweave_rfs__device__credentials__key.from_gdata(n.get_opt_list(yang.gdata.Id(NS_stratoweave_rfs, 'key'))))
+            return stratoweave_rfs__device__credentials(username=n.get_opt_str(ygdata.Id(NS_stratoweave_rfs, 'username')), password=n.get_opt_str(ygdata.Id(NS_stratoweave_rfs, 'password')), key=stratoweave_rfs__device__credentials__key.from_gdata(n.get_opt_list(ygdata.Id(NS_stratoweave_rfs, 'key'))))
         return stratoweave_rfs__device__credentials()
 
     mut def copy(self) -> stratoweave_rfs__device__credentials:
@@ -1130,7 +1130,7 @@ class stratoweave_rfs__device__credentials(yang.adata.MNode):
 
 
 _breaker8: None = None
-class stratoweave_rfs__device__initial_credentials_entry(yang.adata.MNode):
+class stratoweave_rfs__device__initial_credentials_entry(yadata.MNode):
     username: str
     password: str
     key: str
@@ -1148,19 +1148,19 @@ class stratoweave_rfs__device__initial_credentials_entry(yang.adata.MNode):
         if name == 'sw-rfs:key':
             return self.key
 
-    mut def to_gdata(self) -> yang.gdata.Node:
-        return yang.adata.from_adata(SRC_DNODE, self, loose=True, root_path=['stratoweave-rfs:device', 'initial-credentials'])
+    mut def to_gdata(self) -> ygdata.Node:
+        return yadata.from_adata(SRC_DNODE, self, loose=True, root_path=['stratoweave-rfs:device', 'initial-credentials'])
 
     @staticmethod
-    mut def from_gdata(n: yang.gdata.Node) -> stratoweave_rfs__device__initial_credentials_entry:
-        return stratoweave_rfs__device__initial_credentials_entry(username=n.get_str(yang.gdata.Id(NS_stratoweave_rfs, 'username')), password=n.get_str(yang.gdata.Id(NS_stratoweave_rfs, 'password')), key=n.get_str(yang.gdata.Id(NS_stratoweave_rfs, 'key')))
+    mut def from_gdata(n: ygdata.Node) -> stratoweave_rfs__device__initial_credentials_entry:
+        return stratoweave_rfs__device__initial_credentials_entry(username=n.get_str(ygdata.Id(NS_stratoweave_rfs, 'username')), password=n.get_str(ygdata.Id(NS_stratoweave_rfs, 'password')), key=n.get_str(ygdata.Id(NS_stratoweave_rfs, 'key')))
 
     mut def copy(self) -> stratoweave_rfs__device__initial_credentials_entry:
         """Create a deep copy of this adata object"""
         return stratoweave_rfs__device__initial_credentials_entry.from_gdata(self.to_gdata())
 
 _breaker9: None = None
-class stratoweave_rfs__device__initial_credentials(yang.adata.MNode):
+class stratoweave_rfs__device__initial_credentials(yadata.MNode):
     elements: list[stratoweave_rfs__device__initial_credentials_entry]
     mut def __init__(self, elements: list[stratoweave_rfs__device__initial_credentials_entry]=[]) -> None:
         self.elements = elements
@@ -1184,7 +1184,7 @@ class stratoweave_rfs__device__initial_credentials(yang.adata.MNode):
         return res
 
     @staticmethod
-    mut def from_gdata(n: ?yang.gdata.List) -> list[stratoweave_rfs__device__initial_credentials_entry]:
+    mut def from_gdata(n: ?ygdata.List) -> list[stratoweave_rfs__device__initial_credentials_entry]:
         if n is not None:
             return [stratoweave_rfs__device__initial_credentials_entry.from_gdata(e) for e in n.elements]
         return []
@@ -1204,7 +1204,7 @@ extension stratoweave_rfs__device__initial_credentials(Iterable[stratoweave_rfs_
         return self.elements.__iter__()
 
 _breaker10: None = None
-class stratoweave_rfs__device__mock__module_entry(yang.adata.MNode):
+class stratoweave_rfs__device__mock__module_entry(yadata.MNode):
     name: str
     namespace: ?str
     revision: ?str
@@ -1226,19 +1226,19 @@ class stratoweave_rfs__device__mock__module_entry(yang.adata.MNode):
         if name == 'sw-rfs:feature':
             return self.feature
 
-    mut def to_gdata(self) -> yang.gdata.Node:
-        return yang.adata.from_adata(SRC_DNODE, self, loose=True, root_path=['stratoweave-rfs:device', 'mock', 'module'])
+    mut def to_gdata(self) -> ygdata.Node:
+        return yadata.from_adata(SRC_DNODE, self, loose=True, root_path=['stratoweave-rfs:device', 'mock', 'module'])
 
     @staticmethod
-    mut def from_gdata(n: yang.gdata.Node) -> stratoweave_rfs__device__mock__module_entry:
-        return stratoweave_rfs__device__mock__module_entry(name=n.get_str(yang.gdata.Id(NS_stratoweave_rfs, 'name')), namespace=n.get_opt_str(yang.gdata.Id(NS_stratoweave_rfs, 'namespace')), revision=n.get_opt_str(yang.gdata.Id(NS_stratoweave_rfs, 'revision')), feature=n.get_opt_strs(yang.gdata.Id(NS_stratoweave_rfs, 'feature')))
+    mut def from_gdata(n: ygdata.Node) -> stratoweave_rfs__device__mock__module_entry:
+        return stratoweave_rfs__device__mock__module_entry(name=n.get_str(ygdata.Id(NS_stratoweave_rfs, 'name')), namespace=n.get_opt_str(ygdata.Id(NS_stratoweave_rfs, 'namespace')), revision=n.get_opt_str(ygdata.Id(NS_stratoweave_rfs, 'revision')), feature=n.get_opt_strs(ygdata.Id(NS_stratoweave_rfs, 'feature')))
 
     mut def copy(self) -> stratoweave_rfs__device__mock__module_entry:
         """Create a deep copy of this adata object"""
         return stratoweave_rfs__device__mock__module_entry.from_gdata(self.to_gdata())
 
 _breaker11: None = None
-class stratoweave_rfs__device__mock__module(yang.adata.MNode):
+class stratoweave_rfs__device__mock__module(yadata.MNode):
     elements: list[stratoweave_rfs__device__mock__module_entry]
     mut def __init__(self, elements: list[stratoweave_rfs__device__mock__module_entry]=[]) -> None:
         self.elements = elements
@@ -1262,7 +1262,7 @@ class stratoweave_rfs__device__mock__module(yang.adata.MNode):
         return res
 
     @staticmethod
-    mut def from_gdata(n: ?yang.gdata.List) -> list[stratoweave_rfs__device__mock__module_entry]:
+    mut def from_gdata(n: ?ygdata.List) -> list[stratoweave_rfs__device__mock__module_entry]:
         if n is not None:
             return [stratoweave_rfs__device__mock__module_entry.from_gdata(e) for e in n.elements]
         return []
@@ -1303,7 +1303,7 @@ extension stratoweave_rfs__device__mock__module(Indexed[str, stratoweave_rfs__de
         raise KeyError(k)
 
 _breaker12: None = None
-class stratoweave_rfs__device__mock(yang.adata.MNode):
+class stratoweave_rfs__device__mock(yadata.MNode):
     enabled: ?bool
     preset: list[str]
     module: stratoweave_rfs__device__mock__module
@@ -1321,13 +1321,13 @@ class stratoweave_rfs__device__mock(yang.adata.MNode):
         if name == 'sw-rfs:module':
             return iter(self.module)
 
-    mut def to_gdata(self) -> yang.gdata.Node:
-        return yang.adata.from_adata(SRC_DNODE, self, loose=True, root_path=['stratoweave-rfs:device', 'mock'])
+    mut def to_gdata(self) -> ygdata.Node:
+        return yadata.from_adata(SRC_DNODE, self, loose=True, root_path=['stratoweave-rfs:device', 'mock'])
 
     @staticmethod
-    mut def from_gdata(n: ?yang.gdata.Node) -> stratoweave_rfs__device__mock:
+    mut def from_gdata(n: ?ygdata.Node) -> stratoweave_rfs__device__mock:
         if n is not None:
-            return stratoweave_rfs__device__mock(enabled=n.get_opt_bool(yang.gdata.Id(NS_stratoweave_rfs, 'enabled')), preset=n.get_opt_strs(yang.gdata.Id(NS_stratoweave_rfs, 'preset')), module=stratoweave_rfs__device__mock__module.from_gdata(n.get_opt_list(yang.gdata.Id(NS_stratoweave_rfs, 'module'))))
+            return stratoweave_rfs__device__mock(enabled=n.get_opt_bool(ygdata.Id(NS_stratoweave_rfs, 'enabled')), preset=n.get_opt_strs(ygdata.Id(NS_stratoweave_rfs, 'preset')), module=stratoweave_rfs__device__mock__module.from_gdata(n.get_opt_list(ygdata.Id(NS_stratoweave_rfs, 'module'))))
         return stratoweave_rfs__device__mock()
 
     mut def copy(self) -> stratoweave_rfs__device__mock:
@@ -1336,7 +1336,7 @@ class stratoweave_rfs__device__mock(yang.adata.MNode):
 
 
 _breaker13: None = None
-class stratoweave_rfs__device__debug(yang.adata.MNode):
+class stratoweave_rfs__device__debug(yadata.MNode):
     connection: ?bool
 
     mut def __init__(self, connection: ?bool) -> None:
@@ -1346,13 +1346,13 @@ class stratoweave_rfs__device__debug(yang.adata.MNode):
         if name == 'sw-rfs:connection':
             return self.connection
 
-    mut def to_gdata(self) -> yang.gdata.Node:
-        return yang.adata.from_adata(SRC_DNODE, self, loose=True, root_path=['stratoweave-rfs:device', 'debug'])
+    mut def to_gdata(self) -> ygdata.Node:
+        return yadata.from_adata(SRC_DNODE, self, loose=True, root_path=['stratoweave-rfs:device', 'debug'])
 
     @staticmethod
-    mut def from_gdata(n: ?yang.gdata.Node) -> stratoweave_rfs__device__debug:
+    mut def from_gdata(n: ?ygdata.Node) -> stratoweave_rfs__device__debug:
         if n is not None:
-            return stratoweave_rfs__device__debug(connection=n.get_opt_bool(yang.gdata.Id(NS_stratoweave_rfs, 'connection')))
+            return stratoweave_rfs__device__debug(connection=n.get_opt_bool(ygdata.Id(NS_stratoweave_rfs, 'connection')))
         return stratoweave_rfs__device__debug()
 
     mut def copy(self) -> stratoweave_rfs__device__debug:
@@ -1361,7 +1361,7 @@ class stratoweave_rfs__device__debug(yang.adata.MNode):
 
 
 _breaker14: None = None
-class stratoweave_rfs__device__feature_flags(yang.adata.MNode):
+class stratoweave_rfs__device__feature_flags(yadata.MNode):
     runtime_schema_fetch: ?bool
 
     mut def __init__(self, runtime_schema_fetch: ?bool) -> None:
@@ -1371,13 +1371,13 @@ class stratoweave_rfs__device__feature_flags(yang.adata.MNode):
         if name == 'sw-rfs:runtime-schema-fetch':
             return self.runtime_schema_fetch
 
-    mut def to_gdata(self) -> yang.gdata.Node:
-        return yang.adata.from_adata(SRC_DNODE, self, loose=True, root_path=['stratoweave-rfs:device', 'feature-flags'])
+    mut def to_gdata(self) -> ygdata.Node:
+        return yadata.from_adata(SRC_DNODE, self, loose=True, root_path=['stratoweave-rfs:device', 'feature-flags'])
 
     @staticmethod
-    mut def from_gdata(n: ?yang.gdata.Node) -> stratoweave_rfs__device__feature_flags:
+    mut def from_gdata(n: ?ygdata.Node) -> stratoweave_rfs__device__feature_flags:
         if n is not None:
-            return stratoweave_rfs__device__feature_flags(runtime_schema_fetch=n.get_opt_bool(yang.gdata.Id(NS_stratoweave_rfs, 'runtime-schema-fetch')))
+            return stratoweave_rfs__device__feature_flags(runtime_schema_fetch=n.get_opt_bool(ygdata.Id(NS_stratoweave_rfs, 'runtime-schema-fetch')))
         return stratoweave_rfs__device__feature_flags()
 
     mut def copy(self) -> stratoweave_rfs__device__feature_flags:
@@ -1386,16 +1386,16 @@ class stratoweave_rfs__device__feature_flags(yang.adata.MNode):
 
 
 _breaker15: None = None
-class stratoweave_rfs__device__state(yang.adata.MNode):
+class stratoweave_rfs__device__state(yadata.MNode):
 
     mut def __init__(self) -> None:
         pass
 
-    mut def to_gdata(self) -> yang.gdata.Node:
-        return yang.adata.from_adata(SRC_DNODE, self, loose=True, root_path=['stratoweave-rfs:device', 'state'])
+    mut def to_gdata(self) -> ygdata.Node:
+        return yadata.from_adata(SRC_DNODE, self, loose=True, root_path=['stratoweave-rfs:device', 'state'])
 
     @staticmethod
-    mut def from_gdata(n: ?yang.gdata.Node) -> stratoweave_rfs__device__state:
+    mut def from_gdata(n: ?ygdata.Node) -> stratoweave_rfs__device__state:
         if n is not None:
             return stratoweave_rfs__device__state()
         return stratoweave_rfs__device__state()
@@ -1406,7 +1406,7 @@ class stratoweave_rfs__device__state(yang.adata.MNode):
 
 
 _breaker16: None = None
-class stratoweave_rfs__device_entry(yang.adata.MNode):
+class stratoweave_rfs__device_entry(yadata.MNode):
     name: str
     description: ?str
     type: ?str
@@ -1456,19 +1456,19 @@ class stratoweave_rfs__device_entry(yang.adata.MNode):
         if name == 'sw-rfs:state':
             return self.state
 
-    mut def to_gdata(self) -> yang.gdata.Node:
-        return yang.adata.from_adata(SRC_DNODE, self, loose=True, root_path=['stratoweave-rfs:device'])
+    mut def to_gdata(self) -> ygdata.Node:
+        return yadata.from_adata(SRC_DNODE, self, loose=True, root_path=['stratoweave-rfs:device'])
 
     @staticmethod
-    mut def from_gdata(n: yang.gdata.Node) -> stratoweave_rfs__device_entry:
-        return stratoweave_rfs__device_entry(name=n.get_str(yang.gdata.Id(NS_stratoweave_rfs, 'name')), description=n.get_opt_str(yang.gdata.Id(NS_stratoweave_rfs, 'description')), type=n.get_opt_str(yang.gdata.Id(NS_stratoweave_rfs, 'type')), address=stratoweave_rfs__device__address.from_gdata(n.get_opt_list(yang.gdata.Id(NS_stratoweave_rfs, 'address'))), credentials=stratoweave_rfs__device__credentials.from_gdata(n.get_opt_cnt(yang.gdata.Id(NS_stratoweave_rfs, 'credentials'))), initial_credentials=stratoweave_rfs__device__initial_credentials.from_gdata(n.get_opt_list(yang.gdata.Id(NS_stratoweave_rfs, 'initial-credentials'))), approval_required=n.get_opt_bool(yang.gdata.Id(NS_stratoweave_rfs, 'approval-required')), mock=stratoweave_rfs__device__mock.from_gdata(n.get_opt_cnt(yang.gdata.Id(NS_stratoweave_rfs, 'mock'))), debug=stratoweave_rfs__device__debug.from_gdata(n.get_opt_cnt(yang.gdata.Id(NS_stratoweave_rfs, 'debug'))), feature_flags=stratoweave_rfs__device__feature_flags.from_gdata(n.get_opt_cnt(yang.gdata.Id(NS_stratoweave_rfs, 'feature-flags'))), state=stratoweave_rfs__device__state.from_gdata(n.get_opt_cnt(yang.gdata.Id(NS_stratoweave_rfs, 'state'))))
+    mut def from_gdata(n: ygdata.Node) -> stratoweave_rfs__device_entry:
+        return stratoweave_rfs__device_entry(name=n.get_str(ygdata.Id(NS_stratoweave_rfs, 'name')), description=n.get_opt_str(ygdata.Id(NS_stratoweave_rfs, 'description')), type=n.get_opt_str(ygdata.Id(NS_stratoweave_rfs, 'type')), address=stratoweave_rfs__device__address.from_gdata(n.get_opt_list(ygdata.Id(NS_stratoweave_rfs, 'address'))), credentials=stratoweave_rfs__device__credentials.from_gdata(n.get_opt_cnt(ygdata.Id(NS_stratoweave_rfs, 'credentials'))), initial_credentials=stratoweave_rfs__device__initial_credentials.from_gdata(n.get_opt_list(ygdata.Id(NS_stratoweave_rfs, 'initial-credentials'))), approval_required=n.get_opt_bool(ygdata.Id(NS_stratoweave_rfs, 'approval-required')), mock=stratoweave_rfs__device__mock.from_gdata(n.get_opt_cnt(ygdata.Id(NS_stratoweave_rfs, 'mock'))), debug=stratoweave_rfs__device__debug.from_gdata(n.get_opt_cnt(ygdata.Id(NS_stratoweave_rfs, 'debug'))), feature_flags=stratoweave_rfs__device__feature_flags.from_gdata(n.get_opt_cnt(ygdata.Id(NS_stratoweave_rfs, 'feature-flags'))), state=stratoweave_rfs__device__state.from_gdata(n.get_opt_cnt(ygdata.Id(NS_stratoweave_rfs, 'state'))))
 
     mut def copy(self) -> stratoweave_rfs__device_entry:
         """Create a deep copy of this adata object"""
         return stratoweave_rfs__device_entry.from_gdata(self.to_gdata())
 
 _breaker17: None = None
-class stratoweave_rfs__device(yang.adata.MNode):
+class stratoweave_rfs__device(yadata.MNode):
     elements: list[stratoweave_rfs__device_entry]
     mut def __init__(self, elements: list[stratoweave_rfs__device_entry]=[]) -> None:
         self.elements = elements
@@ -1494,7 +1494,7 @@ class stratoweave_rfs__device(yang.adata.MNode):
         return res
 
     @staticmethod
-    mut def from_gdata(n: ?yang.gdata.List) -> list[stratoweave_rfs__device_entry]:
+    mut def from_gdata(n: ?ygdata.List) -> list[stratoweave_rfs__device_entry]:
         if n is not None:
             return [stratoweave_rfs__device_entry.from_gdata(e) for e in n.elements]
         return []
@@ -1535,7 +1535,7 @@ extension stratoweave_rfs__device(Indexed[str, stratoweave_rfs__device_entry]):
         raise KeyError(k)
 
 _breaker18: None = None
-class stratoweave_rfs__rfs__base_config_entry(yang.adata.MNode):
+class stratoweave_rfs__rfs__base_config_entry(yadata.MNode):
     name: str
     ipv4_address: ?str
 
@@ -1549,19 +1549,19 @@ class stratoweave_rfs__rfs__base_config_entry(yang.adata.MNode):
         if name == 'orchino-rfs:ipv4-address':
             return self.ipv4_address
 
-    mut def to_gdata(self) -> yang.gdata.Node:
-        return yang.adata.from_adata(SRC_DNODE, self, loose=True, root_path=['stratoweave-rfs:rfs', 'orchino-rfs:base-config'])
+    mut def to_gdata(self) -> ygdata.Node:
+        return yadata.from_adata(SRC_DNODE, self, loose=True, root_path=['stratoweave-rfs:rfs', 'orchino-rfs:base-config'])
 
     @staticmethod
-    mut def from_gdata(n: yang.gdata.Node) -> stratoweave_rfs__rfs__base_config_entry:
-        return stratoweave_rfs__rfs__base_config_entry(name=n.get_str(yang.gdata.Id(NS_orchino_rfs, 'name')), ipv4_address=n.get_opt_str(yang.gdata.Id(NS_orchino_rfs, 'ipv4-address')))
+    mut def from_gdata(n: ygdata.Node) -> stratoweave_rfs__rfs__base_config_entry:
+        return stratoweave_rfs__rfs__base_config_entry(name=n.get_str(ygdata.Id(NS_orchino_rfs, 'name')), ipv4_address=n.get_opt_str(ygdata.Id(NS_orchino_rfs, 'ipv4-address')))
 
     mut def copy(self) -> stratoweave_rfs__rfs__base_config_entry:
         """Create a deep copy of this adata object"""
         return stratoweave_rfs__rfs__base_config_entry.from_gdata(self.to_gdata())
 
 _breaker19: None = None
-class stratoweave_rfs__rfs__base_config(yang.adata.MNode):
+class stratoweave_rfs__rfs__base_config(yadata.MNode):
     elements: list[stratoweave_rfs__rfs__base_config_entry]
     mut def __init__(self, elements: list[stratoweave_rfs__rfs__base_config_entry]=[]) -> None:
         self.elements = elements
@@ -1583,7 +1583,7 @@ class stratoweave_rfs__rfs__base_config(yang.adata.MNode):
         return res
 
     @staticmethod
-    mut def from_gdata(n: ?yang.gdata.List) -> list[stratoweave_rfs__rfs__base_config_entry]:
+    mut def from_gdata(n: ?ygdata.List) -> list[stratoweave_rfs__rfs__base_config_entry]:
         if n is not None:
             return [stratoweave_rfs__rfs__base_config_entry.from_gdata(e) for e in n.elements]
         return []
@@ -1624,7 +1624,7 @@ extension stratoweave_rfs__rfs__base_config(Indexed[str, stratoweave_rfs__rfs__b
         raise KeyError(k)
 
 _breaker20: None = None
-class stratoweave_rfs__rfs_entry(yang.adata.MNode):
+class stratoweave_rfs__rfs_entry(yadata.MNode):
     name: str
     base_config: stratoweave_rfs__rfs__base_config
 
@@ -1638,19 +1638,19 @@ class stratoweave_rfs__rfs_entry(yang.adata.MNode):
         if name == 'orchino-rfs:base-config':
             return iter(self.base_config)
 
-    mut def to_gdata(self) -> yang.gdata.Node:
-        return yang.adata.from_adata(SRC_DNODE, self, loose=True, root_path=['stratoweave-rfs:rfs'])
+    mut def to_gdata(self) -> ygdata.Node:
+        return yadata.from_adata(SRC_DNODE, self, loose=True, root_path=['stratoweave-rfs:rfs'])
 
     @staticmethod
-    mut def from_gdata(n: yang.gdata.Node) -> stratoweave_rfs__rfs_entry:
-        return stratoweave_rfs__rfs_entry(name=n.get_str(yang.gdata.Id(NS_stratoweave_rfs, 'name')), base_config=stratoweave_rfs__rfs__base_config.from_gdata(n.get_opt_list(yang.gdata.Id(NS_orchino_rfs, 'base-config'))))
+    mut def from_gdata(n: ygdata.Node) -> stratoweave_rfs__rfs_entry:
+        return stratoweave_rfs__rfs_entry(name=n.get_str(ygdata.Id(NS_stratoweave_rfs, 'name')), base_config=stratoweave_rfs__rfs__base_config.from_gdata(n.get_opt_list(ygdata.Id(NS_orchino_rfs, 'base-config'))))
 
     mut def copy(self) -> stratoweave_rfs__rfs_entry:
         """Create a deep copy of this adata object"""
         return stratoweave_rfs__rfs_entry.from_gdata(self.to_gdata())
 
 _breaker21: None = None
-class stratoweave_rfs__rfs(yang.adata.MNode):
+class stratoweave_rfs__rfs(yadata.MNode):
     elements: list[stratoweave_rfs__rfs_entry]
     mut def __init__(self, elements: list[stratoweave_rfs__rfs_entry]=[]) -> None:
         self.elements = elements
@@ -1670,7 +1670,7 @@ class stratoweave_rfs__rfs(yang.adata.MNode):
         return res
 
     @staticmethod
-    mut def from_gdata(n: ?yang.gdata.List) -> list[stratoweave_rfs__rfs_entry]:
+    mut def from_gdata(n: ?ygdata.List) -> list[stratoweave_rfs__rfs_entry]:
         if n is not None:
             return [stratoweave_rfs__rfs_entry.from_gdata(e) for e in n.elements]
         return []
@@ -1711,7 +1711,7 @@ extension stratoweave_rfs__rfs(Indexed[str, stratoweave_rfs__rfs_entry]):
         raise KeyError(k)
 
 _breaker22: None = None
-class root(yang.adata.MNode):
+class root(yadata.MNode):
     device: stratoweave_rfs__device
     rfs: stratoweave_rfs__rfs
 
@@ -1725,13 +1725,13 @@ class root(yang.adata.MNode):
         if name == 'sw-rfs:rfs':
             return iter(self.rfs)
 
-    mut def to_gdata(self) -> yang.gdata.Node:
-        return yang.adata.from_adata(SRC_DNODE, self, loose=True)
+    mut def to_gdata(self) -> ygdata.Node:
+        return yadata.from_adata(SRC_DNODE, self, loose=True)
 
     @staticmethod
-    mut def from_gdata(n: ?yang.gdata.Node) -> root:
+    mut def from_gdata(n: ?ygdata.Node) -> root:
         if n is not None:
-            return root(device=stratoweave_rfs__device.from_gdata(n.get_opt_list(yang.gdata.Id(NS_stratoweave_rfs, 'device'))), rfs=stratoweave_rfs__rfs.from_gdata(n.get_opt_list(yang.gdata.Id(NS_stratoweave_rfs, 'rfs'))))
+            return root(device=stratoweave_rfs__device.from_gdata(n.get_opt_list(ygdata.Id(NS_stratoweave_rfs, 'device'))), rfs=stratoweave_rfs__rfs.from_gdata(n.get_opt_list(ygdata.Id(NS_stratoweave_rfs, 'rfs'))))
         return root()
 
     mut def copy(self) -> root:
@@ -1739,7 +1739,7 @@ class root(yang.adata.MNode):
         return root.from_gdata(self.to_gdata())
 
 
-actor rpc_root(tp: yang.gdata.TreeProvider):
+actor rpc_root(tp: ygdata.TreeProvider):
     pass
 
 
@@ -1752,9 +1752,9 @@ class stratoweave_rfs__device__address__initial_credentials_entry_subs(Subscript
 
     pure def __init__(self, path: ?SubscriptionPath=None) -> None:
         SubscriptionNode.__init__(self, path)
-        self.username = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'username'), parent=path))
-        self.password = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'password'), parent=path))
-        self.key = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'key'), parent=path))
+        self.username = SubscriptionNode(SubscriptionPath(ygdata.Id(NS_stratoweave_rfs, 'username'), parent=path))
+        self.password = SubscriptionNode(SubscriptionPath(ygdata.Id(NS_stratoweave_rfs, 'password'), parent=path))
+        self.key = SubscriptionNode(SubscriptionPath(ygdata.Id(NS_stratoweave_rfs, 'key'), parent=path))
 
     pure def _direct_children(self) -> list[SubscriptionNode]:
         direct: list[SubscriptionNode] = [self.username, self.password, self.key]
@@ -1767,18 +1767,18 @@ class stratoweave_rfs__device__address__initial_credentials_subs(SubscriptionNod
     key: SubscriptionNode
     pure def __init__(self, path: ?SubscriptionPath=None) -> None:
         SubscriptionNode.__init__(self, path)
-        self.username = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'username'), parent=path))
-        self.password = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'password'), parent=path))
-        self.key = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'key'), parent=path))
+        self.username = SubscriptionNode(SubscriptionPath(ygdata.Id(NS_stratoweave_rfs, 'username'), parent=path))
+        self.password = SubscriptionNode(SubscriptionPath(ygdata.Id(NS_stratoweave_rfs, 'password'), parent=path))
+        self.key = SubscriptionNode(SubscriptionPath(ygdata.Id(NS_stratoweave_rfs, 'key'), parent=path))
 
     pure def entry(self, username: str, password: str, key: str) -> stratoweave_rfs__device__address__initial_credentials_entry_subs:
         predicates = [
-            yang.gdata.FNode(yang.gdata.Id(NS_stratoweave_rfs, 'username'), value_match=username),
-            yang.gdata.FNode(yang.gdata.Id(NS_stratoweave_rfs, 'password'), value_match=password),
-            yang.gdata.FNode(yang.gdata.Id(NS_stratoweave_rfs, 'key'), value_match=key),
+            ygdata.FNode(ygdata.Id(NS_stratoweave_rfs, 'username'), value_match=username),
+            ygdata.FNode(ygdata.Id(NS_stratoweave_rfs, 'password'), value_match=password),
+            ygdata.FNode(ygdata.Id(NS_stratoweave_rfs, 'key'), value_match=key),
         ]
         base_path = self._path!.parent
-        return stratoweave_rfs__device__address__initial_credentials_entry_subs(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'initial-credentials'), predicates=predicates, parent=base_path))
+        return stratoweave_rfs__device__address__initial_credentials_entry_subs(SubscriptionPath(ygdata.Id(NS_stratoweave_rfs, 'initial-credentials'), predicates=predicates, parent=base_path))
 
     pure def _direct_children(self) -> list[SubscriptionNode]:
         direct: list[SubscriptionNode] = [self.username, self.password, self.key]
@@ -1793,10 +1793,10 @@ class stratoweave_rfs__device__address_entry_subs(SubscriptionNode):
 
     pure def __init__(self, path: ?SubscriptionPath=None) -> None:
         SubscriptionNode.__init__(self, path)
-        self.name = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'name'), parent=path))
-        self.address = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'address'), parent=path))
-        self.port = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'port'), parent=path))
-        self.initial_credentials = stratoweave_rfs__device__address__initial_credentials_subs(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'initial-credentials'), parent=path))
+        self.name = SubscriptionNode(SubscriptionPath(ygdata.Id(NS_stratoweave_rfs, 'name'), parent=path))
+        self.address = SubscriptionNode(SubscriptionPath(ygdata.Id(NS_stratoweave_rfs, 'address'), parent=path))
+        self.port = SubscriptionNode(SubscriptionPath(ygdata.Id(NS_stratoweave_rfs, 'port'), parent=path))
+        self.initial_credentials = stratoweave_rfs__device__address__initial_credentials_subs(SubscriptionPath(ygdata.Id(NS_stratoweave_rfs, 'initial-credentials'), parent=path))
 
     pure def _direct_children(self) -> list[SubscriptionNode]:
         direct: list[SubscriptionNode] = [self.name, self.address, self.port, self.initial_credentials]
@@ -1810,17 +1810,17 @@ class stratoweave_rfs__device__address_subs(SubscriptionNode):
     initial_credentials: stratoweave_rfs__device__address__initial_credentials_subs
     pure def __init__(self, path: ?SubscriptionPath=None) -> None:
         SubscriptionNode.__init__(self, path)
-        self.name = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'name'), parent=path))
-        self.address = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'address'), parent=path))
-        self.port = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'port'), parent=path))
-        self.initial_credentials = stratoweave_rfs__device__address__initial_credentials_subs(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'initial-credentials'), parent=path))
+        self.name = SubscriptionNode(SubscriptionPath(ygdata.Id(NS_stratoweave_rfs, 'name'), parent=path))
+        self.address = SubscriptionNode(SubscriptionPath(ygdata.Id(NS_stratoweave_rfs, 'address'), parent=path))
+        self.port = SubscriptionNode(SubscriptionPath(ygdata.Id(NS_stratoweave_rfs, 'port'), parent=path))
+        self.initial_credentials = stratoweave_rfs__device__address__initial_credentials_subs(SubscriptionPath(ygdata.Id(NS_stratoweave_rfs, 'initial-credentials'), parent=path))
 
     pure def entry(self, name: str) -> stratoweave_rfs__device__address_entry_subs:
         predicates = [
-            yang.gdata.FNode(yang.gdata.Id(NS_stratoweave_rfs, 'name'), value_match=name),
+            ygdata.FNode(ygdata.Id(NS_stratoweave_rfs, 'name'), value_match=name),
         ]
         base_path = self._path!.parent
-        return stratoweave_rfs__device__address_entry_subs(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'address'), predicates=predicates, parent=base_path))
+        return stratoweave_rfs__device__address_entry_subs(SubscriptionPath(ygdata.Id(NS_stratoweave_rfs, 'address'), predicates=predicates, parent=base_path))
 
     pure def _direct_children(self) -> list[SubscriptionNode]:
         direct: list[SubscriptionNode] = [self.name, self.address, self.port, self.initial_credentials]
@@ -1833,8 +1833,8 @@ class stratoweave_rfs__device__credentials__key_entry_subs(SubscriptionNode):
 
     pure def __init__(self, path: ?SubscriptionPath=None) -> None:
         SubscriptionNode.__init__(self, path)
-        self.key = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'key'), parent=path))
-        self.private_key = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'private-key'), parent=path))
+        self.key = SubscriptionNode(SubscriptionPath(ygdata.Id(NS_stratoweave_rfs, 'key'), parent=path))
+        self.private_key = SubscriptionNode(SubscriptionPath(ygdata.Id(NS_stratoweave_rfs, 'private-key'), parent=path))
 
     pure def _direct_children(self) -> list[SubscriptionNode]:
         direct: list[SubscriptionNode] = [self.key, self.private_key]
@@ -1846,15 +1846,15 @@ class stratoweave_rfs__device__credentials__key_subs(SubscriptionNode):
     private_key: SubscriptionNode
     pure def __init__(self, path: ?SubscriptionPath=None) -> None:
         SubscriptionNode.__init__(self, path)
-        self.key = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'key'), parent=path))
-        self.private_key = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'private-key'), parent=path))
+        self.key = SubscriptionNode(SubscriptionPath(ygdata.Id(NS_stratoweave_rfs, 'key'), parent=path))
+        self.private_key = SubscriptionNode(SubscriptionPath(ygdata.Id(NS_stratoweave_rfs, 'private-key'), parent=path))
 
     pure def entry(self, key: str) -> stratoweave_rfs__device__credentials__key_entry_subs:
         predicates = [
-            yang.gdata.FNode(yang.gdata.Id(NS_stratoweave_rfs, 'key'), value_match=key),
+            ygdata.FNode(ygdata.Id(NS_stratoweave_rfs, 'key'), value_match=key),
         ]
         base_path = self._path!.parent
-        return stratoweave_rfs__device__credentials__key_entry_subs(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'key'), predicates=predicates, parent=base_path))
+        return stratoweave_rfs__device__credentials__key_entry_subs(SubscriptionPath(ygdata.Id(NS_stratoweave_rfs, 'key'), predicates=predicates, parent=base_path))
 
     pure def _direct_children(self) -> list[SubscriptionNode]:
         direct: list[SubscriptionNode] = [self.key, self.private_key]
@@ -1868,9 +1868,9 @@ class stratoweave_rfs__device__credentials_subs(SubscriptionNode):
 
     pure def __init__(self, path: ?SubscriptionPath=None) -> None:
         SubscriptionNode.__init__(self, path)
-        self.username = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'username'), parent=path))
-        self.password = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'password'), parent=path))
-        self.key = stratoweave_rfs__device__credentials__key_subs(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'key'), parent=path))
+        self.username = SubscriptionNode(SubscriptionPath(ygdata.Id(NS_stratoweave_rfs, 'username'), parent=path))
+        self.password = SubscriptionNode(SubscriptionPath(ygdata.Id(NS_stratoweave_rfs, 'password'), parent=path))
+        self.key = stratoweave_rfs__device__credentials__key_subs(SubscriptionPath(ygdata.Id(NS_stratoweave_rfs, 'key'), parent=path))
 
     pure def _direct_children(self) -> list[SubscriptionNode]:
         direct: list[SubscriptionNode] = [self.username, self.password, self.key]
@@ -1884,9 +1884,9 @@ class stratoweave_rfs__device__initial_credentials_entry_subs(SubscriptionNode):
 
     pure def __init__(self, path: ?SubscriptionPath=None) -> None:
         SubscriptionNode.__init__(self, path)
-        self.username = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'username'), parent=path))
-        self.password = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'password'), parent=path))
-        self.key = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'key'), parent=path))
+        self.username = SubscriptionNode(SubscriptionPath(ygdata.Id(NS_stratoweave_rfs, 'username'), parent=path))
+        self.password = SubscriptionNode(SubscriptionPath(ygdata.Id(NS_stratoweave_rfs, 'password'), parent=path))
+        self.key = SubscriptionNode(SubscriptionPath(ygdata.Id(NS_stratoweave_rfs, 'key'), parent=path))
 
     pure def _direct_children(self) -> list[SubscriptionNode]:
         direct: list[SubscriptionNode] = [self.username, self.password, self.key]
@@ -1899,18 +1899,18 @@ class stratoweave_rfs__device__initial_credentials_subs(SubscriptionNode):
     key: SubscriptionNode
     pure def __init__(self, path: ?SubscriptionPath=None) -> None:
         SubscriptionNode.__init__(self, path)
-        self.username = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'username'), parent=path))
-        self.password = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'password'), parent=path))
-        self.key = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'key'), parent=path))
+        self.username = SubscriptionNode(SubscriptionPath(ygdata.Id(NS_stratoweave_rfs, 'username'), parent=path))
+        self.password = SubscriptionNode(SubscriptionPath(ygdata.Id(NS_stratoweave_rfs, 'password'), parent=path))
+        self.key = SubscriptionNode(SubscriptionPath(ygdata.Id(NS_stratoweave_rfs, 'key'), parent=path))
 
     pure def entry(self, username: str, password: str, key: str) -> stratoweave_rfs__device__initial_credentials_entry_subs:
         predicates = [
-            yang.gdata.FNode(yang.gdata.Id(NS_stratoweave_rfs, 'username'), value_match=username),
-            yang.gdata.FNode(yang.gdata.Id(NS_stratoweave_rfs, 'password'), value_match=password),
-            yang.gdata.FNode(yang.gdata.Id(NS_stratoweave_rfs, 'key'), value_match=key),
+            ygdata.FNode(ygdata.Id(NS_stratoweave_rfs, 'username'), value_match=username),
+            ygdata.FNode(ygdata.Id(NS_stratoweave_rfs, 'password'), value_match=password),
+            ygdata.FNode(ygdata.Id(NS_stratoweave_rfs, 'key'), value_match=key),
         ]
         base_path = self._path!.parent
-        return stratoweave_rfs__device__initial_credentials_entry_subs(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'initial-credentials'), predicates=predicates, parent=base_path))
+        return stratoweave_rfs__device__initial_credentials_entry_subs(SubscriptionPath(ygdata.Id(NS_stratoweave_rfs, 'initial-credentials'), predicates=predicates, parent=base_path))
 
     pure def _direct_children(self) -> list[SubscriptionNode]:
         direct: list[SubscriptionNode] = [self.username, self.password, self.key]
@@ -1925,10 +1925,10 @@ class stratoweave_rfs__device__mock__module_entry_subs(SubscriptionNode):
 
     pure def __init__(self, path: ?SubscriptionPath=None) -> None:
         SubscriptionNode.__init__(self, path)
-        self.name = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'name'), parent=path))
-        self.namespace = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'namespace'), parent=path))
-        self.revision = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'revision'), parent=path))
-        self.feature = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'feature'), parent=path))
+        self.name = SubscriptionNode(SubscriptionPath(ygdata.Id(NS_stratoweave_rfs, 'name'), parent=path))
+        self.namespace = SubscriptionNode(SubscriptionPath(ygdata.Id(NS_stratoweave_rfs, 'namespace'), parent=path))
+        self.revision = SubscriptionNode(SubscriptionPath(ygdata.Id(NS_stratoweave_rfs, 'revision'), parent=path))
+        self.feature = SubscriptionNode(SubscriptionPath(ygdata.Id(NS_stratoweave_rfs, 'feature'), parent=path))
 
     pure def _direct_children(self) -> list[SubscriptionNode]:
         direct: list[SubscriptionNode] = [self.name, self.namespace, self.revision, self.feature]
@@ -1942,17 +1942,17 @@ class stratoweave_rfs__device__mock__module_subs(SubscriptionNode):
     feature: SubscriptionNode
     pure def __init__(self, path: ?SubscriptionPath=None) -> None:
         SubscriptionNode.__init__(self, path)
-        self.name = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'name'), parent=path))
-        self.namespace = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'namespace'), parent=path))
-        self.revision = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'revision'), parent=path))
-        self.feature = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'feature'), parent=path))
+        self.name = SubscriptionNode(SubscriptionPath(ygdata.Id(NS_stratoweave_rfs, 'name'), parent=path))
+        self.namespace = SubscriptionNode(SubscriptionPath(ygdata.Id(NS_stratoweave_rfs, 'namespace'), parent=path))
+        self.revision = SubscriptionNode(SubscriptionPath(ygdata.Id(NS_stratoweave_rfs, 'revision'), parent=path))
+        self.feature = SubscriptionNode(SubscriptionPath(ygdata.Id(NS_stratoweave_rfs, 'feature'), parent=path))
 
     pure def entry(self, name: str) -> stratoweave_rfs__device__mock__module_entry_subs:
         predicates = [
-            yang.gdata.FNode(yang.gdata.Id(NS_stratoweave_rfs, 'name'), value_match=name),
+            ygdata.FNode(ygdata.Id(NS_stratoweave_rfs, 'name'), value_match=name),
         ]
         base_path = self._path!.parent
-        return stratoweave_rfs__device__mock__module_entry_subs(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'module'), predicates=predicates, parent=base_path))
+        return stratoweave_rfs__device__mock__module_entry_subs(SubscriptionPath(ygdata.Id(NS_stratoweave_rfs, 'module'), predicates=predicates, parent=base_path))
 
     pure def _direct_children(self) -> list[SubscriptionNode]:
         direct: list[SubscriptionNode] = [self.name, self.namespace, self.revision, self.feature]
@@ -1966,9 +1966,9 @@ class stratoweave_rfs__device__mock_subs(SubscriptionNode):
 
     pure def __init__(self, path: ?SubscriptionPath=None) -> None:
         SubscriptionNode.__init__(self, path)
-        self.enabled = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'enabled'), parent=path))
-        self.preset = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'preset'), parent=path))
-        self.module = stratoweave_rfs__device__mock__module_subs(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'module'), parent=path))
+        self.enabled = SubscriptionNode(SubscriptionPath(ygdata.Id(NS_stratoweave_rfs, 'enabled'), parent=path))
+        self.preset = SubscriptionNode(SubscriptionPath(ygdata.Id(NS_stratoweave_rfs, 'preset'), parent=path))
+        self.module = stratoweave_rfs__device__mock__module_subs(SubscriptionPath(ygdata.Id(NS_stratoweave_rfs, 'module'), parent=path))
 
     pure def _direct_children(self) -> list[SubscriptionNode]:
         direct: list[SubscriptionNode] = [self.enabled, self.preset, self.module]
@@ -1980,7 +1980,7 @@ class stratoweave_rfs__device__debug_subs(SubscriptionNode):
 
     pure def __init__(self, path: ?SubscriptionPath=None) -> None:
         SubscriptionNode.__init__(self, path)
-        self.connection = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'connection'), parent=path))
+        self.connection = SubscriptionNode(SubscriptionPath(ygdata.Id(NS_stratoweave_rfs, 'connection'), parent=path))
 
     pure def _direct_children(self) -> list[SubscriptionNode]:
         direct: list[SubscriptionNode] = [self.connection]
@@ -1992,7 +1992,7 @@ class stratoweave_rfs__device__feature_flags_subs(SubscriptionNode):
 
     pure def __init__(self, path: ?SubscriptionPath=None) -> None:
         SubscriptionNode.__init__(self, path)
-        self.runtime_schema_fetch = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'runtime-schema-fetch'), parent=path))
+        self.runtime_schema_fetch = SubscriptionNode(SubscriptionPath(ygdata.Id(NS_stratoweave_rfs, 'runtime-schema-fetch'), parent=path))
 
     pure def _direct_children(self) -> list[SubscriptionNode]:
         direct: list[SubscriptionNode] = [self.runtime_schema_fetch]
@@ -2024,17 +2024,17 @@ class stratoweave_rfs__device_entry_subs(SubscriptionNode):
 
     pure def __init__(self, path: ?SubscriptionPath=None) -> None:
         SubscriptionNode.__init__(self, path)
-        self.name = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'name'), parent=path))
-        self.description = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'description'), parent=path))
-        self.type = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'type'), parent=path))
-        self.address = stratoweave_rfs__device__address_subs(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'address'), parent=path))
-        self.credentials = stratoweave_rfs__device__credentials_subs(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'credentials'), parent=path))
-        self.initial_credentials = stratoweave_rfs__device__initial_credentials_subs(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'initial-credentials'), parent=path))
-        self.approval_required = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'approval-required'), parent=path))
-        self.mock = stratoweave_rfs__device__mock_subs(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'mock'), parent=path))
-        self.debug = stratoweave_rfs__device__debug_subs(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'debug'), parent=path))
-        self.feature_flags = stratoweave_rfs__device__feature_flags_subs(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'feature-flags'), parent=path))
-        self.state = stratoweave_rfs__device__state_subs(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'state'), parent=path))
+        self.name = SubscriptionNode(SubscriptionPath(ygdata.Id(NS_stratoweave_rfs, 'name'), parent=path))
+        self.description = SubscriptionNode(SubscriptionPath(ygdata.Id(NS_stratoweave_rfs, 'description'), parent=path))
+        self.type = SubscriptionNode(SubscriptionPath(ygdata.Id(NS_stratoweave_rfs, 'type'), parent=path))
+        self.address = stratoweave_rfs__device__address_subs(SubscriptionPath(ygdata.Id(NS_stratoweave_rfs, 'address'), parent=path))
+        self.credentials = stratoweave_rfs__device__credentials_subs(SubscriptionPath(ygdata.Id(NS_stratoweave_rfs, 'credentials'), parent=path))
+        self.initial_credentials = stratoweave_rfs__device__initial_credentials_subs(SubscriptionPath(ygdata.Id(NS_stratoweave_rfs, 'initial-credentials'), parent=path))
+        self.approval_required = SubscriptionNode(SubscriptionPath(ygdata.Id(NS_stratoweave_rfs, 'approval-required'), parent=path))
+        self.mock = stratoweave_rfs__device__mock_subs(SubscriptionPath(ygdata.Id(NS_stratoweave_rfs, 'mock'), parent=path))
+        self.debug = stratoweave_rfs__device__debug_subs(SubscriptionPath(ygdata.Id(NS_stratoweave_rfs, 'debug'), parent=path))
+        self.feature_flags = stratoweave_rfs__device__feature_flags_subs(SubscriptionPath(ygdata.Id(NS_stratoweave_rfs, 'feature-flags'), parent=path))
+        self.state = stratoweave_rfs__device__state_subs(SubscriptionPath(ygdata.Id(NS_stratoweave_rfs, 'state'), parent=path))
 
     pure def _direct_children(self) -> list[SubscriptionNode]:
         direct: list[SubscriptionNode] = [self.name, self.description, self.type, self.address, self.credentials, self.initial_credentials, self.approval_required, self.mock, self.debug, self.feature_flags, self.state]
@@ -2055,24 +2055,24 @@ class stratoweave_rfs__device_subs(SubscriptionNode):
     state: stratoweave_rfs__device__state_subs
     pure def __init__(self, path: ?SubscriptionPath=None) -> None:
         SubscriptionNode.__init__(self, path)
-        self.name = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'name'), parent=path))
-        self.description = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'description'), parent=path))
-        self.type = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'type'), parent=path))
-        self.address = stratoweave_rfs__device__address_subs(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'address'), parent=path))
-        self.credentials = stratoweave_rfs__device__credentials_subs(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'credentials'), parent=path))
-        self.initial_credentials = stratoweave_rfs__device__initial_credentials_subs(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'initial-credentials'), parent=path))
-        self.approval_required = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'approval-required'), parent=path))
-        self.mock = stratoweave_rfs__device__mock_subs(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'mock'), parent=path))
-        self.debug = stratoweave_rfs__device__debug_subs(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'debug'), parent=path))
-        self.feature_flags = stratoweave_rfs__device__feature_flags_subs(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'feature-flags'), parent=path))
-        self.state = stratoweave_rfs__device__state_subs(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'state'), parent=path))
+        self.name = SubscriptionNode(SubscriptionPath(ygdata.Id(NS_stratoweave_rfs, 'name'), parent=path))
+        self.description = SubscriptionNode(SubscriptionPath(ygdata.Id(NS_stratoweave_rfs, 'description'), parent=path))
+        self.type = SubscriptionNode(SubscriptionPath(ygdata.Id(NS_stratoweave_rfs, 'type'), parent=path))
+        self.address = stratoweave_rfs__device__address_subs(SubscriptionPath(ygdata.Id(NS_stratoweave_rfs, 'address'), parent=path))
+        self.credentials = stratoweave_rfs__device__credentials_subs(SubscriptionPath(ygdata.Id(NS_stratoweave_rfs, 'credentials'), parent=path))
+        self.initial_credentials = stratoweave_rfs__device__initial_credentials_subs(SubscriptionPath(ygdata.Id(NS_stratoweave_rfs, 'initial-credentials'), parent=path))
+        self.approval_required = SubscriptionNode(SubscriptionPath(ygdata.Id(NS_stratoweave_rfs, 'approval-required'), parent=path))
+        self.mock = stratoweave_rfs__device__mock_subs(SubscriptionPath(ygdata.Id(NS_stratoweave_rfs, 'mock'), parent=path))
+        self.debug = stratoweave_rfs__device__debug_subs(SubscriptionPath(ygdata.Id(NS_stratoweave_rfs, 'debug'), parent=path))
+        self.feature_flags = stratoweave_rfs__device__feature_flags_subs(SubscriptionPath(ygdata.Id(NS_stratoweave_rfs, 'feature-flags'), parent=path))
+        self.state = stratoweave_rfs__device__state_subs(SubscriptionPath(ygdata.Id(NS_stratoweave_rfs, 'state'), parent=path))
 
     pure def entry(self, name: str) -> stratoweave_rfs__device_entry_subs:
         predicates = [
-            yang.gdata.FNode(yang.gdata.Id(NS_stratoweave_rfs, 'name'), value_match=name),
+            ygdata.FNode(ygdata.Id(NS_stratoweave_rfs, 'name'), value_match=name),
         ]
         base_path = self._path!.parent
-        return stratoweave_rfs__device_entry_subs(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'device'), predicates=predicates, parent=base_path))
+        return stratoweave_rfs__device_entry_subs(SubscriptionPath(ygdata.Id(NS_stratoweave_rfs, 'device'), predicates=predicates, parent=base_path))
 
     pure def _direct_children(self) -> list[SubscriptionNode]:
         direct: list[SubscriptionNode] = [self.name, self.description, self.type, self.address, self.credentials, self.initial_credentials, self.approval_required, self.mock, self.debug, self.feature_flags, self.state]
@@ -2085,8 +2085,8 @@ class stratoweave_rfs__rfs__base_config_entry_subs(SubscriptionNode):
 
     pure def __init__(self, path: ?SubscriptionPath=None) -> None:
         SubscriptionNode.__init__(self, path)
-        self.name = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_orchino_rfs, 'name'), parent=path))
-        self.ipv4_address = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_orchino_rfs, 'ipv4-address'), parent=path))
+        self.name = SubscriptionNode(SubscriptionPath(ygdata.Id(NS_orchino_rfs, 'name'), parent=path))
+        self.ipv4_address = SubscriptionNode(SubscriptionPath(ygdata.Id(NS_orchino_rfs, 'ipv4-address'), parent=path))
 
     pure def _direct_children(self) -> list[SubscriptionNode]:
         direct: list[SubscriptionNode] = [self.name, self.ipv4_address]
@@ -2098,15 +2098,15 @@ class stratoweave_rfs__rfs__base_config_subs(SubscriptionNode):
     ipv4_address: SubscriptionNode
     pure def __init__(self, path: ?SubscriptionPath=None) -> None:
         SubscriptionNode.__init__(self, path)
-        self.name = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_orchino_rfs, 'name'), parent=path))
-        self.ipv4_address = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_orchino_rfs, 'ipv4-address'), parent=path))
+        self.name = SubscriptionNode(SubscriptionPath(ygdata.Id(NS_orchino_rfs, 'name'), parent=path))
+        self.ipv4_address = SubscriptionNode(SubscriptionPath(ygdata.Id(NS_orchino_rfs, 'ipv4-address'), parent=path))
 
     pure def entry(self, name: str) -> stratoweave_rfs__rfs__base_config_entry_subs:
         predicates = [
-            yang.gdata.FNode(yang.gdata.Id(NS_orchino_rfs, 'name'), value_match=name),
+            ygdata.FNode(ygdata.Id(NS_orchino_rfs, 'name'), value_match=name),
         ]
         base_path = self._path!.parent
-        return stratoweave_rfs__rfs__base_config_entry_subs(SubscriptionPath(yang.gdata.Id(NS_orchino_rfs, 'base-config'), predicates=predicates, parent=base_path))
+        return stratoweave_rfs__rfs__base_config_entry_subs(SubscriptionPath(ygdata.Id(NS_orchino_rfs, 'base-config'), predicates=predicates, parent=base_path))
 
     pure def _direct_children(self) -> list[SubscriptionNode]:
         direct: list[SubscriptionNode] = [self.name, self.ipv4_address]
@@ -2119,8 +2119,8 @@ class stratoweave_rfs__rfs_entry_subs(SubscriptionNode):
 
     pure def __init__(self, path: ?SubscriptionPath=None) -> None:
         SubscriptionNode.__init__(self, path)
-        self.name = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'name'), parent=path))
-        self.base_config = stratoweave_rfs__rfs__base_config_subs(SubscriptionPath(yang.gdata.Id(NS_orchino_rfs, 'base-config'), parent=path))
+        self.name = SubscriptionNode(SubscriptionPath(ygdata.Id(NS_stratoweave_rfs, 'name'), parent=path))
+        self.base_config = stratoweave_rfs__rfs__base_config_subs(SubscriptionPath(ygdata.Id(NS_orchino_rfs, 'base-config'), parent=path))
 
     pure def _direct_children(self) -> list[SubscriptionNode]:
         direct: list[SubscriptionNode] = [self.name, self.base_config]
@@ -2132,15 +2132,15 @@ class stratoweave_rfs__rfs_subs(SubscriptionNode):
     base_config: stratoweave_rfs__rfs__base_config_subs
     pure def __init__(self, path: ?SubscriptionPath=None) -> None:
         SubscriptionNode.__init__(self, path)
-        self.name = SubscriptionNode(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'name'), parent=path))
-        self.base_config = stratoweave_rfs__rfs__base_config_subs(SubscriptionPath(yang.gdata.Id(NS_orchino_rfs, 'base-config'), parent=path))
+        self.name = SubscriptionNode(SubscriptionPath(ygdata.Id(NS_stratoweave_rfs, 'name'), parent=path))
+        self.base_config = stratoweave_rfs__rfs__base_config_subs(SubscriptionPath(ygdata.Id(NS_orchino_rfs, 'base-config'), parent=path))
 
     pure def entry(self, name: str) -> stratoweave_rfs__rfs_entry_subs:
         predicates = [
-            yang.gdata.FNode(yang.gdata.Id(NS_stratoweave_rfs, 'name'), value_match=name),
+            ygdata.FNode(ygdata.Id(NS_stratoweave_rfs, 'name'), value_match=name),
         ]
         base_path = self._path!.parent
-        return stratoweave_rfs__rfs_entry_subs(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'rfs'), predicates=predicates, parent=base_path))
+        return stratoweave_rfs__rfs_entry_subs(SubscriptionPath(ygdata.Id(NS_stratoweave_rfs, 'rfs'), predicates=predicates, parent=base_path))
 
     pure def _direct_children(self) -> list[SubscriptionNode]:
         direct: list[SubscriptionNode] = [self.name, self.base_config]
@@ -2153,8 +2153,8 @@ class root_subs(SubscriptionNode):
 
     pure def __init__(self, path: ?SubscriptionPath=None) -> None:
         SubscriptionNode.__init__(self, path)
-        self.device = stratoweave_rfs__device_subs(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'device'), parent=path))
-        self.rfs = stratoweave_rfs__rfs_subs(SubscriptionPath(yang.gdata.Id(NS_stratoweave_rfs, 'rfs'), parent=path))
+        self.device = stratoweave_rfs__device_subs(SubscriptionPath(ygdata.Id(NS_stratoweave_rfs, 'device'), parent=path))
+        self.rfs = stratoweave_rfs__rfs_subs(SubscriptionPath(ygdata.Id(NS_stratoweave_rfs, 'rfs'), parent=path))
 
     pure def _direct_children(self) -> list[SubscriptionNode]:
         direct: list[SubscriptionNode] = [self.device, self.rfs]
@@ -2163,8 +2163,8 @@ class root_subs(SubscriptionNode):
 subs: root_subs = root_subs()
 
 actor DstAdapter(cb: action(?root, ?Exception) -> None):
-    on_update: action(?yang.gdata.Node, ?Exception) -> None
-    def on_update(n: ?yang.gdata.Node, err: ?Exception) -> None:
+    on_update: action(?ygdata.Node, ?Exception) -> None
+    def on_update(n: ?ygdata.Node, err: ?Exception) -> None:
         if err is not None:
             cb(None, err)
             return
@@ -2173,6 +2173,6 @@ actor DstAdapter(cb: action(?root, ?Exception) -> None):
             return
         cb(None, None)
 
-proc def dst(cb: action(?root, ?Exception) -> None) -> yang.gdata.Dst:
+proc def dst(cb: action(?root, ?Exception) -> None) -> ygdata.Dst:
     adapter = DstAdapter(cb)
-    return yang.gdata.Dst(adapter.on_update)
+    return ygdata.Dst(adapter.on_update)

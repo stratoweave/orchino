@@ -9,7 +9,7 @@ import orchino.devices.CiscoIosXr_24_1_ncs55a1 as xr24
 
 # TODO: this import is required by the compiler, maybe related to
 # https://github.com/actonlang/acton/issues/2390
-import orchino.layers.y_1
+import orchino.layers.y_1 as y_1
 
 class BaseConfig(base.BaseConfig):
     def transform(self, i, di):

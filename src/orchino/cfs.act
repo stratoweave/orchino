@@ -6,7 +6,8 @@ import orchino.layers.base_0 as base
 
 # TODO: these imports are required by the compiler, maybe related to
 # https://github.com/actonlang/acton/issues/2390
-import orchino.layers.y_0, yang.identityref
+import orchino.layers.y_0 as y_0
+import yang.identityref
 
 class Router(base.Router):
     def transform(self, i):

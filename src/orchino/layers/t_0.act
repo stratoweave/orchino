@@ -6,11 +6,11 @@ import logging
 
 import stratoweave.device as swdev
 import stratoweave.ttt as ttt
-import yang.gdata
+import yang.gdata as ygdata
 
-import orchino.cfs
+import orchino.cfs as cfs
 
 
 def get_ttt(lower: ?ttt.Layer, dev_registry: swdev.DeviceRegistry, log_handler: ?logging.Handler=None) -> proc(ttt.Path,?ttt.Layer)->ttt.Node:
-    r = ttt.Container({yang.gdata.Id("http://example.com/netinfra", "netinfra"): ttt.Container({yang.gdata.Id("http://example.com/netinfra", "router"): ttt.List(ttt.Transform(orchino.cfs.Router, None, None, lower, log_handler), [yang.gdata.Id("http://example.com/netinfra", "name")])}, ns='http://example.com/netinfra', module='netinfra')})
+    r = ttt.Container({ygdata.Id("http://example.com/netinfra", "netinfra"): ttt.Container({ygdata.Id("http://example.com/netinfra", "router"): ttt.List(ttt.Transform(cfs.Router, None, None, lower, log_handler), [ygdata.Id("http://example.com/netinfra", "name")])}, ns='http://example.com/netinfra', module='netinfra')})
     return r
