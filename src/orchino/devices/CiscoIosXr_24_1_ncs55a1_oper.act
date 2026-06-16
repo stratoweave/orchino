@@ -97,17 +97,17 @@ SRC_YANG_0: str = r"""module Cisco-IOS-XR-types {
   contact
     "Cisco Systems, Inc.
      Customer Service
-
+     
      Postal: 170 W Tasman Drive
      San Jose, CA 95134
-
+     
      Tel: +1 1800 553-NETS
-
+     
      E-mail: cs-yang@cisco.com";
   description
     "This module contains a collection of IOS-XR derived YANG data
      types.
-
+     
      Copyright (c) 2013-2021 by Cisco Systems, Inc.
      All rights reserved.";
 
@@ -584,20 +584,20 @@ SRC_YANG_0: str = r"""module Cisco-IOS-XR-types {
        When a clear text value is set to a leaf of this type, the
        server calculates a password hash and stores the result
        in the datastore. The password is never stored in clear text.
-
+       
        When a leaf of this type is read, the stored password hash is
        returned.
-
+       
        A value of this type matches one of the forms:
-
+       
          !<clear text password>
          <password hash>
-
+       
        The '!' prefix signals that the value is clear text. When
        such a value is received by the server, a hash value is
        calculated. This value is stored in the configuration data
        store.
-
+       
        If a value starting without '!' is received, the server knows
        that the value already represents a hashed value, and stores
        it as is in the data store.";
@@ -613,20 +613,20 @@ SRC_YANG_0: str = r"""module Cisco-IOS-XR-types {
        When a clear text value is set to a leaf of this type, the
        server calculates a password hash and stores the result
        in the datastore. The password is never stored in clear text.
-
+       
        When a leaf of this type is read, the stored password hash is
        returned.
-
+       
        A value of this type matches one of the forms:
-
+       
          !<clear text password>
          <password hash>
-
+       
        The '!' prefix signals that the value is clear text. When
        such a value is received by the server, a hash value is
        calculated. This value is stored in the configuration data
        store.
-
+       
        If a value starting without '!' is received, the server knows
        that the value already represents a hashed value, and stores
        it as is in the data store.";
@@ -642,20 +642,20 @@ SRC_YANG_0: str = r"""module Cisco-IOS-XR-types {
        When a clear text value is set to a leaf of this type, the
        server calculates a password hash and stores the result
        in the datastore. The password is never stored in clear text.
-
+       
        When a leaf of this type is read, the stored password hash is
        returned.
-
+       
        A value of this type matches one of the forms:
-
+       
          !<clear text password>
          <password hash>
-
+       
        The '!' prefix signals that the value is clear text. When
        such a value is received by the server, a hash value is
        calculated. This value is stored in the configuration data
        store.
-
+       
        If a value starting without '!' is received, the server knows
        that the value already represents a hashed value, and stores
        it as is in the data store.";
@@ -671,20 +671,20 @@ SRC_YANG_0: str = r"""module Cisco-IOS-XR-types {
        When a clear text value is set to a leaf of this type, the
        server calculates a password hash and stores the result
        in the datastore. The password is never stored in clear text.
-
+       
        When a leaf of this type is read, the stored password hash is
        returned.
-
+       
        A value of this type matches one of the forms:
-
+       
          !<clear text password>
          <password hash>
-
+       
        The '!' prefix signals that the value is clear text. When
        such a value is received by the server, a hash value is
        calculated. This value is stored in the configuration data
        store.
-
+       
        If a value starting without '!' is received, the server knows
        that the value already represents a hashed value, and stores
        it as is in the data store.";
@@ -700,20 +700,20 @@ SRC_YANG_0: str = r"""module Cisco-IOS-XR-types {
        When a clear text value is set to a leaf of this type, the
        server calculates a password hash and stores the result
        in the datastore. The password is never stored in clear text.
-
+       
        When a leaf of this type is read, the stored password hash is
        returned.
-
+       
        A value of this type matches one of the forms:
-
+       
          !<clear text password>
          <password hash>
-
+       
        The '!' prefix signals that the value is clear text. When
        such a value is received by the server, a hash value is
        calculated. This value is stored in the configuration data
        store.
-
+       
        If a value starting without '!' is received, the server knows
        that the value already represents a hashed value, and stores
        it as is in the data store.";
@@ -729,20 +729,20 @@ SRC_YANG_0: str = r"""module Cisco-IOS-XR-types {
        When a clear text value is set to a leaf of this type, the
        server calculates a password hash and stores the result
        in the datastore. The password is never stored in clear text.
-
+       
        When a leaf of this type is read, the stored password hash is
        returned.
-
+       
        A value of this type matches one of the forms:
-
+       
          !<clear text password>
          <password hash>
-
+       
        The '!' prefix signals that the value is clear text. When
        such a value is received by the server, a hash value is
        calculated. This value is stored in the configuration data
        store.
-
+       
        If a value starting without '!' is received, the server knows
        that the value already represents a hashed value, and stores
        it as is in the data store.";
@@ -916,20 +916,20 @@ SRC_YANG_1: str = r"""module Cisco-IOS-XR-um-hostname-cfg {
   contact
     "Cisco Systems, Inc.
      Customer Service
-
+     
      Postal: 170 West Tasman Drive
      San Jose, CA 95134
-
+     
      Tel: +1 800 553-NETS
-
+     
      E-mail: cs-yang@cisco.com";
   description
     "This module contains a collection of YANG definitions
      for Cisco IOS-XR hostname package configuration.
-
+     
      This YANG module augments the
      modules with configuration data.
-
+     
      Copyright (c) 2021-2022 by Cisco Systems, Inc.
      All rights reserved.";
 
@@ -979,20 +979,20 @@ SRC_YANG_2: str = r"""module Cisco-IOS-XR-um-if-ip-address-cfg {
   contact
     "Cisco Systems, Inc.
      Customer Service
-
+     
      Postal: 170 West Tasman Drive
      San Jose, CA 95134
-
+     
      Tel: +1 800 553-NETS
-
+     
      E-mail: cs-yang@cisco.com";
   description
     "This module contains a collection of YANG definitions
      for Cisco IOS-XR interface package configuration.
-
+     
      This YANG module augments the
      modules with configuration data.
-
+     
      Copyright (c) 2019-2022 by Cisco Systems, Inc.
      All rights reserved.";
 
@@ -1137,20 +1137,20 @@ SRC_YANG_3: str = r"""module Cisco-IOS-XR-um-interface-cfg {
   contact
     "Cisco Systems, Inc.
      Customer Service
-
+     
      Postal: 170 West Tasman Drive
      San Jose, CA 95134
-
+     
      Tel: +1 800 553-NETS
-
+     
      E-mail: cs-yang@cisco.com";
   description
     "This module contains a collection of YANG definitions
      for Cisco IOS-XR interface package configuration.
-
+     
      This YANG module augments the
      modules with configuration data.
-
+     
      Copyright (c) 2019-2022 by Cisco Systems, Inc.
      All rights reserved.";
 
@@ -1345,7 +1345,7 @@ SRC_YANG_4: str = r"""module cisco-semver {
         "Mailing list: <cs-yang@cisco.com>";
 
     description
-        "This YANG module defines semantic version for Cisco defined YANG models.
+        "This YANG module defines semantic version for Cisco defined YANG models. 
      Copyright (c) 2019 by Cisco Systems, Inc.
      All rights reserved.";
 
@@ -1353,7 +1353,7 @@ SRC_YANG_4: str = r"""module cisco-semver {
         description
             "Initial Version.";
 
-        reference "draft-verdt-netmod-yang-solutions-00";
+        reference "draft-verdt-netmod-yang-solutions-00"; 
     }
 
     extension module-version {
@@ -1361,27 +1361,27 @@ SRC_YANG_4: str = r"""module cisco-semver {
         description
             "The version number for the module. This is
       expressed as a semantic version number of the form:
-      major.minor.patch(x)
+      major.minor.patch(x)  
       where:
-        * major corresponds to the major version.
-        * minor corresponds to a minor version.
-        * patch corresponds to a patch version. It is updated only for
-          'editorial' changes that do not change the API semantics in
-          any way. In addition to 'editorial' changes that do not
+        * major corresponds to the major version. 
+        * minor corresponds to a minor version. 
+        * patch corresponds to a patch version. It is updated only for 
+          'editorial' changes that do not change the API semantics in 
+          any way. In addition to 'editorial' changes that do not 
           change the YANG module semantics, the patch field can
-          also be used in a limited way to indicate major and minor
+          also be used in a limited way to indicate major and minor 
           version changes as well. The patch version may be incremented for
-          a major or minor change if that change is happening on a
-          non-HEAD or non-latest branch. If the patch field is incremented
-          for a minor version change then it is appended with the
-          suffix '(m)', if the patch field is incremented for a major
-          version change then it is appended with the suffix '(M)',
+          a major or minor change if that change is happening on a 
+          non-HEAD or non-latest branch. If the patch field is incremented 
+          for a minor version change then it is appended with the 
+          suffix '(m)', if the patch field is incremented for a major 
+          version change then it is appended with the suffix '(M)', 
           replacing '(m)', if present.
 
-      This version number should be specified as a child of revision
-      statement to indicate that a specific revision had a specific
-      semantic version number. Where several modules are used to build
-      up a single block of functionality, the same module version is
+      This version number should be specified as a child of revision 
+      statement to indicate that a specific revision had a specific 
+      semantic version number. Where several modules are used to build 
+      up a single block of functionality, the same module version is 
       specified across each file that makes up the module.
 
       Following a release of major version 1, all modules will
@@ -1392,26 +1392,26 @@ SRC_YANG_4: str = r"""module cisco-semver {
           minor and patch version numbers to 0) or only the patch version
           number MUST be updated and appended with '(M)', replacing '(m)'
           if present.
-
+   
       2.  if one or more backwards-compatible change is made then either
           the minor version number MUST be updated (resetting the patch
           version numbers to 0) or only the patch version number MUST be
           updated and appended with '(m)' unless the previous patch version
           number already had '(M)' appended, in which case the '(M)' suffix
           is retained for the new patch version.
-
+   
       3.  if one or more editorial change is made then the patch version
           number MUST be updated. If the previous patch version number
           already had either an '(m') or '(M)' suffix then it is retained
           for the new patch version regardless of whether the subsequent
-          changes are backwards-compatible, non-backwards-compatible,
-          or editorial changes.
+          changes are backwards-compatible, non-backwards-compatible, 
+          or editorial changes. 
 
       When a field in the version number is incremented, all following
       fields are reset back to 0.  Major version number 0 indicates that
       the module is not yet stable and allows non-backwards-compatible
       changes without requiring the major version number to be incremented
-
+   
       Where possible, the version number should be updated using the
       standard semantic versioning rules, relying on the '(m)' and '(M)'
       suffixes only used where strictly necessary.";
