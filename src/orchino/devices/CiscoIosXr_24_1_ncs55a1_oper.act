@@ -2568,7 +2568,7 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__sec
     @staticmethod
     mut def from_gdata(n: ?ygdata.List) -> list[Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries__secondary_entry]:
         if n is not None:
-            return [Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries__secondary_entry.from_gdata(e) for e in n.elements]
+            return [Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries__secondary_entry.from_gdata(e) for e in n.entries()]
         return []
 
     mut def copy(self) -> Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries__secondary:
@@ -2956,7 +2956,7 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface(yadata.MKeyedList[str
     @staticmethod
     mut def from_gdata(n: ?ygdata.List) -> list[Cisco_IOS_XR_um_interface_cfg__interfaces__interface_entry]:
         if n is not None:
-            return [Cisco_IOS_XR_um_interface_cfg__interfaces__interface_entry.from_gdata(e) for e in n.elements]
+            return [Cisco_IOS_XR_um_interface_cfg__interfaces__interface_entry.from_gdata(e) for e in n.entries()]
         return []
 
     mut def copy(self) -> Cisco_IOS_XR_um_interface_cfg__interfaces__interface:
@@ -3050,7 +3050,8 @@ def _one(n: ?ygdata.Node, what: str) -> ygdata.Node:
     """The one entry of a list on a delivery's spine."""
     if isinstance(n, ygdata.List):
         if len(n.elements) == 1:
-            return n.elements[0]
+            for e in n.elements.values():
+                return e
     raise ValueError("a rooted delivery without its " + what + " entry")
 
 def _present(n: ?ygdata.Node) -> ?ygdata.Node:
