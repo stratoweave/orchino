@@ -652,7 +652,7 @@ class netinfra__netinfra__router(yadata.MKeyedList[str, netinfra__netinfra__rout
     @staticmethod
     mut def from_gdata(n: ?ygdata.List) -> list[netinfra__netinfra__router_entry]:
         if n is not None:
-            return [netinfra__netinfra__router_entry.from_gdata(e) for e in n.elements]
+            return [netinfra__netinfra__router_entry.from_gdata(e) for e in n.entries()]
         return []
 
     mut def copy(self) -> netinfra__netinfra__router:
