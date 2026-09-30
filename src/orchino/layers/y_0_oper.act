@@ -23,9 +23,9 @@ SRC_DNODE_CHILD_0: DContainer = DContainer(module='netinfra', namespace='http://
     DList(module='netinfra', namespace='http://example.com/netinfra', prefix='netinfra', name='router', key=['name'], config=True, min_elements=0, ordered_by='system', exts=[
             DExt(module='stratoweave', namespace='http://stratoweave.org/yang/stratoweave', prefix='sw', name='transform', arg='orchino.cfs.Router', exts=[])
         ], children=[
-        DLeaf(module='netinfra', namespace='http://example.com/netinfra', prefix='netinfra', name='name', config=True, mandatory=False, type=DTypeString(name='string', description=None, reference=None, exts=[], builtin_type='string', default=None, length=None, patterns=[])),
-        DLeaf(module='netinfra', namespace='http://example.com/netinfra', prefix='netinfra', name='id', config=True, description='router id', mandatory=True, type=DTypeIntegerUnsigned(name='uint32', description=None, reference=None, exts=[], builtin_type='uint32', default=None, ranges=Ranges([(0, 4294967295)]))),
-        DLeaf(module='netinfra', namespace='http://example.com/netinfra', prefix='netinfra', name='type', config=True, mandatory=True, type=DTypeString(name='string', description=None, reference=None, exts=[], builtin_type='string', default=None, length=None, patterns=[]))
+        DLeaf(module='netinfra', namespace='http://example.com/netinfra', prefix='netinfra', name='name', config=True, is_key=True, mandatory=False, type=DTypeString(name='string', description=None, reference=None, exts=[], builtin_type='string', default=None, length=None, patterns=[])),
+        DLeaf(module='netinfra', namespace='http://example.com/netinfra', prefix='netinfra', name='id', config=True, description='router id', is_key=False, mandatory=True, type=DTypeIntegerUnsigned(name='uint32', description=None, reference=None, exts=[], builtin_type='uint32', default=None, ranges=Ranges([(0, 4294967295)]))),
+        DLeaf(module='netinfra', namespace='http://example.com/netinfra', prefix='netinfra', name='type', config=True, is_key=False, mandatory=True, type=DTypeString(name='string', description=None, reference=None, exts=[], builtin_type='string', default=None, length=None, patterns=[]))
     ])
 ])
 
