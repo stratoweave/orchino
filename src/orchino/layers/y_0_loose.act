@@ -622,8 +622,8 @@ class netinfra__netinfra__router_entry(yadata.MNode):
         self.id = id
         self.type = type
 
-    mut def to_gdata(self) -> ygdata.Node:
-        return yadata.from_adata(SRC_DNODE, self, loose=True, root_path=['netinfra:netinfra', 'router'])
+    mut def to_gdata(self, prev: ?ygdata.Container=None) -> ygdata.Node:
+        return yadata.from_adata(SRC_DNODE, self, loose=True, root_path=['netinfra:netinfra', 'router'], prev=prev)
 
     @staticmethod
     mut def from_gdata(n: ygdata.Node) -> netinfra__netinfra__router_entry:
@@ -675,8 +675,8 @@ class netinfra__netinfra(yadata.MNode):
     mut def __init__(self, router: list[netinfra__netinfra__router_entry]=[]) -> None:
         self.router = netinfra__netinfra__router(elements=router)
 
-    mut def to_gdata(self) -> ygdata.Node:
-        return yadata.from_adata(SRC_DNODE, self, loose=True, root_path=['netinfra:netinfra'])
+    mut def to_gdata(self, prev: ?ygdata.Container=None) -> ygdata.Node:
+        return yadata.from_adata(SRC_DNODE, self, loose=True, root_path=['netinfra:netinfra'], prev=prev)
 
     @staticmethod
     mut def from_gdata(n: ?ygdata.Node) -> netinfra__netinfra:
@@ -696,8 +696,8 @@ class root(yadata.MNode):
     mut def __init__(self, netinfra: ?netinfra__netinfra=None) -> None:
         self.netinfra = netinfra if netinfra is not None else netinfra__netinfra()
 
-    mut def to_gdata(self) -> ygdata.Node:
-        return yadata.from_adata(SRC_DNODE, self, loose=True)
+    mut def to_gdata(self, prev: ?ygdata.Container=None) -> ygdata.Node:
+        return yadata.from_adata(SRC_DNODE, self, loose=True, prev=prev)
 
     @staticmethod
     mut def from_gdata(n: ?ygdata.Node) -> root:
