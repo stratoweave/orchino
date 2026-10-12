@@ -156,7 +156,7 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__add
     route_tag: ?u64
     algorithm: ?u64
 
-    mut def __init__(self, address: ?str, netmask: ?str, route_tag: ?u64, algorithm: ?u64) -> None:
+    mut def __init__(self, address: ?str=None, netmask: ?str=None, route_tag: ?u64=None, algorithm: ?u64=None) -> None:
         self.address = address
         self.netmask = netmask
         self.route_tag = route_tag
@@ -186,7 +186,7 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__sec
     route_tag: ?u64
     algorithm: ?u64
 
-    mut def __init__(self, address: str, netmask: ?str, route_tag: ?u64, algorithm: ?u64) -> None:
+    mut def __init__(self, address: str, netmask: ?str=None, route_tag: ?u64=None, algorithm: ?u64=None) -> None:
         self.address = address
         self.netmask = netmask
         self.route_tag = route_tag
@@ -291,7 +291,7 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses(yada
     unnumbered: ?str
     dhcp: ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__dhcp
 
-    mut def __init__(self, address: ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__address=None, secondaries: ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries=None, unnumbered: ?str, dhcp: ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__dhcp=None) -> None:
+    mut def __init__(self, address: ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__address=None, secondaries: ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries=None, unnumbered: ?str=None, dhcp: ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__dhcp=None) -> None:
         self.address = address
         self.secondaries = secondaries if secondaries is not None else Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries()
         self.unnumbered = unnumbered
@@ -570,7 +570,7 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface_entry(yadata.MNode):
     mtu: ?u64
     description: ?str
 
-    mut def __init__(self, interface_name: str, sub_interface_type: ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type=None, ipv4: ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4=None, ipv6: ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv6=None, encapsulation: ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation=None, shutdown: ?bool, mtu: ?u64, description: ?str) -> None:
+    mut def __init__(self, interface_name: str, sub_interface_type: ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type=None, ipv4: ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4=None, ipv6: ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv6=None, encapsulation: ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation=None, shutdown: ?bool=None, mtu: ?u64=None, description: ?str=None) -> None:
         self.interface_name = interface_name
         self.sub_interface_type = sub_interface_type if sub_interface_type is not None else Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type()
         self.ipv4 = ipv4 if ipv4 is not None else Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4()
@@ -653,7 +653,7 @@ _breaker22: None = None
 class Cisco_IOS_XR_um_hostname_cfg__hostname(yadata.MNode):
     system_network_name: ?str
 
-    mut def __init__(self, system_network_name: ?str) -> None:
+    mut def __init__(self, system_network_name: ?str=None) -> None:
         self.system_network_name = system_network_name
 
     mut def to_gdata(self, prev: ?ygdata.Container=None) -> ygdata.Node:
