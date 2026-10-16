@@ -1,0 +1,46 @@
+import testing
+
+import yang.gdata as gdata
+
+import orchino.devices.CiscoIosXr_24_1_ncs55a1 as xr_dev
+import orchino.layers.y_1_loose as rfs_layer
+import orchino.sysspec as sysspec
+import stratoweave.test_rig as swts
+
+
+def _device_hostname(dev: xr_dev.root, fallback: str) -> str:
+    hostname = dev.hostname.system_network_name
+    if hostname is not None:
+        return hostname
+    return fallback
+
+
+def _extract_base_config(dev: xr_dev.root, rfs_entry: rfs_layer.stratoweave_rfs__rfs_entry) -> None:
+    """Recover the base-config RFS instance from the Loopback0 address."""
+    loopback = dev.interfaces.interface.get("Loopback0")
+    if loopback is None:
+        raise ValueError("No Loopback0 interface for %s" % rfs_entry.name)
+    address = loopback!.ipv4.addresses.address
+    if address is None or address!.address is None:
+        raise ValueError("No Loopback0 IPv4 address for %s" % rfs_entry.name)
+    rfs_entry.base_config.create(rfs_entry.name, ipv4_address=address!.address)
+
+
+def discover_rfs(devices: dict[str, gdata.Node]) -> gdata.Node:
+    """Discover device metadata and RFS instances from device configurations."""
+    rfs_root = rfs_layer.root()
+    for name in sorted([device_name for device_name in devices.keys()]):
+        dev = xr_dev.root.from_gdata(devices[name])
+        hostname = _device_hostname(dev, name)
+        device = rfs_root.device.create(hostname)
+        device.type = "CiscoIosXr_24_1_ncs55a1"
+        device.address.create("oob").address = name
+        device.credentials.username = "clab"
+        device.credentials.password = "clab@123"
+        rfs_entry = rfs_root.rfs.create(hostname)
+        _extract_base_config(dev, rfs_entry)
+    return rfs_root.to_gdata()
+
+
+actor _test_sd_rfs(t: testing.EnvT):
+    swts.ServiceDiscoveryTester(t, sysspec.SYSSPEC, "test/sd", discover_rfs, layer_depth=1)

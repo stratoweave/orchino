@@ -29,9 +29,63 @@ NS_cisco_semver: str = 'http://cisco.com/ns/yang/cisco-semver'
 NS_Cisco_IOS_XR_types: str = 'http://cisco.com/ns/yang/cisco-xr-types'
 NS_ietf_inet_types: str = 'urn:ietf:params:xml:ns:yang:ietf-inet-types'
 NS_ietf_yang_types: str = 'urn:ietf:params:xml:ns:yang:ietf-yang-types'
+NS_test: str = 'urn:ietf:params:xml:ns:yang:test'
 
 
 _breaker1: None = None
+class test__nexthop_weight_entry(yadata.MNode):
+    choice_ident: str
+    choice_value: str
+    weight: atom
+
+    mut def __init__(self, choice_ident: str, choice_value: str, weight: atom) -> None:
+        self.choice_ident = choice_ident
+        self.choice_value = choice_value
+        self.weight = weight
+
+    mut def to_gdata(self, prev: ?ygdata.Container=None) -> ygdata.Node:
+        return yadata.from_adata(SRC_DNODE, self, loose=True, root_path=['test:nexthop-weight'], prev=prev)
+
+    @staticmethod
+    mut def from_gdata(n: ygdata.Node) -> test__nexthop_weight_entry:
+        return test__nexthop_weight_entry(choice_ident=n.get_str(ygdata.Id(NS_test, 'choice-ident')), choice_value=n.get_str(ygdata.Id(NS_test, 'choice-value')), weight=n.get_atom(ygdata.Id(NS_test, 'weight')))
+
+    mut def copy(self) -> test__nexthop_weight_entry:
+        """Create a deep copy of this adata object"""
+        return test__nexthop_weight_entry.from_gdata(self.to_gdata())
+
+_breaker2: None = None
+class test__nexthop_weight(yadata.MKeyedList[(choice_ident: str, choice_value: str, weight: atom), test__nexthop_weight_entry]):
+    mut def __init__(self, elements: list[test__nexthop_weight_entry]=[]) -> None:
+        yadata.MKeyedList.__init__(self, lambda e: (choice_ident=e.choice_ident, choice_value=e.choice_value, weight=e.weight), elements)
+
+    mut def create(self, key: (choice_ident: str, choice_value: str, weight: atom)) -> test__nexthop_weight_entry:
+        e = self.get(key)
+        if e is not None:
+            return e
+        (choice_ident=choice_ident, choice_value=choice_value, weight=weight) = key
+        res = test__nexthop_weight_entry(choice_ident=choice_ident, choice_value=choice_value, weight=weight)
+        self._append(res)
+        return res
+
+    @staticmethod
+    mut def from_gdata(n: ?ygdata.List) -> list[test__nexthop_weight_entry]:
+        if n is not None:
+            return [test__nexthop_weight_entry.from_gdata(e) for e in n.entries()]
+        return []
+
+    mut def copy(self) -> test__nexthop_weight:
+        """Create a deep copy of this list object"""
+        # Copy each element in the list
+        copied_elements = []
+        for e in self:
+            ce = e.copy()
+            if ce is not None:
+                copied_elements.append(ce)
+        return test__nexthop_weight(elements=copied_elements)
+
+
+_breaker3: None = None
 class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__l2transport(yadata.MNode):
 
     mut def __init__(self) -> None:
@@ -54,7 +108,7 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__
         raise Exception('Unreachable in Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__l2transport.copy()')
 
 
-_breaker2: None = None
+_breaker4: None = None
 class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__point_to_point(yadata.MNode):
 
     mut def __init__(self) -> None:
@@ -77,7 +131,7 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__
         raise Exception('Unreachable in Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__point_to_point.copy()')
 
 
-_breaker3: None = None
+_breaker5: None = None
 class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__multipoint(yadata.MNode):
 
     mut def __init__(self) -> None:
@@ -100,7 +154,7 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__
         raise Exception('Unreachable in Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__multipoint.copy()')
 
 
-_breaker4: None = None
+_breaker6: None = None
 class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type(yadata.MNode):
     l2transport: ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__l2transport
     point_to_point: ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__point_to_point
@@ -149,7 +203,7 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type(y
         return Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type.from_gdata(self.to_gdata())
 
 
-_breaker5: None = None
+_breaker7: None = None
 class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__address(yadata.MNode):
     address: ?str
     netmask: ?str
@@ -179,7 +233,7 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__add
         raise Exception('Unreachable in Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__address.copy()')
 
 
-_breaker6: None = None
+_breaker8: None = None
 class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries__secondary_entry(yadata.MNode):
     address: str
     netmask: ?str
@@ -203,7 +257,7 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__sec
         """Create a deep copy of this adata object"""
         return Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries__secondary_entry.from_gdata(self.to_gdata())
 
-_breaker7: None = None
+_breaker9: None = None
 class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries__secondary(yadata.MKeyedList[str, Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries__secondary_entry]):
     mut def __init__(self, elements: list[Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries__secondary_entry]=[]) -> None:
         yadata.MKeyedList.__init__(self, lambda e: e.address, elements)
@@ -240,7 +294,7 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__sec
         return Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries__secondary(elements=copied_elements)
 
 
-_breaker8: None = None
+_breaker10: None = None
 class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries(yadata.MNode):
     secondary: Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries__secondary
 
@@ -261,7 +315,7 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__sec
         return Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries.from_gdata(self.to_gdata())
 
 
-_breaker9: None = None
+_breaker11: None = None
 class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__dhcp(yadata.MNode):
 
     mut def __init__(self) -> None:
@@ -284,7 +338,7 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__dhc
         raise Exception('Unreachable in Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__dhcp.copy()')
 
 
-_breaker10: None = None
+_breaker12: None = None
 class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses(yadata.MNode):
     address: ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__address
     secondaries: Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries
@@ -335,7 +389,7 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses(yada
         return Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses.from_gdata(self.to_gdata())
 
 
-_breaker11: None = None
+_breaker13: None = None
 class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4(yadata.MNode):
     addresses: Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses
 
@@ -356,7 +410,7 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4(yadata.MNode):
         return Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4.from_gdata(self.to_gdata())
 
 
-_breaker12: None = None
+_breaker14: None = None
 class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv6(yadata.MNode):
 
     mut def __init__(self) -> None:
@@ -376,7 +430,7 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv6(yadata.MNode):
         return Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv6.from_gdata(self.to_gdata())
 
 
-_breaker13: None = None
+_breaker15: None = None
 class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__ppp(yadata.MNode):
 
     mut def __init__(self) -> None:
@@ -399,7 +453,7 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__ppp(y
         raise Exception('Unreachable in Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__ppp.copy()')
 
 
-_breaker14: None = None
+_breaker16: None = None
 class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__hdlc(yadata.MNode):
 
     mut def __init__(self) -> None:
@@ -422,7 +476,7 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__hdlc(
         raise Exception('Unreachable in Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__hdlc.copy()')
 
 
-_breaker15: None = None
+_breaker17: None = None
 class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__mfr(yadata.MNode):
 
     mut def __init__(self) -> None:
@@ -445,7 +499,7 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__mfr(y
         raise Exception('Unreachable in Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__mfr.copy()')
 
 
-_breaker16: None = None
+_breaker18: None = None
 class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__frame_relay__IETF(yadata.MNode):
 
     mut def __init__(self) -> None:
@@ -468,7 +522,7 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__frame
         raise Exception('Unreachable in Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__frame_relay__IETF.copy()')
 
 
-_breaker17: None = None
+_breaker19: None = None
 class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__frame_relay(yadata.MNode):
     IETF: ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__frame_relay__IETF
 
@@ -500,7 +554,7 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__frame
         raise Exception('Unreachable in Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__frame_relay.copy()')
 
 
-_breaker18: None = None
+_breaker20: None = None
 class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation(yadata.MNode):
     ppp: ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__ppp
     hdlc: ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__hdlc
@@ -559,7 +613,7 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation(yadata
         return Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation.from_gdata(self.to_gdata())
 
 
-_breaker19: None = None
+_breaker21: None = None
 class Cisco_IOS_XR_um_interface_cfg__interfaces__interface_entry(yadata.MNode):
     interface_name: str
     sub_interface_type: Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type
@@ -591,7 +645,7 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface_entry(yadata.MNode):
         """Create a deep copy of this adata object"""
         return Cisco_IOS_XR_um_interface_cfg__interfaces__interface_entry.from_gdata(self.to_gdata())
 
-_breaker20: None = None
+_breaker22: None = None
 class Cisco_IOS_XR_um_interface_cfg__interfaces__interface(yadata.MKeyedList[str, Cisco_IOS_XR_um_interface_cfg__interfaces__interface_entry]):
     mut def __init__(self, elements: list[Cisco_IOS_XR_um_interface_cfg__interfaces__interface_entry]=[]) -> None:
         yadata.MKeyedList.__init__(self, lambda e: e.interface_name, elements)
@@ -628,7 +682,7 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface(yadata.MKeyedList[str
         return Cisco_IOS_XR_um_interface_cfg__interfaces__interface(elements=copied_elements)
 
 
-_breaker21: None = None
+_breaker23: None = None
 class Cisco_IOS_XR_um_interface_cfg__interfaces(yadata.MNode):
     interface: Cisco_IOS_XR_um_interface_cfg__interfaces__interface
 
@@ -649,7 +703,7 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces(yadata.MNode):
         return Cisco_IOS_XR_um_interface_cfg__interfaces.from_gdata(self.to_gdata())
 
 
-_breaker22: None = None
+_breaker24: None = None
 class Cisco_IOS_XR_um_hostname_cfg__hostname(yadata.MNode):
     system_network_name: ?str
 
@@ -670,12 +724,14 @@ class Cisco_IOS_XR_um_hostname_cfg__hostname(yadata.MNode):
         return Cisco_IOS_XR_um_hostname_cfg__hostname.from_gdata(self.to_gdata())
 
 
-_breaker23: None = None
+_breaker25: None = None
 class root(yadata.MNode):
+    nexthop_weight: test__nexthop_weight
     interfaces: Cisco_IOS_XR_um_interface_cfg__interfaces
     hostname: Cisco_IOS_XR_um_hostname_cfg__hostname
 
-    mut def __init__(self, interfaces: ?Cisco_IOS_XR_um_interface_cfg__interfaces=None, hostname: ?Cisco_IOS_XR_um_hostname_cfg__hostname=None) -> None:
+    mut def __init__(self, nexthop_weight: list[test__nexthop_weight_entry]=[], interfaces: ?Cisco_IOS_XR_um_interface_cfg__interfaces=None, hostname: ?Cisco_IOS_XR_um_hostname_cfg__hostname=None) -> None:
+        self.nexthop_weight = test__nexthop_weight(elements=nexthop_weight)
         self.interfaces = interfaces if interfaces is not None else Cisco_IOS_XR_um_interface_cfg__interfaces()
         self.hostname = hostname if hostname is not None else Cisco_IOS_XR_um_hostname_cfg__hostname()
 
@@ -685,7 +741,7 @@ class root(yadata.MNode):
     @staticmethod
     mut def from_gdata(n: ?ygdata.Node) -> root:
         if n is not None:
-            return root(interfaces=Cisco_IOS_XR_um_interface_cfg__interfaces.from_gdata(n.get_opt_cnt(ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'interfaces'))), hostname=Cisco_IOS_XR_um_hostname_cfg__hostname.from_gdata(n.get_opt_cnt(ygdata.Id(NS_Cisco_IOS_XR_um_hostname_cfg, 'hostname'))))
+            return root(nexthop_weight=test__nexthop_weight.from_gdata(n.get_opt_list(ygdata.Id(NS_test, 'nexthop-weight'))), interfaces=Cisco_IOS_XR_um_interface_cfg__interfaces.from_gdata(n.get_opt_cnt(ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'interfaces'))), hostname=Cisco_IOS_XR_um_hostname_cfg__hostname.from_gdata(n.get_opt_cnt(ygdata.Id(NS_Cisco_IOS_XR_um_hostname_cfg, 'hostname'))))
         return root()
 
     mut def copy(self) -> root:

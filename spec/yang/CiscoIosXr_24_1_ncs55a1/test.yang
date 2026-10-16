@@ -1,0 +1,50 @@
+module test {
+
+  namespace "urn:ietf:params:xml:ns:yang:test";
+  prefix "test";
+
+  organization
+   "DT";
+
+  contact
+   "Alex Huang-Feng <mailto:alex.huang-feng@t-systems.com>";
+
+  revision 2026-10-16 {
+    description
+     "Initial revision.";
+  }
+
+  list nexthop-weight {
+    key "choice-ident choice-value weight";
+    ordered-by user;
+    description "Weight of the gateway";
+    leaf choice-ident {
+      type enumeration {
+        enum "equal" {
+        }
+        enum "greater-than" {
+        }
+        enum "less-than" {
+        }
+        enum "greater-than-equal" {
+        }
+        enum "less-than-equal" {
+        }
+      }
+    }
+    leaf choice-value {
+        type string;
+    }
+    leaf weight {
+        description "Weight of the gateway";
+        type union {
+        type string {
+            pattern "<.*>|$.*";
+        }
+        type uint32 {
+            range "1 .. 65535";
+        }
+        }
+    }
+  }
+}

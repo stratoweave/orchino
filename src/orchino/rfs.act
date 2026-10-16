@@ -21,7 +21,9 @@ class BaseConfig(base.BaseConfig):
             dev.hostname.system_network_name = di.name
             intf = dev.interfaces.interface.create("Loopback0")
             intf.ipv4.addresses.create_address(i.ipv4_address, "255.255.255.255")
-
+            
+            # Mock for testing: always emit a nexthop-weight with an empty choice-value
+            dev.nexthop_weight.create((choice_ident="equal", choice_value="", weight=100))
             return dev
 
         raise UnsupportedDevice()
