@@ -77,7 +77,7 @@ SRC_DNODE: DRoot = DRoot(
     children=[SRC_DNODE_CHILD_0, SRC_DNODE_CHILD_10],
     identities=[],
     rpcs=[],
-    module_metadata={'urn:ietf:params:xml:ns:yang:ietf-yang-types':('ietf-yang-types', '2013-07-15'), 'urn:ietf:params:xml:ns:yang:ietf-inet-types':('ietf-inet-types', '2013-07-15'), 'http://cisco.com/ns/yang/cisco-semver':('cisco-semver', '2019-03-13'), 'http://cisco.com/ns/yang/cisco-xr-types':('Cisco-IOS-XR-types', '2023-12-06'), 'http://cisco.com/ns/yang/Cisco-IOS-XR-um-interface-cfg':('Cisco-IOS-XR-um-interface-cfg', '2022-07-11'), 'http://cisco.com/ns/yang/Cisco-IOS-XR-um-if-ip-address-cfg':('Cisco-IOS-XR-um-if-ip-address-cfg', '2022-07-11'), 'http://cisco.com/ns/yang/Cisco-IOS-XR-um-hostname-cfg':('Cisco-IOS-XR-um-hostname-cfg', '2021-04-21')},
+    module_metadata={'urn:ietf:params:xml:ns:yang:ietf-yang-types':('ietf-yang-types', '2013-07-15', [], False), 'urn:ietf:params:xml:ns:yang:ietf-inet-types':('ietf-inet-types', '2013-07-15', [], False), 'http://cisco.com/ns/yang/cisco-semver':('cisco-semver', '2019-03-13', [], False), 'http://cisco.com/ns/yang/cisco-xr-types':('Cisco-IOS-XR-types', '2023-12-06', [], False), 'http://cisco.com/ns/yang/Cisco-IOS-XR-um-interface-cfg':('Cisco-IOS-XR-um-interface-cfg', '2022-07-11', [], True), 'http://cisco.com/ns/yang/Cisco-IOS-XR-um-if-ip-address-cfg':('Cisco-IOS-XR-um-if-ip-address-cfg', '2022-07-11', [], True), 'http://cisco.com/ns/yang/Cisco-IOS-XR-um-hostname-cfg':('Cisco-IOS-XR-um-hostname-cfg', '2021-04-21', [], True)},
 )
 
 SRC_YANG_0: str = r"""module Cisco-IOS-XR-types {

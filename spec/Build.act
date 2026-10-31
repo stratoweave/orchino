@@ -3,8 +3,8 @@ fingerprint = 0x673316b414dd9fde
 dependencies = {
     "stratoweave": (
         repo_url="https://github.com/stratoweave/stratoweave",
-        url="https://github.com/stratoweave/stratoweave/archive/3c34a7fcec760702fd12834ec10b6d4384b33637.zip",
-        hash="N-V-__8AAHoFpgCSlf7ISt_3FpEi6chyt3r5pfFWMAi3NpYt"
+        url="https://github.com/stratoweave/stratoweave/archive/266d4f3358148bfe39c53204facef20a7c204539.zip",
+        hash="N-V-__8AALBFqQDkZZkEkrn7vHLa1nCtXnXQsk-ehNqTaN3Y"
     )
 }
 zig_dependencies = {}
