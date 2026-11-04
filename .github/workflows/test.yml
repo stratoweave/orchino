@@ -4,13 +4,16 @@ on:
   push:
   pull_request:
 
+env:
+  ACTON_CHANNEL: ${{ (github.ref == 'refs/heads/stable' || github.base_ref == 'stable') && 'stable' || 'tip' }}
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actonlang/setup-acton@v1
         with:
-          channel: "tip"
+          channel: ${{ env.ACTON_CHANNEL }}
       - name: Check out repository code
         uses: actions/checkout@v7
       - name: Ensure generated code is up to date

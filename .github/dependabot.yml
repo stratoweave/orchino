@@ -5,3 +5,5 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
+    # `stable` is the default branch, but it only moves with the Advance stable branch workflow
+    target-branch: "main"

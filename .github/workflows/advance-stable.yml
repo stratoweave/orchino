@@ -1,0 +1,75 @@
+name: Advance stable branch
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+# Run one at a time. Parallel runs could finish out of order, and then the push
+# of the older commit fails as non-fast-forward. A run still waiting to start is
+# replaced when a newer commit arrives.
+concurrency:
+  group: advance-stable
+  cancel-in-progress: false
+
+jobs:
+  advance:
+    # workflow_dispatch can pick any branch, but only main may reach stable
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - id: setup-acton
+        uses: actonlang/setup-acton@v1
+        with:
+          channel: 'stable'
+      - name: "Check out main"
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - name: "Pin stratoweave to its latest release"
+        id: release
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          tag=$(gh release view --repo stratoweave/stratoweave --json tagName --jq .tagName)
+          echo "tag=$tag" >> "$GITHUB_OUTPUT"
+          cd spec
+          acton pkg add stratoweave --repo-url https://github.com/stratoweave/stratoweave --repo-ref "$tag"
+      - run: make gen
+      - name: "Record the stable tree"
+        id: tree
+        # Before build and test, so that their output stays out of the tree
+        run: |
+          git add -A
+          echo "tree=$(git write-tree)" >> "$GITHUB_OUTPUT"
+      - run: make build
+      - run: make test
+      - name: "Commit to stable"
+        env:
+          TREE: ${{ steps.tree.outputs.tree }}
+          TAG: ${{ steps.release.outputs.tag }}
+          GIT_AUTHOR_NAME: github-actions[bot]
+          GIT_AUTHOR_EMAIL: 41898282+github-actions[bot]@users.noreply.github.com
+          GIT_COMMITTER_NAME: github-actions[bot]
+          GIT_COMMITTER_EMAIL: 41898282+github-actions[bot]@users.noreply.github.com
+        run: |
+          # The commit has the tree built above. Its parents are the current
+          # stable (so the push is a fast-forward) and main (so stable records
+          # which main commits it contains).
+          if ! git rev-parse --verify --quiet refs/remotes/origin/stable >/dev/null; then
+            parents=(-p HEAD)
+          elif ! git merge-base --is-ancestor HEAD origin/stable; then
+            parents=(-p origin/stable -p HEAD)
+          elif [ "$(git rev-parse 'origin/stable^{tree}')" != "$TREE" ]; then
+            # Same main commit, new stratoweave release
+            parents=(-p origin/stable)
+          else
+            echo "stable already contains main $(git rev-parse --short HEAD) with stratoweave $TAG"
+            exit 0
+          fi
+          commit=$(git commit-tree "$TREE" "${parents[@]}" \
+            -m "Advance stable to main $(git rev-parse --short HEAD) with stratoweave $TAG")
+          git push origin "$commit:refs/heads/stable"
