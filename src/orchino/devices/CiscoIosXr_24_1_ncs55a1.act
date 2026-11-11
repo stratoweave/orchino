@@ -30,6 +30,36 @@ NS_Cisco_IOS_XR_types: str = 'http://cisco.com/ns/yang/cisco-xr-types'
 NS_ietf_inet_types: str = 'urn:ietf:params:xml:ns:yang:ietf-inet-types'
 NS_ietf_yang_types: str = 'urn:ietf:params:xml:ns:yang:ietf-yang-types'
 
+_ID_Cisco_IOS_XR_um_hostname_cfg__hostname: ygdata.Id = ygdata.Id(NS_Cisco_IOS_XR_um_hostname_cfg, 'hostname')
+_ID_Cisco_IOS_XR_um_hostname_cfg__system_network_name: ygdata.Id = ygdata.Id(NS_Cisco_IOS_XR_um_hostname_cfg, 'system-network-name')
+_ID_Cisco_IOS_XR_um_if_ip_address_cfg__address: ygdata.Id = ygdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'address')
+_ID_Cisco_IOS_XR_um_if_ip_address_cfg__addresses: ygdata.Id = ygdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'addresses')
+_ID_Cisco_IOS_XR_um_if_ip_address_cfg__algorithm: ygdata.Id = ygdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'algorithm')
+_ID_Cisco_IOS_XR_um_if_ip_address_cfg__dhcp: ygdata.Id = ygdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'dhcp')
+_ID_Cisco_IOS_XR_um_if_ip_address_cfg__netmask: ygdata.Id = ygdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'netmask')
+_ID_Cisco_IOS_XR_um_if_ip_address_cfg__route_tag: ygdata.Id = ygdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'route-tag')
+_ID_Cisco_IOS_XR_um_if_ip_address_cfg__secondaries: ygdata.Id = ygdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'secondaries')
+_ID_Cisco_IOS_XR_um_if_ip_address_cfg__secondary: ygdata.Id = ygdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'secondary')
+_ID_Cisco_IOS_XR_um_if_ip_address_cfg__unnumbered: ygdata.Id = ygdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'unnumbered')
+_ID_Cisco_IOS_XR_um_interface_cfg__IETF: ygdata.Id = ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'IETF')
+_ID_Cisco_IOS_XR_um_interface_cfg__description: ygdata.Id = ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'description')
+_ID_Cisco_IOS_XR_um_interface_cfg__encapsulation: ygdata.Id = ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'encapsulation')
+_ID_Cisco_IOS_XR_um_interface_cfg__frame_relay: ygdata.Id = ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'frame-relay')
+_ID_Cisco_IOS_XR_um_interface_cfg__hdlc: ygdata.Id = ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'hdlc')
+_ID_Cisco_IOS_XR_um_interface_cfg__interface: ygdata.Id = ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'interface')
+_ID_Cisco_IOS_XR_um_interface_cfg__interface_name: ygdata.Id = ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'interface-name')
+_ID_Cisco_IOS_XR_um_interface_cfg__interfaces: ygdata.Id = ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'interfaces')
+_ID_Cisco_IOS_XR_um_interface_cfg__ipv4: ygdata.Id = ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'ipv4')
+_ID_Cisco_IOS_XR_um_interface_cfg__ipv6: ygdata.Id = ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'ipv6')
+_ID_Cisco_IOS_XR_um_interface_cfg__l2transport: ygdata.Id = ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'l2transport')
+_ID_Cisco_IOS_XR_um_interface_cfg__mfr: ygdata.Id = ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'mfr')
+_ID_Cisco_IOS_XR_um_interface_cfg__mtu: ygdata.Id = ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'mtu')
+_ID_Cisco_IOS_XR_um_interface_cfg__multipoint: ygdata.Id = ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'multipoint')
+_ID_Cisco_IOS_XR_um_interface_cfg__point_to_point: ygdata.Id = ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'point-to-point')
+_ID_Cisco_IOS_XR_um_interface_cfg__ppp: ygdata.Id = ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'ppp')
+_ID_Cisco_IOS_XR_um_interface_cfg__shutdown: ygdata.Id = ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'shutdown')
+_ID_Cisco_IOS_XR_um_interface_cfg__sub_interface_type: ygdata.Id = ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'sub-interface-type')
+
 
 _breaker1: None = None
 class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__l2transport(yadata.MNode):
@@ -141,7 +171,7 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type(y
     @staticmethod
     mut def from_gdata(n: ?ygdata.Node) -> Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type:
         if n is not None:
-            return Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type(l2transport=Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__l2transport.from_gdata(n.get_opt_cnt(ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'l2transport'))), point_to_point=Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__point_to_point.from_gdata(n.get_opt_cnt(ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'point-to-point'))), multipoint=Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__multipoint.from_gdata(n.get_opt_cnt(ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'multipoint'))))
+            return Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type(l2transport=Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__l2transport.from_gdata(n.get_opt_cnt(_ID_Cisco_IOS_XR_um_interface_cfg__l2transport)), point_to_point=Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__point_to_point.from_gdata(n.get_opt_cnt(_ID_Cisco_IOS_XR_um_interface_cfg__point_to_point)), multipoint=Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__multipoint.from_gdata(n.get_opt_cnt(_ID_Cisco_IOS_XR_um_interface_cfg__multipoint)))
         return Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type()
 
     mut def copy(self) -> Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type:
@@ -168,7 +198,7 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__add
     @staticmethod
     mut def from_gdata(n: ?ygdata.Node) -> ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__address:
         if n is not None:
-            return Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__address(address=n.get_opt_str(ygdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'address')), netmask=n.get_opt_str(ygdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'netmask')), route_tag=n.get_opt_u64(ygdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'route-tag')), algorithm=n.get_opt_u64(ygdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'algorithm')))
+            return Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__address(address=n.get_opt_str(_ID_Cisco_IOS_XR_um_if_ip_address_cfg__address), netmask=n.get_opt_str(_ID_Cisco_IOS_XR_um_if_ip_address_cfg__netmask), route_tag=n.get_opt_u64(_ID_Cisco_IOS_XR_um_if_ip_address_cfg__route_tag), algorithm=n.get_opt_u64(_ID_Cisco_IOS_XR_um_if_ip_address_cfg__algorithm))
         return None
 
     mut def copy(self) -> Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__address:
@@ -197,7 +227,7 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__sec
 
     @staticmethod
     mut def from_gdata(n: ygdata.Node) -> Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries__secondary_entry:
-        return Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries__secondary_entry(address=n.get_str(ygdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'address')), netmask=n.get_opt_str(ygdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'netmask')), route_tag=n.get_opt_u64(ygdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'route-tag')), algorithm=n.get_opt_u64(ygdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'algorithm')))
+        return Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries__secondary_entry(address=n.get_str(_ID_Cisco_IOS_XR_um_if_ip_address_cfg__address), netmask=n.get_opt_str(_ID_Cisco_IOS_XR_um_if_ip_address_cfg__netmask), route_tag=n.get_opt_u64(_ID_Cisco_IOS_XR_um_if_ip_address_cfg__route_tag), algorithm=n.get_opt_u64(_ID_Cisco_IOS_XR_um_if_ip_address_cfg__algorithm))
 
     mut def copy(self) -> Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries__secondary_entry:
         """Create a deep copy of this adata object"""
@@ -253,7 +283,7 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__sec
     @staticmethod
     mut def from_gdata(n: ?ygdata.Node) -> Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries:
         if n is not None:
-            return Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries(secondary=Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries__secondary.from_gdata(n.get_opt_list(ygdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'secondary'))))
+            return Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries(secondary=Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries__secondary.from_gdata(n.get_opt_list(_ID_Cisco_IOS_XR_um_if_ip_address_cfg__secondary)))
         return Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries()
 
     mut def copy(self) -> Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries:
@@ -327,7 +357,7 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses(yada
     @staticmethod
     mut def from_gdata(n: ?ygdata.Node) -> Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses:
         if n is not None:
-            return Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses(address=Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__address.from_gdata(n.get_opt_cnt(ygdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'address'))), secondaries=Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries.from_gdata(n.get_opt_cnt(ygdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'secondaries'))), unnumbered=n.get_opt_str(ygdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'unnumbered')), dhcp=Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__dhcp.from_gdata(n.get_opt_cnt(ygdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'dhcp'))))
+            return Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses(address=Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__address.from_gdata(n.get_opt_cnt(_ID_Cisco_IOS_XR_um_if_ip_address_cfg__address)), secondaries=Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries.from_gdata(n.get_opt_cnt(_ID_Cisco_IOS_XR_um_if_ip_address_cfg__secondaries)), unnumbered=n.get_opt_str(_ID_Cisco_IOS_XR_um_if_ip_address_cfg__unnumbered), dhcp=Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__dhcp.from_gdata(n.get_opt_cnt(_ID_Cisco_IOS_XR_um_if_ip_address_cfg__dhcp)))
         return Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses()
 
     mut def copy(self) -> Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses:
@@ -348,7 +378,7 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4(yadata.MNode):
     @staticmethod
     mut def from_gdata(n: ?ygdata.Node) -> Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4:
         if n is not None:
-            return Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4(addresses=Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses.from_gdata(n.get_opt_cnt(ygdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'addresses'))))
+            return Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4(addresses=Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses.from_gdata(n.get_opt_cnt(_ID_Cisco_IOS_XR_um_if_ip_address_cfg__addresses)))
         return Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4()
 
     mut def copy(self) -> Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4:
@@ -489,7 +519,7 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__frame
     @staticmethod
     mut def from_gdata(n: ?ygdata.Node) -> ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__frame_relay:
         if n is not None:
-            return Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__frame_relay(IETF=Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__frame_relay__IETF.from_gdata(n.get_opt_cnt(ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'IETF'))))
+            return Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__frame_relay(IETF=Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__frame_relay__IETF.from_gdata(n.get_opt_cnt(_ID_Cisco_IOS_XR_um_interface_cfg__IETF)))
         return None
 
     mut def copy(self) -> Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__frame_relay:
@@ -551,7 +581,7 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation(yadata
     @staticmethod
     mut def from_gdata(n: ?ygdata.Node) -> Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation:
         if n is not None:
-            return Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation(ppp=Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__ppp.from_gdata(n.get_opt_cnt(ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'ppp'))), hdlc=Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__hdlc.from_gdata(n.get_opt_cnt(ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'hdlc'))), mfr=Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__mfr.from_gdata(n.get_opt_cnt(ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'mfr'))), frame_relay=Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__frame_relay.from_gdata(n.get_opt_cnt(ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'frame-relay'))))
+            return Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation(ppp=Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__ppp.from_gdata(n.get_opt_cnt(_ID_Cisco_IOS_XR_um_interface_cfg__ppp)), hdlc=Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__hdlc.from_gdata(n.get_opt_cnt(_ID_Cisco_IOS_XR_um_interface_cfg__hdlc)), mfr=Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__mfr.from_gdata(n.get_opt_cnt(_ID_Cisco_IOS_XR_um_interface_cfg__mfr)), frame_relay=Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__frame_relay.from_gdata(n.get_opt_cnt(_ID_Cisco_IOS_XR_um_interface_cfg__frame_relay)))
         return Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation()
 
     mut def copy(self) -> Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation:
@@ -585,7 +615,7 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface_entry(yadata.MNode):
 
     @staticmethod
     mut def from_gdata(n: ygdata.Node) -> Cisco_IOS_XR_um_interface_cfg__interfaces__interface_entry:
-        return Cisco_IOS_XR_um_interface_cfg__interfaces__interface_entry(interface_name=n.get_str(ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'interface-name')), sub_interface_type=Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type.from_gdata(n.get_opt_cnt(ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'sub-interface-type'))), ipv4=Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4.from_gdata(n.get_opt_cnt(ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'ipv4'))), ipv6=Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv6.from_gdata(n.get_opt_cnt(ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'ipv6'))), encapsulation=Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation.from_gdata(n.get_opt_cnt(ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'encapsulation'))), shutdown=n.get_opt_empty(ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'shutdown')), mtu=n.get_opt_u64(ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'mtu')), description=n.get_opt_str(ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'description')))
+        return Cisco_IOS_XR_um_interface_cfg__interfaces__interface_entry(interface_name=n.get_str(_ID_Cisco_IOS_XR_um_interface_cfg__interface_name), sub_interface_type=Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type.from_gdata(n.get_opt_cnt(_ID_Cisco_IOS_XR_um_interface_cfg__sub_interface_type)), ipv4=Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4.from_gdata(n.get_opt_cnt(_ID_Cisco_IOS_XR_um_interface_cfg__ipv4)), ipv6=Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv6.from_gdata(n.get_opt_cnt(_ID_Cisco_IOS_XR_um_interface_cfg__ipv6)), encapsulation=Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation.from_gdata(n.get_opt_cnt(_ID_Cisco_IOS_XR_um_interface_cfg__encapsulation)), shutdown=n.get_opt_empty(_ID_Cisco_IOS_XR_um_interface_cfg__shutdown), mtu=n.get_opt_u64(_ID_Cisco_IOS_XR_um_interface_cfg__mtu), description=n.get_opt_str(_ID_Cisco_IOS_XR_um_interface_cfg__description))
 
     mut def copy(self) -> Cisco_IOS_XR_um_interface_cfg__interfaces__interface_entry:
         """Create a deep copy of this adata object"""
@@ -641,7 +671,7 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces(yadata.MNode):
     @staticmethod
     mut def from_gdata(n: ?ygdata.Node) -> Cisco_IOS_XR_um_interface_cfg__interfaces:
         if n is not None:
-            return Cisco_IOS_XR_um_interface_cfg__interfaces(interface=Cisco_IOS_XR_um_interface_cfg__interfaces__interface.from_gdata(n.get_opt_list(ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'interface'))))
+            return Cisco_IOS_XR_um_interface_cfg__interfaces(interface=Cisco_IOS_XR_um_interface_cfg__interfaces__interface.from_gdata(n.get_opt_list(_ID_Cisco_IOS_XR_um_interface_cfg__interface)))
         return Cisco_IOS_XR_um_interface_cfg__interfaces()
 
     mut def copy(self) -> Cisco_IOS_XR_um_interface_cfg__interfaces:
@@ -662,7 +692,7 @@ class Cisco_IOS_XR_um_hostname_cfg__hostname(yadata.MNode):
     @staticmethod
     mut def from_gdata(n: ?ygdata.Node) -> Cisco_IOS_XR_um_hostname_cfg__hostname:
         if n is not None:
-            return Cisco_IOS_XR_um_hostname_cfg__hostname(system_network_name=n.get_opt_str(ygdata.Id(NS_Cisco_IOS_XR_um_hostname_cfg, 'system-network-name')))
+            return Cisco_IOS_XR_um_hostname_cfg__hostname(system_network_name=n.get_opt_str(_ID_Cisco_IOS_XR_um_hostname_cfg__system_network_name))
         return Cisco_IOS_XR_um_hostname_cfg__hostname()
 
     mut def copy(self) -> Cisco_IOS_XR_um_hostname_cfg__hostname:
@@ -685,7 +715,7 @@ class root(yadata.MNode):
     @staticmethod
     mut def from_gdata(n: ?ygdata.Node) -> root:
         if n is not None:
-            return root(interfaces=Cisco_IOS_XR_um_interface_cfg__interfaces.from_gdata(n.get_opt_cnt(ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'interfaces'))), hostname=Cisco_IOS_XR_um_hostname_cfg__hostname.from_gdata(n.get_opt_cnt(ygdata.Id(NS_Cisco_IOS_XR_um_hostname_cfg, 'hostname'))))
+            return root(interfaces=Cisco_IOS_XR_um_interface_cfg__interfaces.from_gdata(n.get_opt_cnt(_ID_Cisco_IOS_XR_um_interface_cfg__interfaces)), hostname=Cisco_IOS_XR_um_hostname_cfg__hostname.from_gdata(n.get_opt_cnt(_ID_Cisco_IOS_XR_um_hostname_cfg__hostname)))
         return root()
 
     mut def copy(self) -> root:
