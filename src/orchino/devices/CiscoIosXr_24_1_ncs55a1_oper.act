@@ -19,58 +19,58 @@ from yang.sdata import SubscriptionPath, SubscriptionNode
 _identities: list[DIdentity] = []
 
 
-SRC_DNODE_CHILD_2: DLeaf = DLeaf(module='Cisco-IOS-XR-um-interface-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-interface-cfg', prefix='um-interface-cfg', name='interface-name', config=True, description='Interface configuration subcommands', is_key=True, mandatory=False, type=DTypeString(name='xr:Interface-name', description='An interface name specifying an interface type and\ninstance.\nInterface represents a string defining an interface\ntype and instance, e.g. MgmtEth0/4/CPU1/0 or\nTenGigE0/2/0/0.2 or Bundle-Ether9 or\nBundle-Ether9.98 or Serial0/0/0/0/3/1:1', reference=None, units=None, exts=[], builtin_type='string', default=None, length=None, patterns=[YangPattern(yang_regex='[a-zA-Z0-9.:_/-]+', pcre='^([a-zA-Z0-9.:_/-]+)$', invert=False)]))
+SRC_DNODE_CHILD_2: DLeaf = DLeaf(module='Cisco-IOS-XR-um-interface-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-interface-cfg', prefix='um-interface-cfg', name='interface-name', config=True, description='Interface configuration subcommands', is_key=True, mandatory=False, type=DTypeString(name='xr:Interface-name', description='An interface name specifying an interface type and\ninstance.\nInterface represents a string defining an interface\ntype and instance, e.g. MgmtEth0/4/CPU1/0 or\nTenGigE0/2/0/0.2 or Bundle-Ether9 or\nBundle-Ether9.98 or Serial0/0/0/0/3/1:1', reference=None, units=None, exts=[], builtin_type='string', default=None, length=None, patterns=[YangPattern(yang_regex='[a-zA-Z0-9.:_/-]+', pcre='^([a-zA-Z0-9.:_/-]+)$', invert=False)]), adata_name='interface_name')
 
-SRC_DNODE_CHILD_3: DContainer = DContainer(module='Cisco-IOS-XR-um-interface-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-interface-cfg', prefix='um-interface-cfg', name='sub-interface-type', config=True, description='Specify type of sub-interface', presence=False, children=[
-    DContainer(module='Cisco-IOS-XR-um-interface-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-interface-cfg', prefix='um-interface-cfg', name='l2transport', config=True, description='l2transport sub-interface', presence=True),
-    DContainer(module='Cisco-IOS-XR-um-interface-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-interface-cfg', prefix='um-interface-cfg', name='point-to-point', config=True, description='point-to-point sub-interface', presence=True),
-    DContainer(module='Cisco-IOS-XR-um-interface-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-interface-cfg', prefix='um-interface-cfg', name='multipoint', config=True, description='multipoint sub-interface', presence=True)
+SRC_DNODE_CHILD_3: DContainer = DContainer(module='Cisco-IOS-XR-um-interface-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-interface-cfg', prefix='um-interface-cfg', name='sub-interface-type', config=True, description='Specify type of sub-interface', presence=False, adata_name='sub_interface_type', children=[
+    DContainer(module='Cisco-IOS-XR-um-interface-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-interface-cfg', prefix='um-interface-cfg', name='l2transport', config=True, description='l2transport sub-interface', presence=True, adata_name='l2transport'),
+    DContainer(module='Cisco-IOS-XR-um-interface-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-interface-cfg', prefix='um-interface-cfg', name='point-to-point', config=True, description='point-to-point sub-interface', presence=True, adata_name='point_to_point'),
+    DContainer(module='Cisco-IOS-XR-um-interface-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-interface-cfg', prefix='um-interface-cfg', name='multipoint', config=True, description='multipoint sub-interface', presence=True, adata_name='multipoint')
 ])
 
-SRC_DNODE_CHILD_4: DContainer = DContainer(module='Cisco-IOS-XR-um-interface-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-interface-cfg', prefix='um-interface-cfg', name='ipv4', config=True, description='Interface IPv4 config commands', presence=False, children=[
-    DContainer(module='Cisco-IOS-XR-um-if-ip-address-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-if-ip-address-cfg', prefix='um-if-ip-address-cfg', name='addresses', config=True, description='Set the IPv4 address of an interface', presence=False, children=[
-        DContainer(module='Cisco-IOS-XR-um-if-ip-address-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-if-ip-address-cfg', prefix='um-if-ip-address-cfg', name='address', config=True, description='IP address and Mask', presence=True, children=[
-            DLeaf(module='Cisco-IOS-XR-um-if-ip-address-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-if-ip-address-cfg', prefix='um-if-ip-address-cfg', name='address', config=True, description='IP address', is_key=False, mandatory=True, type=DTypeString(name='inet:ipv4-address-no-zone', description='An IPv4 address without a zone index.  This type, derived from\nipv4-address, may be used in situations where the zone is\nknown from the context and hence no zone index is needed.', reference=None, units=None, exts=[], builtin_type='string', default=None, length=None, patterns=[YangPattern(yang_regex='(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){{3}}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{{N}}\\p{{L}}]+)?', pcre='^((([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){{3}}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{{N}}\\p{{L}}]+)?)$', invert=False), YangPattern(yang_regex='[0-9\\.]*', pcre='^([0-9\\.]*)$', invert=False)])),
-            DLeaf(module='Cisco-IOS-XR-um-if-ip-address-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-if-ip-address-cfg', prefix='um-if-ip-address-cfg', name='netmask', config=True, description='IP subnet mask', is_key=False, mandatory=True, type=DTypeString(name='inet:ipv4-address-no-zone', description='An IPv4 address without a zone index.  This type, derived from\nipv4-address, may be used in situations where the zone is\nknown from the context and hence no zone index is needed.', reference=None, units=None, exts=[], builtin_type='string', default=None, length=None, patterns=[YangPattern(yang_regex='(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){{3}}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{{N}}\\p{{L}}]+)?', pcre='^((([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){{3}}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{{N}}\\p{{L}}]+)?)$', invert=False), YangPattern(yang_regex='[0-9\\.]*', pcre='^([0-9\\.]*)$', invert=False)])),
-            DLeaf(module='Cisco-IOS-XR-um-if-ip-address-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-if-ip-address-cfg', prefix='um-if-ip-address-cfg', name='route-tag', config=True, description='Route-tag to be associated with this address', is_key=False, mandatory=False, type=DTypeIntegerUnsigned(name='uint32', description=None, reference=None, units=None, exts=[], builtin_type='uint32', default=None, ranges=Ranges([(1, 4294967295)]))),
-            DLeaf(module='Cisco-IOS-XR-um-if-ip-address-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-if-ip-address-cfg', prefix='um-if-ip-address-cfg', name='algorithm', config=True, description='Algorithm to be associated with this address', is_key=False, mandatory=False, type=DTypeIntegerUnsigned(name='uint32', description=None, reference=None, units=None, exts=[], builtin_type='uint32', default=None, ranges=Ranges([(128, 255)])))
+SRC_DNODE_CHILD_4: DContainer = DContainer(module='Cisco-IOS-XR-um-interface-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-interface-cfg', prefix='um-interface-cfg', name='ipv4', config=True, description='Interface IPv4 config commands', presence=False, adata_name='ipv4', children=[
+    DContainer(module='Cisco-IOS-XR-um-if-ip-address-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-if-ip-address-cfg', prefix='um-if-ip-address-cfg', name='addresses', config=True, description='Set the IPv4 address of an interface', presence=False, adata_name='addresses', children=[
+        DContainer(module='Cisco-IOS-XR-um-if-ip-address-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-if-ip-address-cfg', prefix='um-if-ip-address-cfg', name='address', config=True, description='IP address and Mask', presence=True, adata_name='address', children=[
+            DLeaf(module='Cisco-IOS-XR-um-if-ip-address-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-if-ip-address-cfg', prefix='um-if-ip-address-cfg', name='address', config=True, description='IP address', is_key=False, mandatory=True, type=DTypeString(name='inet:ipv4-address-no-zone', description='An IPv4 address without a zone index.  This type, derived from\nipv4-address, may be used in situations where the zone is\nknown from the context and hence no zone index is needed.', reference=None, units=None, exts=[], builtin_type='string', default=None, length=None, patterns=[YangPattern(yang_regex='(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){{3}}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{{N}}\\p{{L}}]+)?', pcre='^((([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){{3}}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{{N}}\\p{{L}}]+)?)$', invert=False), YangPattern(yang_regex='[0-9\\.]*', pcre='^([0-9\\.]*)$', invert=False)]), adata_name='address'),
+            DLeaf(module='Cisco-IOS-XR-um-if-ip-address-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-if-ip-address-cfg', prefix='um-if-ip-address-cfg', name='netmask', config=True, description='IP subnet mask', is_key=False, mandatory=True, type=DTypeString(name='inet:ipv4-address-no-zone', description='An IPv4 address without a zone index.  This type, derived from\nipv4-address, may be used in situations where the zone is\nknown from the context and hence no zone index is needed.', reference=None, units=None, exts=[], builtin_type='string', default=None, length=None, patterns=[YangPattern(yang_regex='(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){{3}}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{{N}}\\p{{L}}]+)?', pcre='^((([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){{3}}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{{N}}\\p{{L}}]+)?)$', invert=False), YangPattern(yang_regex='[0-9\\.]*', pcre='^([0-9\\.]*)$', invert=False)]), adata_name='netmask'),
+            DLeaf(module='Cisco-IOS-XR-um-if-ip-address-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-if-ip-address-cfg', prefix='um-if-ip-address-cfg', name='route-tag', config=True, description='Route-tag to be associated with this address', is_key=False, mandatory=False, type=DTypeIntegerUnsigned(name='uint32', description=None, reference=None, units=None, exts=[], builtin_type='uint32', default=None, ranges=Ranges([(1, 4294967295)])), adata_name='route_tag'),
+            DLeaf(module='Cisco-IOS-XR-um-if-ip-address-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-if-ip-address-cfg', prefix='um-if-ip-address-cfg', name='algorithm', config=True, description='Algorithm to be associated with this address', is_key=False, mandatory=False, type=DTypeIntegerUnsigned(name='uint32', description=None, reference=None, units=None, exts=[], builtin_type='uint32', default=None, ranges=Ranges([(128, 255)])), adata_name='algorithm')
         ]),
-        DContainer(module='Cisco-IOS-XR-um-if-ip-address-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-if-ip-address-cfg', prefix='um-if-ip-address-cfg', name='secondaries', config=True, description='Specify a secondary address', presence=False, children=[
-            DList(module='Cisco-IOS-XR-um-if-ip-address-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-if-ip-address-cfg', prefix='um-if-ip-address-cfg', name='secondary', key=['address'], config=True, description='IP address and Mask', min_elements=0, ordered_by='system', children=[
-                DLeaf(module='Cisco-IOS-XR-um-if-ip-address-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-if-ip-address-cfg', prefix='um-if-ip-address-cfg', name='address', config=True, description='Secondary IP address', is_key=True, mandatory=False, type=DTypeString(name='inet:ipv4-address-no-zone', description='An IPv4 address without a zone index.  This type, derived from\nipv4-address, may be used in situations where the zone is\nknown from the context and hence no zone index is needed.', reference=None, units=None, exts=[], builtin_type='string', default=None, length=None, patterns=[YangPattern(yang_regex='(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){{3}}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{{N}}\\p{{L}}]+)?', pcre='^((([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){{3}}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{{N}}\\p{{L}}]+)?)$', invert=False), YangPattern(yang_regex='[0-9\\.]*', pcre='^([0-9\\.]*)$', invert=False)])),
-                DLeaf(module='Cisco-IOS-XR-um-if-ip-address-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-if-ip-address-cfg', prefix='um-if-ip-address-cfg', name='netmask', config=True, description='Netmask', is_key=False, mandatory=True, type=DTypeString(name='inet:ipv4-address-no-zone', description='An IPv4 address without a zone index.  This type, derived from\nipv4-address, may be used in situations where the zone is\nknown from the context and hence no zone index is needed.', reference=None, units=None, exts=[], builtin_type='string', default=None, length=None, patterns=[YangPattern(yang_regex='(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){{3}}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{{N}}\\p{{L}}]+)?', pcre='^((([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){{3}}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{{N}}\\p{{L}}]+)?)$', invert=False), YangPattern(yang_regex='[0-9\\.]*', pcre='^([0-9\\.]*)$', invert=False)])),
-                DLeaf(module='Cisco-IOS-XR-um-if-ip-address-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-if-ip-address-cfg', prefix='um-if-ip-address-cfg', name='route-tag', config=True, description='Route-tag to be associated with this address', is_key=False, mandatory=False, type=DTypeIntegerUnsigned(name='uint32', description=None, reference=None, units=None, exts=[], builtin_type='uint32', default=None, ranges=Ranges([(1, 4294967295)]))),
-                DLeaf(module='Cisco-IOS-XR-um-if-ip-address-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-if-ip-address-cfg', prefix='um-if-ip-address-cfg', name='algorithm', config=True, description='Algorithm to be associated with this address', is_key=False, mandatory=False, type=DTypeIntegerUnsigned(name='uint32', description=None, reference=None, units=None, exts=[], builtin_type='uint32', default=None, ranges=Ranges([(128, 255)])))
+        DContainer(module='Cisco-IOS-XR-um-if-ip-address-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-if-ip-address-cfg', prefix='um-if-ip-address-cfg', name='secondaries', config=True, description='Specify a secondary address', presence=False, adata_name='secondaries', children=[
+            DList(module='Cisco-IOS-XR-um-if-ip-address-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-if-ip-address-cfg', prefix='um-if-ip-address-cfg', name='secondary', key=['address'], config=True, description='IP address and Mask', min_elements=0, ordered_by='system', adata_name='secondary', children=[
+                DLeaf(module='Cisco-IOS-XR-um-if-ip-address-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-if-ip-address-cfg', prefix='um-if-ip-address-cfg', name='address', config=True, description='Secondary IP address', is_key=True, mandatory=False, type=DTypeString(name='inet:ipv4-address-no-zone', description='An IPv4 address without a zone index.  This type, derived from\nipv4-address, may be used in situations where the zone is\nknown from the context and hence no zone index is needed.', reference=None, units=None, exts=[], builtin_type='string', default=None, length=None, patterns=[YangPattern(yang_regex='(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){{3}}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{{N}}\\p{{L}}]+)?', pcre='^((([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){{3}}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{{N}}\\p{{L}}]+)?)$', invert=False), YangPattern(yang_regex='[0-9\\.]*', pcre='^([0-9\\.]*)$', invert=False)]), adata_name='address'),
+                DLeaf(module='Cisco-IOS-XR-um-if-ip-address-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-if-ip-address-cfg', prefix='um-if-ip-address-cfg', name='netmask', config=True, description='Netmask', is_key=False, mandatory=True, type=DTypeString(name='inet:ipv4-address-no-zone', description='An IPv4 address without a zone index.  This type, derived from\nipv4-address, may be used in situations where the zone is\nknown from the context and hence no zone index is needed.', reference=None, units=None, exts=[], builtin_type='string', default=None, length=None, patterns=[YangPattern(yang_regex='(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){{3}}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{{N}}\\p{{L}}]+)?', pcre='^((([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){{3}}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{{N}}\\p{{L}}]+)?)$', invert=False), YangPattern(yang_regex='[0-9\\.]*', pcre='^([0-9\\.]*)$', invert=False)]), adata_name='netmask'),
+                DLeaf(module='Cisco-IOS-XR-um-if-ip-address-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-if-ip-address-cfg', prefix='um-if-ip-address-cfg', name='route-tag', config=True, description='Route-tag to be associated with this address', is_key=False, mandatory=False, type=DTypeIntegerUnsigned(name='uint32', description=None, reference=None, units=None, exts=[], builtin_type='uint32', default=None, ranges=Ranges([(1, 4294967295)])), adata_name='route_tag'),
+                DLeaf(module='Cisco-IOS-XR-um-if-ip-address-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-if-ip-address-cfg', prefix='um-if-ip-address-cfg', name='algorithm', config=True, description='Algorithm to be associated with this address', is_key=False, mandatory=False, type=DTypeIntegerUnsigned(name='uint32', description=None, reference=None, units=None, exts=[], builtin_type='uint32', default=None, ranges=Ranges([(128, 255)])), adata_name='algorithm')
             ])
         ]),
-        DLeaf(module='Cisco-IOS-XR-um-if-ip-address-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-if-ip-address-cfg', prefix='um-if-ip-address-cfg', name='unnumbered', config=True, description='Enable IP processing without an explicit address', is_key=False, mandatory=False, type=DTypeString(name='xr:Interface-name', description='An interface name specifying an interface type and\ninstance.\nInterface represents a string defining an interface\ntype and instance, e.g. MgmtEth0/4/CPU1/0 or\nTenGigE0/2/0/0.2 or Bundle-Ether9 or\nBundle-Ether9.98 or Serial0/0/0/0/3/1:1', reference=None, units=None, exts=[], builtin_type='string', default=None, length=None, patterns=[YangPattern(yang_regex='[a-zA-Z0-9.:_/-]+', pcre='^([a-zA-Z0-9.:_/-]+)$', invert=False)]), when="../../../um-interface-cfg:interface-name[not(starts-with(text(),'pw-ether'))]"),
-        DContainer(module='Cisco-IOS-XR-um-if-ip-address-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-if-ip-address-cfg', prefix='um-if-ip-address-cfg', name='dhcp', config=True, description='IPv4 address and Mask negotiated via DHCP', presence=True, when="../../../um-interface-cfg:interface-name[starts-with(text(),'MgmtEth')] or ../../../um-interface-cfg:interface-name[starts-with(text(),'BVI')]")
+        DLeaf(module='Cisco-IOS-XR-um-if-ip-address-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-if-ip-address-cfg', prefix='um-if-ip-address-cfg', name='unnumbered', config=True, description='Enable IP processing without an explicit address', is_key=False, mandatory=False, type=DTypeString(name='xr:Interface-name', description='An interface name specifying an interface type and\ninstance.\nInterface represents a string defining an interface\ntype and instance, e.g. MgmtEth0/4/CPU1/0 or\nTenGigE0/2/0/0.2 or Bundle-Ether9 or\nBundle-Ether9.98 or Serial0/0/0/0/3/1:1', reference=None, units=None, exts=[], builtin_type='string', default=None, length=None, patterns=[YangPattern(yang_regex='[a-zA-Z0-9.:_/-]+', pcre='^([a-zA-Z0-9.:_/-]+)$', invert=False)]), when="../../../um-interface-cfg:interface-name[not(starts-with(text(),'pw-ether'))]", adata_name='unnumbered'),
+        DContainer(module='Cisco-IOS-XR-um-if-ip-address-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-if-ip-address-cfg', prefix='um-if-ip-address-cfg', name='dhcp', config=True, description='IPv4 address and Mask negotiated via DHCP', presence=True, when="../../../um-interface-cfg:interface-name[starts-with(text(),'MgmtEth')] or ../../../um-interface-cfg:interface-name[starts-with(text(),'BVI')]", adata_name='dhcp')
     ])
 ])
 
-SRC_DNODE_CHILD_5: DContainer = DContainer(module='Cisco-IOS-XR-um-interface-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-interface-cfg', prefix='um-interface-cfg', name='ipv6', config=True, description='Interface IPv6 config commands', presence=False)
+SRC_DNODE_CHILD_5: DContainer = DContainer(module='Cisco-IOS-XR-um-interface-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-interface-cfg', prefix='um-interface-cfg', name='ipv6', config=True, description='Interface IPv6 config commands', presence=False, adata_name='ipv6')
 
-SRC_DNODE_CHILD_6: DContainer = DContainer(module='Cisco-IOS-XR-um-interface-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-interface-cfg', prefix='um-interface-cfg', name='encapsulation', config=True, description='Set the encapsulation on an interface', presence=False, when="../interface-name[starts-with(text(),'POS')] or ../interface-name[starts-with(text(),'serial')] or ../interface-name[starts-with(text(),'multilink')]", children=[
-    DContainer(module='Cisco-IOS-XR-um-interface-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-interface-cfg', prefix='um-interface-cfg', name='ppp', config=True, description='Point-to-Point protocol', presence=True),
-    DContainer(module='Cisco-IOS-XR-um-interface-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-interface-cfg', prefix='um-interface-cfg', name='hdlc', config=True, description='Serial HDLC synchronous', presence=True),
-    DContainer(module='Cisco-IOS-XR-um-interface-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-interface-cfg', prefix='um-interface-cfg', name='mfr', config=True, description='Multilink Frame Relay Member Link', presence=True, when="../../interface-name[starts-with(text(),'serial')]"),
-    DContainer(module='Cisco-IOS-XR-um-interface-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-interface-cfg', prefix='um-interface-cfg', name='frame-relay', config=True, description='Frame Relay networks', presence=True, when="../../interface-name[not(contains(text(),'.'))]", children=[
-        DContainer(module='Cisco-IOS-XR-um-interface-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-interface-cfg', prefix='um-interface-cfg', name='IETF', config=True, description='Use RFC1490/RFC2427 encapsulation', presence=True)
+SRC_DNODE_CHILD_6: DContainer = DContainer(module='Cisco-IOS-XR-um-interface-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-interface-cfg', prefix='um-interface-cfg', name='encapsulation', config=True, description='Set the encapsulation on an interface', presence=False, when="../interface-name[starts-with(text(),'POS')] or ../interface-name[starts-with(text(),'serial')] or ../interface-name[starts-with(text(),'multilink')]", adata_name='encapsulation', children=[
+    DContainer(module='Cisco-IOS-XR-um-interface-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-interface-cfg', prefix='um-interface-cfg', name='ppp', config=True, description='Point-to-Point protocol', presence=True, adata_name='ppp'),
+    DContainer(module='Cisco-IOS-XR-um-interface-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-interface-cfg', prefix='um-interface-cfg', name='hdlc', config=True, description='Serial HDLC synchronous', presence=True, adata_name='hdlc'),
+    DContainer(module='Cisco-IOS-XR-um-interface-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-interface-cfg', prefix='um-interface-cfg', name='mfr', config=True, description='Multilink Frame Relay Member Link', presence=True, when="../../interface-name[starts-with(text(),'serial')]", adata_name='mfr'),
+    DContainer(module='Cisco-IOS-XR-um-interface-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-interface-cfg', prefix='um-interface-cfg', name='frame-relay', config=True, description='Frame Relay networks', presence=True, when="../../interface-name[not(contains(text(),'.'))]", adata_name='frame_relay', children=[
+        DContainer(module='Cisco-IOS-XR-um-interface-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-interface-cfg', prefix='um-interface-cfg', name='IETF', config=True, description='Use RFC1490/RFC2427 encapsulation', presence=True, adata_name='IETF')
     ])
 ])
 
-SRC_DNODE_CHILD_7: DLeaf = DLeaf(module='Cisco-IOS-XR-um-interface-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-interface-cfg', prefix='um-interface-cfg', name='shutdown', config=True, description='shutdown the given interface', is_key=False, mandatory=False, type=DTypeEmpty(name='empty', description=None, reference=None, units=None, exts=[], builtin_type='empty', default=None))
+SRC_DNODE_CHILD_7: DLeaf = DLeaf(module='Cisco-IOS-XR-um-interface-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-interface-cfg', prefix='um-interface-cfg', name='shutdown', config=True, description='shutdown the given interface', is_key=False, mandatory=False, type=DTypeEmpty(name='empty', description=None, reference=None, units=None, exts=[], builtin_type='empty', default=None), adata_name='shutdown')
 
-SRC_DNODE_CHILD_8: DLeaf = DLeaf(module='Cisco-IOS-XR-um-interface-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-interface-cfg', prefix='um-interface-cfg', name='mtu', config=True, description='Set the MTU on an interface', is_key=False, mandatory=False, type=DTypeIntegerUnsigned(name='uint32', description=None, reference=None, units=None, exts=[], builtin_type='uint32', default=None, ranges=Ranges([(64, 65535)])), when="../interface-name[not(starts-with(text(),'SBC'))] and ../interface-name[not(starts-with(text(),'tunnel-te'))] and ../interface-name[not(starts-with(text(),'tunnel-mte'))] and ../interface-name[not(starts-with(text(),'VASILeft'))] and ../interface-name[not(starts-with(text(),'VASIRight'))] and ../interface-name[not(starts-with(text(),'service-gre'))] and ../interface-name[not(starts-with(text(),'service-ipsec'))] and ../interface-name[not(starts-with(text(),'InterflexLeft'))] and ../interface-name[not(starts-with(text(),'InterflexRight'))] and ../interface-name[not(starts-with(text(),'CEM'))]")
+SRC_DNODE_CHILD_8: DLeaf = DLeaf(module='Cisco-IOS-XR-um-interface-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-interface-cfg', prefix='um-interface-cfg', name='mtu', config=True, description='Set the MTU on an interface', is_key=False, mandatory=False, type=DTypeIntegerUnsigned(name='uint32', description=None, reference=None, units=None, exts=[], builtin_type='uint32', default=None, ranges=Ranges([(64, 65535)])), when="../interface-name[not(starts-with(text(),'SBC'))] and ../interface-name[not(starts-with(text(),'tunnel-te'))] and ../interface-name[not(starts-with(text(),'tunnel-mte'))] and ../interface-name[not(starts-with(text(),'VASILeft'))] and ../interface-name[not(starts-with(text(),'VASIRight'))] and ../interface-name[not(starts-with(text(),'service-gre'))] and ../interface-name[not(starts-with(text(),'service-ipsec'))] and ../interface-name[not(starts-with(text(),'InterflexLeft'))] and ../interface-name[not(starts-with(text(),'InterflexRight'))] and ../interface-name[not(starts-with(text(),'CEM'))]", adata_name='mtu')
 
-SRC_DNODE_CHILD_9: DLeaf = DLeaf(module='Cisco-IOS-XR-um-interface-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-interface-cfg', prefix='um-interface-cfg', name='description', config=True, description='Set description for this interface', is_key=False, mandatory=False, type=DTypeString(name='string', description=None, reference=None, units=None, exts=[], builtin_type='string', default=None, length=Ranges([(1, 1024)]), patterns=[]))
+SRC_DNODE_CHILD_9: DLeaf = DLeaf(module='Cisco-IOS-XR-um-interface-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-interface-cfg', prefix='um-interface-cfg', name='description', config=True, description='Set description for this interface', is_key=False, mandatory=False, type=DTypeString(name='string', description=None, reference=None, units=None, exts=[], builtin_type='string', default=None, length=Ranges([(1, 1024)]), patterns=[]), adata_name='description')
 
-SRC_DNODE_CHILD_1: DList = DList(module='Cisco-IOS-XR-um-interface-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-interface-cfg', prefix='um-interface-cfg', name='interface', key=['interface-name'], config=True, description='Interface configuration subcommands', min_elements=0, ordered_by='system', children=[SRC_DNODE_CHILD_2, SRC_DNODE_CHILD_3, SRC_DNODE_CHILD_4, SRC_DNODE_CHILD_5, SRC_DNODE_CHILD_6, SRC_DNODE_CHILD_7, SRC_DNODE_CHILD_8, SRC_DNODE_CHILD_9])
+SRC_DNODE_CHILD_1: DList = DList(module='Cisco-IOS-XR-um-interface-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-interface-cfg', prefix='um-interface-cfg', name='interface', key=['interface-name'], config=True, description='Interface configuration subcommands', min_elements=0, ordered_by='system', adata_name='interface', children=[SRC_DNODE_CHILD_2, SRC_DNODE_CHILD_3, SRC_DNODE_CHILD_4, SRC_DNODE_CHILD_5, SRC_DNODE_CHILD_6, SRC_DNODE_CHILD_7, SRC_DNODE_CHILD_8, SRC_DNODE_CHILD_9])
 
-SRC_DNODE_CHILD_0: DContainer = DContainer(module='Cisco-IOS-XR-um-interface-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-interface-cfg', prefix='um-interface-cfg', name='interfaces', config=True, description='Interface configuration', presence=False, children=[SRC_DNODE_CHILD_1])
+SRC_DNODE_CHILD_0: DContainer = DContainer(module='Cisco-IOS-XR-um-interface-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-interface-cfg', prefix='um-interface-cfg', name='interfaces', config=True, description='Interface configuration', presence=False, adata_name='interfaces', children=[SRC_DNODE_CHILD_1])
 
-SRC_DNODE_CHILD_10: DContainer = DContainer(module='Cisco-IOS-XR-um-hostname-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-hostname-cfg', prefix='um-hostname-cfg', name='hostname', config=True, description="Set system's network name", presence=False, children=[
-    DLeaf(module='Cisco-IOS-XR-um-hostname-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-hostname-cfg', prefix='um-hostname-cfg', name='system-network-name', config=True, description="Set system's network name", is_key=False, mandatory=False, type=DTypeString(name='xr:Cisco-ios-xr-string', description='Special characters are not allowed.', reference=None, units=None, exts=[], builtin_type='string', default=None, length=Ranges([(1, 253)]), patterns=[YangPattern(yang_regex='[\\w\\-\\.:,_@#%$\\+=\\| ;]+', pcre='^(([\\-\\.:,_@#%$\\+=\\| ;]|(?![\\p{{P}}\\p{{Z}}\\p{{C}}])[\\x{{0000}}-\\x{{10FFFF}}])+)$', invert=False), YangPattern(yang_regex='[a-zA-Z0-9_\\.-]+', pcre='^([a-zA-Z0-9_\\.-]+)$', invert=False)]))
+SRC_DNODE_CHILD_10: DContainer = DContainer(module='Cisco-IOS-XR-um-hostname-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-hostname-cfg', prefix='um-hostname-cfg', name='hostname', config=True, description="Set system's network name", presence=False, adata_name='hostname', children=[
+    DLeaf(module='Cisco-IOS-XR-um-hostname-cfg', namespace='http://cisco.com/ns/yang/Cisco-IOS-XR-um-hostname-cfg', prefix='um-hostname-cfg', name='system-network-name', config=True, description="Set system's network name", is_key=False, mandatory=False, type=DTypeString(name='xr:Cisco-ios-xr-string', description='Special characters are not allowed.', reference=None, units=None, exts=[], builtin_type='string', default=None, length=Ranges([(1, 253)]), patterns=[YangPattern(yang_regex='[\\w\\-\\.:,_@#%$\\+=\\| ;]+', pcre='^(([\\-\\.:,_@#%$\\+=\\| ;]|(?![\\p{{P}}\\p{{Z}}\\p{{C}}])[\\x{{0000}}-\\x{{10FFFF}}])+)$', invert=False), YangPattern(yang_regex='[a-zA-Z0-9_\\.-]+', pcre='^([a-zA-Z0-9_\\.-]+)$', invert=False)]), adata_name='system_network_name')
 ])
 
 SRC_DNODE: DRoot = DRoot(
@@ -2372,6 +2372,36 @@ NS_Cisco_IOS_XR_types: str = 'http://cisco.com/ns/yang/cisco-xr-types'
 NS_ietf_inet_types: str = 'urn:ietf:params:xml:ns:yang:ietf-inet-types'
 NS_ietf_yang_types: str = 'urn:ietf:params:xml:ns:yang:ietf-yang-types'
 
+_ID_Cisco_IOS_XR_um_hostname_cfg__hostname: ygdata.Id = ygdata.Id(NS_Cisco_IOS_XR_um_hostname_cfg, 'hostname')
+_ID_Cisco_IOS_XR_um_hostname_cfg__system_network_name: ygdata.Id = ygdata.Id(NS_Cisco_IOS_XR_um_hostname_cfg, 'system-network-name')
+_ID_Cisco_IOS_XR_um_if_ip_address_cfg__address: ygdata.Id = ygdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'address')
+_ID_Cisco_IOS_XR_um_if_ip_address_cfg__addresses: ygdata.Id = ygdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'addresses')
+_ID_Cisco_IOS_XR_um_if_ip_address_cfg__algorithm: ygdata.Id = ygdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'algorithm')
+_ID_Cisco_IOS_XR_um_if_ip_address_cfg__dhcp: ygdata.Id = ygdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'dhcp')
+_ID_Cisco_IOS_XR_um_if_ip_address_cfg__netmask: ygdata.Id = ygdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'netmask')
+_ID_Cisco_IOS_XR_um_if_ip_address_cfg__route_tag: ygdata.Id = ygdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'route-tag')
+_ID_Cisco_IOS_XR_um_if_ip_address_cfg__secondaries: ygdata.Id = ygdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'secondaries')
+_ID_Cisco_IOS_XR_um_if_ip_address_cfg__secondary: ygdata.Id = ygdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'secondary')
+_ID_Cisco_IOS_XR_um_if_ip_address_cfg__unnumbered: ygdata.Id = ygdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'unnumbered')
+_ID_Cisco_IOS_XR_um_interface_cfg__IETF: ygdata.Id = ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'IETF')
+_ID_Cisco_IOS_XR_um_interface_cfg__description: ygdata.Id = ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'description')
+_ID_Cisco_IOS_XR_um_interface_cfg__encapsulation: ygdata.Id = ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'encapsulation')
+_ID_Cisco_IOS_XR_um_interface_cfg__frame_relay: ygdata.Id = ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'frame-relay')
+_ID_Cisco_IOS_XR_um_interface_cfg__hdlc: ygdata.Id = ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'hdlc')
+_ID_Cisco_IOS_XR_um_interface_cfg__interface: ygdata.Id = ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'interface')
+_ID_Cisco_IOS_XR_um_interface_cfg__interface_name: ygdata.Id = ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'interface-name')
+_ID_Cisco_IOS_XR_um_interface_cfg__interfaces: ygdata.Id = ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'interfaces')
+_ID_Cisco_IOS_XR_um_interface_cfg__ipv4: ygdata.Id = ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'ipv4')
+_ID_Cisco_IOS_XR_um_interface_cfg__ipv6: ygdata.Id = ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'ipv6')
+_ID_Cisco_IOS_XR_um_interface_cfg__l2transport: ygdata.Id = ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'l2transport')
+_ID_Cisco_IOS_XR_um_interface_cfg__mfr: ygdata.Id = ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'mfr')
+_ID_Cisco_IOS_XR_um_interface_cfg__mtu: ygdata.Id = ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'mtu')
+_ID_Cisco_IOS_XR_um_interface_cfg__multipoint: ygdata.Id = ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'multipoint')
+_ID_Cisco_IOS_XR_um_interface_cfg__point_to_point: ygdata.Id = ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'point-to-point')
+_ID_Cisco_IOS_XR_um_interface_cfg__ppp: ygdata.Id = ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'ppp')
+_ID_Cisco_IOS_XR_um_interface_cfg__shutdown: ygdata.Id = ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'shutdown')
+_ID_Cisco_IOS_XR_um_interface_cfg__sub_interface_type: ygdata.Id = ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'sub-interface-type')
+
 
 _breaker1: None = None
 class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__l2transport(yadata.MNode):
@@ -2483,7 +2513,7 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type(y
     @staticmethod
     mut def from_gdata(n: ?ygdata.Node) -> Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type:
         if n is not None:
-            return Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type(l2transport=Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__l2transport.from_gdata(n.get_opt_cnt(ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'l2transport'))), point_to_point=Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__point_to_point.from_gdata(n.get_opt_cnt(ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'point-to-point'))), multipoint=Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__multipoint.from_gdata(n.get_opt_cnt(ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'multipoint'))))
+            return Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type(l2transport=Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__l2transport.from_gdata(n.get_opt_cnt(_ID_Cisco_IOS_XR_um_interface_cfg__l2transport)), point_to_point=Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__point_to_point.from_gdata(n.get_opt_cnt(_ID_Cisco_IOS_XR_um_interface_cfg__point_to_point)), multipoint=Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__multipoint.from_gdata(n.get_opt_cnt(_ID_Cisco_IOS_XR_um_interface_cfg__multipoint)))
         return Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type()
 
     mut def copy(self) -> Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type:
@@ -2510,7 +2540,7 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__add
     @staticmethod
     mut def from_gdata(n: ?ygdata.Node) -> ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__address:
         if n is not None:
-            return Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__address(address=n.get_opt_str(ygdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'address')), netmask=n.get_opt_str(ygdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'netmask')), route_tag=n.get_opt_u64(ygdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'route-tag')), algorithm=n.get_opt_u64(ygdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'algorithm')))
+            return Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__address(address=n.get_opt_str(_ID_Cisco_IOS_XR_um_if_ip_address_cfg__address), netmask=n.get_opt_str(_ID_Cisco_IOS_XR_um_if_ip_address_cfg__netmask), route_tag=n.get_opt_u64(_ID_Cisco_IOS_XR_um_if_ip_address_cfg__route_tag), algorithm=n.get_opt_u64(_ID_Cisco_IOS_XR_um_if_ip_address_cfg__algorithm))
         return None
 
     mut def copy(self) -> Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__address:
@@ -2539,7 +2569,7 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__sec
 
     @staticmethod
     mut def from_gdata(n: ygdata.Node) -> Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries__secondary_entry:
-        return Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries__secondary_entry(address=n.get_str(ygdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'address')), netmask=n.get_opt_str(ygdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'netmask')), route_tag=n.get_opt_u64(ygdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'route-tag')), algorithm=n.get_opt_u64(ygdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'algorithm')))
+        return Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries__secondary_entry(address=n.get_str(_ID_Cisco_IOS_XR_um_if_ip_address_cfg__address), netmask=n.get_opt_str(_ID_Cisco_IOS_XR_um_if_ip_address_cfg__netmask), route_tag=n.get_opt_u64(_ID_Cisco_IOS_XR_um_if_ip_address_cfg__route_tag), algorithm=n.get_opt_u64(_ID_Cisco_IOS_XR_um_if_ip_address_cfg__algorithm))
 
     mut def copy(self) -> Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries__secondary_entry:
         """Create a deep copy of this adata object"""
@@ -2595,7 +2625,7 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__sec
     @staticmethod
     mut def from_gdata(n: ?ygdata.Node) -> Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries:
         if n is not None:
-            return Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries(secondary=Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries__secondary.from_gdata(n.get_opt_list(ygdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'secondary'))))
+            return Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries(secondary=Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries__secondary.from_gdata(n.get_opt_list(_ID_Cisco_IOS_XR_um_if_ip_address_cfg__secondary)))
         return Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries()
 
     mut def copy(self) -> Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries:
@@ -2669,7 +2699,7 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses(yada
     @staticmethod
     mut def from_gdata(n: ?ygdata.Node) -> Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses:
         if n is not None:
-            return Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses(address=Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__address.from_gdata(n.get_opt_cnt(ygdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'address'))), secondaries=Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries.from_gdata(n.get_opt_cnt(ygdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'secondaries'))), unnumbered=n.get_opt_str(ygdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'unnumbered')), dhcp=Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__dhcp.from_gdata(n.get_opt_cnt(ygdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'dhcp'))))
+            return Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses(address=Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__address.from_gdata(n.get_opt_cnt(_ID_Cisco_IOS_XR_um_if_ip_address_cfg__address)), secondaries=Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries.from_gdata(n.get_opt_cnt(_ID_Cisco_IOS_XR_um_if_ip_address_cfg__secondaries)), unnumbered=n.get_opt_str(_ID_Cisco_IOS_XR_um_if_ip_address_cfg__unnumbered), dhcp=Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__dhcp.from_gdata(n.get_opt_cnt(_ID_Cisco_IOS_XR_um_if_ip_address_cfg__dhcp)))
         return Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses()
 
     mut def copy(self) -> Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses:
@@ -2690,7 +2720,7 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4(yadata.MNode):
     @staticmethod
     mut def from_gdata(n: ?ygdata.Node) -> Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4:
         if n is not None:
-            return Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4(addresses=Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses.from_gdata(n.get_opt_cnt(ygdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'addresses'))))
+            return Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4(addresses=Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses.from_gdata(n.get_opt_cnt(_ID_Cisco_IOS_XR_um_if_ip_address_cfg__addresses)))
         return Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4()
 
     mut def copy(self) -> Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4:
@@ -2831,7 +2861,7 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__frame
     @staticmethod
     mut def from_gdata(n: ?ygdata.Node) -> ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__frame_relay:
         if n is not None:
-            return Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__frame_relay(IETF=Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__frame_relay__IETF.from_gdata(n.get_opt_cnt(ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'IETF'))))
+            return Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__frame_relay(IETF=Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__frame_relay__IETF.from_gdata(n.get_opt_cnt(_ID_Cisco_IOS_XR_um_interface_cfg__IETF)))
         return None
 
     mut def copy(self) -> Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__frame_relay:
@@ -2893,7 +2923,7 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation(yadata
     @staticmethod
     mut def from_gdata(n: ?ygdata.Node) -> Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation:
         if n is not None:
-            return Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation(ppp=Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__ppp.from_gdata(n.get_opt_cnt(ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'ppp'))), hdlc=Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__hdlc.from_gdata(n.get_opt_cnt(ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'hdlc'))), mfr=Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__mfr.from_gdata(n.get_opt_cnt(ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'mfr'))), frame_relay=Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__frame_relay.from_gdata(n.get_opt_cnt(ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'frame-relay'))))
+            return Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation(ppp=Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__ppp.from_gdata(n.get_opt_cnt(_ID_Cisco_IOS_XR_um_interface_cfg__ppp)), hdlc=Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__hdlc.from_gdata(n.get_opt_cnt(_ID_Cisco_IOS_XR_um_interface_cfg__hdlc)), mfr=Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__mfr.from_gdata(n.get_opt_cnt(_ID_Cisco_IOS_XR_um_interface_cfg__mfr)), frame_relay=Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__frame_relay.from_gdata(n.get_opt_cnt(_ID_Cisco_IOS_XR_um_interface_cfg__frame_relay)))
         return Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation()
 
     mut def copy(self) -> Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation:
@@ -2927,7 +2957,7 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface_entry(yadata.MNode):
 
     @staticmethod
     mut def from_gdata(n: ygdata.Node) -> Cisco_IOS_XR_um_interface_cfg__interfaces__interface_entry:
-        return Cisco_IOS_XR_um_interface_cfg__interfaces__interface_entry(interface_name=n.get_str(ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'interface-name')), sub_interface_type=Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type.from_gdata(n.get_opt_cnt(ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'sub-interface-type'))), ipv4=Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4.from_gdata(n.get_opt_cnt(ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'ipv4'))), ipv6=Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv6.from_gdata(n.get_opt_cnt(ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'ipv6'))), encapsulation=Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation.from_gdata(n.get_opt_cnt(ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'encapsulation'))), shutdown=n.get_opt_empty(ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'shutdown')), mtu=n.get_opt_u64(ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'mtu')), description=n.get_opt_str(ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'description')))
+        return Cisco_IOS_XR_um_interface_cfg__interfaces__interface_entry(interface_name=n.get_str(_ID_Cisco_IOS_XR_um_interface_cfg__interface_name), sub_interface_type=Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type.from_gdata(n.get_opt_cnt(_ID_Cisco_IOS_XR_um_interface_cfg__sub_interface_type)), ipv4=Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4.from_gdata(n.get_opt_cnt(_ID_Cisco_IOS_XR_um_interface_cfg__ipv4)), ipv6=Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv6.from_gdata(n.get_opt_cnt(_ID_Cisco_IOS_XR_um_interface_cfg__ipv6)), encapsulation=Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation.from_gdata(n.get_opt_cnt(_ID_Cisco_IOS_XR_um_interface_cfg__encapsulation)), shutdown=n.get_opt_empty(_ID_Cisco_IOS_XR_um_interface_cfg__shutdown), mtu=n.get_opt_u64(_ID_Cisco_IOS_XR_um_interface_cfg__mtu), description=n.get_opt_str(_ID_Cisco_IOS_XR_um_interface_cfg__description))
 
     mut def copy(self) -> Cisco_IOS_XR_um_interface_cfg__interfaces__interface_entry:
         """Create a deep copy of this adata object"""
@@ -2983,7 +3013,7 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces(yadata.MNode):
     @staticmethod
     mut def from_gdata(n: ?ygdata.Node) -> Cisco_IOS_XR_um_interface_cfg__interfaces:
         if n is not None:
-            return Cisco_IOS_XR_um_interface_cfg__interfaces(interface=Cisco_IOS_XR_um_interface_cfg__interfaces__interface.from_gdata(n.get_opt_list(ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'interface'))))
+            return Cisco_IOS_XR_um_interface_cfg__interfaces(interface=Cisco_IOS_XR_um_interface_cfg__interfaces__interface.from_gdata(n.get_opt_list(_ID_Cisco_IOS_XR_um_interface_cfg__interface)))
         return Cisco_IOS_XR_um_interface_cfg__interfaces()
 
     mut def copy(self) -> Cisco_IOS_XR_um_interface_cfg__interfaces:
@@ -3004,7 +3034,7 @@ class Cisco_IOS_XR_um_hostname_cfg__hostname(yadata.MNode):
     @staticmethod
     mut def from_gdata(n: ?ygdata.Node) -> Cisco_IOS_XR_um_hostname_cfg__hostname:
         if n is not None:
-            return Cisco_IOS_XR_um_hostname_cfg__hostname(system_network_name=n.get_opt_str(ygdata.Id(NS_Cisco_IOS_XR_um_hostname_cfg, 'system-network-name')))
+            return Cisco_IOS_XR_um_hostname_cfg__hostname(system_network_name=n.get_opt_str(_ID_Cisco_IOS_XR_um_hostname_cfg__system_network_name))
         return Cisco_IOS_XR_um_hostname_cfg__hostname()
 
     mut def copy(self) -> Cisco_IOS_XR_um_hostname_cfg__hostname:
@@ -3027,7 +3057,7 @@ class root(yadata.MNode):
     @staticmethod
     mut def from_gdata(n: ?ygdata.Node) -> root:
         if n is not None:
-            return root(interfaces=Cisco_IOS_XR_um_interface_cfg__interfaces.from_gdata(n.get_opt_cnt(ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'interfaces'))), hostname=Cisco_IOS_XR_um_hostname_cfg__hostname.from_gdata(n.get_opt_cnt(ygdata.Id(NS_Cisco_IOS_XR_um_hostname_cfg, 'hostname'))))
+            return root(interfaces=Cisco_IOS_XR_um_interface_cfg__interfaces.from_gdata(n.get_opt_cnt(_ID_Cisco_IOS_XR_um_interface_cfg__interfaces)), hostname=Cisco_IOS_XR_um_hostname_cfg__hostname.from_gdata(n.get_opt_cnt(_ID_Cisco_IOS_XR_um_hostname_cfg__hostname)))
         return root()
 
     mut def copy(self) -> root:
@@ -3062,23 +3092,27 @@ def _present(n: ?ygdata.Node) -> ?ygdata.Node:
     return None
 
 _breaker24: None = None
-proc def Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__l2transport_deliver(cb: action(?(interface_interface_name: str), ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__l2transport, ?Exception) -> None, n: ?ygdata.Node, err: ?Exception) -> None:
-    keys: ?(interface_interface_name: str) = None
-    inst: ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__l2transport = None
-    if n is not None:
-        try:
-            c1 = _at(n, ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'interfaces'))
-            e2 = _one(_at(c1, ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'interface')), 'interface')
-            c3 = _at(e2, ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'sub-interface-type'))
-            c4 = _at(c3, ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'l2transport'))
-            keys = (interface_interface_name=e2.get_str(ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'interface-name')))
-            here = _present(c4)
-            if here is not None:
-                inst = Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__l2transport.from_gdata(here)
-        except Exception as e:
-            cb(None, None, e)
-            return
-    cb(keys, inst, err)
+actor Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__l2transport_dst(cb: action(?(interface_interface_name: str), ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__l2transport, ?Exception) -> None):
+    def on_update(n: ?ygdata.Node, err: ?Exception) -> None:
+        keys: ?(interface_interface_name: str) = None
+        inst: ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__l2transport = None
+        if n is not None:
+            try:
+                c1 = _at(n, _ID_Cisco_IOS_XR_um_interface_cfg__interfaces)
+                e2 = _one(_at(c1, _ID_Cisco_IOS_XR_um_interface_cfg__interface), 'interface')
+                c3 = _at(e2, _ID_Cisco_IOS_XR_um_interface_cfg__sub_interface_type)
+                c4 = _at(c3, _ID_Cisco_IOS_XR_um_interface_cfg__l2transport)
+                keys = (interface_interface_name=e2.get_str(_ID_Cisco_IOS_XR_um_interface_cfg__interface_name))
+                here = _present(c4)
+                if here is not None:
+                    inst = Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__l2transport.from_gdata(here)
+            except Exception as e:
+                cb(None, None, e)
+                return
+        cb(keys, inst, err)
+
+    def synced(done: action(str) -> None, owner_id: str) -> None:
+        done(owner_id)
 
 class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__l2transport_subs(SubscriptionNode):
 
@@ -3089,30 +3123,35 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__
         direct: list[SubscriptionNode] = []
         return direct
 
-    def dst(self, cb: action(?(interface_interface_name: str), ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__l2transport, ?Exception) -> None) -> ygdata.Dst:
+    proc def dst(self, cb: action(?(interface_interface_name: str), ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__l2transport, ?Exception) -> None) -> ygdata.Dst:
         """A destination rooted here: cb gets, one instance at a time,
         the keys of the lists on the way down, this container as it is
         after a change or None when it is gone, and an error."""
-        return ygdata.Dst(lambda n, err: Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__l2transport_deliver(cb, n, err), root=self.filt())
+        a = Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__l2transport_dst(cb)
+        return ygdata.Dst(a.on_update, root=self.filt(), synced=a.synced)
 
 _breaker25: None = None
-proc def Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__point_to_point_deliver(cb: action(?(interface_interface_name: str), ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__point_to_point, ?Exception) -> None, n: ?ygdata.Node, err: ?Exception) -> None:
-    keys: ?(interface_interface_name: str) = None
-    inst: ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__point_to_point = None
-    if n is not None:
-        try:
-            c1 = _at(n, ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'interfaces'))
-            e2 = _one(_at(c1, ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'interface')), 'interface')
-            c3 = _at(e2, ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'sub-interface-type'))
-            c4 = _at(c3, ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'point-to-point'))
-            keys = (interface_interface_name=e2.get_str(ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'interface-name')))
-            here = _present(c4)
-            if here is not None:
-                inst = Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__point_to_point.from_gdata(here)
-        except Exception as e:
-            cb(None, None, e)
-            return
-    cb(keys, inst, err)
+actor Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__point_to_point_dst(cb: action(?(interface_interface_name: str), ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__point_to_point, ?Exception) -> None):
+    def on_update(n: ?ygdata.Node, err: ?Exception) -> None:
+        keys: ?(interface_interface_name: str) = None
+        inst: ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__point_to_point = None
+        if n is not None:
+            try:
+                c1 = _at(n, _ID_Cisco_IOS_XR_um_interface_cfg__interfaces)
+                e2 = _one(_at(c1, _ID_Cisco_IOS_XR_um_interface_cfg__interface), 'interface')
+                c3 = _at(e2, _ID_Cisco_IOS_XR_um_interface_cfg__sub_interface_type)
+                c4 = _at(c3, _ID_Cisco_IOS_XR_um_interface_cfg__point_to_point)
+                keys = (interface_interface_name=e2.get_str(_ID_Cisco_IOS_XR_um_interface_cfg__interface_name))
+                here = _present(c4)
+                if here is not None:
+                    inst = Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__point_to_point.from_gdata(here)
+            except Exception as e:
+                cb(None, None, e)
+                return
+        cb(keys, inst, err)
+
+    def synced(done: action(str) -> None, owner_id: str) -> None:
+        done(owner_id)
 
 class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__point_to_point_subs(SubscriptionNode):
 
@@ -3123,30 +3162,35 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__
         direct: list[SubscriptionNode] = []
         return direct
 
-    def dst(self, cb: action(?(interface_interface_name: str), ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__point_to_point, ?Exception) -> None) -> ygdata.Dst:
+    proc def dst(self, cb: action(?(interface_interface_name: str), ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__point_to_point, ?Exception) -> None) -> ygdata.Dst:
         """A destination rooted here: cb gets, one instance at a time,
         the keys of the lists on the way down, this container as it is
         after a change or None when it is gone, and an error."""
-        return ygdata.Dst(lambda n, err: Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__point_to_point_deliver(cb, n, err), root=self.filt())
+        a = Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__point_to_point_dst(cb)
+        return ygdata.Dst(a.on_update, root=self.filt(), synced=a.synced)
 
 _breaker26: None = None
-proc def Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__multipoint_deliver(cb: action(?(interface_interface_name: str), ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__multipoint, ?Exception) -> None, n: ?ygdata.Node, err: ?Exception) -> None:
-    keys: ?(interface_interface_name: str) = None
-    inst: ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__multipoint = None
-    if n is not None:
-        try:
-            c1 = _at(n, ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'interfaces'))
-            e2 = _one(_at(c1, ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'interface')), 'interface')
-            c3 = _at(e2, ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'sub-interface-type'))
-            c4 = _at(c3, ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'multipoint'))
-            keys = (interface_interface_name=e2.get_str(ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'interface-name')))
-            here = _present(c4)
-            if here is not None:
-                inst = Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__multipoint.from_gdata(here)
-        except Exception as e:
-            cb(None, None, e)
-            return
-    cb(keys, inst, err)
+actor Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__multipoint_dst(cb: action(?(interface_interface_name: str), ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__multipoint, ?Exception) -> None):
+    def on_update(n: ?ygdata.Node, err: ?Exception) -> None:
+        keys: ?(interface_interface_name: str) = None
+        inst: ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__multipoint = None
+        if n is not None:
+            try:
+                c1 = _at(n, _ID_Cisco_IOS_XR_um_interface_cfg__interfaces)
+                e2 = _one(_at(c1, _ID_Cisco_IOS_XR_um_interface_cfg__interface), 'interface')
+                c3 = _at(e2, _ID_Cisco_IOS_XR_um_interface_cfg__sub_interface_type)
+                c4 = _at(c3, _ID_Cisco_IOS_XR_um_interface_cfg__multipoint)
+                keys = (interface_interface_name=e2.get_str(_ID_Cisco_IOS_XR_um_interface_cfg__interface_name))
+                here = _present(c4)
+                if here is not None:
+                    inst = Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__multipoint.from_gdata(here)
+            except Exception as e:
+                cb(None, None, e)
+                return
+        cb(keys, inst, err)
+
+    def synced(done: action(str) -> None, owner_id: str) -> None:
+        done(owner_id)
 
 class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__multipoint_subs(SubscriptionNode):
 
@@ -3157,29 +3201,34 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__
         direct: list[SubscriptionNode] = []
         return direct
 
-    def dst(self, cb: action(?(interface_interface_name: str), ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__multipoint, ?Exception) -> None) -> ygdata.Dst:
+    proc def dst(self, cb: action(?(interface_interface_name: str), ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__multipoint, ?Exception) -> None) -> ygdata.Dst:
         """A destination rooted here: cb gets, one instance at a time,
         the keys of the lists on the way down, this container as it is
         after a change or None when it is gone, and an error."""
-        return ygdata.Dst(lambda n, err: Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__multipoint_deliver(cb, n, err), root=self.filt())
+        a = Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__multipoint_dst(cb)
+        return ygdata.Dst(a.on_update, root=self.filt(), synced=a.synced)
 
 _breaker27: None = None
-proc def Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type_deliver(cb: action(?(interface_interface_name: str), ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type, ?Exception) -> None, n: ?ygdata.Node, err: ?Exception) -> None:
-    keys: ?(interface_interface_name: str) = None
-    inst: ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type = None
-    if n is not None:
-        try:
-            c1 = _at(n, ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'interfaces'))
-            e2 = _one(_at(c1, ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'interface')), 'interface')
-            c3 = _at(e2, ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'sub-interface-type'))
-            keys = (interface_interface_name=e2.get_str(ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'interface-name')))
-            here = _present(c3)
-            if here is not None:
-                inst = Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type.from_gdata(here)
-        except Exception as e:
-            cb(None, None, e)
-            return
-    cb(keys, inst, err)
+actor Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type_dst(cb: action(?(interface_interface_name: str), ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type, ?Exception) -> None):
+    def on_update(n: ?ygdata.Node, err: ?Exception) -> None:
+        keys: ?(interface_interface_name: str) = None
+        inst: ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type = None
+        if n is not None:
+            try:
+                c1 = _at(n, _ID_Cisco_IOS_XR_um_interface_cfg__interfaces)
+                e2 = _one(_at(c1, _ID_Cisco_IOS_XR_um_interface_cfg__interface), 'interface')
+                c3 = _at(e2, _ID_Cisco_IOS_XR_um_interface_cfg__sub_interface_type)
+                keys = (interface_interface_name=e2.get_str(_ID_Cisco_IOS_XR_um_interface_cfg__interface_name))
+                here = _present(c3)
+                if here is not None:
+                    inst = Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type.from_gdata(here)
+            except Exception as e:
+                cb(None, None, e)
+                return
+        cb(keys, inst, err)
+
+    def synced(done: action(str) -> None, owner_id: str) -> None:
+        done(owner_id)
 
 class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type_subs(SubscriptionNode):
     l2transport: Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__l2transport_subs
@@ -3188,39 +3237,44 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type_s
 
     pure def __init__(self, path: ?SubscriptionPath=None) -> None:
         SubscriptionNode.__init__(self, path)
-        self.l2transport = Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__l2transport_subs(SubscriptionPath(ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'l2transport'), parent=path))
-        self.point_to_point = Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__point_to_point_subs(SubscriptionPath(ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'point-to-point'), parent=path))
-        self.multipoint = Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__multipoint_subs(SubscriptionPath(ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'multipoint'), parent=path))
+        self.l2transport = Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__l2transport_subs(SubscriptionPath(_ID_Cisco_IOS_XR_um_interface_cfg__l2transport, parent=path))
+        self.point_to_point = Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__point_to_point_subs(SubscriptionPath(_ID_Cisco_IOS_XR_um_interface_cfg__point_to_point, parent=path))
+        self.multipoint = Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type__multipoint_subs(SubscriptionPath(_ID_Cisco_IOS_XR_um_interface_cfg__multipoint, parent=path))
 
     pure def _direct_children(self) -> list[SubscriptionNode]:
         direct: list[SubscriptionNode] = [self.l2transport, self.point_to_point, self.multipoint]
         return direct
 
-    def dst(self, cb: action(?(interface_interface_name: str), ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type, ?Exception) -> None) -> ygdata.Dst:
+    proc def dst(self, cb: action(?(interface_interface_name: str), ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type, ?Exception) -> None) -> ygdata.Dst:
         """A destination rooted here: cb gets, one instance at a time,
         the keys of the lists on the way down, this container as it is
         after a change or None when it is gone, and an error."""
-        return ygdata.Dst(lambda n, err: Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type_deliver(cb, n, err), root=self.filt())
+        a = Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type_dst(cb)
+        return ygdata.Dst(a.on_update, root=self.filt(), synced=a.synced)
 
 _breaker28: None = None
-proc def Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__address_deliver(cb: action(?(interface_interface_name: str), ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__address, ?Exception) -> None, n: ?ygdata.Node, err: ?Exception) -> None:
-    keys: ?(interface_interface_name: str) = None
-    inst: ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__address = None
-    if n is not None:
-        try:
-            c1 = _at(n, ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'interfaces'))
-            e2 = _one(_at(c1, ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'interface')), 'interface')
-            c3 = _at(e2, ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'ipv4'))
-            c4 = _at(c3, ygdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'addresses'))
-            c5 = _at(c4, ygdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'address'))
-            keys = (interface_interface_name=e2.get_str(ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'interface-name')))
-            here = _present(c5)
-            if here is not None:
-                inst = Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__address.from_gdata(here)
-        except Exception as e:
-            cb(None, None, e)
-            return
-    cb(keys, inst, err)
+actor Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__address_dst(cb: action(?(interface_interface_name: str), ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__address, ?Exception) -> None):
+    def on_update(n: ?ygdata.Node, err: ?Exception) -> None:
+        keys: ?(interface_interface_name: str) = None
+        inst: ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__address = None
+        if n is not None:
+            try:
+                c1 = _at(n, _ID_Cisco_IOS_XR_um_interface_cfg__interfaces)
+                e2 = _one(_at(c1, _ID_Cisco_IOS_XR_um_interface_cfg__interface), 'interface')
+                c3 = _at(e2, _ID_Cisco_IOS_XR_um_interface_cfg__ipv4)
+                c4 = _at(c3, _ID_Cisco_IOS_XR_um_if_ip_address_cfg__addresses)
+                c5 = _at(c4, _ID_Cisco_IOS_XR_um_if_ip_address_cfg__address)
+                keys = (interface_interface_name=e2.get_str(_ID_Cisco_IOS_XR_um_interface_cfg__interface_name))
+                here = _present(c5)
+                if here is not None:
+                    inst = Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__address.from_gdata(here)
+            except Exception as e:
+                cb(None, None, e)
+                return
+        cb(keys, inst, err)
+
+    def synced(done: action(str) -> None, owner_id: str) -> None:
+        done(owner_id)
 
 class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__address_subs(SubscriptionNode):
     address: SubscriptionNode
@@ -3230,20 +3284,21 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__add
 
     pure def __init__(self, path: ?SubscriptionPath=None) -> None:
         SubscriptionNode.__init__(self, path)
-        self.address = SubscriptionNode(SubscriptionPath(ygdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'address'), parent=path))
-        self.netmask = SubscriptionNode(SubscriptionPath(ygdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'netmask'), parent=path))
-        self.route_tag = SubscriptionNode(SubscriptionPath(ygdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'route-tag'), parent=path))
-        self.algorithm = SubscriptionNode(SubscriptionPath(ygdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'algorithm'), parent=path))
+        self.address = SubscriptionNode(SubscriptionPath(_ID_Cisco_IOS_XR_um_if_ip_address_cfg__address, parent=path))
+        self.netmask = SubscriptionNode(SubscriptionPath(_ID_Cisco_IOS_XR_um_if_ip_address_cfg__netmask, parent=path))
+        self.route_tag = SubscriptionNode(SubscriptionPath(_ID_Cisco_IOS_XR_um_if_ip_address_cfg__route_tag, parent=path))
+        self.algorithm = SubscriptionNode(SubscriptionPath(_ID_Cisco_IOS_XR_um_if_ip_address_cfg__algorithm, parent=path))
 
     pure def _direct_children(self) -> list[SubscriptionNode]:
         direct: list[SubscriptionNode] = [self.address, self.netmask, self.route_tag, self.algorithm]
         return direct
 
-    def dst(self, cb: action(?(interface_interface_name: str), ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__address, ?Exception) -> None) -> ygdata.Dst:
+    proc def dst(self, cb: action(?(interface_interface_name: str), ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__address, ?Exception) -> None) -> ygdata.Dst:
         """A destination rooted here: cb gets, one instance at a time,
         the keys of the lists on the way down, this container as it is
         after a change or None when it is gone, and an error."""
-        return ygdata.Dst(lambda n, err: Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__address_deliver(cb, n, err), root=self.filt())
+        a = Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__address_dst(cb)
+        return ygdata.Dst(a.on_update, root=self.filt(), synced=a.synced)
 
 _breaker29: None = None
 class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries__secondary_entry_subs(SubscriptionNode):
@@ -3254,35 +3309,39 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__sec
 
     pure def __init__(self, path: ?SubscriptionPath=None) -> None:
         SubscriptionNode.__init__(self, path)
-        self.address = SubscriptionNode(SubscriptionPath(ygdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'address'), parent=path))
-        self.netmask = SubscriptionNode(SubscriptionPath(ygdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'netmask'), parent=path))
-        self.route_tag = SubscriptionNode(SubscriptionPath(ygdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'route-tag'), parent=path))
-        self.algorithm = SubscriptionNode(SubscriptionPath(ygdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'algorithm'), parent=path))
+        self.address = SubscriptionNode(SubscriptionPath(_ID_Cisco_IOS_XR_um_if_ip_address_cfg__address, parent=path))
+        self.netmask = SubscriptionNode(SubscriptionPath(_ID_Cisco_IOS_XR_um_if_ip_address_cfg__netmask, parent=path))
+        self.route_tag = SubscriptionNode(SubscriptionPath(_ID_Cisco_IOS_XR_um_if_ip_address_cfg__route_tag, parent=path))
+        self.algorithm = SubscriptionNode(SubscriptionPath(_ID_Cisco_IOS_XR_um_if_ip_address_cfg__algorithm, parent=path))
 
     pure def _direct_children(self) -> list[SubscriptionNode]:
         direct: list[SubscriptionNode] = [self.address, self.netmask, self.route_tag, self.algorithm]
         return direct
 
 _breaker30: None = None
-proc def Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries__secondary_deliver(cb: action(?(interface_interface_name: str, secondary_address: str), ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries__secondary_entry, ?Exception) -> None, n: ?ygdata.Node, err: ?Exception) -> None:
-    keys: ?(interface_interface_name: str, secondary_address: str) = None
-    inst: ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries__secondary_entry = None
-    if n is not None:
-        try:
-            c1 = _at(n, ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'interfaces'))
-            e2 = _one(_at(c1, ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'interface')), 'interface')
-            c3 = _at(e2, ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'ipv4'))
-            c4 = _at(c3, ygdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'addresses'))
-            c5 = _at(c4, ygdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'secondaries'))
-            e6 = _one(_at(c5, ygdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'secondary')), 'secondary')
-            keys = (interface_interface_name=e2.get_str(ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'interface-name')), secondary_address=e6.get_str(ygdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'address')))
-            here = _present(e6)
-            if here is not None:
-                inst = Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries__secondary_entry.from_gdata(here)
-        except Exception as e:
-            cb(None, None, e)
-            return
-    cb(keys, inst, err)
+actor Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries__secondary_dst(cb: action(?(interface_interface_name: str, secondary_address: str), ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries__secondary_entry, ?Exception) -> None):
+    def on_update(n: ?ygdata.Node, err: ?Exception) -> None:
+        keys: ?(interface_interface_name: str, secondary_address: str) = None
+        inst: ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries__secondary_entry = None
+        if n is not None:
+            try:
+                c1 = _at(n, _ID_Cisco_IOS_XR_um_interface_cfg__interfaces)
+                e2 = _one(_at(c1, _ID_Cisco_IOS_XR_um_interface_cfg__interface), 'interface')
+                c3 = _at(e2, _ID_Cisco_IOS_XR_um_interface_cfg__ipv4)
+                c4 = _at(c3, _ID_Cisco_IOS_XR_um_if_ip_address_cfg__addresses)
+                c5 = _at(c4, _ID_Cisco_IOS_XR_um_if_ip_address_cfg__secondaries)
+                e6 = _one(_at(c5, _ID_Cisco_IOS_XR_um_if_ip_address_cfg__secondary), 'secondary')
+                keys = (interface_interface_name=e2.get_str(_ID_Cisco_IOS_XR_um_interface_cfg__interface_name), secondary_address=e6.get_str(_ID_Cisco_IOS_XR_um_if_ip_address_cfg__address))
+                here = _present(e6)
+                if here is not None:
+                    inst = Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries__secondary_entry.from_gdata(here)
+            except Exception as e:
+                cb(None, None, e)
+                return
+        cb(keys, inst, err)
+
+    def synced(done: action(str) -> None, owner_id: str) -> None:
+        done(owner_id)
 
 class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries__secondary_subs(SubscriptionNode):
     address: SubscriptionNode
@@ -3291,84 +3350,94 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__sec
     algorithm: SubscriptionNode
     pure def __init__(self, path: ?SubscriptionPath=None) -> None:
         SubscriptionNode.__init__(self, path)
-        self.address = SubscriptionNode(SubscriptionPath(ygdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'address'), parent=path))
-        self.netmask = SubscriptionNode(SubscriptionPath(ygdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'netmask'), parent=path))
-        self.route_tag = SubscriptionNode(SubscriptionPath(ygdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'route-tag'), parent=path))
-        self.algorithm = SubscriptionNode(SubscriptionPath(ygdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'algorithm'), parent=path))
+        self.address = SubscriptionNode(SubscriptionPath(_ID_Cisco_IOS_XR_um_if_ip_address_cfg__address, parent=path))
+        self.netmask = SubscriptionNode(SubscriptionPath(_ID_Cisco_IOS_XR_um_if_ip_address_cfg__netmask, parent=path))
+        self.route_tag = SubscriptionNode(SubscriptionPath(_ID_Cisco_IOS_XR_um_if_ip_address_cfg__route_tag, parent=path))
+        self.algorithm = SubscriptionNode(SubscriptionPath(_ID_Cisco_IOS_XR_um_if_ip_address_cfg__algorithm, parent=path))
 
     pure def entry(self, address: str) -> Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries__secondary_entry_subs:
         predicates = [
-            ygdata.FNode(ygdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'address'), value_match=address),
+            ygdata.FNode(_ID_Cisco_IOS_XR_um_if_ip_address_cfg__address, value_match=address),
         ]
         base_path = self._path!.parent
-        return Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries__secondary_entry_subs(SubscriptionPath(ygdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'secondary'), predicates=predicates, parent=base_path))
+        return Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries__secondary_entry_subs(SubscriptionPath(_ID_Cisco_IOS_XR_um_if_ip_address_cfg__secondary, predicates=predicates, parent=base_path))
 
-    def dst(self, cb: action(?(interface_interface_name: str, secondary_address: str), ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries__secondary_entry, ?Exception) -> None) -> ygdata.Dst:
+    proc def dst(self, cb: action(?(interface_interface_name: str, secondary_address: str), ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries__secondary_entry, ?Exception) -> None) -> ygdata.Dst:
         """A destination rooted here: cb gets, one instance at a time,
         the keys of the lists on the way down, this entry as it is
         after a change or None when it is gone, and an error."""
-        return ygdata.Dst(lambda n, err: Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries__secondary_deliver(cb, n, err), root=self.filt())
+        a = Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries__secondary_dst(cb)
+        return ygdata.Dst(a.on_update, root=self.filt(), synced=a.synced)
 
     pure def _direct_children(self) -> list[SubscriptionNode]:
         direct: list[SubscriptionNode] = [self.address, self.netmask, self.route_tag, self.algorithm]
         return direct
 
 _breaker31: None = None
-proc def Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries_deliver(cb: action(?(interface_interface_name: str), ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries, ?Exception) -> None, n: ?ygdata.Node, err: ?Exception) -> None:
-    keys: ?(interface_interface_name: str) = None
-    inst: ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries = None
-    if n is not None:
-        try:
-            c1 = _at(n, ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'interfaces'))
-            e2 = _one(_at(c1, ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'interface')), 'interface')
-            c3 = _at(e2, ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'ipv4'))
-            c4 = _at(c3, ygdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'addresses'))
-            c5 = _at(c4, ygdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'secondaries'))
-            keys = (interface_interface_name=e2.get_str(ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'interface-name')))
-            here = _present(c5)
-            if here is not None:
-                inst = Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries.from_gdata(here)
-        except Exception as e:
-            cb(None, None, e)
-            return
-    cb(keys, inst, err)
+actor Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries_dst(cb: action(?(interface_interface_name: str), ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries, ?Exception) -> None):
+    def on_update(n: ?ygdata.Node, err: ?Exception) -> None:
+        keys: ?(interface_interface_name: str) = None
+        inst: ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries = None
+        if n is not None:
+            try:
+                c1 = _at(n, _ID_Cisco_IOS_XR_um_interface_cfg__interfaces)
+                e2 = _one(_at(c1, _ID_Cisco_IOS_XR_um_interface_cfg__interface), 'interface')
+                c3 = _at(e2, _ID_Cisco_IOS_XR_um_interface_cfg__ipv4)
+                c4 = _at(c3, _ID_Cisco_IOS_XR_um_if_ip_address_cfg__addresses)
+                c5 = _at(c4, _ID_Cisco_IOS_XR_um_if_ip_address_cfg__secondaries)
+                keys = (interface_interface_name=e2.get_str(_ID_Cisco_IOS_XR_um_interface_cfg__interface_name))
+                here = _present(c5)
+                if here is not None:
+                    inst = Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries.from_gdata(here)
+            except Exception as e:
+                cb(None, None, e)
+                return
+        cb(keys, inst, err)
+
+    def synced(done: action(str) -> None, owner_id: str) -> None:
+        done(owner_id)
 
 class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries_subs(SubscriptionNode):
     secondary: Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries__secondary_subs
 
     pure def __init__(self, path: ?SubscriptionPath=None) -> None:
         SubscriptionNode.__init__(self, path)
-        self.secondary = Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries__secondary_subs(SubscriptionPath(ygdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'secondary'), parent=path))
+        self.secondary = Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries__secondary_subs(SubscriptionPath(_ID_Cisco_IOS_XR_um_if_ip_address_cfg__secondary, parent=path))
 
     pure def _direct_children(self) -> list[SubscriptionNode]:
         direct: list[SubscriptionNode] = [self.secondary]
         return direct
 
-    def dst(self, cb: action(?(interface_interface_name: str), ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries, ?Exception) -> None) -> ygdata.Dst:
+    proc def dst(self, cb: action(?(interface_interface_name: str), ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries, ?Exception) -> None) -> ygdata.Dst:
         """A destination rooted here: cb gets, one instance at a time,
         the keys of the lists on the way down, this container as it is
         after a change or None when it is gone, and an error."""
-        return ygdata.Dst(lambda n, err: Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries_deliver(cb, n, err), root=self.filt())
+        a = Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries_dst(cb)
+        return ygdata.Dst(a.on_update, root=self.filt(), synced=a.synced)
 
 _breaker32: None = None
-proc def Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__dhcp_deliver(cb: action(?(interface_interface_name: str), ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__dhcp, ?Exception) -> None, n: ?ygdata.Node, err: ?Exception) -> None:
-    keys: ?(interface_interface_name: str) = None
-    inst: ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__dhcp = None
-    if n is not None:
-        try:
-            c1 = _at(n, ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'interfaces'))
-            e2 = _one(_at(c1, ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'interface')), 'interface')
-            c3 = _at(e2, ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'ipv4'))
-            c4 = _at(c3, ygdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'addresses'))
-            c5 = _at(c4, ygdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'dhcp'))
-            keys = (interface_interface_name=e2.get_str(ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'interface-name')))
-            here = _present(c5)
-            if here is not None:
-                inst = Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__dhcp.from_gdata(here)
-        except Exception as e:
-            cb(None, None, e)
-            return
-    cb(keys, inst, err)
+actor Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__dhcp_dst(cb: action(?(interface_interface_name: str), ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__dhcp, ?Exception) -> None):
+    def on_update(n: ?ygdata.Node, err: ?Exception) -> None:
+        keys: ?(interface_interface_name: str) = None
+        inst: ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__dhcp = None
+        if n is not None:
+            try:
+                c1 = _at(n, _ID_Cisco_IOS_XR_um_interface_cfg__interfaces)
+                e2 = _one(_at(c1, _ID_Cisco_IOS_XR_um_interface_cfg__interface), 'interface')
+                c3 = _at(e2, _ID_Cisco_IOS_XR_um_interface_cfg__ipv4)
+                c4 = _at(c3, _ID_Cisco_IOS_XR_um_if_ip_address_cfg__addresses)
+                c5 = _at(c4, _ID_Cisco_IOS_XR_um_if_ip_address_cfg__dhcp)
+                keys = (interface_interface_name=e2.get_str(_ID_Cisco_IOS_XR_um_interface_cfg__interface_name))
+                here = _present(c5)
+                if here is not None:
+                    inst = Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__dhcp.from_gdata(here)
+            except Exception as e:
+                cb(None, None, e)
+                return
+        cb(keys, inst, err)
+
+    def synced(done: action(str) -> None, owner_id: str) -> None:
+        done(owner_id)
 
 class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__dhcp_subs(SubscriptionNode):
 
@@ -3379,30 +3448,35 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__dhc
         direct: list[SubscriptionNode] = []
         return direct
 
-    def dst(self, cb: action(?(interface_interface_name: str), ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__dhcp, ?Exception) -> None) -> ygdata.Dst:
+    proc def dst(self, cb: action(?(interface_interface_name: str), ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__dhcp, ?Exception) -> None) -> ygdata.Dst:
         """A destination rooted here: cb gets, one instance at a time,
         the keys of the lists on the way down, this container as it is
         after a change or None when it is gone, and an error."""
-        return ygdata.Dst(lambda n, err: Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__dhcp_deliver(cb, n, err), root=self.filt())
+        a = Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__dhcp_dst(cb)
+        return ygdata.Dst(a.on_update, root=self.filt(), synced=a.synced)
 
 _breaker33: None = None
-proc def Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses_deliver(cb: action(?(interface_interface_name: str), ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses, ?Exception) -> None, n: ?ygdata.Node, err: ?Exception) -> None:
-    keys: ?(interface_interface_name: str) = None
-    inst: ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses = None
-    if n is not None:
-        try:
-            c1 = _at(n, ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'interfaces'))
-            e2 = _one(_at(c1, ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'interface')), 'interface')
-            c3 = _at(e2, ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'ipv4'))
-            c4 = _at(c3, ygdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'addresses'))
-            keys = (interface_interface_name=e2.get_str(ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'interface-name')))
-            here = _present(c4)
-            if here is not None:
-                inst = Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses.from_gdata(here)
-        except Exception as e:
-            cb(None, None, e)
-            return
-    cb(keys, inst, err)
+actor Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses_dst(cb: action(?(interface_interface_name: str), ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses, ?Exception) -> None):
+    def on_update(n: ?ygdata.Node, err: ?Exception) -> None:
+        keys: ?(interface_interface_name: str) = None
+        inst: ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses = None
+        if n is not None:
+            try:
+                c1 = _at(n, _ID_Cisco_IOS_XR_um_interface_cfg__interfaces)
+                e2 = _one(_at(c1, _ID_Cisco_IOS_XR_um_interface_cfg__interface), 'interface')
+                c3 = _at(e2, _ID_Cisco_IOS_XR_um_interface_cfg__ipv4)
+                c4 = _at(c3, _ID_Cisco_IOS_XR_um_if_ip_address_cfg__addresses)
+                keys = (interface_interface_name=e2.get_str(_ID_Cisco_IOS_XR_um_interface_cfg__interface_name))
+                here = _present(c4)
+                if here is not None:
+                    inst = Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses.from_gdata(here)
+            except Exception as e:
+                cb(None, None, e)
+                return
+        cb(keys, inst, err)
+
+    def synced(done: action(str) -> None, owner_id: str) -> None:
+        done(owner_id)
 
 class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses_subs(SubscriptionNode):
     address: Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__address_subs
@@ -3412,73 +3486,83 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses_subs
 
     pure def __init__(self, path: ?SubscriptionPath=None) -> None:
         SubscriptionNode.__init__(self, path)
-        self.address = Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__address_subs(SubscriptionPath(ygdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'address'), parent=path))
-        self.secondaries = Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries_subs(SubscriptionPath(ygdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'secondaries'), parent=path))
-        self.unnumbered = SubscriptionNode(SubscriptionPath(ygdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'unnumbered'), parent=path))
-        self.dhcp = Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__dhcp_subs(SubscriptionPath(ygdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'dhcp'), parent=path))
+        self.address = Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__address_subs(SubscriptionPath(_ID_Cisco_IOS_XR_um_if_ip_address_cfg__address, parent=path))
+        self.secondaries = Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__secondaries_subs(SubscriptionPath(_ID_Cisco_IOS_XR_um_if_ip_address_cfg__secondaries, parent=path))
+        self.unnumbered = SubscriptionNode(SubscriptionPath(_ID_Cisco_IOS_XR_um_if_ip_address_cfg__unnumbered, parent=path))
+        self.dhcp = Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses__dhcp_subs(SubscriptionPath(_ID_Cisco_IOS_XR_um_if_ip_address_cfg__dhcp, parent=path))
 
     pure def _direct_children(self) -> list[SubscriptionNode]:
         direct: list[SubscriptionNode] = [self.address, self.secondaries, self.unnumbered, self.dhcp]
         return direct
 
-    def dst(self, cb: action(?(interface_interface_name: str), ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses, ?Exception) -> None) -> ygdata.Dst:
+    proc def dst(self, cb: action(?(interface_interface_name: str), ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses, ?Exception) -> None) -> ygdata.Dst:
         """A destination rooted here: cb gets, one instance at a time,
         the keys of the lists on the way down, this container as it is
         after a change or None when it is gone, and an error."""
-        return ygdata.Dst(lambda n, err: Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses_deliver(cb, n, err), root=self.filt())
+        a = Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses_dst(cb)
+        return ygdata.Dst(a.on_update, root=self.filt(), synced=a.synced)
 
 _breaker34: None = None
-proc def Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4_deliver(cb: action(?(interface_interface_name: str), ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4, ?Exception) -> None, n: ?ygdata.Node, err: ?Exception) -> None:
-    keys: ?(interface_interface_name: str) = None
-    inst: ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4 = None
-    if n is not None:
-        try:
-            c1 = _at(n, ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'interfaces'))
-            e2 = _one(_at(c1, ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'interface')), 'interface')
-            c3 = _at(e2, ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'ipv4'))
-            keys = (interface_interface_name=e2.get_str(ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'interface-name')))
-            here = _present(c3)
-            if here is not None:
-                inst = Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4.from_gdata(here)
-        except Exception as e:
-            cb(None, None, e)
-            return
-    cb(keys, inst, err)
+actor Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4_dst(cb: action(?(interface_interface_name: str), ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4, ?Exception) -> None):
+    def on_update(n: ?ygdata.Node, err: ?Exception) -> None:
+        keys: ?(interface_interface_name: str) = None
+        inst: ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4 = None
+        if n is not None:
+            try:
+                c1 = _at(n, _ID_Cisco_IOS_XR_um_interface_cfg__interfaces)
+                e2 = _one(_at(c1, _ID_Cisco_IOS_XR_um_interface_cfg__interface), 'interface')
+                c3 = _at(e2, _ID_Cisco_IOS_XR_um_interface_cfg__ipv4)
+                keys = (interface_interface_name=e2.get_str(_ID_Cisco_IOS_XR_um_interface_cfg__interface_name))
+                here = _present(c3)
+                if here is not None:
+                    inst = Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4.from_gdata(here)
+            except Exception as e:
+                cb(None, None, e)
+                return
+        cb(keys, inst, err)
+
+    def synced(done: action(str) -> None, owner_id: str) -> None:
+        done(owner_id)
 
 class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4_subs(SubscriptionNode):
     addresses: Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses_subs
 
     pure def __init__(self, path: ?SubscriptionPath=None) -> None:
         SubscriptionNode.__init__(self, path)
-        self.addresses = Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses_subs(SubscriptionPath(ygdata.Id(NS_Cisco_IOS_XR_um_if_ip_address_cfg, 'addresses'), parent=path))
+        self.addresses = Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4__addresses_subs(SubscriptionPath(_ID_Cisco_IOS_XR_um_if_ip_address_cfg__addresses, parent=path))
 
     pure def _direct_children(self) -> list[SubscriptionNode]:
         direct: list[SubscriptionNode] = [self.addresses]
         return direct
 
-    def dst(self, cb: action(?(interface_interface_name: str), ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4, ?Exception) -> None) -> ygdata.Dst:
+    proc def dst(self, cb: action(?(interface_interface_name: str), ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4, ?Exception) -> None) -> ygdata.Dst:
         """A destination rooted here: cb gets, one instance at a time,
         the keys of the lists on the way down, this container as it is
         after a change or None when it is gone, and an error."""
-        return ygdata.Dst(lambda n, err: Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4_deliver(cb, n, err), root=self.filt())
+        a = Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4_dst(cb)
+        return ygdata.Dst(a.on_update, root=self.filt(), synced=a.synced)
 
 _breaker35: None = None
-proc def Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv6_deliver(cb: action(?(interface_interface_name: str), ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv6, ?Exception) -> None, n: ?ygdata.Node, err: ?Exception) -> None:
-    keys: ?(interface_interface_name: str) = None
-    inst: ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv6 = None
-    if n is not None:
-        try:
-            c1 = _at(n, ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'interfaces'))
-            e2 = _one(_at(c1, ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'interface')), 'interface')
-            c3 = _at(e2, ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'ipv6'))
-            keys = (interface_interface_name=e2.get_str(ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'interface-name')))
-            here = _present(c3)
-            if here is not None:
-                inst = Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv6.from_gdata(here)
-        except Exception as e:
-            cb(None, None, e)
-            return
-    cb(keys, inst, err)
+actor Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv6_dst(cb: action(?(interface_interface_name: str), ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv6, ?Exception) -> None):
+    def on_update(n: ?ygdata.Node, err: ?Exception) -> None:
+        keys: ?(interface_interface_name: str) = None
+        inst: ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv6 = None
+        if n is not None:
+            try:
+                c1 = _at(n, _ID_Cisco_IOS_XR_um_interface_cfg__interfaces)
+                e2 = _one(_at(c1, _ID_Cisco_IOS_XR_um_interface_cfg__interface), 'interface')
+                c3 = _at(e2, _ID_Cisco_IOS_XR_um_interface_cfg__ipv6)
+                keys = (interface_interface_name=e2.get_str(_ID_Cisco_IOS_XR_um_interface_cfg__interface_name))
+                here = _present(c3)
+                if here is not None:
+                    inst = Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv6.from_gdata(here)
+            except Exception as e:
+                cb(None, None, e)
+                return
+        cb(keys, inst, err)
+
+    def synced(done: action(str) -> None, owner_id: str) -> None:
+        done(owner_id)
 
 class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv6_subs(SubscriptionNode):
 
@@ -3489,30 +3573,35 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv6_subs(Subscripti
         direct: list[SubscriptionNode] = []
         return direct
 
-    def dst(self, cb: action(?(interface_interface_name: str), ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv6, ?Exception) -> None) -> ygdata.Dst:
+    proc def dst(self, cb: action(?(interface_interface_name: str), ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv6, ?Exception) -> None) -> ygdata.Dst:
         """A destination rooted here: cb gets, one instance at a time,
         the keys of the lists on the way down, this container as it is
         after a change or None when it is gone, and an error."""
-        return ygdata.Dst(lambda n, err: Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv6_deliver(cb, n, err), root=self.filt())
+        a = Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv6_dst(cb)
+        return ygdata.Dst(a.on_update, root=self.filt(), synced=a.synced)
 
 _breaker36: None = None
-proc def Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__ppp_deliver(cb: action(?(interface_interface_name: str), ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__ppp, ?Exception) -> None, n: ?ygdata.Node, err: ?Exception) -> None:
-    keys: ?(interface_interface_name: str) = None
-    inst: ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__ppp = None
-    if n is not None:
-        try:
-            c1 = _at(n, ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'interfaces'))
-            e2 = _one(_at(c1, ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'interface')), 'interface')
-            c3 = _at(e2, ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'encapsulation'))
-            c4 = _at(c3, ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'ppp'))
-            keys = (interface_interface_name=e2.get_str(ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'interface-name')))
-            here = _present(c4)
-            if here is not None:
-                inst = Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__ppp.from_gdata(here)
-        except Exception as e:
-            cb(None, None, e)
-            return
-    cb(keys, inst, err)
+actor Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__ppp_dst(cb: action(?(interface_interface_name: str), ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__ppp, ?Exception) -> None):
+    def on_update(n: ?ygdata.Node, err: ?Exception) -> None:
+        keys: ?(interface_interface_name: str) = None
+        inst: ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__ppp = None
+        if n is not None:
+            try:
+                c1 = _at(n, _ID_Cisco_IOS_XR_um_interface_cfg__interfaces)
+                e2 = _one(_at(c1, _ID_Cisco_IOS_XR_um_interface_cfg__interface), 'interface')
+                c3 = _at(e2, _ID_Cisco_IOS_XR_um_interface_cfg__encapsulation)
+                c4 = _at(c3, _ID_Cisco_IOS_XR_um_interface_cfg__ppp)
+                keys = (interface_interface_name=e2.get_str(_ID_Cisco_IOS_XR_um_interface_cfg__interface_name))
+                here = _present(c4)
+                if here is not None:
+                    inst = Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__ppp.from_gdata(here)
+            except Exception as e:
+                cb(None, None, e)
+                return
+        cb(keys, inst, err)
+
+    def synced(done: action(str) -> None, owner_id: str) -> None:
+        done(owner_id)
 
 class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__ppp_subs(SubscriptionNode):
 
@@ -3523,30 +3612,35 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__ppp_s
         direct: list[SubscriptionNode] = []
         return direct
 
-    def dst(self, cb: action(?(interface_interface_name: str), ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__ppp, ?Exception) -> None) -> ygdata.Dst:
+    proc def dst(self, cb: action(?(interface_interface_name: str), ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__ppp, ?Exception) -> None) -> ygdata.Dst:
         """A destination rooted here: cb gets, one instance at a time,
         the keys of the lists on the way down, this container as it is
         after a change or None when it is gone, and an error."""
-        return ygdata.Dst(lambda n, err: Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__ppp_deliver(cb, n, err), root=self.filt())
+        a = Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__ppp_dst(cb)
+        return ygdata.Dst(a.on_update, root=self.filt(), synced=a.synced)
 
 _breaker37: None = None
-proc def Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__hdlc_deliver(cb: action(?(interface_interface_name: str), ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__hdlc, ?Exception) -> None, n: ?ygdata.Node, err: ?Exception) -> None:
-    keys: ?(interface_interface_name: str) = None
-    inst: ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__hdlc = None
-    if n is not None:
-        try:
-            c1 = _at(n, ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'interfaces'))
-            e2 = _one(_at(c1, ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'interface')), 'interface')
-            c3 = _at(e2, ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'encapsulation'))
-            c4 = _at(c3, ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'hdlc'))
-            keys = (interface_interface_name=e2.get_str(ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'interface-name')))
-            here = _present(c4)
-            if here is not None:
-                inst = Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__hdlc.from_gdata(here)
-        except Exception as e:
-            cb(None, None, e)
-            return
-    cb(keys, inst, err)
+actor Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__hdlc_dst(cb: action(?(interface_interface_name: str), ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__hdlc, ?Exception) -> None):
+    def on_update(n: ?ygdata.Node, err: ?Exception) -> None:
+        keys: ?(interface_interface_name: str) = None
+        inst: ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__hdlc = None
+        if n is not None:
+            try:
+                c1 = _at(n, _ID_Cisco_IOS_XR_um_interface_cfg__interfaces)
+                e2 = _one(_at(c1, _ID_Cisco_IOS_XR_um_interface_cfg__interface), 'interface')
+                c3 = _at(e2, _ID_Cisco_IOS_XR_um_interface_cfg__encapsulation)
+                c4 = _at(c3, _ID_Cisco_IOS_XR_um_interface_cfg__hdlc)
+                keys = (interface_interface_name=e2.get_str(_ID_Cisco_IOS_XR_um_interface_cfg__interface_name))
+                here = _present(c4)
+                if here is not None:
+                    inst = Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__hdlc.from_gdata(here)
+            except Exception as e:
+                cb(None, None, e)
+                return
+        cb(keys, inst, err)
+
+    def synced(done: action(str) -> None, owner_id: str) -> None:
+        done(owner_id)
 
 class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__hdlc_subs(SubscriptionNode):
 
@@ -3557,30 +3651,35 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__hdlc_
         direct: list[SubscriptionNode] = []
         return direct
 
-    def dst(self, cb: action(?(interface_interface_name: str), ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__hdlc, ?Exception) -> None) -> ygdata.Dst:
+    proc def dst(self, cb: action(?(interface_interface_name: str), ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__hdlc, ?Exception) -> None) -> ygdata.Dst:
         """A destination rooted here: cb gets, one instance at a time,
         the keys of the lists on the way down, this container as it is
         after a change or None when it is gone, and an error."""
-        return ygdata.Dst(lambda n, err: Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__hdlc_deliver(cb, n, err), root=self.filt())
+        a = Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__hdlc_dst(cb)
+        return ygdata.Dst(a.on_update, root=self.filt(), synced=a.synced)
 
 _breaker38: None = None
-proc def Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__mfr_deliver(cb: action(?(interface_interface_name: str), ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__mfr, ?Exception) -> None, n: ?ygdata.Node, err: ?Exception) -> None:
-    keys: ?(interface_interface_name: str) = None
-    inst: ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__mfr = None
-    if n is not None:
-        try:
-            c1 = _at(n, ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'interfaces'))
-            e2 = _one(_at(c1, ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'interface')), 'interface')
-            c3 = _at(e2, ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'encapsulation'))
-            c4 = _at(c3, ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'mfr'))
-            keys = (interface_interface_name=e2.get_str(ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'interface-name')))
-            here = _present(c4)
-            if here is not None:
-                inst = Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__mfr.from_gdata(here)
-        except Exception as e:
-            cb(None, None, e)
-            return
-    cb(keys, inst, err)
+actor Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__mfr_dst(cb: action(?(interface_interface_name: str), ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__mfr, ?Exception) -> None):
+    def on_update(n: ?ygdata.Node, err: ?Exception) -> None:
+        keys: ?(interface_interface_name: str) = None
+        inst: ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__mfr = None
+        if n is not None:
+            try:
+                c1 = _at(n, _ID_Cisco_IOS_XR_um_interface_cfg__interfaces)
+                e2 = _one(_at(c1, _ID_Cisco_IOS_XR_um_interface_cfg__interface), 'interface')
+                c3 = _at(e2, _ID_Cisco_IOS_XR_um_interface_cfg__encapsulation)
+                c4 = _at(c3, _ID_Cisco_IOS_XR_um_interface_cfg__mfr)
+                keys = (interface_interface_name=e2.get_str(_ID_Cisco_IOS_XR_um_interface_cfg__interface_name))
+                here = _present(c4)
+                if here is not None:
+                    inst = Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__mfr.from_gdata(here)
+            except Exception as e:
+                cb(None, None, e)
+                return
+        cb(keys, inst, err)
+
+    def synced(done: action(str) -> None, owner_id: str) -> None:
+        done(owner_id)
 
 class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__mfr_subs(SubscriptionNode):
 
@@ -3591,31 +3690,36 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__mfr_s
         direct: list[SubscriptionNode] = []
         return direct
 
-    def dst(self, cb: action(?(interface_interface_name: str), ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__mfr, ?Exception) -> None) -> ygdata.Dst:
+    proc def dst(self, cb: action(?(interface_interface_name: str), ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__mfr, ?Exception) -> None) -> ygdata.Dst:
         """A destination rooted here: cb gets, one instance at a time,
         the keys of the lists on the way down, this container as it is
         after a change or None when it is gone, and an error."""
-        return ygdata.Dst(lambda n, err: Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__mfr_deliver(cb, n, err), root=self.filt())
+        a = Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__mfr_dst(cb)
+        return ygdata.Dst(a.on_update, root=self.filt(), synced=a.synced)
 
 _breaker39: None = None
-proc def Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__frame_relay__IETF_deliver(cb: action(?(interface_interface_name: str), ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__frame_relay__IETF, ?Exception) -> None, n: ?ygdata.Node, err: ?Exception) -> None:
-    keys: ?(interface_interface_name: str) = None
-    inst: ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__frame_relay__IETF = None
-    if n is not None:
-        try:
-            c1 = _at(n, ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'interfaces'))
-            e2 = _one(_at(c1, ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'interface')), 'interface')
-            c3 = _at(e2, ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'encapsulation'))
-            c4 = _at(c3, ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'frame-relay'))
-            c5 = _at(c4, ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'IETF'))
-            keys = (interface_interface_name=e2.get_str(ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'interface-name')))
-            here = _present(c5)
-            if here is not None:
-                inst = Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__frame_relay__IETF.from_gdata(here)
-        except Exception as e:
-            cb(None, None, e)
-            return
-    cb(keys, inst, err)
+actor Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__frame_relay__IETF_dst(cb: action(?(interface_interface_name: str), ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__frame_relay__IETF, ?Exception) -> None):
+    def on_update(n: ?ygdata.Node, err: ?Exception) -> None:
+        keys: ?(interface_interface_name: str) = None
+        inst: ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__frame_relay__IETF = None
+        if n is not None:
+            try:
+                c1 = _at(n, _ID_Cisco_IOS_XR_um_interface_cfg__interfaces)
+                e2 = _one(_at(c1, _ID_Cisco_IOS_XR_um_interface_cfg__interface), 'interface')
+                c3 = _at(e2, _ID_Cisco_IOS_XR_um_interface_cfg__encapsulation)
+                c4 = _at(c3, _ID_Cisco_IOS_XR_um_interface_cfg__frame_relay)
+                c5 = _at(c4, _ID_Cisco_IOS_XR_um_interface_cfg__IETF)
+                keys = (interface_interface_name=e2.get_str(_ID_Cisco_IOS_XR_um_interface_cfg__interface_name))
+                here = _present(c5)
+                if here is not None:
+                    inst = Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__frame_relay__IETF.from_gdata(here)
+            except Exception as e:
+                cb(None, None, e)
+                return
+        cb(keys, inst, err)
+
+    def synced(done: action(str) -> None, owner_id: str) -> None:
+        done(owner_id)
 
 class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__frame_relay__IETF_subs(SubscriptionNode):
 
@@ -3626,65 +3730,75 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__frame
         direct: list[SubscriptionNode] = []
         return direct
 
-    def dst(self, cb: action(?(interface_interface_name: str), ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__frame_relay__IETF, ?Exception) -> None) -> ygdata.Dst:
+    proc def dst(self, cb: action(?(interface_interface_name: str), ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__frame_relay__IETF, ?Exception) -> None) -> ygdata.Dst:
         """A destination rooted here: cb gets, one instance at a time,
         the keys of the lists on the way down, this container as it is
         after a change or None when it is gone, and an error."""
-        return ygdata.Dst(lambda n, err: Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__frame_relay__IETF_deliver(cb, n, err), root=self.filt())
+        a = Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__frame_relay__IETF_dst(cb)
+        return ygdata.Dst(a.on_update, root=self.filt(), synced=a.synced)
 
 _breaker40: None = None
-proc def Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__frame_relay_deliver(cb: action(?(interface_interface_name: str), ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__frame_relay, ?Exception) -> None, n: ?ygdata.Node, err: ?Exception) -> None:
-    keys: ?(interface_interface_name: str) = None
-    inst: ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__frame_relay = None
-    if n is not None:
-        try:
-            c1 = _at(n, ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'interfaces'))
-            e2 = _one(_at(c1, ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'interface')), 'interface')
-            c3 = _at(e2, ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'encapsulation'))
-            c4 = _at(c3, ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'frame-relay'))
-            keys = (interface_interface_name=e2.get_str(ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'interface-name')))
-            here = _present(c4)
-            if here is not None:
-                inst = Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__frame_relay.from_gdata(here)
-        except Exception as e:
-            cb(None, None, e)
-            return
-    cb(keys, inst, err)
+actor Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__frame_relay_dst(cb: action(?(interface_interface_name: str), ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__frame_relay, ?Exception) -> None):
+    def on_update(n: ?ygdata.Node, err: ?Exception) -> None:
+        keys: ?(interface_interface_name: str) = None
+        inst: ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__frame_relay = None
+        if n is not None:
+            try:
+                c1 = _at(n, _ID_Cisco_IOS_XR_um_interface_cfg__interfaces)
+                e2 = _one(_at(c1, _ID_Cisco_IOS_XR_um_interface_cfg__interface), 'interface')
+                c3 = _at(e2, _ID_Cisco_IOS_XR_um_interface_cfg__encapsulation)
+                c4 = _at(c3, _ID_Cisco_IOS_XR_um_interface_cfg__frame_relay)
+                keys = (interface_interface_name=e2.get_str(_ID_Cisco_IOS_XR_um_interface_cfg__interface_name))
+                here = _present(c4)
+                if here is not None:
+                    inst = Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__frame_relay.from_gdata(here)
+            except Exception as e:
+                cb(None, None, e)
+                return
+        cb(keys, inst, err)
+
+    def synced(done: action(str) -> None, owner_id: str) -> None:
+        done(owner_id)
 
 class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__frame_relay_subs(SubscriptionNode):
     IETF: Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__frame_relay__IETF_subs
 
     pure def __init__(self, path: ?SubscriptionPath=None) -> None:
         SubscriptionNode.__init__(self, path)
-        self.IETF = Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__frame_relay__IETF_subs(SubscriptionPath(ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'IETF'), parent=path))
+        self.IETF = Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__frame_relay__IETF_subs(SubscriptionPath(_ID_Cisco_IOS_XR_um_interface_cfg__IETF, parent=path))
 
     pure def _direct_children(self) -> list[SubscriptionNode]:
         direct: list[SubscriptionNode] = [self.IETF]
         return direct
 
-    def dst(self, cb: action(?(interface_interface_name: str), ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__frame_relay, ?Exception) -> None) -> ygdata.Dst:
+    proc def dst(self, cb: action(?(interface_interface_name: str), ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__frame_relay, ?Exception) -> None) -> ygdata.Dst:
         """A destination rooted here: cb gets, one instance at a time,
         the keys of the lists on the way down, this container as it is
         after a change or None when it is gone, and an error."""
-        return ygdata.Dst(lambda n, err: Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__frame_relay_deliver(cb, n, err), root=self.filt())
+        a = Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__frame_relay_dst(cb)
+        return ygdata.Dst(a.on_update, root=self.filt(), synced=a.synced)
 
 _breaker41: None = None
-proc def Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation_deliver(cb: action(?(interface_interface_name: str), ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation, ?Exception) -> None, n: ?ygdata.Node, err: ?Exception) -> None:
-    keys: ?(interface_interface_name: str) = None
-    inst: ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation = None
-    if n is not None:
-        try:
-            c1 = _at(n, ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'interfaces'))
-            e2 = _one(_at(c1, ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'interface')), 'interface')
-            c3 = _at(e2, ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'encapsulation'))
-            keys = (interface_interface_name=e2.get_str(ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'interface-name')))
-            here = _present(c3)
-            if here is not None:
-                inst = Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation.from_gdata(here)
-        except Exception as e:
-            cb(None, None, e)
-            return
-    cb(keys, inst, err)
+actor Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation_dst(cb: action(?(interface_interface_name: str), ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation, ?Exception) -> None):
+    def on_update(n: ?ygdata.Node, err: ?Exception) -> None:
+        keys: ?(interface_interface_name: str) = None
+        inst: ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation = None
+        if n is not None:
+            try:
+                c1 = _at(n, _ID_Cisco_IOS_XR_um_interface_cfg__interfaces)
+                e2 = _one(_at(c1, _ID_Cisco_IOS_XR_um_interface_cfg__interface), 'interface')
+                c3 = _at(e2, _ID_Cisco_IOS_XR_um_interface_cfg__encapsulation)
+                keys = (interface_interface_name=e2.get_str(_ID_Cisco_IOS_XR_um_interface_cfg__interface_name))
+                here = _present(c3)
+                if here is not None:
+                    inst = Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation.from_gdata(here)
+            except Exception as e:
+                cb(None, None, e)
+                return
+        cb(keys, inst, err)
+
+    def synced(done: action(str) -> None, owner_id: str) -> None:
+        done(owner_id)
 
 class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation_subs(SubscriptionNode):
     ppp: Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__ppp_subs
@@ -3694,20 +3808,21 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation_subs(S
 
     pure def __init__(self, path: ?SubscriptionPath=None) -> None:
         SubscriptionNode.__init__(self, path)
-        self.ppp = Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__ppp_subs(SubscriptionPath(ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'ppp'), parent=path))
-        self.hdlc = Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__hdlc_subs(SubscriptionPath(ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'hdlc'), parent=path))
-        self.mfr = Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__mfr_subs(SubscriptionPath(ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'mfr'), parent=path))
-        self.frame_relay = Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__frame_relay_subs(SubscriptionPath(ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'frame-relay'), parent=path))
+        self.ppp = Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__ppp_subs(SubscriptionPath(_ID_Cisco_IOS_XR_um_interface_cfg__ppp, parent=path))
+        self.hdlc = Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__hdlc_subs(SubscriptionPath(_ID_Cisco_IOS_XR_um_interface_cfg__hdlc, parent=path))
+        self.mfr = Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__mfr_subs(SubscriptionPath(_ID_Cisco_IOS_XR_um_interface_cfg__mfr, parent=path))
+        self.frame_relay = Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation__frame_relay_subs(SubscriptionPath(_ID_Cisco_IOS_XR_um_interface_cfg__frame_relay, parent=path))
 
     pure def _direct_children(self) -> list[SubscriptionNode]:
         direct: list[SubscriptionNode] = [self.ppp, self.hdlc, self.mfr, self.frame_relay]
         return direct
 
-    def dst(self, cb: action(?(interface_interface_name: str), ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation, ?Exception) -> None) -> ygdata.Dst:
+    proc def dst(self, cb: action(?(interface_interface_name: str), ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation, ?Exception) -> None) -> ygdata.Dst:
         """A destination rooted here: cb gets, one instance at a time,
         the keys of the lists on the way down, this container as it is
         after a change or None when it is gone, and an error."""
-        return ygdata.Dst(lambda n, err: Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation_deliver(cb, n, err), root=self.filt())
+        a = Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation_dst(cb)
+        return ygdata.Dst(a.on_update, root=self.filt(), synced=a.synced)
 
 _breaker42: None = None
 class Cisco_IOS_XR_um_interface_cfg__interfaces__interface_entry_subs(SubscriptionNode):
@@ -3722,35 +3837,39 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface_entry_subs(Subscripti
 
     pure def __init__(self, path: ?SubscriptionPath=None) -> None:
         SubscriptionNode.__init__(self, path)
-        self.interface_name = SubscriptionNode(SubscriptionPath(ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'interface-name'), parent=path))
-        self.sub_interface_type = Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type_subs(SubscriptionPath(ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'sub-interface-type'), parent=path))
-        self.ipv4 = Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4_subs(SubscriptionPath(ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'ipv4'), parent=path))
-        self.ipv6 = Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv6_subs(SubscriptionPath(ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'ipv6'), parent=path))
-        self.encapsulation = Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation_subs(SubscriptionPath(ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'encapsulation'), parent=path))
-        self.shutdown = SubscriptionNode(SubscriptionPath(ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'shutdown'), parent=path))
-        self.mtu = SubscriptionNode(SubscriptionPath(ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'mtu'), parent=path))
-        self.description = SubscriptionNode(SubscriptionPath(ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'description'), parent=path))
+        self.interface_name = SubscriptionNode(SubscriptionPath(_ID_Cisco_IOS_XR_um_interface_cfg__interface_name, parent=path))
+        self.sub_interface_type = Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type_subs(SubscriptionPath(_ID_Cisco_IOS_XR_um_interface_cfg__sub_interface_type, parent=path))
+        self.ipv4 = Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4_subs(SubscriptionPath(_ID_Cisco_IOS_XR_um_interface_cfg__ipv4, parent=path))
+        self.ipv6 = Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv6_subs(SubscriptionPath(_ID_Cisco_IOS_XR_um_interface_cfg__ipv6, parent=path))
+        self.encapsulation = Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation_subs(SubscriptionPath(_ID_Cisco_IOS_XR_um_interface_cfg__encapsulation, parent=path))
+        self.shutdown = SubscriptionNode(SubscriptionPath(_ID_Cisco_IOS_XR_um_interface_cfg__shutdown, parent=path))
+        self.mtu = SubscriptionNode(SubscriptionPath(_ID_Cisco_IOS_XR_um_interface_cfg__mtu, parent=path))
+        self.description = SubscriptionNode(SubscriptionPath(_ID_Cisco_IOS_XR_um_interface_cfg__description, parent=path))
 
     pure def _direct_children(self) -> list[SubscriptionNode]:
         direct: list[SubscriptionNode] = [self.interface_name, self.sub_interface_type, self.ipv4, self.ipv6, self.encapsulation, self.shutdown, self.mtu, self.description]
         return direct
 
 _breaker43: None = None
-proc def Cisco_IOS_XR_um_interface_cfg__interfaces__interface_deliver(cb: action(?(interface_interface_name: str), ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface_entry, ?Exception) -> None, n: ?ygdata.Node, err: ?Exception) -> None:
-    keys: ?(interface_interface_name: str) = None
-    inst: ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface_entry = None
-    if n is not None:
-        try:
-            c1 = _at(n, ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'interfaces'))
-            e2 = _one(_at(c1, ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'interface')), 'interface')
-            keys = (interface_interface_name=e2.get_str(ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'interface-name')))
-            here = _present(e2)
-            if here is not None:
-                inst = Cisco_IOS_XR_um_interface_cfg__interfaces__interface_entry.from_gdata(here)
-        except Exception as e:
-            cb(None, None, e)
-            return
-    cb(keys, inst, err)
+actor Cisco_IOS_XR_um_interface_cfg__interfaces__interface_dst(cb: action(?(interface_interface_name: str), ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface_entry, ?Exception) -> None):
+    def on_update(n: ?ygdata.Node, err: ?Exception) -> None:
+        keys: ?(interface_interface_name: str) = None
+        inst: ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface_entry = None
+        if n is not None:
+            try:
+                c1 = _at(n, _ID_Cisco_IOS_XR_um_interface_cfg__interfaces)
+                e2 = _one(_at(c1, _ID_Cisco_IOS_XR_um_interface_cfg__interface), 'interface')
+                keys = (interface_interface_name=e2.get_str(_ID_Cisco_IOS_XR_um_interface_cfg__interface_name))
+                here = _present(e2)
+                if here is not None:
+                    inst = Cisco_IOS_XR_um_interface_cfg__interfaces__interface_entry.from_gdata(here)
+            except Exception as e:
+                cb(None, None, e)
+                return
+        cb(keys, inst, err)
+
+    def synced(done: action(str) -> None, owner_id: str) -> None:
+        done(owner_id)
 
 class Cisco_IOS_XR_um_interface_cfg__interfaces__interface_subs(SubscriptionNode):
     interface_name: SubscriptionNode
@@ -3763,93 +3882,104 @@ class Cisco_IOS_XR_um_interface_cfg__interfaces__interface_subs(SubscriptionNode
     description: SubscriptionNode
     pure def __init__(self, path: ?SubscriptionPath=None) -> None:
         SubscriptionNode.__init__(self, path)
-        self.interface_name = SubscriptionNode(SubscriptionPath(ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'interface-name'), parent=path))
-        self.sub_interface_type = Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type_subs(SubscriptionPath(ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'sub-interface-type'), parent=path))
-        self.ipv4 = Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4_subs(SubscriptionPath(ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'ipv4'), parent=path))
-        self.ipv6 = Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv6_subs(SubscriptionPath(ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'ipv6'), parent=path))
-        self.encapsulation = Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation_subs(SubscriptionPath(ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'encapsulation'), parent=path))
-        self.shutdown = SubscriptionNode(SubscriptionPath(ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'shutdown'), parent=path))
-        self.mtu = SubscriptionNode(SubscriptionPath(ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'mtu'), parent=path))
-        self.description = SubscriptionNode(SubscriptionPath(ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'description'), parent=path))
+        self.interface_name = SubscriptionNode(SubscriptionPath(_ID_Cisco_IOS_XR_um_interface_cfg__interface_name, parent=path))
+        self.sub_interface_type = Cisco_IOS_XR_um_interface_cfg__interfaces__interface__sub_interface_type_subs(SubscriptionPath(_ID_Cisco_IOS_XR_um_interface_cfg__sub_interface_type, parent=path))
+        self.ipv4 = Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv4_subs(SubscriptionPath(_ID_Cisco_IOS_XR_um_interface_cfg__ipv4, parent=path))
+        self.ipv6 = Cisco_IOS_XR_um_interface_cfg__interfaces__interface__ipv6_subs(SubscriptionPath(_ID_Cisco_IOS_XR_um_interface_cfg__ipv6, parent=path))
+        self.encapsulation = Cisco_IOS_XR_um_interface_cfg__interfaces__interface__encapsulation_subs(SubscriptionPath(_ID_Cisco_IOS_XR_um_interface_cfg__encapsulation, parent=path))
+        self.shutdown = SubscriptionNode(SubscriptionPath(_ID_Cisco_IOS_XR_um_interface_cfg__shutdown, parent=path))
+        self.mtu = SubscriptionNode(SubscriptionPath(_ID_Cisco_IOS_XR_um_interface_cfg__mtu, parent=path))
+        self.description = SubscriptionNode(SubscriptionPath(_ID_Cisco_IOS_XR_um_interface_cfg__description, parent=path))
 
     pure def entry(self, interface_name: str) -> Cisco_IOS_XR_um_interface_cfg__interfaces__interface_entry_subs:
         predicates = [
-            ygdata.FNode(ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'interface-name'), value_match=interface_name),
+            ygdata.FNode(_ID_Cisco_IOS_XR_um_interface_cfg__interface_name, value_match=interface_name),
         ]
         base_path = self._path!.parent
-        return Cisco_IOS_XR_um_interface_cfg__interfaces__interface_entry_subs(SubscriptionPath(ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'interface'), predicates=predicates, parent=base_path))
+        return Cisco_IOS_XR_um_interface_cfg__interfaces__interface_entry_subs(SubscriptionPath(_ID_Cisco_IOS_XR_um_interface_cfg__interface, predicates=predicates, parent=base_path))
 
-    def dst(self, cb: action(?(interface_interface_name: str), ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface_entry, ?Exception) -> None) -> ygdata.Dst:
+    proc def dst(self, cb: action(?(interface_interface_name: str), ?Cisco_IOS_XR_um_interface_cfg__interfaces__interface_entry, ?Exception) -> None) -> ygdata.Dst:
         """A destination rooted here: cb gets, one instance at a time,
         the keys of the lists on the way down, this entry as it is
         after a change or None when it is gone, and an error."""
-        return ygdata.Dst(lambda n, err: Cisco_IOS_XR_um_interface_cfg__interfaces__interface_deliver(cb, n, err), root=self.filt())
+        a = Cisco_IOS_XR_um_interface_cfg__interfaces__interface_dst(cb)
+        return ygdata.Dst(a.on_update, root=self.filt(), synced=a.synced)
 
     pure def _direct_children(self) -> list[SubscriptionNode]:
         direct: list[SubscriptionNode] = [self.interface_name, self.sub_interface_type, self.ipv4, self.ipv6, self.encapsulation, self.shutdown, self.mtu, self.description]
         return direct
 
 _breaker44: None = None
-proc def Cisco_IOS_XR_um_interface_cfg__interfaces_deliver(cb: action(?Cisco_IOS_XR_um_interface_cfg__interfaces, ?Exception) -> None, n: ?ygdata.Node, err: ?Exception) -> None:
-    inst: ?Cisco_IOS_XR_um_interface_cfg__interfaces = None
-    if n is not None:
-        try:
-            c1 = _at(n, ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'interfaces'))
-            here = _present(c1)
-            if here is not None:
-                inst = Cisco_IOS_XR_um_interface_cfg__interfaces.from_gdata(here)
-        except Exception as e:
-            cb(None, e)
-            return
-    cb(inst, err)
+actor Cisco_IOS_XR_um_interface_cfg__interfaces_dst(cb: action(?Cisco_IOS_XR_um_interface_cfg__interfaces, ?Exception) -> None):
+    def on_update(n: ?ygdata.Node, err: ?Exception) -> None:
+        inst: ?Cisco_IOS_XR_um_interface_cfg__interfaces = None
+        if n is not None:
+            try:
+                c1 = _at(n, _ID_Cisco_IOS_XR_um_interface_cfg__interfaces)
+                here = _present(c1)
+                if here is not None:
+                    inst = Cisco_IOS_XR_um_interface_cfg__interfaces.from_gdata(here)
+            except Exception as e:
+                cb(None, e)
+                return
+        cb(inst, err)
+
+    def synced(done: action(str) -> None, owner_id: str) -> None:
+        done(owner_id)
 
 class Cisco_IOS_XR_um_interface_cfg__interfaces_subs(SubscriptionNode):
     interface: Cisco_IOS_XR_um_interface_cfg__interfaces__interface_subs
 
     pure def __init__(self, path: ?SubscriptionPath=None) -> None:
         SubscriptionNode.__init__(self, path)
-        self.interface = Cisco_IOS_XR_um_interface_cfg__interfaces__interface_subs(SubscriptionPath(ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'interface'), parent=path))
+        self.interface = Cisco_IOS_XR_um_interface_cfg__interfaces__interface_subs(SubscriptionPath(_ID_Cisco_IOS_XR_um_interface_cfg__interface, parent=path))
 
     pure def _direct_children(self) -> list[SubscriptionNode]:
         direct: list[SubscriptionNode] = [self.interface]
         return direct
 
-    def dst(self, cb: action(?Cisco_IOS_XR_um_interface_cfg__interfaces, ?Exception) -> None) -> ygdata.Dst:
+    proc def dst(self, cb: action(?Cisco_IOS_XR_um_interface_cfg__interfaces, ?Exception) -> None) -> ygdata.Dst:
         """A destination rooted here: cb gets, one instance at a time,
         this container as it is after a change or None when it is gone,
         and an error."""
-        return ygdata.Dst(lambda n, err: Cisco_IOS_XR_um_interface_cfg__interfaces_deliver(cb, n, err), root=self.filt())
+        a = Cisco_IOS_XR_um_interface_cfg__interfaces_dst(cb)
+        return ygdata.Dst(a.on_update, root=self.filt(), synced=a.synced)
 
 _breaker45: None = None
-proc def Cisco_IOS_XR_um_hostname_cfg__hostname_deliver(cb: action(?Cisco_IOS_XR_um_hostname_cfg__hostname, ?Exception) -> None, n: ?ygdata.Node, err: ?Exception) -> None:
-    inst: ?Cisco_IOS_XR_um_hostname_cfg__hostname = None
-    if n is not None:
-        try:
-            c1 = _at(n, ygdata.Id(NS_Cisco_IOS_XR_um_hostname_cfg, 'hostname'))
-            here = _present(c1)
-            if here is not None:
-                inst = Cisco_IOS_XR_um_hostname_cfg__hostname.from_gdata(here)
-        except Exception as e:
-            cb(None, e)
-            return
-    cb(inst, err)
+actor Cisco_IOS_XR_um_hostname_cfg__hostname_dst(cb: action(?Cisco_IOS_XR_um_hostname_cfg__hostname, ?Exception) -> None):
+    def on_update(n: ?ygdata.Node, err: ?Exception) -> None:
+        inst: ?Cisco_IOS_XR_um_hostname_cfg__hostname = None
+        if n is not None:
+            try:
+                c1 = _at(n, _ID_Cisco_IOS_XR_um_hostname_cfg__hostname)
+                here = _present(c1)
+                if here is not None:
+                    inst = Cisco_IOS_XR_um_hostname_cfg__hostname.from_gdata(here)
+            except Exception as e:
+                cb(None, e)
+                return
+        cb(inst, err)
+
+    def synced(done: action(str) -> None, owner_id: str) -> None:
+        done(owner_id)
 
 class Cisco_IOS_XR_um_hostname_cfg__hostname_subs(SubscriptionNode):
     system_network_name: SubscriptionNode
 
     pure def __init__(self, path: ?SubscriptionPath=None) -> None:
         SubscriptionNode.__init__(self, path)
-        self.system_network_name = SubscriptionNode(SubscriptionPath(ygdata.Id(NS_Cisco_IOS_XR_um_hostname_cfg, 'system-network-name'), parent=path))
+        self.system_network_name = SubscriptionNode(SubscriptionPath(_ID_Cisco_IOS_XR_um_hostname_cfg__system_network_name, parent=path))
 
     pure def _direct_children(self) -> list[SubscriptionNode]:
         direct: list[SubscriptionNode] = [self.system_network_name]
         return direct
 
-    def dst(self, cb: action(?Cisco_IOS_XR_um_hostname_cfg__hostname, ?Exception) -> None) -> ygdata.Dst:
+    proc def dst(self, cb: action(?Cisco_IOS_XR_um_hostname_cfg__hostname, ?Exception) -> None) -> ygdata.Dst:
         """A destination rooted here: cb gets, one instance at a time,
         this container as it is after a change or None when it is gone,
         and an error."""
-        return ygdata.Dst(lambda n, err: Cisco_IOS_XR_um_hostname_cfg__hostname_deliver(cb, n, err), root=self.filt())
+        a = Cisco_IOS_XR_um_hostname_cfg__hostname_dst(cb)
+        return ygdata.Dst(a.on_update, root=self.filt(), synced=a.synced)
 
 _breaker46: None = None
 class root_subs(SubscriptionNode):
@@ -3858,8 +3988,8 @@ class root_subs(SubscriptionNode):
 
     pure def __init__(self, path: ?SubscriptionPath=None) -> None:
         SubscriptionNode.__init__(self, path)
-        self.interfaces = Cisco_IOS_XR_um_interface_cfg__interfaces_subs(SubscriptionPath(ygdata.Id(NS_Cisco_IOS_XR_um_interface_cfg, 'interfaces'), parent=path))
-        self.hostname = Cisco_IOS_XR_um_hostname_cfg__hostname_subs(SubscriptionPath(ygdata.Id(NS_Cisco_IOS_XR_um_hostname_cfg, 'hostname'), parent=path))
+        self.interfaces = Cisco_IOS_XR_um_interface_cfg__interfaces_subs(SubscriptionPath(_ID_Cisco_IOS_XR_um_interface_cfg__interfaces, parent=path))
+        self.hostname = Cisco_IOS_XR_um_hostname_cfg__hostname_subs(SubscriptionPath(_ID_Cisco_IOS_XR_um_hostname_cfg__hostname, parent=path))
 
     pure def _direct_children(self) -> list[SubscriptionNode]:
         direct: list[SubscriptionNode] = [self.interfaces, self.hostname]
@@ -3867,15 +3997,20 @@ class root_subs(SubscriptionNode):
 
 subs: root_subs = root_subs()
 
-proc def _deliver_root(cb: action(?root, ?Exception) -> None, n: ?ygdata.Node, err: ?Exception) -> None:
-    if err is not None:
-        cb(None, err)
-    elif n is not None:
-        cb(root.from_gdata(n), None)
-    else:
-        cb(None, None)
+actor _root_dst(cb: action(?root, ?Exception) -> None):
+    def on_update(n: ?ygdata.Node, err: ?Exception) -> None:
+        if err is not None:
+            cb(None, err)
+        elif n is not None:
+            cb(root.from_gdata(n), None)
+        else:
+            cb(None, None)
 
-def dst(cb: action(?root, ?Exception) -> None) -> ygdata.Dst:
+    def synced(done: action(str) -> None, owner_id: str) -> None:
+        done(owner_id)
+
+proc def dst(cb: action(?root, ?Exception) -> None) -> ygdata.Dst:
     """A destination at the top of the tree: cb gets the whole subscribed
     tree on every delivery."""
-    return ygdata.Dst(lambda n, err: _deliver_root(cb, n, err))
+    a = _root_dst(cb)
+    return ygdata.Dst(a.on_update, synced=a.synced)
