@@ -9,7 +9,9 @@
               <users>
                 <user>
                   <name>clab</name>
-                  <password>$0$clab@123</password>
+                  <password>
+                    <hashed-password>$0$clab@123</hashed-password>
+                  </password>
                 </user>
               </users>
             </client-authentication>
