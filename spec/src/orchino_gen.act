@@ -6,7 +6,7 @@ import stratoweave.swyang as swyang
 actor main(env):
     fc = file.FileCap(env.cap)
 
-    proc def __startup__():
+    def __startup__():
         try:
 
             cfs_layer = stratoweave.build.Layer.from_dir(fc, "yang/cfs")
